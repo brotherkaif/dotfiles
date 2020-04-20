@@ -23,7 +23,7 @@ alias tmux='tmux -f ~/.config/tmux/tmux.conf'
 alias irssi='irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$HOME"/irssi'
 
 #VIM KEYS
-set -o vi
+# set -o vi
 
 #NVM SETUP
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
