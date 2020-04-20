@@ -30,10 +30,18 @@ symlink_files () {
 		echo "Tidying up existing vim config..."
 		rm -rf "$HOME/.vim*"
 		rm -rf $XDG_CONFIG_HOME/vim
-		echo "Creating vim config directory..."
+		rm -rf $XDG_DATA_HOME/vim/undo
+		rm -rf $XDG_DATA_HOME/vim/swap
+		rm -rf $XDG_DATA_HOME/vim/backup
+		rm -rf $XDG_DATA_HOME/vim/view
+		echo "Creating vim config directories..."
 		mkdir -p $XDG_CONFIG_HOME/vim
+		mkdir -p $XDG_DATA_HOME/vim/undo
+		mkdir -p $XDG_DATA_HOME/vim/swap
+		mkdir -p $XDG_DATA_HOME/vim/backup
+		mkdir -p $XDG_DATA_HOME/vim/view
 		echo "Downloading vim-plug..."
-		curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs \
+		curl -fLo $XDG_DATA_HOME/vim/autoload/plug.vim --create-dirs \
     	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		echo "Symlinking vim..."
 		stow -t $HOME vim		
