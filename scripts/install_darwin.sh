@@ -86,10 +86,15 @@ install_darwin () {
 		echo " ⠘⠤ ⠇⠇⠇ ⠣⠼ ⠜⠣"
 		brew install tmux
 
-		# vim
-		echo " ⡀⢀ ⠄ ⣀⣀ "
-		echo " ⠱⠃ ⠇ ⠇⠇⠇"
-		echo "skipping: vim already installed on darwin"
+		# nnn
+ 		echo"⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+		brew install nnn
+
+		# neovim
+		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
+		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
+		brew install neovim
 
 		# irssi
 		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"

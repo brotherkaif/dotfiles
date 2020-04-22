@@ -71,10 +71,15 @@ install_arch () {
 		echo " ⠘⠤ ⠇⠇⠇ ⠣⠼ ⠜⠣"
 		sudo pacman -S tmux
 
-		# vim
-		echo " ⡀⢀ ⠄ ⣀⣀ "
-		echo " ⠱⠃ ⠇ ⠇⠇⠇"
-		sudo pacman -S vim
+		# nnn
+ 		echo"⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+		sudo pacman -S nnn
+
+		# neovim
+		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
+		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
+		sudo pacman -S neovim
 
 		# irssi
 		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"

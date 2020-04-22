@@ -73,6 +73,11 @@ install_debian_packages () {
 		echo " ⠘⠤ ⠇⠇⠇ ⠣⠼ ⠜⠣"
 		sudo apt install tmux -y
 
+		# nnn
+ 		echo"⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+		sudo apt install nnn -y
+
 		# neovim
 		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
@@ -80,11 +85,6 @@ install_debian_packages () {
 		cd $HOME/.apps/nvim
 		curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 		chmod u+x nvim.appimage
-
-		# vim
-		echo " ⡀⢀ ⠄ ⣀⣀ "
-		echo " ⠱⠃ ⠇ ⠇⠇⠇"
-		sudo apt install vim -y
 
 		# irssi
 		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
