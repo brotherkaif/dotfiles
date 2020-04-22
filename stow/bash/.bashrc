@@ -77,7 +77,7 @@ function parse_git_dirty {
 	fi
 }
 
-##export prompt
+#export prompt
 export PS1="\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\n >\[\e[m\] "
 
 #appimage aliases
@@ -85,6 +85,10 @@ if [ $( echo "$OSTYPE" | grep 'linux-gnu' ) ] ; then
 	alias nvim-i='~/.apps/nvim/nvim.appimage'
 	alias crt-i='~/.apps/crt/crt.appimage'
 fi
+
+#convenience aliases
+alias ll='ls -la'
+alias :q='exit'
 
 #radio aliases
 alias somafm-reggae='clear && echo http://somafm.com/ && toilet -f slant -F border:metal reggae && mplayer http://ice5.somafm.com/reggae-256-mp3'
