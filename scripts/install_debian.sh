@@ -73,6 +73,14 @@ install_debian_packages () {
 		echo " ⠘⠤ ⠇⠇⠇ ⠣⠼ ⠜⠣"
 		sudo apt install tmux -y
 
+		# neovim
+		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
+		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
+		mkdir -p $HOME/.apps/nvim
+		cd $HOME/.apps/nvim
+		curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+		chmod u+x nvim.appimage
+
 		# vim
 		echo " ⡀⢀ ⠄ ⣀⣀ "
 		echo " ⠱⠃ ⠇ ⠇⠇⠇"
@@ -147,9 +155,8 @@ install_debian_packages () {
 		# cool-retro-term
 		echo " ⢀⣀ ⢀⡀ ⢀⡀ ⡇    ⡀⣀ ⢀⡀ ⣰⡀ ⡀⣀ ⢀⡀    ⣰⡀ ⢀⡀ ⡀⣀ ⣀⣀ "
 		echo " ⠣⠤ ⠣⠜ ⠣⠜ ⠣ ⠉⠉ ⠏  ⠣⠭ ⠘⠤ ⠏  ⠣⠜ ⠉⠉ ⠘⠤ ⠣⠭ ⠏  ⠇⠇⠇"
-		cd $HOME/apps
-		mkdir crt
-		cd crt
+		mkdir -p $HOME/.apps/crt
+		cd $HOME/.apps/crt
 		wget https://github.com/Swordfish90/cool-retro-term/releases/download/1.1.1/Cool-Retro-Term-1.1.1-x86_64.AppImage
 		mv Cool-Retro-Term-1.1.1-x86_64.AppImage crt.appimage
 		chmod u+x crt.appimage

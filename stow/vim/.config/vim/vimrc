@@ -73,6 +73,8 @@ nnoremap <C-p> :Files<Cr>
 
 "PLUG-IN CONFIG: ALE
 let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+highlight ALEWarning ctermbg=Red ctermfg=White
 
 "PLUG-IN CONFIG: vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
