@@ -29,8 +29,6 @@ symlink_files () {
 		echo "╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹"
 		echo "Tidying up existing neovim config..."
 		rm -rf $XDG_CONFIG_HOME/nvim
-		echo "Creating neovim config directory..."
-		mkdir -pv $XDG_CONFIG_HOME/nvim
 		echo "Symlinking alacritty..."
 		stow -t $HOME nvim
 
@@ -40,22 +38,26 @@ symlink_files () {
 		echo "Tidying up existing tmux config..."
 		rm -rf $HOME/.tmux*
 		rm -rf $XDG_CONFIG_HOME/tmux
-		echo "Creating tmux config directory..."
+		echo "Symlinking tmux..."
+		stow -t $HOME tmux
+		echo "Creating tmux plugin directory..."
 		mkdir -pv $XDG_CONFIG_HOME/tmux/plugins/tpm
 		echo "Downloading tmux plugin manager..."
 		git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
-		echo "Symlinking tmux..."
-		stow -t $HOME tmux
 
 		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
 		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
 		echo "╹ ╹┗━╸╹ ╹┗━╸╹┗╸╹ ╹  ╹  ╹ "
 		echo "Tidying up existing alacritty config..."
 		rm -rf $XDG_CONFIG_HOME/alacritty
-		echo "Creating alacritty config directory..."
-		mkdir $XDG_CONFIG_HOME/alacritty
 		echo "Symlinking alacritty..."
 		stow -t $HOME alacritty
+
+		# TODO - make look pretty
+		echo "Tidying up existing i3 config..."
+		rm -rf $HOME/.i3
+		echo "Symlinking alacritty..."
+		stow -t $HOME i3
 
 		echo "┏┓╻╻ ╻┏┳┓"
 		echo "┃┗┫┃┏┛┃┃┃"
