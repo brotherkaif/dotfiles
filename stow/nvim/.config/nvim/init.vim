@@ -25,12 +25,14 @@ call plug#begin()
 	Plug 'tpope/vim-commentary'
  	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'junegunn/goyo.vim'
 	Plug 'dense-analysis/ale'
 	Plug 'mhinz/vim-signify'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'pangloss/vim-javascript'
+	Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 "PLUG-IN CONFIG: ALE
@@ -60,7 +62,9 @@ set relativenumber
 set showmatch
 set cursorline
 au VimEnter * highlight clear SignColumn
-colorscheme pablo
+au VimEnter * highlight clear CursorLine
+au VimEnter * highlight CursorLine gui=underline cterm=underline
+colorscheme wal
 
 "indentation behaviour
 set noexpandtab
