@@ -87,8 +87,8 @@ install_darwin () {
 		brew install tmux
 
 		# nnn
- 		echo"⣀⡀ ⣀⡀ ⣀⡀"
- 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+ 		echo "⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		brew install nnn
 
 		# neovim

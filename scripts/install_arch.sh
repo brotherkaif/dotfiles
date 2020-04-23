@@ -72,8 +72,8 @@ install_arch () {
 		sudo pacman -S tmux
 
 		# nnn
- 		echo"⣀⡀ ⣀⡀ ⣀⡀"
- 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+ 		echo "⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		sudo pacman -S nnn
 
 		# neovim

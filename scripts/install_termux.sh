@@ -69,8 +69,8 @@ install_darwin () {
 		pkg install tmux
 
 		# nnn
- 		echo"⣀⡀ ⣀⡀ ⣀⡀"
- 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+ 		echo "⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		pkg install nnn
 
 		# neovim

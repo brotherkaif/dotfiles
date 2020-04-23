@@ -74,8 +74,8 @@ install_debian_packages () {
 		sudo apt install tmux -y
 
 		# nnn
- 		echo"⣀⡀ ⣀⡀ ⣀⡀"
- 		echo"⠇⠸ ⠇⠸ ⠇⠸"
+ 		echo "⣀⡀ ⣀⡀ ⣀⡀"
+ 		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		sudo apt install nnn -y
 
 		# neovim
