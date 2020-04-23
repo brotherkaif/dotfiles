@@ -7,7 +7,7 @@ echo "│▀▘▘ ▘▝▀  ▘ ▘ ▘▀▀▘▀▀▘▘ ▘ ▘ ▀▘▝
 echo "└──────────────────────────────────┘"
 
 install_darwin () {
-	echo "This utility will install tools for Darwin."
+	echo "This utility will install tools for Termux."
 	echo "WARNING: DO NOT run as root!"
 	echo "Proceed? (y/n)"
 	read resp
@@ -19,28 +19,10 @@ install_darwin () {
 		echo "┗━┓┣╸  ┃ ┃ ┃┣━┛"
 		echo "┗━┛┗━╸ ╹ ┗━┛╹  "
 
-		# Install homebrew if it is not installed
-		which brew 1>&/dev/null
-		if [ ! "$?" -eq 0 ] ; then
-			echo "Homebrew not installed. Attempting to install Homebrew"
-			/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-			if [ ! "$?" -eq 0 ] ; then
-				echo "Something went wrong. Exiting..." && exit 1
-			fi
-		fi
-
-		# Make sure we’re using the latest Homebrew
-		echo " ⡀⢀ ⣀⡀ ⢀⣸ ⢀⣀ ⣰⡀ ⢀⡀"
-		echo " ⠣⠼ ⡧⠜ ⠣⠼ ⠣⠼ ⠘⠤ ⠣⠭"
-		brew update
-
-		# Upgrade any already-installed formulae
+		# Upgrade any already-installed packages
 		echo " ⡀⢀ ⣀⡀ ⢀⡀ ⡀⣀ ⢀⣀ ⢀⣸ ⢀⡀"
 		echo " ⠣⠼ ⡧⠜ ⣑⡺ ⠏  ⠣⠼ ⠣⠼ ⠣⠭"
-		brew upgrade
-
-		# Core Utils
-		brew install coreutils
+		pkg upgrade
 
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
@@ -52,7 +34,7 @@ install_darwin () {
 		# node
 		echo " ⣀⡀ ⢀⡀ ⢀⣸ ⢀⡀"
 		echo " ⠇⠸ ⠣⠜ ⠣⠼ ⠣⠭"
-		brew install node
+		echo "skipping: nvm installed as part of symlinking script"
 
 		# ---------------------------------------------
 		# Tools
@@ -64,7 +46,7 @@ install_darwin () {
 		# stow
 		echo "⢀⣀ ⣰⡀ ⢀⡀ ⡀ ⢀"
 		echo "⠭⠕ ⠘⠤ ⠣⠜ ⠱⠱⠃"
-		brew install stow
+		pkg install stow
 
 		# tree
 		echo " ⣰⡀ ⡀⣀ ⢀⡀ ⢀⡀"
@@ -74,50 +56,32 @@ install_darwin () {
 		# htop
 		echo " ⣇⡀ ⣰⡀ ⢀⡀ ⣀⡀"
 		echo " ⠇⠸ ⠘⠤ ⠣⠜ ⡧⠜"
-		brew install htop
+		pkg install htop
 
 		# git
 		echo " ⢀⡀ ⠄ ⣰⡀"
 		echo " ⣑⡺ ⠇ ⠘⠤"
-		echo "skipping: git already installed on darwin"
+		pkg install git
 
 		# tmux
 		echo " ⣰⡀ ⣀⣀  ⡀⢀ ⡀⢀"
 		echo " ⠘⠤ ⠇⠇⠇ ⠣⠼ ⠜⠣"
-		brew install tmux
+		pkg install tmux
 
 		# nnn
  		echo"⣀⡀ ⣀⡀ ⣀⡀"
  		echo"⠇⠸ ⠇⠸ ⠇⠸"
-		brew install nnn
+		pkg install nnn
 
 		# neovim
 		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
-		brew install neovim
+		pkg install neovim
 
 		# irssi
 		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
 		echo " ⠇ ⠏  ⠭⠕ ⠭⠕ ⠇"
-		brew install irssi
-
-		# ---------------------------------------------
-		# Applications
-		# ---------------------------------------------
-		echo "┏━┓┏━┓┏━┓╻  ╻┏━╸┏━┓╺┳╸╻┏━┓┏┓╻┏━┓"
-		echo "┣━┫┣━┛┣━┛┃  ┃┃  ┣━┫ ┃ ┃┃ ┃┃┗┫┗━┓"
-		echo "╹ ╹╹  ╹  ┗━╸╹┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛"
-
-		# docker
-		echo " ⢀⣸ ⢀⡀ ⢀⣀ ⡇⡠ ⢀⡀ ⡀⣀"
-		echo " ⠣⠼ ⠣⠜ ⠣⠤ ⠏⠢ ⠣⠭ ⠏ "
-		brew install docker
-
-		# vscode
-		echo " ⡀⢀ ⢀⣀    ⢀⣀ ⢀⡀ ⢀⣸ ⢀⡀"
-		echo " ⠱⠃ ⠭⠕ ⠉⠉ ⠣⠤ ⠣⠜ ⠣⠼ ⠣⠭"
-		brew cask install visual-studio-code
-		code --install-extension Shan.code-settings-sync
+		pkg install irssi
 
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
@@ -129,34 +93,12 @@ install_darwin () {
 		# figlet
 		echo " ⣰⡁ ⠄ ⢀⡀ ⡇ ⢀⡀ ⣰⡀"
 		echo " ⢸  ⠇ ⣑⡺ ⠣ ⠣⠭ ⠘⠤"
-		brew install figlet
+		pkg install figlet
 
 		# toilet
 		echo " ⣰⡀ ⢀⡀ ⠄ ⡇ ⢀⡀ ⣰⡀"
 		echo " ⠘⠤ ⠣⠜ ⠇ ⠣ ⠣⠭ ⠘⠤"
-		brew install toilet
-
-		# mplayer
-		echo " ⣀⣀  ⣀⡀ ⡇ ⢀⣀ ⡀⢀ ⢀⡀ ⡀⣀"
-		echo " ⠇⠇⠇ ⡧⠜ ⠣ ⠣⠼ ⣑⡺ ⠣⠭ ⠏ "
-		brew install mplayer
-
-		# cool-retro-term
-		echo " ⢀⣀ ⢀⡀ ⢀⡀ ⡇    ⡀⣀ ⢀⡀ ⣰⡀ ⡀⣀ ⢀⡀    ⣰⡀ ⢀⡀ ⡀⣀ ⣀⣀ "
-		echo " ⠣⠤ ⠣⠜ ⠣⠜ ⠣ ⠉⠉ ⠏  ⠣⠭ ⠘⠤ ⠏  ⠣⠜ ⠉⠉ ⠘⠤ ⠣⠭ ⠏  ⠇⠇⠇"
-		brew cask install cool-retro-term
-
-		# ---------------------------------------------
-		# Cleanup
-		# ---------------------------------------------
-		echo "┏━╸╻  ┏━╸┏━┓┏┓╻╻ ╻┏━┓"
-		echo "┃  ┃  ┣╸ ┣━┫┃┗┫┃ ┃┣━┛"
-		echo "┗━╸┗━╸┗━╸╹ ╹╹ ╹┗━┛╹  "
-
-		# Remove outdated versions from the cellar
-		echo " ⢀⣀ ⢀⣀ ⢀⣀ ⣇⡀ ⢀⡀"
-		echo " ⠣⠤ ⠣⠼ ⠣⠤ ⠇⠸ ⠣⠭"
-		brew cleanup
+		pkg install toilet
 	else
 		echo "INSTALLATION CANCELLED"
 	fi

@@ -13,51 +13,39 @@ symlink_files () {
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 		echo "BEGINNING SYMLINKING"
-		cd ../stow
+		cd $HOME/.dotfiles/stow
 
 		echo "┏┓ ┏━┓┏━┓╻ ╻"
 		echo "┣┻┓┣━┫┗━┓┣━┫"
 		echo "┗━┛╹ ╹┗━┛╹ ╹"
 		# TODO: bash still not XDG compliant
 		echo "Tidying up existing bash config..."
-		rm -rf "$HOME/.bash*"
+		rm -rf $HOME/.bash*
 		echo "Symlinking bash..."
-		stow -t $HOME bash		
+		stow -t $HOME bash
 
-		echo "╻ ╻╻┏┳┓"
-		echo "┃┏┛┃┃┃┃"
-		echo "┗┛ ╹╹ ╹"
-		echo "Tidying up existing vim config..."
-		rm -rf "$HOME/.vim*"
-		rm -rf $XDG_CONFIG_HOME/vim
-		rm -rf $XDG_DATA_HOME/vim/undo
-		rm -rf $XDG_DATA_HOME/vim/swap
-		rm -rf $XDG_DATA_HOME/vim/backup
-		rm -rf $XDG_DATA_HOME/vim/view
-		echo "Creating vim config directories..."
-		mkdir -p $XDG_CONFIG_HOME/vim
-		mkdir -p $XDG_DATA_HOME/vim/undo
-		mkdir -p $XDG_DATA_HOME/vim/swap
-		mkdir -p $XDG_DATA_HOME/vim/backup
-		mkdir -p $XDG_DATA_HOME/vim/view
-		echo "Downloading vim-plug..."
-		curl -fLo $XDG_DATA_HOME/vim/autoload/plug.vim --create-dirs \
-    	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		echo "Symlinking vim..."
-		stow -t $HOME vim		
+		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
+		echo "┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃"
+		echo "╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹"
+		echo "Tidying up existing neovim config..."
+		rm -rf $XDG_CONFIG_HOME/nvim
+		echo "Creating neovim config directory..."
+		mkdir -pv $XDG_CONFIG_HOME/nvim
+		echo "Symlinking alacritty..."
+		stow -t $HOME nvim
 
 		echo "╺┳╸┏┳┓╻ ╻╻ ╻"
 		echo " ┃ ┃┃┃┃ ┃┏╋┛"
 		echo " ╹ ╹ ╹┗━┛╹ ╹"
 		echo "Tidying up existing tmux config..."
-		rm -rf "$HOME/.tmux*"
+		rm -rf $HOME/.tmux*
 		rm -rf $XDG_CONFIG_HOME/tmux
 		echo "Creating tmux config directory..."
-		mkdir -p $XDG_CONFIG_HOME/tmux/plugins/tpm
+		mkdir -pv $XDG_CONFIG_HOME/tmux/plugins/tpm
 		echo "Downloading tmux plugin manager..."
 		git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 		echo "Symlinking tmux..."
-		stow -t $HOME tmux	
+		stow -t $HOME tmux
 
 		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
 		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
@@ -67,7 +55,7 @@ symlink_files () {
 		echo "Creating alacritty config directory..."
 		mkdir $XDG_CONFIG_HOME/alacritty
 		echo "Symlinking alacritty..."
-		stow -t $HOME alacritty	
+		stow -t $HOME alacritty
 
 		echo "┏┓╻╻ ╻┏┳┓"
 		echo "┃┗┫┃┏┛┃┃┃"
