@@ -32,7 +32,6 @@ call plug#begin()
 	Plug 'terryma/vim-multiple-cursors'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'pangloss/vim-javascript'
-	Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 "PLUG-IN CONFIG: ALE
@@ -64,7 +63,7 @@ set cursorline
 au VimEnter * highlight clear SignColumn
 au VimEnter * highlight clear CursorLine
 au VimEnter * highlight CursorLine gui=underline cterm=underline
-colorscheme wal
+colorscheme pablo
 
 "indentation behaviour
 set noexpandtab
