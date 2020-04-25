@@ -43,11 +43,11 @@ let g:multi_cursor_use_default_mapping=0
 
 " Mapping
 let g:multi_cursor_start_word_key      = 'gb'
-let g:multi_cursor_select_all_word_key = 'gB'
+let g:multi_cursor_select_all_word_key = 'gv'
 " let g:multi_cursor_start_key           = 'g<C-n>'
 " let g:multi_cursor_select_all_key      = 'g<A-n>'
 let g:multi_cursor_next_key            = 'gb'
-let g:multi_cursor_prev_key            = 'gv'
+let g:multi_cursor_prev_key            = 'gB'
 " let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
