@@ -19,7 +19,7 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 
 #XDG OVERRIDES
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
-alias irssi='irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$HOME"/irssi'
+alias irssi='irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_CONFIG_HOME"/irssi'
 
 #ENV VARIABLES
 export MYVIMRC="$HOME/.config/nvim/init.vim"
@@ -130,4 +130,8 @@ alias somafm-xmasrocks='clear && echo http://somafm.com/ && toilet -f slant -F b
 alias somafm-jollysoul='clear && echo http://somafm.com/ && toilet -f slant -F border:metal jollysoul && mplayer http://ice2.somafm.com/jollysoul-128-mp3'
 
 #git aliases
-alias gst='git status'
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit'
+alias gcm='git commit -m'

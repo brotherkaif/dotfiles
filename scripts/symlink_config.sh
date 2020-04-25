@@ -45,6 +45,14 @@ symlink_files () {
 		echo "Downloading tmux plugin manager..."
 		git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 
+		echo "╻┏━┓┏━┓┏━┓╻"
+		echo "┃┣┳┛┗━┓┗━┓┃"
+		echo "╹╹┗╸┗━┛┗━┛╹"
+		echo "Tidying up existing irssi config..."
+		rm -rf $XDG_CONFIG_HOME/irssi
+		echo "Symlinking irssi..."
+		stow -t $HOME irssi
+
 		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
 		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
 		echo "╹ ╹┗━╸╹ ╹┗━╸╹┗╸╹ ╹  ╹  ╹ "
@@ -52,12 +60,6 @@ symlink_files () {
 		rm -rf $XDG_CONFIG_HOME/alacritty
 		echo "Symlinking alacritty..."
 		stow -t $HOME alacritty
-
-		# TODO - make look pretty
-		echo "Tidying up existing i3 config..."
-		rm -rf $HOME/.i3
-		echo "Symlinking alacritty..."
-		stow -t $HOME i3
 
 		echo "┏┓╻╻ ╻┏┳┓"
 		echo "┃┗┫┃┏┛┃┃┃"
