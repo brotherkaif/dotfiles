@@ -61,12 +61,6 @@ symlink_files () {
 		echo "Symlinking alacritty..."
 		stow -t $HOME alacritty
 
-		# TODO - make look pretty
-		echo "Tidying up existing i3 config..."
-		rm -rf $HOME/.i3
-		echo "Symlinking alacritty..."
-		stow -t $HOME i3
-
 		echo "┏┓╻╻ ╻┏┳┓"
 		echo "┃┗┫┃┏┛┃┃┃"
 		echo "╹ ╹┗┛ ╹ ╹"
