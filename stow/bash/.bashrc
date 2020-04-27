@@ -130,7 +130,7 @@ alias somafm-xmasrocks='clear && echo http://somafm.com/ && toilet -f slant -F b
 alias somafm-jollysoul='clear && echo http://somafm.com/ && toilet -f slant -F border:metal jollysoul && mplayer http://ice2.somafm.com/jollysoul-128-mp3'
 
 #git aliases
-alias gs='git status'
+alias gst='git status'
 alias ga='git add'
 alias gaa='git add .'
 alias gc='git commit'
