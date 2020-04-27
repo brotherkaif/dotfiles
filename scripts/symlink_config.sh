@@ -22,7 +22,7 @@ symlink_files () {
 		echo "Tidying up existing bash config..."
 		rm -rf $HOME/.bash*
 		echo "Symlinking bash..."
-		stow -t $HOME bash
+		stow -t $HOME --no-folding bash
 
 		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
 		echo "┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃"
@@ -30,7 +30,7 @@ symlink_files () {
 		echo "Tidying up existing neovim config..."
 		rm -rf $XDG_CONFIG_HOME/nvim
 		echo "Symlinking alacritty..."
-		stow -t $HOME nvim
+		stow -t $HOME --no-folding nvim
 
 		echo "╺┳╸┏┳┓╻ ╻╻ ╻"
 		echo " ┃ ┃┃┃┃ ┃┏╋┛"
@@ -39,7 +39,7 @@ symlink_files () {
 		rm -rf $HOME/.tmux*
 		rm -rf $XDG_CONFIG_HOME/tmux
 		echo "Symlinking tmux..."
-		stow -t $HOME tmux
+		stow -t $HOME --no-folding tmux
 		echo "Creating tmux plugin directory..."
 		mkdir -pv $XDG_CONFIG_HOME/tmux/plugins/tpm
 		echo "Downloading tmux plugin manager..."
@@ -51,7 +51,7 @@ symlink_files () {
 		echo "Tidying up existing irssi config..."
 		rm -rf $XDG_CONFIG_HOME/irssi
 		echo "Symlinking irssi..."
-		stow -t $HOME irssi
+		stow -t $HOME --no-folding irssi
 
 		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
 		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
@@ -59,7 +59,7 @@ symlink_files () {
 		echo "Tidying up existing alacritty config..."
 		rm -rf $XDG_CONFIG_HOME/alacritty
 		echo "Symlinking alacritty..."
-		stow -t $HOME alacritty
+		stow -t $HOME --no-folding alacritty
 
 		echo "┏┓╻╻ ╻┏┳┓"
 		echo "┃┗┫┃┏┛┃┃┃"
