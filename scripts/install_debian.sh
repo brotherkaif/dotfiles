@@ -29,6 +29,12 @@ install_debian_packages () {
 		echo " ⠣⠼ ⡧⠜ ⣑⡺ ⠏  ⠣⠼ ⠣⠼ ⠣⠭"
 		sudo apt upgrade -y
 
+		# install snap
+		sudo apt install snapd -y
+
+		# install flatpak
+		sudo apt install flatpak -y
+
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
 		# ---------------------------------------------
@@ -81,10 +87,9 @@ install_debian_packages () {
 		# neovim
 		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
-		mkdir -p $HOME/.apps/nvim
-		cd $HOME/.apps/nvim
-		curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-		chmod u+x nvim.appimage
+		sudo apt install neovim -y
+		# flatpak install flathub io.neovim.nvim
+
 
 		# irssi
 		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
@@ -101,14 +106,8 @@ install_debian_packages () {
 		# docker
 		echo " ⢀⣸ ⢀⡀ ⢀⣀ ⡇⡠ ⢀⡀ ⡀⣀"
 		echo " ⠣⠼ ⠣⠜ ⠣⠤ ⠏⠢ ⠣⠭ ⠏ "
-		# official installation instructions: https://docs.docker.com/install/linux/docker-ce/ubuntu/
-		sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-		curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-		sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-		sudo apt update -y
-		sudo apt install docker-ce docker-ce-cli containerd.io -y
-		echo "$PROMPT Verifying docker installation using a hello world container..."
 		# verify the installaiton
+		sudo apt install docker -y
 		docker run hello-world
 
 		# docker compose
@@ -119,16 +118,7 @@ install_debian_packages () {
 		# vscode
 		echo " ⡀⢀ ⢀⣀    ⢀⣀ ⢀⡀ ⢀⣸ ⢀⡀"
 		echo " ⠱⠃ ⠭⠕ ⠉⠉ ⠣⠤ ⠣⠜ ⠣⠼ ⠣⠭"
-		# installation instructions: https://code.visualstudio.com/docs/setup/linux
-		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-		install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-		sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-		sudo apt install apt-transport-https -y
-		sudo apt update
-		sudo apt install code -y
-		echo "$PROMPT VS Codes adds some GPG key during its install. Removing it!"
-		rm packages.microsoft.gpg
-		code --install-extension Shan.code-settings-sync
+		sudo snap install codium --classic
 
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
@@ -155,11 +145,7 @@ install_debian_packages () {
 		# cool-retro-term
 		echo " ⢀⣀ ⢀⡀ ⢀⡀ ⡇    ⡀⣀ ⢀⡀ ⣰⡀ ⡀⣀ ⢀⡀    ⣰⡀ ⢀⡀ ⡀⣀ ⣀⣀ "
 		echo " ⠣⠤ ⠣⠜ ⠣⠜ ⠣ ⠉⠉ ⠏  ⠣⠭ ⠘⠤ ⠏  ⠣⠜ ⠉⠉ ⠘⠤ ⠣⠭ ⠏  ⠇⠇⠇"
-		mkdir -p $HOME/.apps/crt
-		cd $HOME/.apps/crt
-		wget https://github.com/Swordfish90/cool-retro-term/releases/download/1.1.1/Cool-Retro-Term-1.1.1-x86_64.AppImage
-		mv Cool-Retro-Term-1.1.1-x86_64.AppImage crt.appimage
-		chmod u+x crt.appimage
+		sudo snap install cool-retro-term --classic
 
 		# ---------------------------------------------
 		# Cleanup
