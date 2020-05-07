@@ -30,9 +30,13 @@ install_debian_packages () {
 		sudo apt upgrade -y
 
 		# install snap
+ 		echo"⢀⣀ ⣀⡀ ⢀⣀ ⣀⡀"
+ 		echo"⠭⠕ ⠇⠸ ⠣⠼ ⡧⠜"
 		sudo apt install snapd -y
 
 		# install flatpak
+		echo " ⣰⡁ ⡇ ⢀⣀ ⣰⡀ ⣀⡀ ⢀⣀ ⡇⡠"
+		echo " ⢸  ⠣ ⠣⠼ ⠘⠤ ⡧⠜ ⠣⠼ ⠏⠢"
 		sudo apt install flatpak -y
 
 		# ---------------------------------------------
@@ -88,8 +92,6 @@ install_debian_packages () {
 		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
 		sudo apt install neovim -y
-		# flatpak install flathub io.neovim.nvim
-
 
 		# irssi
 		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
@@ -119,6 +121,11 @@ install_debian_packages () {
 		echo " ⡀⢀ ⢀⣀    ⢀⣀ ⢀⡀ ⢀⣸ ⢀⡀"
 		echo " ⠱⠃ ⠭⠕ ⠉⠉ ⠣⠤ ⠣⠜ ⠣⠼ ⠣⠭"
 		sudo snap install codium --classic
+
+		# alacritty
+ 		echo "⢀⣀ ⡇ ⢀⣀ ⢀⣀ ⡀⣀ ⠄ ⣰⡀ ⣰⡀ ⡀⢀"
+ 		echo "⠣⠼ ⠣ ⠣⠼ ⠣⠤ ⠏  ⠇ ⠘⠤ ⠘⠤ ⣑⡺"
+ 		sudo snap install alacritty --classic
 
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
