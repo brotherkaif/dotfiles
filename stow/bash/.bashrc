@@ -17,10 +17,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
-#XDG OVERRIDES
-alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
-alias irssi='irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_CONFIG_HOME"/irssi'
-
 #ENV VARIABLES
 export MYVIMRC="$HOME/.config/nvim/init.vim"
 
