@@ -16,33 +16,15 @@ endif
 call plug#begin()
 	Plug 'tpope/vim-vinegar'
 	Plug 'tpope/vim-commentary'
- 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'scrooloose/vim-statline'
 	Plug 'arcticicestudio/nord-vim'
- 	Plug 'itchyny/lightline.vim'
-	" Plug 'terryma/vim-multiple-cursors'
+	Plug 'dylanaraps/wal.vim'
 call plug#end()
-
-"PLUG-IN CONFIG: lightline
-let g:lightline = {
-\ 'colorscheme': 'nord',
-\ }
-
-"PLUG-IN CONFIG: vim-multiple-cursors
-" let g:multi_cursor_use_default_mapping=0
-
-" Mapping
-" let g:multi_cursor_start_word_key      = 'gb'
-" let g:multi_cursor_select_all_word_key = 'gv'
-" let g:multi_cursor_start_key           = 'g<C-n>'
-" let g:multi_cursor_select_all_key      = 'g<A-n>'
-" let g:multi_cursor_next_key            = 'gb'
-" let g:multi_cursor_prev_key            = 'gB'
-" let g:multi_cursor_skip_key            = '<C-x>'
-" let g:multi_cursor_quit_key            = '<Esc>'
 
 "VIM CUSTOMISATION
 "line numbers
@@ -51,8 +33,10 @@ set relativenumber
 
 "interface
 set showmatch
+colorscheme wal
 set cursorline
-colorscheme nord
+hi clear CursorLine
+hi CursorLine gui=underline cterm=underline
 
 "indentation behaviour
 set noexpandtab
