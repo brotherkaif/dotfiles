@@ -54,6 +54,14 @@ symlink_files () {
 		echo "Symlinking irssi..."
 		stow -t $HOME --no-folding irssi
 
+		echo "┏┓╻┏━╸╻ ╻┏━┓┏┓ ┏━┓┏━┓╺┳╸"
+		echo "┃┗┫┣╸ ┃╻┃┗━┓┣┻┓┃ ┃┣━┫ ┃ "
+		echo "╹ ╹┗━╸┗┻┛┗━┛┗━┛┗━┛╹ ╹ ╹ "
+		echo "Tidying up existing newsboat config..."
+		rm -rf $HOME/.newsboat/urls
+		echo "Symlinking newsboat..."
+		stow -t $HOME --no-folding newsboat
+
 		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
 		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
 		echo "╹ ╹┗━╸╹ ╹┗━╸╹┗╸╹ ╹  ╹  ╹ "
