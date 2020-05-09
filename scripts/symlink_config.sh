@@ -49,6 +49,7 @@ symlink_files () {
 		echo "┃┣┳┛┗━┓┗━┓┃"
 		echo "╹╹┗╸┗━┛┗━┛╹"
 		echo "Tidying up existing irssi config..."
+		rm -rf $HOME/.irssi
 		rm -rf $XDG_CONFIG_HOME/irssi
 		echo "Symlinking irssi..."
 		stow -t $HOME --no-folding irssi
