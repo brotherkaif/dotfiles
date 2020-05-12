@@ -98,6 +98,16 @@ install_debian_packages () {
 		echo " ⠇ ⠏  ⠭⠕ ⠭⠕ ⠇"
 		sudo apt install irssi -y
 
+		# newsboat
+ 		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
+ 		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
+		sudo apt install newsboat -y
+
+		# lynx
+ 		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
+ 		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
+		sudo apt install lynx -y
+
 		# ---------------------------------------------
 		# Applications
 		# ---------------------------------------------

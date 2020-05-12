@@ -83,6 +83,16 @@ install_darwin () {
 		echo " ⠇ ⠏  ⠭⠕ ⠭⠕ ⠇"
 		pkg install irssi
 
+		# newsboat
+ 		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
+ 		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
+		pkg install newsboat
+
+		# lynx
+ 		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
+ 		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
+		pkg install lynx
+
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
 		# ---------------------------------------------
