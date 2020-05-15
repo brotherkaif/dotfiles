@@ -18,7 +18,6 @@ symlink_files () {
 		echo "┏┓ ┏━┓┏━┓╻ ╻"
 		echo "┣┻┓┣━┫┗━┓┣━┫"
 		echo "┗━┛╹ ╹┗━┛╹ ╹"
-		# TODO: bash still not XDG compliant
 		echo "Tidying up existing bash config..."
 		rm -rf $HOME/.bash*
 		echo "Symlinking bash..."

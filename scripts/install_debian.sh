@@ -29,9 +29,20 @@ install_debian_packages () {
 		echo " ⠣⠼ ⡧⠜ ⣑⡺ ⠏  ⠣⠼ ⠣⠼ ⠣⠭"
 		sudo apt upgrade -y
 
+		# install zsh
+		echo " ⣀⣀ ⢀⣀ ⣇⡀"
+		echo " ⠴⠥ ⠭⠕ ⠇⠸"
+		sudo apt install zsh -y
+		chsh -s /bin/zsh
+
+		# install oh-my-zsh
+		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
+		echo "⠣⠜ ⠇⠸   ⠇⠇⠇ ⣑⡺   ⠴⠥ ⠭⠕ ⠇⠸"
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 		# install snap
- 		echo"⢀⣀ ⣀⡀ ⢀⣀ ⣀⡀"
- 		echo"⠭⠕ ⠇⠸ ⠣⠼ ⡧⠜"
+		echo"⢀⣀ ⣀⡀ ⢀⣀ ⣀⡀"
+		echo"⠭⠕ ⠇⠸ ⠣⠼ ⡧⠜"
 		sudo apt install snapd -y
 
 		# install flatpak
@@ -84,8 +95,8 @@ install_debian_packages () {
 		sudo apt install tmux -y
 
 		# nnn
- 		echo "⣀⡀ ⣀⡀ ⣀⡀"
- 		echo "⠇⠸ ⠇⠸ ⠇⠸"
+		echo "⣀⡀ ⣀⡀ ⣀⡀"
+		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		sudo apt install nnn -y
 
 		# neovim
@@ -99,13 +110,13 @@ install_debian_packages () {
 		sudo apt install irssi -y
 
 		# newsboat
- 		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
- 		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
+		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
+		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
 		sudo apt install newsboat -y
 
 		# lynx
- 		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
- 		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
+		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
+		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
 		sudo apt install lynx -y
 
 		# ---------------------------------------------
@@ -133,9 +144,9 @@ install_debian_packages () {
 		sudo snap install codium --classic
 
 		# alacritty
- 		echo "⢀⣀ ⡇ ⢀⣀ ⢀⣀ ⡀⣀ ⠄ ⣰⡀ ⣰⡀ ⡀⢀"
- 		echo "⠣⠼ ⠣ ⠣⠼ ⠣⠤ ⠏  ⠇ ⠘⠤ ⠘⠤ ⣑⡺"
- 		sudo snap install alacritty --classic
+		echo "⢀⣀ ⡇ ⢀⣀ ⢀⣀ ⡀⣀ ⠄ ⣰⡀ ⣰⡀ ⡀⢀"
+		echo "⠣⠼ ⠣ ⠣⠼ ⠣⠤ ⠏  ⠇ ⠘⠤ ⠘⠤ ⣑⡺"
+		sudo snap install alacritty --classic
 
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
