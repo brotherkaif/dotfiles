@@ -33,7 +33,7 @@ install_debian_packages () {
 		echo " ⣀⣀ ⢀⣀ ⣇⡀"
 		echo " ⠴⠥ ⠭⠕ ⠇⠸"
 		sudo apt install zsh -y
-		chsh -s /bin/zsh
+		sudo usermod -s $(which zsh) $(whoami)
 
 		# install oh-my-zsh
 		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
