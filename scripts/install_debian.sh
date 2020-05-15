@@ -141,7 +141,8 @@ install_debian_packages () {
 		# vscode
 		echo " ⡀⢀ ⢀⣀    ⢀⣀ ⢀⡀ ⢀⣸ ⢀⡀"
 		echo " ⠱⠃ ⠭⠕ ⠉⠉ ⠣⠤ ⠣⠜ ⠣⠼ ⠣⠭"
-		sudo snap install codium --classic
+		sudo snap install code --classic
+		code --install-extension Shan.code-settings-sync
 
 		# alacritty
 		echo "⢀⣀ ⡇ ⢀⣀ ⢀⣀ ⡀⣀ ⠄ ⣰⡀ ⣰⡀ ⡀⢀"
