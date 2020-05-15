@@ -77,11 +77,6 @@ symlink_files () {
 		echo "Symlinking alacritty..."
 		stow -t $HOME --no-folding alacritty
 
-		echo "┏┓╻╻ ╻┏┳┓"
-		echo "┃┗┫┃┏┛┃┃┃"
-		echo "╹ ╹┗┛ ╹ ╹"
-		echo "Setting up nvm..."
-		wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 		echo "...done!"
 	else
 		echo "SYMLINKING CANCELLED"
