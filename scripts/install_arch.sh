@@ -27,6 +27,17 @@ install_arch () {
 		# Install yay (for AUR support)
 		sudo pacman -S yay
 
+		# install zsh
+		echo " ⣀⣀ ⢀⣀ ⣇⡀"
+		echo " ⠴⠥ ⠭⠕ ⠇⠸"
+		sudo pacman -S zsh
+		chsh -s /bin/zsh
+
+		# install oh-my-zsh
+		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
+		echo "⠣⠜ ⠇⠸   ⠇⠇⠇ ⣑⡺   ⠴⠥ ⠭⠕ ⠇⠸"
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
 		# ---------------------------------------------
@@ -72,8 +83,8 @@ install_arch () {
 		sudo pacman -S tmux
 
 		# nnn
- 		echo "⣀⡀ ⣀⡀ ⣀⡀"
- 		echo "⠇⠸ ⠇⠸ ⠇⠸"
+		echo "⣀⡀ ⣀⡀ ⣀⡀"
+		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		sudo pacman -S nnn
 
 		# neovim

@@ -24,6 +24,17 @@ install_darwin () {
 		echo " ⠣⠼ ⡧⠜ ⣑⡺ ⠏  ⠣⠼ ⠣⠼ ⠣⠭"
 		pkg upgrade
 
+		# install zsh
+		echo " ⣀⣀ ⢀⣀ ⣇⡀"
+		echo " ⠴⠥ ⠭⠕ ⠇⠸"
+		pkg install zsh
+		chsh -s /bin/zsh
+
+		# install oh-my-zsh
+		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
+		echo "⠣⠜ ⠇⠸   ⠇⠇⠇ ⣑⡺   ⠴⠥ ⠭⠕ ⠇⠸"
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
 		# ---------------------------------------------
@@ -69,8 +80,8 @@ install_darwin () {
 		pkg install tmux
 
 		# nnn
- 		echo "⣀⡀ ⣀⡀ ⣀⡀"
- 		echo "⠇⠸ ⠇⠸ ⠇⠸"
+		echo "⣀⡀ ⣀⡀ ⣀⡀"
+		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		pkg install nnn
 
 		# neovim
@@ -84,13 +95,13 @@ install_darwin () {
 		pkg install irssi
 
 		# newsboat
- 		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
- 		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
+		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
+		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
 		pkg install newsboat
 
 		# lynx
- 		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
- 		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
+		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
+		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
 		pkg install lynx
 
 		# ---------------------------------------------

@@ -42,6 +42,17 @@ install_darwin () {
 		# Core Utils
 		brew install coreutils
 
+		# install zsh
+		echo " ⣀⣀ ⢀⣀ ⣇⡀"
+		echo " ⠴⠥ ⠭⠕ ⠇⠸"
+		# brew install zsh
+		chsh -s /bin/zsh
+
+		# install oh-my-zsh
+		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
+		echo "⠣⠜ ⠇⠸   ⠇⠇⠇ ⣑⡺   ⠴⠥ ⠭⠕ ⠇⠸"
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
 		# ---------------------------------------------
@@ -87,8 +98,8 @@ install_darwin () {
 		brew install tmux
 
 		# nnn
- 		echo "⣀⡀ ⣀⡀ ⣀⡀"
- 		echo "⠇⠸ ⠇⠸ ⠇⠸"
+		echo "⣀⡀ ⣀⡀ ⣀⡀"
+		echo "⠇⠸ ⠇⠸ ⠇⠸"
 		brew install nnn
 
 		# neovim

@@ -18,11 +18,18 @@ symlink_files () {
 		echo "┏┓ ┏━┓┏━┓╻ ╻"
 		echo "┣┻┓┣━┫┗━┓┣━┫"
 		echo "┗━┛╹ ╹┗━┛╹ ╹"
-		# TODO: bash still not XDG compliant
 		echo "Tidying up existing bash config..."
 		rm -rf $HOME/.bash*
 		echo "Symlinking bash..."
 		stow -t $HOME --no-folding bash
+
+		echo "╺━┓┏━┓╻ ╻"
+		echo "┏━┛┗━┓┣━┫"
+		echo "┗━╸┗━┛╹ ╹"
+		echo "Tidying up existing zsh config..."
+		rm -rf $HOME/.zsh*
+		echo "Symlinking bash..."
+		stow -t $HOME --no-folding zsh
 
 		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
 		echo "┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃"
