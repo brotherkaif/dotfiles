@@ -77,6 +77,15 @@ symlink_files () {
 		echo "Symlinking alacritty..."
 		stow -t $HOME --no-folding alacritty
 
+
+		echo "╺┳┓┏━╸┏┳┓┏━┓┏┳┓┏━┓╺┳┓┏━╸"
+		echo " ┃┃┣╸ ┃┃┃┃ ┃┃┃┃┃ ┃ ┃┃┣╸ "
+		echo "╺┻┛┗━╸╹ ╹┗━┛╹ ╹┗━┛╺┻┛┗━╸"
+		echo "Tidying up existing DEMO MODE config..."
+		rm -rf $XDG_CONFIG_HOME/demomode
+		echo "Symlinking alacritty..."
+		stow -t $HOME --no-folding demomode
+
 		echo "...done!"
 	else
 		echo "SYMLINKING CANCELLED"

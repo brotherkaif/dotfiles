@@ -9,6 +9,7 @@
 echo "╺┳╸┏━╸┏━┓┏┳┓╻┏┓╻┏━┓╻  "
 echo " ┃ ┣╸ ┣┳┛┃┃┃┃┃┗┫┣━┫┃  "
 echo " ╹ ┗━╸╹┗╸╹ ╹╹╹ ╹╹ ╹┗━╸"
+# echo "$(shuf -n 1 $XDG_CONFIG_HOME/demomode/data)"
 
 # XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"
