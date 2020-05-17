@@ -1,0 +1,17 @@
+{
+	 "magic":"nassh-prefs",
+	 "version":1,
+	 "nassh":{
+			"profile-ids": [],
+			"welcome/notes-version": 79,
+			"welcome/show-count": 2
+	 },
+	 "hterm":{
+			"default": {
+				"background-color": "#002b36",
+				"foreground-color": "#93a1a1",
+				"cursor-color":     "#93a1a1",
+				"color-palette-overrides": ["#002b36","#dc322f","#859900","#b58900","#268bd2","#6c71c4","#2aa198","#93a1a1","#657b83","#dc322f","#859900","#b58900","#268bd2","#6c71c4","#2aa198","#fdf6e3"]
+			}
+	 }
+}
