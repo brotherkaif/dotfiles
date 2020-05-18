@@ -28,7 +28,7 @@ symlink_files () {
 		echo "┗━╸┗━┛╹ ╹"
 		echo "Tidying up existing zsh config..."
 		rm -rf $HOME/.zsh*
-		echo "Symlinking bash..."
+		echo "Symlinking zsh..."
 		stow -t $HOME --no-folding zsh
 
 		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
