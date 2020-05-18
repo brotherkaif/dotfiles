@@ -33,7 +33,7 @@ install_debian_packages () {
 		echo " ⣀⣀ ⢀⣀ ⣇⡀"
 		echo " ⠴⠥ ⠭⠕ ⠇⠸"
 		sudo apt install zsh -y
-		chsh -s /bin/zsh
+		sudo usermod -s $(which zsh) $(whoami)
 
 		# install oh-my-zsh
 		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
@@ -60,7 +60,7 @@ install_debian_packages () {
 		# node
 		echo " ⣀⡀ ⢀⡀ ⢀⣸ ⢀⡀"
 		echo " ⠇⠸ ⠣⠜ ⠣⠼ ⠣⠭"
-		echo "skipping: nvm installed as part of symlinking script"
+		wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 		# ---------------------------------------------
 		# Tools
