@@ -104,11 +104,6 @@ install_debian_packages () {
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
 		sudo apt install neovim -y
 
-		# irssi
-		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
-		echo " ⠇ ⠏  ⠭⠕ ⠭⠕ ⠇"
-		sudo apt install irssi -y
-
 		# newsboat
 		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
 		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
