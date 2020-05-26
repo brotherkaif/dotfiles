@@ -92,11 +92,6 @@ install_arch () {
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
 		sudo pacman -S neovim
 
-		# irssi
-		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
-		echo " ⠇ ⠏  ⠭⠕ ⠭⠕ ⠇"
-		sudo pacman -S irssi
-
 		# ---------------------------------------------
 		# Applications
 		# ---------------------------------------------

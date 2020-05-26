@@ -139,11 +139,6 @@ install_debian_packages () {
 		sudo snap install code --classic
 		code --install-extension Shan.code-settings-sync
 
-		# alacritty
-		echo "⢀⣀ ⡇ ⢀⣀ ⢀⣀ ⡀⣀ ⠄ ⣰⡀ ⣰⡀ ⡀⢀"
-		echo "⠣⠼ ⠣ ⠣⠼ ⠣⠤ ⠏  ⠇ ⠘⠤ ⠘⠤ ⣑⡺"
-		sudo snap install alacritty --classic
-
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
 		# ---------------------------------------------

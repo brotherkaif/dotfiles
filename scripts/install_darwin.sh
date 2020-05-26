@@ -107,11 +107,6 @@ install_darwin () {
 		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
 		brew install neovim
 
-		# irssi
-		echo " ⠄ ⡀⣀ ⢀⣀ ⢀⣀ ⠄"
-		echo " ⠇ ⠏  ⠭⠕ ⠭⠕ ⠇"
-		brew install irssi
-
 		# ---------------------------------------------
 		# Applications
 		# ---------------------------------------------
