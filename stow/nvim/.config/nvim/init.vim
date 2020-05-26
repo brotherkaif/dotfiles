@@ -26,6 +26,10 @@ call plug#begin()
 	Plug 'dylanaraps/wal.vim'
 call plug#end()
 
+"PLUG-IN CONFIG
+"coc.nvim
+let g:coc_disable_startup_warning = 1
+
 "VIM CUSTOMISATION
 "line numbers
 set number
