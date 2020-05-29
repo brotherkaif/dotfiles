@@ -43,6 +43,7 @@ install_debian_packages () {
 		# install snap
 		echo"⢀⣀ ⣀⡀ ⢀⣀ ⣀⡀"
 		echo"⠭⠕ ⠇⠸ ⠣⠼ ⡧⠜"
+		sudo apt install libsquashfuse0 squashfuse fuse -y
 		sudo apt install snapd -y
 
 		# install flatpak
