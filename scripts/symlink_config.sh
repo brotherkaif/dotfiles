@@ -73,7 +73,7 @@ symlink_files () {
 		echo "╺┻┛┗━╸╹ ╹┗━┛╹ ╹┗━┛╺┻┛┗━╸"
 		echo "Tidying up existing DEMO MODE config..."
 		rm -rf $XDG_CONFIG_HOME/demomode
-		echo "Symlinking alacritty..."
+		echo "Symlinking DEMOMODE..."
 		stow -t $HOME --no-folding demomode
 
 		echo "...done!"

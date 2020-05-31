@@ -77,10 +77,7 @@ function parse_git_dirty {
 export PS1="\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\n >\[\e[m\] "
 
 #appimage aliases
-if [ $( echo "$OSTYPE" | grep 'linux-gnu' ) ] ; then
-	alias nvim-i='~/.apps/nvim/nvim.appimage'
-	alias crt-i='~/.apps/crt/crt.appimage'
-fi
+alias nvim='~/.apps/nvim/nvim.appimage'
 
 #convenience aliases
 alias ll='ls -la'
@@ -132,3 +129,12 @@ alias gaa='git add .'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
+
+# If not running interactively, return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+if [ -f "/google/devshell/bashrc.google" ]; then
+  source "/google/devshell/bashrc.google"
+fi
