@@ -22,7 +22,6 @@ call plug#begin()
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'scrooloose/vim-statline'
-	Plug 'arcticicestudio/nord-vim'
 	Plug 'dylanaraps/wal.vim'
 call plug#end()
 

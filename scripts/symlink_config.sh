@@ -31,12 +31,20 @@ symlink_files () {
 		echo "Symlinking zsh..."
 		stow -t $HOME --no-folding zsh
 
+		echo " ╻ ╻╻┏┳┓"
+		echo " ┃┏┛┃┃┃┃"
+		echo " ┗┛ ╹╹ ╹"
+		echo "Tidying up existing vim config..."
+		rm -rf $HOME/.vim*
+		echo "Symlinking vim..."
+		stow -t $HOME --no-folding vim
+
 		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
 		echo "┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃"
 		echo "╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹"
 		echo "Tidying up existing neovim config..."
 		rm -rf $XDG_CONFIG_HOME/nvim
-		echo "Symlinking alacritty..."
+		echo "Symlinking neovim..."
 		stow -t $HOME --no-folding nvim
 
 		echo "╺┳╸┏┳┓╻ ╻╻ ╻"
