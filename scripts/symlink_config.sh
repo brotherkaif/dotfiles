@@ -52,30 +52,6 @@ symlink_files () {
 		echo "Downloading tmux plugin manager..."
 		git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
 
-		echo "┏┓╻┏━╸╻ ╻┏━┓┏┓ ┏━┓┏━┓╺┳╸"
-		echo "┃┗┫┣╸ ┃╻┃┗━┓┣┻┓┃ ┃┣━┫ ┃ "
-		echo "╹ ╹┗━╸┗┻┛┗━┛┗━┛┗━┛╹ ╹ ╹ "
-		echo "Tidying up existing newsboat config..."
-		rm -rf $HOME/.newsboat/urls
-		echo "Symlinking newsboat..."
-		stow -t $HOME --no-folding newsboat
-
-		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
-		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
-		echo "╹ ╹┗━╸╹ ╹┗━╸╹┗╸╹ ╹  ╹  ╹ "
-		echo "Tidying up existing alacritty config..."
-		rm -rf $XDG_CONFIG_HOME/alacritty
-		echo "Symlinking alacritty..."
-		stow -t $HOME --no-folding alacritty
-
-		echo "╺┳┓┏━╸┏┳┓┏━┓┏┳┓┏━┓╺┳┓┏━╸"
-		echo " ┃┃┣╸ ┃┃┃┃ ┃┃┃┃┃ ┃ ┃┃┣╸ "
-		echo "╺┻┛┗━╸╹ ╹┗━┛╹ ╹┗━┛╺┻┛┗━╸"
-		echo "Tidying up existing DEMO MODE config..."
-		rm -rf $XDG_CONFIG_HOME/demomode
-		echo "Symlinking DEMOMODE..."
-		stow -t $HOME --no-folding demomode
-
 		echo "...done!"
 	else
 		echo "SYMLINKING CANCELLED"
