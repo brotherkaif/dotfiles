@@ -14,10 +14,10 @@
 "set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
 "VIM-PLUG AUTO-LOAD
-if empty(glob('$XDG_DATA_HOME/vim/autoload/plug.vim'))
-	silent !curl -fLo /usr/local/share/vim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 "PLUG-IN LIST
@@ -46,6 +46,7 @@ colorscheme wal
 set showmatch
 " set ruler
 set cursorline
+hi clear CursorLine
 hi CursorLine gui=underline cterm=underline
 " au VimEnter * highlight clear SignColumn
 
