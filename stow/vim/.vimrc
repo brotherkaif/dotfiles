@@ -30,7 +30,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
-	" Plug 'jszakmeister/vim-togglecursor'
+	Plug 'jszakmeister/vim-togglecursor'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'dylanaraps/wal.vim'
 call plug#end()
