@@ -31,12 +31,20 @@ symlink_files () {
 		echo "Symlinking zsh..."
 		stow -t $HOME --no-folding zsh
 
+		echo " ╻ ╻╻┏┳┓"
+		echo " ┃┏┛┃┃┃┃"
+		echo " ┗┛ ╹╹ ╹"
+		echo "Tidying up existing vim config..."
+		rm -rf $HOME/.vim*
+		echo "Symlinking vim..."
+		stow -t $HOME --no-folding vim
+
 		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
 		echo "┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃"
 		echo "╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹"
 		echo "Tidying up existing neovim config..."
 		rm -rf $XDG_CONFIG_HOME/nvim
-		echo "Symlinking alacritty..."
+		echo "Symlinking neovim..."
 		stow -t $HOME --no-folding nvim
 
 		echo "╺┳╸┏┳┓╻ ╻╻ ╻"
@@ -51,30 +59,6 @@ symlink_files () {
 		mkdir -pv $XDG_CONFIG_HOME/tmux/plugins/tpm
 		echo "Downloading tmux plugin manager..."
 		git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
-
-		echo "┏┓╻┏━╸╻ ╻┏━┓┏┓ ┏━┓┏━┓╺┳╸"
-		echo "┃┗┫┣╸ ┃╻┃┗━┓┣┻┓┃ ┃┣━┫ ┃ "
-		echo "╹ ╹┗━╸┗┻┛┗━┛┗━┛┗━┛╹ ╹ ╹ "
-		echo "Tidying up existing newsboat config..."
-		rm -rf $HOME/.newsboat/urls
-		echo "Symlinking newsboat..."
-		stow -t $HOME --no-folding newsboat
-
-		echo "┏━┓╻  ┏━┓┏━╸┏━┓╻╺┳╸╺┳╸╻ ╻"
-		echo "┣━┫┃  ┣━┫┃  ┣┳┛┃ ┃  ┃ ┗┳┛"
-		echo "╹ ╹┗━╸╹ ╹┗━╸╹┗╸╹ ╹  ╹  ╹ "
-		echo "Tidying up existing alacritty config..."
-		rm -rf $XDG_CONFIG_HOME/alacritty
-		echo "Symlinking alacritty..."
-		stow -t $HOME --no-folding alacritty
-
-		echo "╺┳┓┏━╸┏┳┓┏━┓┏┳┓┏━┓╺┳┓┏━╸"
-		echo " ┃┃┣╸ ┃┃┃┃ ┃┃┃┃┃ ┃ ┃┃┣╸ "
-		echo "╺┻┛┗━╸╹ ╹┗━┛╹ ╹┗━┛╺┻┛┗━╸"
-		echo "Tidying up existing DEMO MODE config..."
-		rm -rf $XDG_CONFIG_HOME/demomode
-		echo "Symlinking alacritty..."
-		stow -t $HOME --no-folding demomode
 
 		echo "...done!"
 	else
