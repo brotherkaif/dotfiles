@@ -6,9 +6,7 @@
 #==================================
 
 #MOTD
-echo "╺┳╸┏━╸┏━┓┏┳┓╻┏┓╻┏━┓╻  "
-echo " ┃ ┣╸ ┣┳┛┃┃┃┃┃┗┫┣━┫┃  "
-echo " ╹ ┗━╸╹┗╸╹ ╹╹╹ ╹╹ ╹┗━╸"
+echo -e "\e[41;30m T E R M I N A L \e[0m"
 
 #XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"

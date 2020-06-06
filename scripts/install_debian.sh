@@ -15,42 +15,24 @@ install_debian_packages () {
 		# ---------------------------------------------
 		# Setup
 		# ---------------------------------------------
-		echo "┏━┓┏━╸╺┳╸╻ ╻┏━┓"
-		echo "┗━┓┣╸  ┃ ┃ ┃┣━┛"
-		echo "┗━┛┗━╸ ╹ ┗━┛╹  "
+		echo -e "\e[43;30m SETUP \e[0m"
 
 		# update apt
-		echo " ⡀⢀ ⣀⡀ ⢀⣸ ⢀⣀ ⣰⡀ ⢀⡀"
-		echo " ⠣⠼ ⡧⠜ ⠣⠼ ⠣⠼ ⠘⠤ ⠣⠭"
+		echo -e "\e[43;30m update \e[0m"
 		sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
 		sudo apt update -y
 
 		# upgrade any preinstalled packages
-		echo " ⡀⢀ ⣀⡀ ⢀⡀ ⡀⣀ ⢀⣀ ⢀⣸ ⢀⡀"
-		echo " ⠣⠼ ⡧⠜ ⣑⡺ ⠏  ⠣⠼ ⠣⠼ ⠣⠭"
+		echo -e "\e[43;30m upgrade \e[0m"
 		sudo apt upgrade -y
-
-		# install zsh
-		echo " ⣀⣀ ⢀⣀ ⣇⡀"
-		echo " ⠴⠥ ⠭⠕ ⠇⠸"
-		sudo apt install zsh -y
-		sudo usermod -s $(which zsh) $(whoami)
-
-		# install oh-my-zsh
-		echo "⢀⡀ ⣇⡀   ⣀⣀  ⡀⢀   ⣀⣀ ⢀⣀ ⣇⡀"
-		echo "⠣⠜ ⠇⠸   ⠇⠇⠇ ⣑⡺   ⠴⠥ ⠭⠕ ⠇⠸"
-		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
 		# ---------------------------------------------
-		echo "┏━╸┏━┓┏━┓┏┳┓┏━╸╻ ╻┏━┓┏━┓╻┏ ┏━┓"
-		echo "┣╸ ┣┳┛┣━┫┃┃┃┣╸ ┃╻┃┃ ┃┣┳┛┣┻┓┗━┓"
-		echo "╹  ╹┗╸╹ ╹╹ ╹┗━╸┗┻┛┗━┛╹┗╸╹ ╹┗━┛"
+		echo -e "\e[43;30m FRAMEWORKS \e[0m"
 
 		# node
-		echo " ⣀⡀ ⢀⡀ ⢀⣸ ⢀⡀"
-		echo " ⠇⠸ ⠣⠜ ⠣⠼ ⠣⠭"
+		echo -e "\e[43;30m node \e[0m"
 		wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 		# ---------------------------------------------
@@ -59,74 +41,45 @@ install_debian_packages () {
 		echo "╺┳╸┏━┓┏━┓╻  ┏━┓"
 		echo " ┃ ┃ ┃┃ ┃┃  ┗━┓"
 		echo " ╹ ┗━┛┗━┛┗━╸┗━┛"
+		echo -e "\e[43;30m TOOLS \e[0m"
 
 		# stow
-		echo "⢀⣀ ⣰⡀ ⢀⡀ ⡀ ⢀"
-		echo "⠭⠕ ⠘⠤ ⠣⠜ ⠱⠱⠃"
+		echo -e "\e[43;30m stow \e[0m"
 		sudo apt install stow -y
 
 		# tree
-		echo " ⣰⡀ ⡀⣀ ⢀⡀ ⢀⡀"
-		echo " ⠘⠤ ⠏  ⠣⠭ ⠣⠭"
+		echo -e "\e[43;30m tree \e[0m"
 		sudo apt install tree -y
 
 		# htop
-		echo " ⣇⡀ ⣰⡀ ⢀⡀ ⣀⡀"
-		echo " ⠇⠸ ⠘⠤ ⠣⠜ ⡧⠜"
+		echo -e "\e[43;30m htop \e[0m"
 		sudo apt install htop -y
 
 		# git
-		echo " ⢀⡀ ⠄ ⣰⡀"
-		echo " ⣑⡺ ⠇ ⠘⠤"
+		echo -e "\e[43;30m git \e[0m"
 		sudo apt install git -y
 
 		# tmux
-		echo " ⣰⡀ ⣀⣀  ⡀⢀ ⡀⢀"
-		echo " ⠘⠤ ⠇⠇⠇ ⠣⠼ ⠜⠣"
+		echo -e "\e[43;30m tmux \e[0m"
 		sudo apt install tmux -y
-
-		# nnn
-		echo "⣀⡀ ⣀⡀ ⣀⡀"
-		echo "⠇⠸ ⠇⠸ ⠇⠸"
-		sudo apt install nnn -y
-
-		# neovim
-		echo " ⣀⡀ ⢀⡀ ⢀⡀ ⡀⢀ ⠄ ⣀⣀ "
-		echo " ⠇⠸ ⠣⠭ ⠣⠜ ⠱⠃ ⠇ ⠇⠇⠇"
-		sudo apt install neovim -y
-
-		# newsboat
-		echo "⣀⡀ ⢀⡀ ⡀ ⢀ ⢀⣀ ⣇⡀ ⢀⡀ ⢀⣀ ⣰⡀"
-		echo "⠇⠸ ⠣⠭ ⠱⠱⠃ ⠭⠕ ⠧⠜ ⠣⠜ ⠣⠼ ⠘⠤"
-		sudo apt install newsboat -y
-
-		# lynx
-		echo "⡇ ⡀⢀ ⣀⡀ ⡀⢀"
-		echo "⠣ ⣑⡺ ⠇⠸ ⠜⠣"
-		sudo apt install lynx -y
 
 		# ---------------------------------------------
 		# Applications
 		# ---------------------------------------------
-		echo "┏━┓┏━┓┏━┓╻  ╻┏━╸┏━┓╺┳╸╻┏━┓┏┓╻┏━┓"
-		echo "┣━┫┣━┛┣━┛┃  ┃┃  ┣━┫ ┃ ┃┃ ┃┃┗┫┗━┓"
-		echo "╹ ╹╹  ╹  ┗━╸╹┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛"
+		echo -e "\e[43;30m APPLICATIONS \e[0m"
 
 		# docker
-		echo " ⢀⣸ ⢀⡀ ⢀⣀ ⡇⡠ ⢀⡀ ⡀⣀"
-		echo " ⠣⠼ ⠣⠜ ⠣⠤ ⠏⠢ ⠣⠭ ⠏ "
-		# verify the installaiton
+		echo -e "\e[43;30m docker \e[0m"
 		sudo apt install docker -y
+		# verify the installaiton
 		docker run hello-world
 
 		# docker compose
-		echo " ⢀⣸ ⢀⡀ ⢀⣀ ⡇⡠ ⢀⡀ ⡀⣀   ⢀⣀ ⢀⡀ ⣀⣀  ⣀⡀ ⢀⡀ ⢀⣀ ⢀⡀"
-		echo " ⠣⠼ ⠣⠜ ⠣⠤ ⠏⠢ ⠣⠭ ⠏    ⠣⠤ ⠣⠜ ⠇⠇⠇ ⡧⠜ ⠣⠜ ⠭⠕ ⠣⠭"
+		echo -e "\e[43;30m docker compose \e[0m"
 		sudo apt install docker-compose -y
 
 		# vscode
-		echo " ⡀⢀ ⢀⣀    ⢀⣀ ⢀⡀ ⢀⣸ ⢀⡀"
-		echo " ⠱⠃ ⠭⠕ ⠉⠉ ⠣⠤ ⠣⠜ ⠣⠼ ⠣⠭"
+		echo -e "\e[43;30m vs-code \e[0m"
 		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 		sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 		sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -136,8 +89,7 @@ install_debian_packages () {
 		code --install-extension Shan.code-settings-sync
 
 		# brave
-		echo " ⣇⡀ ⡀⣀ ⢀⣀ ⡀⢀ ⢀⡀"
-		echo " ⠧⠜ ⠏  ⠣⠼ ⠱⠃ ⠣⠭"
+		echo -e "\e[43;30m brave \e[0m"
 		sudo apt update
 		sudo apt install apt-transport-https curl
 		curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
@@ -148,40 +100,31 @@ install_debian_packages () {
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
 		# ---------------------------------------------
-		echo "┏┓╻┏━┓┏┓╻┏━┓┏━╸┏┓╻┏━┓┏━╸"
-		echo "┃┗┫┃ ┃┃┗┫┗━┓┣╸ ┃┗┫┗━┓┣╸ "
-		echo "╹ ╹┗━┛╹ ╹┗━┛┗━╸╹ ╹┗━┛┗━╸"
+		echo -e "\e[43;30m NONSENSE \e[0m"
 
 		# figlet
-		echo " ⣰⡁ ⠄ ⢀⡀ ⡇ ⢀⡀ ⣰⡀"
-		echo " ⢸  ⠇ ⣑⡺ ⠣ ⠣⠭ ⠘⠤"
+		echo -e "\e[43;30m figlet \e[0m"
 		sudo apt install figlet -y
 
 		# toilet
-		echo " ⣰⡀ ⢀⡀ ⠄ ⡇ ⢀⡀ ⣰⡀"
-		echo " ⠘⠤ ⠣⠜ ⠇ ⠣ ⠣⠭ ⠘⠤"
+		echo -e "\e[43;30m toilet \e[0m"
 		sudo apt install toilet -y
 
 		# mplayer
-		echo " ⣀⣀  ⣀⡀ ⡇ ⢀⣀ ⡀⢀ ⢀⡀ ⡀⣀"
-		echo " ⠇⠇⠇ ⡧⠜ ⠣ ⠣⠼ ⣑⡺ ⠣⠭ ⠏ "
+		echo -e "\e[43;30m mplayer \e[0m"
 		sudo apt install mplayer -y
 
 		# cool-retro-term
-		echo " ⢀⣀ ⢀⡀ ⢀⡀ ⡇    ⡀⣀ ⢀⡀ ⣰⡀ ⡀⣀ ⢀⡀    ⣰⡀ ⢀⡀ ⡀⣀ ⣀⣀ "
-		echo " ⠣⠤ ⠣⠜ ⠣⠜ ⠣ ⠉⠉ ⠏  ⠣⠭ ⠘⠤ ⠏  ⠣⠜ ⠉⠉ ⠘⠤ ⠣⠭ ⠏  ⠇⠇⠇"
+		echo -e "\e[43;30m cool-retro-term \e[0m"
 		sudo snap install cool-retro-term --classic
 
 		# ---------------------------------------------
 		# Cleanup
 		# ---------------------------------------------
-		echo "┏━╸╻  ┏━╸┏━┓┏┓╻╻ ╻┏━┓"
-		echo "┃  ┃  ┣╸ ┣━┫┃┗┫┃ ┃┣━┛"
-		echo "┗━╸┗━╸┗━╸╹ ╹╹ ╹┗━┛╹  "
+		echo -e "\e[43;30m CLEANUP \e[0m"
 
 		# cleanup the cache
-		echo " ⢀⣀ ⢀⣀ ⢀⣀ ⣇⡀ ⢀⡀"
-		echo " ⠣⠤ ⠣⠼ ⠣⠤ ⠇⠸ ⠣⠭"
+		echo -e "\e[43;30m cache \e[0m"
 		sudo apt clean
 	else
 		echo "INSTALLATION CANCELLED"

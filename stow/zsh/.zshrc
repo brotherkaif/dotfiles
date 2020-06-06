@@ -16,10 +16,7 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 bindkey -v
 
 # MOTD
-echo "╺┳╸┏━╸┏━┓┏┳┓╻┏┓╻┏━┓╻  "
-echo " ┃ ┣╸ ┣┳┛┃┃┃┃┃┗┫┣━┫┃  "
-echo " ╹ ┗━╸╹┗╸╹ ╹╹╹ ╹╹ ╹┗━╸"
-# echo "$(shuf -n 1 $XDG_CONFIG_HOME/demomode/data)"
+echo -e "\e[41;30m T E R M I N A L \e[0m"
 
 # ENV VARIABLES
 export MYVIMRC="$HOME/.config/nvim/init.vim"
