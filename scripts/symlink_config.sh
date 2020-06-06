@@ -12,55 +12,49 @@ symlink_files () {
 	echo "Proceed? (y/n)"
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		echo "BEGINNING SYMLINKING"
+		echo "Installing GNU Stow (if not already installed)..."
+		sudo apt install stow -y
+		echo "...done!"
+
+		echo -e "\e[43;30m SYMLINKING \e[0m"
 		cd $HOME/.dotfiles/stow
 
-		echo "┏┓ ┏━┓┏━┓╻ ╻"
-		echo "┣┻┓┣━┫┗━┓┣━┫"
-		echo "┗━┛╹ ╹┗━┛╹ ╹"
+		echo -e "\e[43;30m bash \e[0m"
 		echo "Tidying up existing bash config..."
 		rm -rf $HOME/.bash*
 		echo "Symlinking bash..."
 		stow -t $HOME --no-folding bash
+		echo "...done!"
 
-		echo "╺━┓┏━┓╻ ╻"
-		echo "┏━┛┗━┓┣━┫"
-		echo "┗━╸┗━┛╹ ╹"
+		echo -e "\e[43;30m zsh \e[0m"
 		echo "Tidying up existing zsh config..."
 		rm -rf $HOME/.zsh*
 		echo "Symlinking zsh..."
 		stow -t $HOME --no-folding zsh
+		echo "...done!"
 
-		echo " ╻ ╻╻┏┳┓"
-		echo " ┃┏┛┃┃┃┃"
-		echo " ┗┛ ╹╹ ╹"
+		echo -e "\e[43;30m vim \e[0m"
 		echo "Tidying up existing vim config..."
 		rm -rf $HOME/.vim*
 		echo "Symlinking vim..."
 		stow -t $HOME --no-folding vim
+		echo "...done!"
 
-		echo "┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓"
-		echo "┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃"
-		echo "╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹"
+		echo -e "\e[43;30m neovim \e[0m"
 		echo "Tidying up existing neovim config..."
 		rm -rf $XDG_CONFIG_HOME/nvim
 		echo "Symlinking neovim..."
 		stow -t $HOME --no-folding nvim
+		echo "...done!"
 
-		echo "╺┳╸┏┳┓╻ ╻╻ ╻"
-		echo " ┃ ┃┃┃┃ ┃┏╋┛"
-		echo " ╹ ╹ ╹┗━┛╹ ╹"
+		echo -e "\e[43;30m tmux \e[0m"
 		echo "Tidying up existing tmux config..."
 		rm -rf $HOME/.tmux*
 		rm -rf $XDG_CONFIG_HOME/tmux
 		echo "Symlinking tmux..."
 		stow -t $HOME --no-folding tmux
-		echo "Creating tmux plugin directory..."
-		mkdir -pv $XDG_CONFIG_HOME/tmux/plugins/tpm
-		echo "Downloading tmux plugin manager..."
-		git clone https://github.com/tmux-plugins/tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
-
 		echo "...done!"
+
 	else
 		echo "SYMLINKING CANCELLED"
 	fi
