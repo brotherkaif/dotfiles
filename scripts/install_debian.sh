@@ -22,6 +22,7 @@ install_debian_packages () {
 		# update apt
 		echo " ⡀⢀ ⣀⡀ ⢀⣸ ⢀⣀ ⣰⡀ ⢀⡀"
 		echo " ⠣⠼ ⡧⠜ ⠣⠼ ⠣⠼ ⠘⠤ ⠣⠭"
+		sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
 		sudo apt update -y
 
 		# upgrade any preinstalled packages
@@ -133,6 +134,16 @@ install_debian_packages () {
 		sudo apt-get update
 		sudo apt-get install code
 		code --install-extension Shan.code-settings-sync
+
+		# brave
+		echo " ⣇⡀ ⡀⣀ ⢀⣀ ⡀⢀ ⢀⡀"
+		echo " ⠧⠜ ⠏  ⠣⠼ ⠱⠃ ⠣⠭"
+		sudo apt update
+		sudo apt install apt-transport-https curl
+		curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+		echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+		sudo apt update
+		sudo apt install brave-browser
 
 		# ---------------------------------------------
 		# Stupid Terminal Nonsense
