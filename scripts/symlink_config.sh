@@ -55,6 +55,12 @@ symlink_files () {
 		stow -t $HOME --no-folding tmux
 		echo "...done!"
 
+		echo -e "\e[43;30m gcs \e[0m"
+		echo "Tidying up existing gcs config..."
+		rm -rf $HOME/.customize_environment*
+		echo "Symlinking gcs..."
+		stow -t $HOME --no-folding gcs
+		echo "...done!"
 	else
 		echo "SYMLINKING CANCELLED"
 	fi
