@@ -1,10 +1,5 @@
 #!/bin/bash
-echo "┌────────────────────────────┐"
-echo "│▞▀▖▌ ▌▙▗▌▌  ▜▘▙ ▌▌ ▌▜▘▙ ▌▞▀▖│"
-echo "│▚▄ ▝▞ ▌▘▌▌  ▐ ▌▌▌▙▞ ▐ ▌▌▌▌▄▖│"
-echo "│▖ ▌ ▌ ▌ ▌▌  ▐ ▌▝▌▌▝▖▐ ▌▝▌▌ ▌│"
-echo "│▝▀  ▘ ▘ ▘▀▀▘▀▘▘ ▘▘ ▘▀▘▘ ▘▝▀ │"
-echo "└────────────────────────────┘"
+echo -e "\e[43;30m S Y M L I N K I N G \e[0m"
 
 symlink_files () {
 	echo "This script will symlink your config files."
@@ -12,11 +7,6 @@ symlink_files () {
 	echo "Proceed? (y/n)"
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		echo "Installing GNU Stow (if not already installed)..."
-		sudo apt install stow -y
-		echo "...done!"
-
-		echo -e "\e[43;30m SYMLINKING \e[0m"
 		cd $HOME/.dotfiles/stow
 
 		echo -e "\e[43;30m bash \e[0m"

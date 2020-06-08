@@ -16,7 +16,8 @@ if [ -f "/google/devshell/bashrc.google" ]; then
 fi
 
 #MOTD
-echo -e "\e[41;30m T E R M I N A L \e[0m"
+# clear
+# echo -e "\e[41;30m T E R M I N A L \e[0m"
 
 #XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -26,7 +27,7 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 #ENV VARIABLES
-export MYVIMRC="$HOME/.config/nvim/init.vim"
+export MYVIMRC="$HOME/.vimrc"
 
 #NVM SETUP
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -82,7 +83,10 @@ function parse_git_dirty {
 }
 
 #export prompt
-export PS1="\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\n >\[\e[m\] "
+export PS1="\e[41;30m TERMINAL \e[0m\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\n >\[\e[m\] "
+
+#appimage aliases
+alias vim='~/.apps/vim/vim.appimage'
 
 #convenience aliases
 alias ll='ls -la'
