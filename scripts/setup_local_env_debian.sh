@@ -2,7 +2,7 @@
 echo -e "\e[43;30m S E T U P \e[0m"
 
 install_debian_packages () {
-	echo "This utility will setup a LOCAL environment for debian."
+	echo "This script will setup a LOCAL environment for debian."
 	echo "WARNING: DO NOT run as root!"
 	echo "Proceed? (y/n)"
 	read resp
