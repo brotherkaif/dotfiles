@@ -1,13 +1,8 @@
-#!/usr/bin/env bash
-echo "┌──────────────────────────────────┐"
-echo "│▜▘▙ ▌▞▀▖▀▛▘▞▀▖▌  ▌  ▞▀▖▀▛▘▜▘▞▀▖▙ ▌│"
-echo "│▐ ▌▌▌▚▄  ▌ ▙▄▌▌  ▌  ▙▄▌ ▌ ▐ ▌ ▌▌▌▌│"
-echo "│▐ ▌▝▌▖ ▌ ▌ ▌ ▌▌  ▌  ▌ ▌ ▌ ▐ ▌ ▌▌▝▌│"
-echo "│▀▘▘ ▘▝▀  ▘ ▘ ▘▀▀▘▀▀▘▘ ▘ ▘ ▀▘▝▀ ▘ ▘│"
-echo "└──────────────────────────────────┘"
+#!/bin/bash
+echo -e "\e[43;30m S E T U P \e[0m"
 
 install_debian_packages () {
-	echo "This utility will install PACKAGES for debian."
+	echo "This utility will setup a LOCAL environment for debian."
 	echo "WARNING: DO NOT run as root!"
 	echo "Proceed? (y/n)"
 	read resp
@@ -39,6 +34,10 @@ install_debian_packages () {
 		# Tools
 		# ---------------------------------------------
 		echo -e "\e[43;30m TOOLS \e[0m"
+
+		# pass
+		echo -e "\e[43;30m pass \e[0m"
+		sudo apt install pass -y
 
 		# stow
 		echo -e "\e[43;30m stow \e[0m"
