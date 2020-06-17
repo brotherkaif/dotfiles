@@ -27,13 +27,25 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'dense-analysis/ale'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'jszakmeister/vim-togglecursor'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'dylanaraps/wal.vim'
 call plug#end()
+
+"PLUG-IN CONFIG
+"ale
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+let g:ale_fixers = {
+  \    'javascript': ['eslint'],
+  \    'typescriptreact': ['eslint'],
+  \    'typescript': ['eslint'],
+  \    'json': ['eslint'],
+	\}
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_completion_enabled = 1
 
 "VIM CUSTOMISATION
 "line numbers
