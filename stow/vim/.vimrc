@@ -25,6 +25,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-vinegar'
 	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'dense-analysis/ale'
