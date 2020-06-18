@@ -15,9 +15,9 @@
 
 "VIM-PLUG AUTO-LOAD
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 "PLUG-IN LIST
@@ -40,10 +40,10 @@ call plug#end()
 "ale
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_fixers = {
-  \    'javascript': ['eslint'],
-  \    'typescriptreact': ['eslint'],
-  \    'typescript': ['eslint'],
-  \    'json': ['eslint'],
+	\    'javascript': ['eslint'],
+	\    'typescriptreact': ['eslint'],
+	\    'typescript': ['eslint'],
+	\    'json': ['eslint'],
 	\}
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled = 1
