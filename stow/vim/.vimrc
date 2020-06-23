@@ -5,14 +5,6 @@
 "  \_/ |_|_| |_| |_|_|  \___|
 "============================
 
-"XDG OVERRIDES
-"set undodir=$XDG_DATA_HOME/vim/undo
-"set directory=$XDG_DATA_HOME/vim/swap
-"set backupdir=$XDG_DATA_HOME/vim/backup
-"set viewdir=$XDG_DATA_HOME/vim/view
-"set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-"set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-
 "VIM-PLUG AUTO-LOAD
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -49,6 +41,10 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled = 1
 
 "VIM CUSTOMISATION
+"disable backup and swp files
+set nobackup
+set noswapfile
+
 "line numbers
 set number
 set relativenumber
