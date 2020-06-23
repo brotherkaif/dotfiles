@@ -1,10 +1,5 @@
 #!/bin/bash
-echo "┌───────────────────────────────┐"
-echo "│▛▀▖▜▘▛▀▖▛▀▘▞▀▖▀▛▘▞▀▖▛▀▖▜▘▛▀▘▞▀▖│"
-echo "│▌ ▌▐ ▙▄▘▙▄ ▌   ▌ ▌ ▌▙▄▘▐ ▙▄ ▚▄ │"
-echo "│▌ ▌▐ ▌▚ ▌  ▌ ▖ ▌ ▌ ▌▌▚ ▐ ▌  ▖ ▌│"
-echo "│▀▀ ▀▘▘ ▘▀▀▘▝▀  ▘ ▝▀ ▘ ▘▀▘▀▀▘▝▀ │"
-echo "└───────────────────────────────┘"
+echo -e "\e[43;30m S Y M L I N K I N G \e[0m"
 
 create_directories() {
 	echo "This script will create directories in home."
@@ -12,25 +7,18 @@ create_directories() {
 	echo "Proceed? (y/n)"
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		echo "CREATING DIRECTORIES"
 
-		echo "┏━┓┏━┓┏━┓ ┏┓┏━╸┏━╸╺┳╸┏━┓"
-		echo "┣━┛┣┳┛┃ ┃  ┃┣╸ ┃   ┃ ┗━┓"
-		echo "╹  ╹┗╸┗━┛┗━┛┗━╸┗━╸ ╹ ┗━┛"
+		echo -e "\e[43;30m projects \e[0m"
 		echo "Making a PROJECTS folder in $HOME/projects if it doesn't already exist..."
 		mkdir -pv $HOME/projects
 		echo "...done!"
 
-		echo "┏━┓╻  ┏━┓╻ ╻┏━╸┏━┓┏━┓╻ ╻┏┓╻╺┳┓"
-		echo "┣━┛┃  ┣━┫┗┳┛┃╺┓┣┳┛┃ ┃┃ ┃┃┗┫ ┃┃"
-		echo "╹  ┗━╸╹ ╹ ╹ ┗━┛╹┗╸┗━┛┗━┛╹ ╹╺┻┛"
+		echo -e "\e[43;30m playground \e[0m"
 		echo "Making a PLAYGROUND folder in $HOME/playground if it doesn't already exist..."
 		mkdir -pv $HOME/playground
 		echo "...done!"
 
-		echo "┏━┓┏━┓┏━┓┏━┓"
-		echo "┣━┫┣━┛┣━┛┗━┓"
-		echo "╹ ╹╹  ╹  ┗━┛"
+		echo -e "\e[43;30m apps \e[0m"
 		echo "Making an APPS folder in $HOME/.apps if it doesn't already exist..."
 		mkdir -pv $HOME/.apps
 		echo "...done!"
