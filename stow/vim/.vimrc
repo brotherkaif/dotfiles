@@ -32,13 +32,13 @@ call plug#end()
 "PLUG-IN CONFIG
 "coc.nvim
 let g:coc_global_extensions = [
-  \ 'coc-tsserver',
+	\ 'coc-tsserver',
 	\ 'coc-prettier',
 	\ 'coc-git',
 	\ 'coc-yaml',
 	\ 'coc-tsserver',
 	\ 'coc-json'
-  \ ]
+	\ ]
 
 "ale
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
