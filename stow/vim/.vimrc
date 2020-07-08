@@ -98,3 +98,17 @@ set shiftwidth=2
 set tabstop=2
 
 "KEYBINDINGS 
+let mapleader = "\<Space>"
+nnoremap <leader>s :Sexplore<CR>
+nnoremap <leader>v :Vexplore<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>ts :term<CR>
+nnoremap <leader>tv :vert term<CR>
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gf :GFiles<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>c :Commands<CR>
+nnoremap <Leader>a :Ag<CR>
