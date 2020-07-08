@@ -27,6 +27,7 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 #ENV VARIABLES
+export TERM="xterm"
 export MYVIMRC="$HOME/.vimrc"
 
 #NVM SETUP
@@ -99,5 +100,3 @@ alias gaa='git add .'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
-
-
