@@ -20,15 +20,26 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'dense-analysis/ale'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'jszakmeister/vim-togglecursor'
 	Plug 'millermedeiros/vim-statline'
-	Plug 'dylanaraps/wal.vim'
+	Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 "PLUG-IN CONFIG
+"coc.nvim
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+	\ 'coc-prettier',
+	\ 'coc-git',
+	\ 'coc-yaml',
+	\ 'coc-tsserver',
+	\ 'coc-json'
+  \ ]
+
 "ale
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_fixers = {
@@ -38,35 +49,52 @@ let g:ale_fixers = {
 	\    'json': ['eslint'],
 	\}
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_completion_enabled = 1
 
 "VIM CUSTOMISATION
+"disable annoying stuff
+set noerrorbells
+
 "disable backup and swp files
-set nobackup
 set noswapfile
+set nobackup
+
+"undo configuration
+set undodir=$HOME/.vim/undodir
 
 "line numbers
 set number
 set relativenumber
 
-"interface
+"display
 syntax enable
-colorscheme wal
-set showmatch
-" set ruler
+set nowrap
+
+"column
+" set colorcolumn=80
+
+"colorscheme
+colorscheme nord
+
+"force cursor underline
 set cursorline
-hi clear CursorLine
-hi CursorLine gui=underline cterm=underline
+" hi clear CursorLine
+" hi CursorLine gui=underline cterm=underline
+
 " au VimEnter * highlight clear SignColumn
+" set ruler
 
 "searching
 set incsearch
 set hlsearch
+set showmatch
 
 "indentation behaviour
 set noexpandtab
-set copyindent
-set preserveindent
+" set copyindent
+" set preserveindent
+set smartindent
 set softtabstop=0
 set shiftwidth=2
 set tabstop=2
+
+"KEYBINDINGS 

@@ -26,6 +26,7 @@ symlink_files () {
 		echo -e "\e[43;30m vim \e[0m"
 		echo "Tidying up existing vim config..."
 		rm -rf $HOME/.vim*
+		mkdir $HOME/.vim/undodir
 		echo "Symlinking vim..."
 		stow -t $HOME --no-folding vim
 		echo "...done!"
