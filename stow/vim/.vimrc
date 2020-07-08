@@ -108,7 +108,6 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>ts :term<CR>
 nnoremap <leader>tv :vert term<CR>
 nnoremap <leader>gs :G<CR>
-nnoremap <leader>gf :GFiles<CR>
-nnoremap <Leader>f :Files<CR>
+nnoremap <leader>f :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
 nnoremap <Leader>a :Ag<CR>
