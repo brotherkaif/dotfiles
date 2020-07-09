@@ -25,7 +25,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'jszakmeister/vim-togglecursor'
-	Plug 'millermedeiros/vim-statline'
+	Plug 'itchyny/lightline.vim'
 	Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
@@ -33,11 +33,9 @@ call plug#end()
 "coc.nvim
 let g:coc_global_extensions = [
 	\ 'coc-tsserver',
-	\ 'coc-prettier',
+	\ 'coc-json',
 	\ 'coc-git',
-	\ 'coc-yaml',
-	\ 'coc-tsserver',
-	\ 'coc-json'
+	\ 'coc-yaml'
 	\ ]
 
 "ale
@@ -48,7 +46,13 @@ let g:ale_fixers = {
 	\    'typescript': ['eslint'],
 	\    'json': ['eslint'],
 	\}
+let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
+
+"lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
 
 "VIM CUSTOMISATION
 "disable annoying stuff
@@ -68,6 +72,7 @@ set relativenumber
 "display
 syntax enable
 set nowrap
+set noshowmode
 
 "column
 " set colorcolumn=80
@@ -111,3 +116,5 @@ nnoremap <leader>gs :G<CR>
 nnoremap <leader>f :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
 nnoremap <Leader>a :Ag<CR>
+nmap <leader>d <Plug>(ale_fix)
+nmap <silent> <Leader>gd <Plug>(coc-definition)
