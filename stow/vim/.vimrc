@@ -4,7 +4,6 @@
 " \ V /| | | | | | | | | (__
 "  \_/ |_|_| |_| |_|_|  \___|
 "============================
-
 "VIM-PLUG AUTO-LOAD
 if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -12,31 +11,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-"PLUG-IN LIST
-call plug#begin('$XDG_DATA_HOME/vim/plugged')
-	Plug 'tpope/vim-sensible'
-	Plug 'tpope/vim-vinegar'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-fugitive'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'dense-analysis/ale'
-	Plug 'rhlobo/vim-super-retab'
-	Plug 'sheerun/vim-polyglot'
-	Plug 'jszakmeister/vim-togglecursor'
-	Plug 'itchyny/lightline.vim'
-	Plug 'arcticicestudio/nord-vim'
-call plug#end()
-
 "PLUG-IN CONFIG
 "coc.nvim
-let g:coc_global_extensions = [
-	\ 'coc-tsserver',
-	\ 'coc-json',
-	\ 'coc-git',
-	\ 'coc-yaml'
-	\ ]
+" let g:coc_global_extensions = [
+" 	\ 'coc-tsserver',
+" 	\ 'coc-prettier',
+" 	\ 'coc-git',
+" 	\ 'coc-yaml',
+" 	\ 'coc-tsserver',
+" 	\ 'coc-json'
+" 	\ ]
 
 "ale
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
@@ -46,13 +30,26 @@ let g:ale_fixers = {
 	\    'typescript': ['eslint'],
 	\    'json': ['eslint'],
 	\}
-let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_completion_enabled=1
 
-"lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+"PLUG-IN LIST
+call plug#begin('$XDG_DATA_HOME/vim/plugged')
+	Plug 'tpope/vim-sensible'
+	Plug 'tpope/vim-vinegar'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-fugitive'
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'dense-analysis/ale'
+	Plug 'rhlobo/vim-super-retab'
+	Plug 'sheerun/vim-polyglot'
+	Plug 'jszakmeister/vim-togglecursor'
+	Plug 'itchyny/lightline.vim'
+	" Plug 'millermedeiros/vim-statline'
+	Plug 'arcticicestudio/nord-vim'
+call plug#end()
 
 "VIM CUSTOMISATION
 "disable annoying stuff
@@ -79,6 +76,9 @@ set noshowmode
 
 "colorscheme
 colorscheme nord
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
 
 "force cursor underline
 set cursorline
@@ -117,4 +117,3 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
 nnoremap <Leader>a :Ag<CR>
 nmap <leader>d <Plug>(ale_fix)
-nmap <silent> <Leader>gd <Plug>(coc-definition)
