@@ -32,6 +32,7 @@ let g:ale_fixers = {
 	\}
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=1
+set omnifunc=ale#completion#OmniFunc
 
 "PLUG-IN LIST
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
