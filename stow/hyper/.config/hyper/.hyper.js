@@ -49,7 +49,7 @@ module.exports = {
     selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    borderColor: '#000',
 
     // custom CSS to embed in the main window
     css: '',
@@ -59,12 +59,14 @@ module.exports = {
 
     // if you're using a Linux setup which show native menus, set to false
     // default: `true` on Linux, `true` on Windows, ignored on macOS
-    showHamburgerMenu: '',
+    // showHamburgerMenu: '',
+    showHamburgerMenu: false,
 
     // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
     // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
-    showWindowControls: '',
+    // showWindowControls: '',
+    showWindowControls: false,
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
     padding: '12px 14px',
@@ -113,7 +115,8 @@ module.exports = {
     env: {},
 
     // set to `false` for no bell
-    bell: 'SOUND',
+    // bell: 'SOUND',
+    bell: false,
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
     copyOnSelect: false,
@@ -146,7 +149,9 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+		'nord-hyper'
+	],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

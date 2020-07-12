@@ -52,6 +52,13 @@ symlink_files () {
 		echo "Symlinking gcs..."
 		stow -t $HOME --no-folding gcs
 		echo "...done!"
+
+		echo -e "\e[43;30m hyper \e[0m"
+		echo "Tidying up existing hyper config..."
+		rm -rf $XDG_CONFIG_HOME/hyper
+		echo "Symlinking hyper..."
+		stow -t $HOME --no-folding hyper
+		echo "...done!"
 	else
 		echo "SYMLINKING CANCELLED"
 	fi
