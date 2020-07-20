@@ -53,6 +53,13 @@ symlink_files () {
 		stow -t $HOME --no-folding gcs
 		echo "...done!"
 
+		echo -e "\e[43;30m alacritty \e[0m"
+		echo "Tidying up existing alacritty config..."
+		rm -rf $XDG_CONFIG_HOME/alacritty
+		echo "Symlinking alacritty..."
+		stow -t $HOME --no-folding alacritty
+		echo "...done!"
+
 		echo -e "\e[43;30m hyper \e[0m"
 		echo "Tidying up existing hyper config..."
 		rm -rf $XDG_CONFIG_HOME/hyper
