@@ -105,16 +105,18 @@ set tabstop=2
 
 "KEYBINDINGS 
 let mapleader = "\<Space>"
-nnoremap <leader>s :Sexplore<CR>
-nnoremap <leader>v :Vexplore<CR>
+nnoremap <leader>se :Sexplore<CR>
+nnoremap <leader>ve :Vexplore<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>ts :term<CR>
-nnoremap <leader>tv :vert term<CR>
+nnoremap <leader>st :term<CR>
+nnoremap <leader>vt :vert term<CR>
 nnoremap <leader>gs :G<CR>
-nnoremap <leader>f :GFiles<CR>
-nnoremap <Leader>c :Commands<CR>
-nnoremap <Leader>a :Ag<CR>
-nmap <leader>d <Plug>(ale_fix)
+nnoremap <leader>t :GFiles<CR>
+nnoremap <Leader>p :Commands<CR>
+nnoremap <Leader>/ :Ag<CR>
+nnoremap <Leader>f :ALEFix<CR>
+nnoremap <Leader>sd :ALEGoToDefinitionInSplit<CR>
+nnoremap <Leader>vd :ALEGoToDefinitionInVSplit<CR>
