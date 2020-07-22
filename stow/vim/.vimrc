@@ -48,8 +48,8 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'sheerun/vim-polyglot'
 	Plug 'jszakmeister/vim-togglecursor'
 	Plug 'itchyny/lightline.vim'
-	" Plug 'millermedeiros/vim-statline'
-	Plug 'arcticicestudio/nord-vim'
+	Plug 'morhetz/gruvbox'
+	" Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 "VIM CUSTOMISATION
@@ -76,10 +76,18 @@ set noshowmode
 " set colorcolumn=80
 
 "colorscheme
-colorscheme nord
+set termguicolors
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+     \ 'colorscheme': 'gruvbox',
+     \ }
+
+" colorscheme nord
+" let g:lightline = {
+"       \ 'colorscheme': 'nord',
+"       \ }
 
 "force cursor underline
 set cursorline
