@@ -12,16 +12,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 "PLUG-IN CONFIG
-"coc.nvim
-" let g:coc_global_extensions = [
-" 	\ 'coc-tsserver',
-" 	\ 'coc-prettier',
-" 	\ 'coc-git',
-" 	\ 'coc-yaml',
-" 	\ 'coc-tsserver',
-" 	\ 'coc-json'
-" 	\ ]
-
 "ale
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_fixers = {
@@ -49,7 +39,6 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'jszakmeister/vim-togglecursor'
 	Plug 'itchyny/lightline.vim'
 	Plug 'morhetz/gruvbox'
-	" Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 "VIM CUSTOMISATION
