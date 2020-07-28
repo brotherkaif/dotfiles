@@ -32,6 +32,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
+	Plug 'junegunn/goyo.vim'
 	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'dense-analysis/ale'
 	Plug 'rhlobo/vim-super-retab'
