@@ -33,13 +33,11 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'junegunn/goyo.vim'
-	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'dense-analysis/ale'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'millermedeiros/vim-statline'
 	Plug 'jszakmeister/vim-togglecursor'
-	Plug 'itchyny/lightline.vim'
-	Plug 'morhetz/gruvbox'
 call plug#end()
 
 "VIM CUSTOMISATION
@@ -62,29 +60,8 @@ syntax enable
 set nowrap
 set noshowmode
 
-"column
-" set colorcolumn=80
-
-"colorscheme
-set termguicolors
-set background=dark
-colorscheme gruvbox
-let g:lightline = {
-     \ 'colorscheme': 'gruvbox',
-     \ }
-
-" colorscheme nord
-" let g:lightline = {
-"       \ 'colorscheme': 'nord',
-"       \ }
-
 "force cursor underline
 set cursorline
-" hi clear CursorLine
-" hi CursorLine gui=underline cterm=underline
-
-" au VimEnter * highlight clear SignColumn
-" set ruler
 
 "searching
 set incsearch
@@ -93,8 +70,6 @@ set showmatch
 
 "indentation behaviour
 set noexpandtab
-" set copyindent
-" set preserveindent
 set smartindent
 set softtabstop=0
 set shiftwidth=2
