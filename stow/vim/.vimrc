@@ -58,7 +58,6 @@ set relativenumber
 "display
 syntax enable
 set nowrap
-set noshowmode
 
 "force cursor underline
 set cursorline
