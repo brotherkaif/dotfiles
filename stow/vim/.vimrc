@@ -76,18 +76,30 @@ set tabstop=2
 
 "KEYBINDINGS 
 let mapleader = "\<Space>"
+"horizontal/vertical explore
 nnoremap <leader>se :Sexplore<CR>
 nnoremap <leader>ve :Vexplore<CR>
+"horizontal/vertical terminal
+nnoremap <leader>st :term<CR>
+nnoremap <leader>vt :vert term<CR>
+"terminal pane normal mode
+tnoremap <Esc> <C-W>N
+"new tab
+nnoremap <Leader>nt :tabnew<CR>
+"navigate panes
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>st :term<CR>
-nnoremap <leader>vt :vert term<CR>
+"git status
 nnoremap <leader>gs :G<CR>
+"target file
 nnoremap <leader>t :GFiles<CR>
+"command palatte
 nnoremap <Leader>p :Commands<CR>
+"search files
 nnoremap <Leader>/ :Ag<CR>
+"fix linting errors
 nnoremap <Leader>f :ALEFix<CR>
 nnoremap <Leader>sd :ALEGoToDefinitionInSplit<CR>
 nnoremap <Leader>vd :ALEGoToDefinitionInVSplit<CR>
