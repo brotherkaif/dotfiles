@@ -12,17 +12,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 "PLUG-IN CONFIG
-"ale
-let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
-let g:ale_fixers = {
-	\    'javascript': ['eslint'],
-	\    'typescriptreact': ['eslint'],
-	\    'typescript': ['eslint'],
-	\    'json': ['eslint'],
-	\}
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_completion_enabled=1
-set omnifunc=ale#completion#OmniFunc
+"coc.nvim
+let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier']
 
 "ultisnips
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -36,13 +27,11 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'dense-analysis/ale'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
-	Plug 'dense-analysis/ale'
-	Plug 'junegunn/goyo.vim'
-	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'jszakmeister/vim-togglecursor'
 call plug#end()
@@ -65,6 +54,7 @@ set relativenumber
 "display
 syntax enable
 set nowrap
+highlight Pmenu ctermfg=white ctermbg=black guibg=black
 
 "force cursor underline
 set cursorline
@@ -109,7 +99,7 @@ nnoremap <Leader>/ :Ag<CR>
 "snippets library
 nnoremap <Leader>s :Snippets<CR>
 "correct errors
-nnoremap <Leader>c :ALEFix<CR>
+nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
 "go to definition
 nnoremap <Leader>d :ALEGoToDefinition -tab<CR>
 nnoremap <Leader>sd :ALEGoToDefinition -split<CR>
