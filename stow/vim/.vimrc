@@ -24,6 +24,10 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled=1
 set omnifunc=ale#completion#OmniFunc
 
+"ultisnips
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 "PLUG-IN LIST
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-sensible'
@@ -32,8 +36,11 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'junegunn/goyo.vim'
 	Plug 'dense-analysis/ale'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'dense-analysis/ale'
+	Plug 'junegunn/goyo.vim'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'millermedeiros/vim-statline'
@@ -92,13 +99,15 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 "git status
-nnoremap <leader>gs :G<CR>
+nnoremap <leader>g :G<CR>
 "target file
 nnoremap <leader>f :GFiles<CR>
 "command palatte
 nnoremap <Leader>p :Commands<CR>
 "search files
 nnoremap <Leader>/ :Ag<CR>
+"snippets library
+nnoremap <Leader>s :Snippets<CR>
 "correct errors
 nnoremap <Leader>c :ALEFix<CR>
 "go to definition
