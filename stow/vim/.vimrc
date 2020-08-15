@@ -28,8 +28,10 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	" Plug 'SirVer/ultisnips'
-	" Plug 'honza/vim-snippets'
+	Plug 'MarcWeber/vim-addon-mw-utils' "(snipmate dependency)
+  Plug 'tomtom/tlib_vim' "(snipmate dependency)
+  Plug 'garbas/vim-snipmate'
+	Plug 'honza/vim-snippets'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
@@ -93,7 +95,5 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <Leader>p :Commands<CR>
 "search files
 nnoremap <Leader>/ :Ag<CR>
-"snippets library
-nnoremap <Leader>s :Snippets<CR>
 "correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
