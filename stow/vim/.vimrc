@@ -28,8 +28,8 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
+	" Plug 'SirVer/ultisnips'
+	" Plug 'honza/vim-snippets'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
@@ -43,9 +43,6 @@ set noerrorbells
 "disable backup and swp files
 set noswapfile
 set nobackup
-
-"undo configuration
-set undodir=$HOME/.vim/undodir
 
 "line numbers
 set number
@@ -100,7 +97,3 @@ nnoremap <Leader>/ :Ag<CR>
 nnoremap <Leader>s :Snippets<CR>
 "correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
-"go to definition
-nnoremap <Leader>d :ALEGoToDefinition -tab<CR>
-nnoremap <Leader>sd :ALEGoToDefinition -split<CR>
-nnoremap <Leader>vd :ALEGoToDefinition -vsplit<CR>
