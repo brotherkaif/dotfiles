@@ -97,3 +97,9 @@ nnoremap <Leader>p :Commands<CR>
 nnoremap <Leader>/ :Ag<CR>
 "correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
+"go to definition
+" GoTo code navigation.
+nnoremap <leader>d <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
