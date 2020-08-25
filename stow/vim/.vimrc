@@ -87,19 +87,17 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
-"git status
-nnoremap <leader>g :G<CR>
-"target file
-nnoremap <leader>f :GFiles<CR>
+"git branch status
+nnoremap <leader>b :G<CR>
 "command palatte
 nnoremap <Leader>p :Commands<CR>
 "search files
 nnoremap <Leader>/ :Ag<CR>
 "correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
-"go to definition
-" GoTo code navigation.
-nnoremap <leader>d <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+" navigation
+nnoremap <leader>gf :GFiles<CR>
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
