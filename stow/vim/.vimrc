@@ -29,8 +29,8 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'junegunn/fzf.vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'MarcWeber/vim-addon-mw-utils' "(snipmate dependency)
-  Plug 'tomtom/tlib_vim' "(snipmate dependency)
-  Plug 'garbas/vim-snipmate'
+	Plug 'tomtom/tlib_vim' "(snipmate dependency)
+	Plug 'garbas/vim-snipmate'
 	Plug 'honza/vim-snippets'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
@@ -81,7 +81,7 @@ nnoremap <leader>t :tabnew<CR>:term<CR><C-W>N:wincmd j<CR>:q<CR><insert>
 nnoremap <leader>st :term<CR>
 nnoremap <leader>vt :vert term<CR>
 "terminal pane normal mode
-tnoremap <Esc> <C-W>N
+" tnoremap <Esc> <C-W>N
 "navigate panes
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
