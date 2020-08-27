@@ -47,10 +47,6 @@ install_debian_packages () {
 		echo -e "\e[43;30m tree \e[0m"
 		sudo apt install tree -y
 
-		# htop
-		echo -e "\e[43;30m htop \e[0m"
-		sudo apt install htop -y
-
 		# git
 		echo -e "\e[43;30m git \e[0m"
 		sudo apt install git -y
@@ -105,14 +101,6 @@ install_debian_packages () {
 		# toilet
 		echo -e "\e[43;30m toilet \e[0m"
 		sudo apt install toilet -y
-
-		# mplayer
-		echo -e "\e[43;30m mplayer \e[0m"
-		sudo apt install mplayer -y
-
-		# cool-retro-term
-		echo -e "\e[43;30m cool-retro-term \e[0m"
-		sudo snap install cool-retro-term --classic
 
 		# ---------------------------------------------
 		# Cleanup
