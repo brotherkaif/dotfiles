@@ -88,7 +88,7 @@ export PS1="\e[0m\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[
 # export PS1="\e[41;30m T \e[0m\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\n >\[\e[m\] "
 
 #appimage aliases
-alias vim='~/.apps/vim/vim.appimage'
+# alias vim='~/.apps/vim/vim.appimage'
 
 #convenience aliases
 alias ll='ls -la'

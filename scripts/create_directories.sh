@@ -1,5 +1,5 @@
 #!/bin/bash
-echo -e "\e[43;30m S Y M L I N K I N G \e[0m"
+echo -e "\e[43;30m D I R E C T O R I E S \e[0m"
 
 create_directories() {
 	echo "This script will create directories in home."
