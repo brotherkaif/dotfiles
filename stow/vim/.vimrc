@@ -13,7 +13,7 @@ endif
 
 "PLUG-IN CONFIG
 "coc.nvim
-let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier']
+let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-emmet', 'coc-prettier']
 
 "ultisnips
 let g:UltiSnipsJumpForwardTrigger="<tab>"
