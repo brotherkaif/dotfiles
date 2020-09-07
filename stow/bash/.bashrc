@@ -27,7 +27,6 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 #ENV VARIABLES
-# export TERM="xterm"
 export MYVIMRC="$HOME/.vimrc"
 
 #NVM SETUP
@@ -88,7 +87,6 @@ export PS1="\e[0m\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[
 # export PS1="\e[41;30m T \e[0m\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[31m\]\n >\[\e[m\] "
 
 #appimage aliases
-alias vim='~/.apps/vim/vim.appimage'
 
 #convenience aliases
 alias ll='ls -la'
@@ -101,3 +99,7 @@ alias gaa='git add .'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
+
+#linux config
+alias vim='~/.apps/vim/vim.appimage'
+export TERM="xterm"

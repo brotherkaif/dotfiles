@@ -47,10 +47,6 @@ install_debian_packages () {
 		echo -e "\e[43;30m tree \e[0m"
 		sudo apt install tree -y
 
-		# htop
-		echo -e "\e[43;30m htop \e[0m"
-		sudo apt install htop -y
-
 		# git
 		echo -e "\e[43;30m git \e[0m"
 		sudo apt install git -y
@@ -59,10 +55,19 @@ install_debian_packages () {
 		echo -e "\e[43;30m tmux \e[0m"
 		sudo apt install tmux -y
 
+		# ffmpeg
+		echo -e "\e[43;30m ffmpeg \e[0m"
+		sudo apt install ffmpeg -y
+
 		# ---------------------------------------------
 		# Applications
 		# ---------------------------------------------
 		echo -e "\e[43;30m APPLICATIONS \e[0m"
+
+		# vim
+		echo -e "\e[43;30m docker \e[0m"
+		wget https://github.com/vim/vim-appimage/releases/download/v8.2.1145/GVim-v8.2.1145.glibc2.15-x86_64.AppImage && mkdir ~/.apps/vim && mv GVim-v8.2.1145.glibc2.15-x86_64.AppImage ~/.apps/vim/vim.appimage
+		chmod +x ~/.apps/vim/vim.appimage
 
 		# docker
 		echo -e "\e[43;30m docker \e[0m"
@@ -105,14 +110,6 @@ install_debian_packages () {
 		# toilet
 		echo -e "\e[43;30m toilet \e[0m"
 		sudo apt install toilet -y
-
-		# mplayer
-		echo -e "\e[43;30m mplayer \e[0m"
-		sudo apt install mplayer -y
-
-		# cool-retro-term
-		echo -e "\e[43;30m cool-retro-term \e[0m"
-		sudo snap install cool-retro-term --classic
 
 		# ---------------------------------------------
 		# Cleanup
