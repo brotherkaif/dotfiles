@@ -16,8 +16,8 @@ if [ -f "/google/devshell/bashrc.google" ]; then
 fi
 
 # MOTD
-clear
-echo -e "\e[41;30m T E R M I N A L \e[0m"
+# clear
+# echo -e "\e[41;30m T E R M I N A L \e[0m"
 
 # XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"
