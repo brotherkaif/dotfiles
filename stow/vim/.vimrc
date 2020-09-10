@@ -60,7 +60,7 @@ set cursorline
 
 "searching
 set incsearch
-set hlsearch
+" set hlsearch
 set showmatch
 
 "indentation behaviour
@@ -80,13 +80,6 @@ nnoremap <leader>ve :Vexplore<CR>
 nnoremap <leader>t :tabnew<CR>:term<CR><C-W>N:wincmd j<CR>:q<CR><insert>
 nnoremap <leader>st :term<CR>
 nnoremap <leader>vt :vert term<CR>
-"terminal pane normal mode
-" tnoremap <Esc> <C-W>N
-"navigate panes
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
 "git branch status
 nnoremap <leader>b :G<CR>
 "command palatte
@@ -96,8 +89,11 @@ nnoremap <Leader>/ :Ag<CR>
 "correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
 " navigation
-nnoremap <leader>gf :GFiles<CR>
+nnoremap <leader>P :GFiles<CR>
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
+" multi-cursor
+nmap <silent> <leader>d <Plug>(coc-cursors-word)*
+xmap <silent> <leader>d y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
