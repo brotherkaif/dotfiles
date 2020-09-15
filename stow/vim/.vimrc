@@ -51,6 +51,7 @@ set number
 set relativenumber
 
 "display
+set background=dark
 syntax enable
 set nowrap
 highlight Pmenu ctermfg=white ctermbg=black guibg=black

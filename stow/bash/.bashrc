@@ -7,12 +7,16 @@
 # GOOGLE CLOUD SHELL
 ## if not running interactively, return
 case $- in
-    *i*) ;;
-      *) return;;
+		*i*) ;;
+			*) return;;
 esac
 ## source config
 if [ -f "/google/devshell/bashrc.google" ]; then
-  source "/google/devshell/bashrc.google"
+	source "/google/devshell/bashrc.google"
+fi
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+			tmux -2 attach -t default || tmux -2 new -s default
 fi
 
 # MOTD
@@ -96,6 +100,9 @@ alias gaa='git add .'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
+
+# app aliases
+alias tmux='tmux -2'
 
 # linux config
 # alias vim='~/.apps/vim/vim.appimage'
