@@ -21,6 +21,11 @@ install_debian_packages () {
 		echo -e "\e[43;30m upgrade \e[0m"
 		sudo apt upgrade -y
 
+		# clone git prompt
+		mkdir ~/.apps/git-prompt 
+		git clone https://github.com/magicmonty/bash-git-prompt.git ~/.apps/git-prompt/bash --depth=1
+		git clone https://github.com/olivierverdier/zsh-git-prompt.git ~/.apps/git-prompt/zsh --depth=1
+
 		# ---------------------------------------------
 		# Programming Languages and Frameworks
 		# ---------------------------------------------
