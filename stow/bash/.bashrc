@@ -22,10 +22,10 @@ fi
 
 # GIT PROMPT
 if [ -f "$HOME/.apps/git-prompt/bash/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=0
+		GIT_PROMPT_ONLY_IN_REPO=0
 		GIT_PROMPT_FETCH_REMOTE_STATUS=0
 		GIT_PROMPT_THEME=Solarized_NoExitState
-    source $HOME/.apps/git-prompt/bash/gitprompt.sh
+		source $HOME/.apps/git-prompt/bash/gitprompt.sh
 fi
 
 # HISTORY TOGGLE
