@@ -22,13 +22,11 @@ fi
 
 # GIT PROMPT
 if [ -f "$HOME/.apps/git-prompt/bash/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_ONLY_IN_REPO=0
+		GIT_PROMPT_FETCH_REMOTE_STATUS=0
+		GIT_PROMPT_THEME=Solarized_NoExitState
     source $HOME/.apps/git-prompt/bash/gitprompt.sh
 fi
-
-# MOTD
-# clear
-# echo -e "\e[41;30m T E R M I N A L \e[0m"
 
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace
@@ -47,10 +45,6 @@ export MYVIMRC="$HOME/.vimrc"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# PROMPT
-# export prompt
-export PS1="\A \\$ "
 
 # convenience aliases
 alias ll='ls -la'
