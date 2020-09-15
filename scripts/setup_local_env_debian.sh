@@ -52,6 +52,10 @@ install_debian_packages () {
 		echo -e "\e[43;30m tree \e[0m"
 		sudo apt install tree -y
 
+		# htop
+		echo -e "\e[43;30m htop \e[0m"
+		sudo apt install htop -y
+
 		# git
 		echo -e "\e[43;30m git \e[0m"
 		sudo apt install git -y
@@ -70,7 +74,7 @@ install_debian_packages () {
 		echo -e "\e[43;30m APPLICATIONS \e[0m"
 
 		# vim
-		echo -e "\e[43;30m docker \e[0m"
+		echo -e "\e[43;30m vim \e[0m"
 		wget https://github.com/vim/vim-appimage/releases/download/v8.2.1145/GVim-v8.2.1145.glibc2.15-x86_64.AppImage && mkdir ~/.apps/vim && mv GVim-v8.2.1145.glibc2.15-x86_64.AppImage ~/.apps/vim/vim.appimage
 		chmod +x ~/.apps/vim/vim.appimage
 
@@ -83,16 +87,6 @@ install_debian_packages () {
 		# docker compose
 		echo -e "\e[43;30m docker compose \e[0m"
 		sudo apt install docker-compose -y
-
-		# vscode
-		echo -e "\e[43;30m vs-code \e[0m"
-		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-		sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-		sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-		sudo apt-get install apt-transport-https
-		sudo apt-get update
-		sudo apt-get install code
-		code --install-extension Shan.code-settings-sync
 
 		# brave
 		echo -e "\e[43;30m brave \e[0m"
