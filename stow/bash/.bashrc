@@ -23,6 +23,9 @@ fi
 # clear
 # echo -e "\e[41;30m T E R M I N A L \e[0m"
 
+# HISTORY TOGGLE
+export HISTCONTROL=ignorespace
+
 # XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
