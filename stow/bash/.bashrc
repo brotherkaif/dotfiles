@@ -17,6 +17,7 @@ if [ -f "/google/devshell/bashrc.google" ]; then
 	source "/google/devshell/bashrc.google"
 fi
 
+# TMUX AUTO LOAD
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 	tmux -2 attach -t default || tmux -2 new -s default
 fi
