@@ -4,6 +4,7 @@
 # _| |_) | (_| \__ \ | | | | | (__
 #(_)_.__/ \__,_|___/_| |_|_|  \___|
 #==================================
+
 # GOOGLE CLOUD SHELL
 ## if not running interactively, return
 case $- in
@@ -17,15 +18,18 @@ if [ -f "/google/devshell/bashrc.google" ]; then
 fi
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-			tmux -2 attach -t default || tmux -2 new -s default
+	tmux -2 attach -t default || tmux -2 new -s default
 fi
+
+# MOTD
+echo -e "\e[41;30m T E R M I N A L \e[0m"
 
 # GIT PROMPT
 if [ -f "$HOME/.apps/git-prompt/bash/gitprompt.sh" ]; then
-		GIT_PROMPT_ONLY_IN_REPO=0
-		GIT_PROMPT_FETCH_REMOTE_STATUS=0
-		GIT_PROMPT_THEME=Solarized_NoExitState
-		source $HOME/.apps/git-prompt/bash/gitprompt.sh
+	GIT_PROMPT_ONLY_IN_REPO=0
+	GIT_PROMPT_FETCH_REMOTE_STATUS=0
+	GIT_PROMPT_THEME=Solarized_NoExitState
+	source $HOME/.apps/git-prompt/bash/gitprompt.sh
 fi
 
 # HISTORY TOGGLE
@@ -62,4 +66,3 @@ alias tmux='tmux -2'
 
 # linux config
 # alias vim='~/.apps/vim/vim.appimage'
-# export TERM="xterm"
