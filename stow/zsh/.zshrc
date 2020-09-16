@@ -20,7 +20,7 @@ echo -e "\e[41;30m T E R M I N A L \e[0m"
 # GIT PROMPT
 if [ -f "$HOME/.apps/git-prompt/zsh/zshrc.sh" ]; then
 	source $HOME/.apps/git-prompt/zsh/zshrc.sh
-	PROMPT="%~ $(git_super_status)"$'\n'"%T %"
+	PROMPT="%~ $(git_super_status)"$'\n'"%T %# "
 fi
 
 # HISTORY TOGGLE
