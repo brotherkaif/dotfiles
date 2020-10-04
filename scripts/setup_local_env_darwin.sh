@@ -77,6 +77,10 @@ install_darwin_packages () {
 		# ---------------------------------------------
 		echo -e "\e[43;30m APPLICATIONS \e[0m"
 
+		# neovim
+		echo -e "\e[43;30m neovim \e[0m"
+		brew install neovim
+
 		# docker
 		echo -e "\e[43;30m docker \e[0m"
 		brew install docker
