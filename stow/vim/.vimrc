@@ -96,6 +96,3 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
-" multi-cursor
-nmap <silent> <leader>d <Plug>(coc-cursors-word)*
-xmap <silent> <leader>d y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
