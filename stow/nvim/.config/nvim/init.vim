@@ -13,7 +13,7 @@ endif
 
 "PLUG-IN CONFIG
 "coc.nvim
-let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier']
+" let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier']
 
 "ultisnips
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -26,13 +26,13 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
-	Plug 'jszakmeister/vim-togglecursor'
+	" Plug 'jszakmeister/vim-togglecursor'
 call plug#end()
 
 "VIM CUSTOMISATION
@@ -74,22 +74,17 @@ nnoremap <leader>ve :Vexplore<CR>
 " nnoremap <leader>t :tabnew<CR>:term<CR><C-W>N:wincmd j<CR>:q<CR><insert>
 " nnoremap <leader>st :term<CR>
 " nnoremap <leader>vt :vert term<CR>
-"terminal pane normal mode
-" tnoremap <Esc> <C-W>N
-"navigate panes
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-"git status
-nnoremap <leader>g :G<CR>
-"target file
-nnoremap <leader>f :GFiles<CR>
+"git branch status
+nnoremap <leader>b :G<CR>
 "command palatte
 nnoremap <Leader>p :Commands<CR>
 "search files
 nnoremap <Leader>/ :Ag<CR>
-"snippets library
-nnoremap <Leader>s :Snippets<CR>
 "correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
+" navigation
+nnoremap <leader>P :GFiles<CR>
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
