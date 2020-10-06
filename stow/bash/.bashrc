@@ -23,7 +23,7 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 # MOTD
-echo -e "\e[41;30m T E R M I N A L \e[0m"
+echo -e "\e[43;30m T E R M I N A L \e[0m"
 
 # GIT PROMPT
 if [ -f "$HOME/.apps/git-prompt/bash/gitprompt.sh" ]; then
