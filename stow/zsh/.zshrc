@@ -15,7 +15,7 @@ fi
 
 # MOTD
 clear
-echo -e "\e[41;30m T E R M I N A L \e[0m"
+echo -e "\e[43;30m T E R M I N A L \e[0m"
 
 # GIT PROMPT
 if [ -f "$HOME/.apps/git-prompt/zsh/zshrc.sh" ]; then
