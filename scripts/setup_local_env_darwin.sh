@@ -81,6 +81,10 @@ install_darwin_packages () {
 		echo -e "\e[43;30m neovim \e[0m"
 		brew install neovim
 
+		# github cli
+		echo -e "\e[43;30m github cli \e[0m"
+		brew install gh
+
 		# docker
 		echo -e "\e[43;30m docker \e[0m"
 		brew install docker

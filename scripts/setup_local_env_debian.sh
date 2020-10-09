@@ -88,6 +88,13 @@ install_debian_packages () {
 		curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 		chmod u+x nvim.appimage
 
+		# github cli
+		echo -e "\e[43;30m github cli \e[0m"
+		sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+		sudo apt-add-repository https://cli.github.com/packages
+		sudo apt update
+		sudo apt install gh
+
 		# docker
 		echo -e "\e[43;30m docker \e[0m"
 		sudo apt install docker -y
