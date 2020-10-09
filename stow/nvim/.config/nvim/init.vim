@@ -38,7 +38,9 @@ call plug#end()
 
 " LSP CONFIG
 " Javascipt/TypeScript
-lua require'nvim_lsp'.tsserver.setup{}
+lua << END
+  require'nvim_lsp'.tsserver.setup{}
+END
 
 " VIM CUSTOMISATION
 " disable annoying stuff
@@ -53,9 +55,10 @@ set number
 set relativenumber
 
 " display
+colorscheme desert
 " syntax enable
 " set nowrap
-highlight Pmenu ctermfg=white ctermbg=black guibg=black
+" highlight Pmenu ctermfg=white ctermbg=black guibg=black
 
 " interface
 set showmatch
@@ -72,25 +75,26 @@ set tabstop=2
 " KEYBINDINGS 
 let mapleader = "\<Space>"
 " explore
-nnoremap <leader>e :tabnew<CR>:Explore<CR>
+nnoremap <leader>ne :tabnew<CR>:Explore<CR>
 nnoremap <leader>se :Sexplore<CR>
 nnoremap <leader>ve :Vexplore<CR>
 " terminal
 tnoremap <Esc> <C-\><C-n>
-nnoremap <leader>t :tabnew<CR>:term<CR>
+nnoremap <leader>nt :tabnew<CR>:term<CR>
 nnoremap <leader>st :split<CR>:term<CR>
 nnoremap <leader>vt :vsplit<CR>:term<CR>
 " git branch status
 nnoremap <leader>b :G<CR>
 "command palatte
-nnoremap <Leader>p :Commands<CR>
+nnoremap <Leader>P :Commands<CR>
 " search files
 nnoremap <Leader>/ :Ag<CR>
 " correct errors
 nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
 " navigation
-nnoremap <leader>P :GFiles<CR>
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gt <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>t :GFiles<CR>
+" nmap <silent> <leader>gd <Plug>(coc-definition)
+" nmap <silent> <leader>gt <Plug>(coc-type-definition)
+" nmap <silent> <leader>gi <Plug>(coc-implementation)
+" nmap <silent> <leader>gr <Plug>(coc-references)
