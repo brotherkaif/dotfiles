@@ -36,6 +36,7 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'jszakmeister/vim-togglecursor'
+	Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " VIM CUSTOMISATION

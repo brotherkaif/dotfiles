@@ -35,6 +35,7 @@ call plug#begin()
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
 	" Plug 'jszakmeister/vim-togglecursor'
+	Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " LSP CONFIG
