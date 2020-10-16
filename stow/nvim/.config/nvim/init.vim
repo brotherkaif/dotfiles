@@ -22,6 +22,7 @@ endif
 " PLUG-IN LIST
 call plug#begin()
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'nvim-lua/completion-nvim'
 	Plug 'tpope/vim-vinegar'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-fugitive'
@@ -37,10 +38,9 @@ call plug#begin()
 call plug#end()
 
 " LSP CONFIG
+lua require("lsp_config")
+
 " Javascipt/TypeScript
-lua << END
-  require'nvim_lsp'.tsserver.setup{}
-END
 
 " VIM CUSTOMISATION
 " disable annoying stuff
@@ -55,7 +55,7 @@ set number
 set relativenumber
 
 " display
-colorscheme desert
+" colorscheme desert
 " syntax enable
 " set nowrap
 " highlight Pmenu ctermfg=white ctermbg=black guibg=black
@@ -98,3 +98,5 @@ nnoremap <leader>t :GFiles<CR>
 " nmap <silent> <leader>gt <Plug>(coc-type-definition)
 " nmap <silent> <leader>gi <Plug>(coc-implementation)
 " nmap <silent> <leader>gr <Plug>(coc-references)
+" non-flush paste
+vnoremap <leader>p "_dP

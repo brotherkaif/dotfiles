@@ -51,7 +51,6 @@ set number
 set relativenumber
 
 " display
-colorscheme desert
 set background=dark
 syntax enable
 set nowrap
@@ -97,3 +96,5 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
+" non-flush paste
+vnoremap <leader>p "_dP
