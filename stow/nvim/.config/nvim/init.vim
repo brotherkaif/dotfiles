@@ -19,6 +19,13 @@ endif
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" goyo/limelight
+let g:limelight_conceal_ctermfg = 'DarkGray'
+let g:limelight_conceal_guifg = 'DarkGray'
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " PLUG-IN LIST
 call plug#begin()
 	Plug 'neovim/nvim-lspconfig'
@@ -36,6 +43,7 @@ call plug#begin()
 	Plug 'millermedeiros/vim-statline'
 	" Plug 'jszakmeister/vim-togglecursor'
 	Plug 'junegunn/goyo.vim'
+	Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " LSP CONFIG
@@ -56,6 +64,7 @@ set number
 set relativenumber
 
 " display
+set background=light
 " colorscheme desert
 " syntax enable
 " set nowrap
