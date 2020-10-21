@@ -17,11 +17,8 @@ fi
 clear
 echo -e "\e[43;30m T E R M I N A L \e[0m"
 
-# GIT PROMPT
-if [ -f "$HOME/.apps/git-prompt/zsh/zshrc.sh" ]; then
-	source $HOME/.apps/git-prompt/zsh/zshrc.sh
-	PROMPT="%~ $(git_super_status)"$'\n'"%T %# "
-fi
+# PROMPT
+PROMPT="%F{red}%~"$'\n'"%F{blue}%#%F "
 
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace

@@ -25,13 +25,9 @@ fi
 # MOTD
 echo -e "\e[43;30m T E R M I N A L \e[0m"
 
-# GIT PROMPT
-if [ -f "$HOME/.apps/git-prompt/bash/gitprompt.sh" ]; then
-	GIT_PROMPT_ONLY_IN_REPO=0
-	GIT_PROMPT_FETCH_REMOTE_STATUS=0
-	GIT_PROMPT_THEME=Solarized_NoExitState
-	source $HOME/.apps/git-prompt/bash/gitprompt.sh
-fi
+# PROMPT
+# export PS1="\[\e[31m\]\w\[\e[m\]\[\e[34m\]\n\\$ "
+export PS1="\[\e[31m\]\w\[\e[m\]\[\e[34m\]\n\\$\[\e[39m\] "
 
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace
