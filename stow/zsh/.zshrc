@@ -18,7 +18,7 @@ clear
 echo -e "\e[43;30m T E R M I N A L \e[0m"
 
 # PROMPT
-PROMPT="%F{red}%~"$'\n'"%F{blue}%#%F "
+PROMPT="%F{red}%~"$'\n'"%F{blue}%#%f "
 
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace
