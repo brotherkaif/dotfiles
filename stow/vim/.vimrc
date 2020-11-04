@@ -51,6 +51,7 @@ set number
 set relativenumber
 
 " display
+colorscheme desert
 set background=light
 syntax enable
 set nowrap
