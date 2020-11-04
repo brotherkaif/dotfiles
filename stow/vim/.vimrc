@@ -19,13 +19,6 @@ let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-e
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" goyo/limelight
-let g:limelight_conceal_ctermfg = 'DarkGray'
-let g:limelight_conceal_guifg = 'DarkGray'
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
 " PLUG-IN LIST
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'tpope/vim-sensible'
@@ -43,8 +36,6 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
 	Plug 'jszakmeister/vim-togglecursor'
-	Plug 'junegunn/goyo.vim'
-	Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " VIM CUSTOMISATION
