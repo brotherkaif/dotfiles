@@ -51,9 +51,8 @@ set number
 set relativenumber
 
 " display
-colorscheme desert
-set background=light
 syntax enable
+set background=dark
 set nowrap
 
 " force cursor underline
