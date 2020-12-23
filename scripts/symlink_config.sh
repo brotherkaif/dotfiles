@@ -53,6 +53,13 @@ symlink_files () {
 		stow -t $HOME --no-folding gcs
 		echo "...done!"
 
+		echo -e "\e[43;30m git \e[0m"
+		echo "Tidying up existing git config..."
+		rm -rf $HOME/.gitconfig
+		echo "Symlinking git..."
+		stow -t $HOME --no-folding git
+		echo "...done!"
+
 		echo -e "\e[43;30m alacritty \e[0m"
 		echo "Tidying up existing alacritty config..."
 		rm -rf $XDG_CONFIG_HOME/alacritty
