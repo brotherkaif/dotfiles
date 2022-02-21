@@ -1,34 +1,18 @@
 require('telescope').setup({
-    pickers = {
-	find_files = {
-	    disable_devicons = true,
+    defaults = {
+	hidden = true,
+	layout_strategy = 'flex',
+	sorting_strategy = 'ascending',
+	layout_config = {
+	    prompt_position = 'top',
 	},
-	git_files = {
-	    disable_devicons = true,
-	},
-	current_buffer_fuzzy_find = {
-	    sorting_strategy = 'ascending',
-
-	    layout_config = {
-		prompt_position = 'top'
-	    },
-	},
-	live_grep = {
-	    sorting_strategy = 'ascending',
-
-	    layout_config = {
-		prompt_position = 'top'
-	    },
-	},
+	color_devicons = false,
     },
+
     extensions = {
 	file_browser = {
 	    dir_icon = '›',
 	    grouped = true,
-	    sorting_strategy = 'ascending',
-	    layout_config = {
-		prompt_position = 'top'
-	    },
 	},
     },
 })
