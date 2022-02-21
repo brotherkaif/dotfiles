@@ -8,7 +8,7 @@ vim.api.nvim_set_keymap('n', '[q', ':cp<CR>', opts) -- previous quick fix
 vim.api.nvim_set_keymap('n', ']q', ':cn<CR>', opts) -- next quick fix
 
 -- # LEADER BINDS
-vim.api.nvim_set_keymap('n', '<Leader>p', '<cmd>lua require("telescope.builtin").commands()<CR>', opts) -- command pallette
+vim.api.nvim_set_keymap('n', '<Leader>p', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
 vim.api.nvim_set_keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 

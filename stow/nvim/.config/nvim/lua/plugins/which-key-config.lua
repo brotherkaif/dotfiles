@@ -40,7 +40,7 @@ wk.register({
   -- # LEADER BINDS
   ['<leader>'] = {
     name = 'LEADER BINDS',
-    p = {'command pallette'},
+    p = {'telescope command pallette'},
     t = {'open terminal'},
 
     -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
