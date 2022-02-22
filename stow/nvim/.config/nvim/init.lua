@@ -14,15 +14,15 @@ if debug_mode==true then
   print('LOADING CONFIGS...')
 end
 
-require('options')
-require('lsp')
-require('binds')
-require('plugins')
-require('plugins/treesitter-config')
-require('plugins/telescope-config')
-require('plugins/nvim-cmp-config')
-require('plugins/formatter-config')
-require('plugins/which-key-config')
+require('user.options')
+require('user.lsp')
+require('user.binds')
+require('user.plugins')
+require('user.plugins/treesitter-config')
+require('user.plugins/telescope-config')
+require('user.plugins/nvim-cmp-config')
+require('user.plugins/formatter-config')
+require('user.plugins/which-key-config')
 
 if debug_mode==true then
   print('COMPLETED')
