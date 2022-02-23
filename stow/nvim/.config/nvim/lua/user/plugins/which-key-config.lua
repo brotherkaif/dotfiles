@@ -3,25 +3,27 @@ local wk = require('which-key')
 wk.register({
   -- # PREVIOUS
   ['['] = {
-    name = 'PREVIOUS',
-    q = {'quick fix'},
-    d = {'LSP: diagnostic'}, -- LSP
+	name = 'PREVIOUS',
+	b = {'buffer'},
+	q = {'quick fix'},
+	d = {'LSP: diagnostic'}, -- LSP
   },
 
   -- # NEXT
   [']'] = {
-    name = 'NEXT',
-    q = {'quick fix'},
-    d = {'LSP: diagnostic'}, -- LSP
+	name = 'NEXT',
+	b = {'buffer'},
+	q = {'quick fix'},
+	d = {'LSP: diagnostic'}, -- LSP
   },
 
   -- # GOTO
   ['g'] = {
-    name = 'GO TO',
-    D = {'LSP: declaration'}, -- LSP
-    d = {'LSP: definition'}, -- LSP
-    i = {'LSP: implementations'}, -- LSP
-    r = {'LSP: references'}, -- LSP
+	name = 'GO TO',
+	D = {'LSP: declaration'}, -- LSP
+	d = {'LSP: definition'}, -- LSP
+	i = {'LSP: implementations'}, -- LSP
+	r = {'LSP: references'}, -- LSP
   },
 
   -- # LSP
@@ -39,68 +41,74 @@ wk.register({
 
   -- # LEADER BINDS
   ['<leader>'] = {
-    name = 'LEADER BINDS',
-    p = {'telescope command pallette'},
-    t = {'open terminal'},
+	name = 'LEADER BINDS',
+	p = {'telescope command pallette'},
+	t = {'open terminal'},
 
-    -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
-    h = {'cursor left'},
-    j = {'cursor down'},
-    k = {'cursor up'},
-    l = {'cursor right'},
+	-- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
+	h = {'cursor left'},
+	j = {'cursor down'},
+	k = {'cursor up'},
+	l = {'cursor right'},
 
-    -- WINDOW MOVEMENT = `H` + `J` + `K` + `L`
-    H = {'window left'},
-    J = {'window down'},
-    K = {'window up'},
-    L = {'window right'},
+	-- WINDOW MOVEMENT = `H` + `J` + `K` + `L`
+	H = {'window left'},
+	J = {'window down'},
+	K = {'window up'},
+	L = {'window right'},
 
-    -- # GROUPED BINDS
-    -- BUFFERS = `b`
-    b = {
-      name = 'BUFFERS',
-      w = {'write buffer'},
-      r = {'reload buffer'},
-      z = {'toggle zen mode'},
-      m = {'maximise buffer window'},
-      e = {'equalise buffer windows'},
-      q = {'quit buffer'},
-      o = {'close other buffer windows'},
-      f = {'format buffer'},
-      s = {'toggle spellcheck'},
-      ['/'] = {'grep buffer'},
-    },
+	-- WINDOW RESIZE = `UP` + `DOWN` + `LEFT` + `RIGHT`
+	['<Up>'] = {'increase vertical size'},
+	['<Down>'] = {'decrease vertical size'},
+	['<Left>'] = {'decrease horizontal size'},
+	['<Right>'] = {'increase horizontal size'},
 
-    -- FILES = `f`
-    f = {
-      name = 'FILES',
-      f = {'find file'},
-      g = {'find git file'},
-      b = {'file browser (project directory)'},
-      d = {'file browser (current directory)'},
-      ['/'] = {'grep files'},
-    },
+	-- # GROUPED BINDS
+	-- BUFFERS = `b`
+	b = {
+	  name = 'BUFFERS',
+	  w = {'write buffer'},
+	  r = {'reload buffer'},
+	  z = {'toggle zen mode'},
+	  m = {'maximise buffer window'},
+	  e = {'equalise buffer windows'},
+	  q = {'quit buffer'},
+	  o = {'close other buffer windows'},
+	  f = {'format buffer'},
+	  s = {'toggle spellcheck'},
+	  ['/'] = {'grep buffer'},
+	},
 
-    -- GIT = `g`
-    g = {
-      name = 'GIT',
-      s = {'status'},
-      c = {'commit'},
-    },
+	-- FILES = `f`
+	f = {
+	  name = 'FILES',
+	  f = {'find file'},
+	  g = {'find git file'},
+	  b = {'file browser (project directory)'},
+	  d = {'file browser (current directory)'},
+	  ['/'] = {'grep files'},
+	},
 
-    -- INTERFACE = `i`
-    i = {
-      name = 'INTERFACE',
-      l = {'set light theme'},
-      d = {'set dark theme'},
-      n = {'toggle relative line numbers'},
-      c = {'toggle character display'},
-    },
+	-- GIT = `g`
+	g = {
+	  name = 'GIT',
+	  s = {'status'},
+	  c = {'commit'},
+	},
 
-    -- WORKSPACE = `w`
-    w = {
-      name = 'WORKSPACE',
-    },
+	-- INTERFACE = `i`
+	i = {
+	  name = 'INTERFACE',
+	  l = {'set light theme'},
+	  d = {'set dark theme'},
+	  n = {'toggle relative line numbers'},
+	  c = {'toggle character display'},
+	},
+
+	-- WORKSPACE = `w`
+	w = {
+	  name = 'WORKSPACE',
+	},
   },
 })
 
