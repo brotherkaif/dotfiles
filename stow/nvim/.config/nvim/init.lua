@@ -16,7 +16,7 @@ end
 
 require('user.options')
 require('user.lsp')
-require('user.binds')
+require('user.keymaps')
 require('user.plugins')
 require('user.plugins/treesitter-config')
 require('user.plugins/telescope-config')

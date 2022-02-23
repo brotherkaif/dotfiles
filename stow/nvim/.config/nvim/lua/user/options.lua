@@ -95,9 +95,6 @@ for _, command in ipairs(commands) do
 	vim.cmd(command)
 end
 
--- set <leader> = space
-vim.g.mapleader = ' '
-
 -- DEBUG
 if debug_mode==true then
 	print('- options.lua...OK!')
