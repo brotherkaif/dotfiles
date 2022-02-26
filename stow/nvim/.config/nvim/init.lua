@@ -14,15 +14,9 @@ if debug_mode==true then
   print('LOADING CONFIGS...')
 end
 
-require('user.options')
-require('user.lsp')
-require('user.keymaps')
 require('user.plugins')
-require('user.plugins/treesitter-config')
-require('user.plugins/telescope-config')
-require('user.plugins/nvim-cmp-config')
-require('user.plugins/formatter-config')
-require('user.plugins/which-key-config')
+require('user.options')
+require('user.keymaps')
 
 if debug_mode==true then
   print('COMPLETED')
