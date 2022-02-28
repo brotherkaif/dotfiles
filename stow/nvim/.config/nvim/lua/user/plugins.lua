@@ -79,9 +79,9 @@ return packer.startup(function(use)
 			{ 'hrsh7th/cmp-path' },
 			{ 'f3fora/cmp-spell' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
-			{ 'hrsh7th/cmp-vsnip' },
-			{ 'hrsh7th/vim-vsnip' },
-			{ 'hrsh7th/vim-vsnip-integ' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+			{ 'L3MON4D3/LuaSnip' },
+			{ 'saadparwaiz1/cmp_luasnip' },
 			{ 'rafamadriz/friendly-snippets' },
 		},
 		config = function() require('user.configs/cmp') end
