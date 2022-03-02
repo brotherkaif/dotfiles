@@ -80,8 +80,8 @@ return packer.startup(function(use)
 			{ 'f3fora/cmp-spell' },
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'hrsh7th/cmp-nvim-lua' },
-			{ 'L3MON4D3/LuaSnip' },
-			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-vsnip' },
+			{ 'hrsh7th/vim-vsnip' },
 			{ 'rafamadriz/friendly-snippets' },
 		},
 		config = function() require('user.configs/cmp') end
