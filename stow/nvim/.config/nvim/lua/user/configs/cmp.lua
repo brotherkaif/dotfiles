@@ -1,11 +1,11 @@
 local cmp = require('cmp')
+something = {}
+
+vim.api.nvim_set_keymap('i', '<C-k>', [[vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-k>']], {expr = true, noremap = false})
+vim.api.nvim_set_keymap('s', '<C-k>', [[vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-k>']], {expr = true, noremap = false})
 
 cmp.setup({
 	mapping = {
-		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-		['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-		['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-		['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-e>'] = cmp.mapping.close(),
@@ -20,14 +20,14 @@ cmp.setup({
 		{ name = 'nvim_lua' },
 		{ name = 'nvim_lsp' },
 		{ name = 'buffer', keyword_length = 5 },
-		{ name = 'luasnip' },
+		{ name = 'vsnip' },
 		{ name = 'path' },
 		{ name = 'spell' },
 	},
 
 	snippet = {
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
+		vim.fn["vsnip#anonymous"](args.body)
 		end
 	},
 
