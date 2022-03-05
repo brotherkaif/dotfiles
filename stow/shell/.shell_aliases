@@ -25,6 +25,7 @@ alias gco="git checkout"
 
 # APP ALIASES
 alias tmux="tmux -2"
+alias tms="tmux -2 new -s"
 
 # PRODUCTIVITY ALIASES
 alias scratch="$HOME/bin/scratch.sh"
