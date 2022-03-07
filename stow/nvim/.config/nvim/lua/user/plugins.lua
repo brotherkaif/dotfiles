@@ -40,6 +40,9 @@ return packer.startup(function(use)
 		'neovim/nvim-lspconfig',
 		config = function() require('user.configs/lspconfig') end
 	}
+	use {
+		'williamboman/nvim-lsp-installer',
+	}
 
 	-- telescope
 	use {
