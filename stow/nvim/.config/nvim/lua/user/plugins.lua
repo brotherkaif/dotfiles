@@ -103,10 +103,10 @@ return packer.startup(function(use)
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
-	require('packer').sync()
+		require('packer').sync()
 	end
 
-	if debug_mode==true then
-	print('- plugins.lua...OK!')
+	if Debug==true then
+		print('- plugins.lua...OK!')
 	end
 end)
