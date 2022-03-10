@@ -43,7 +43,7 @@ return packer.startup(function(use)
 		'williamboman/nvim-lsp-installer',
 		requires = {
 			{ 'neovim/nvim-lspconfig' },
-			{ 'jose-elias-alvarez/null-ls.nvim' },
+			{ 'jose-elias-alvarez/null-ls.nvim', run = 'npm install -g prettierd eslint_d'},
 		},
 		config = function() require('user.configs.lsp') end
 	}

@@ -14,5 +14,8 @@ null_ls.setup {
     -- formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
     -- formatting.yapf,
     -- diagnostics.flake8,
+    formatting.prettierd,
+    formatting.eslint_d,
+    diagnostics.eslint_d,
   },
 }
