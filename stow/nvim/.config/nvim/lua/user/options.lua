@@ -96,6 +96,6 @@ for _, command in ipairs(commands) do
 end
 
 -- DEBUG
-if debug_mode==true then
+if Debug==true then
 	print('- options.lua...OK!')
 end

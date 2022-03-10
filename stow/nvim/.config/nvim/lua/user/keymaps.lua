@@ -93,6 +93,6 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
-if debug_mode==true then
+if Debug==true then
   print('- binds.lua...OK!')
 end

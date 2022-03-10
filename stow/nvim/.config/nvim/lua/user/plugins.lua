@@ -1,4 +1,3 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 -- Automatically install packer
@@ -28,17 +27,25 @@ packer.init {
 	},
 }
 
-return packer.startup(function(use) 
-	-- core
+return packer.startup(function(use)
+	-- plugins
 	use { 'wbthomason/packer.nvim' }
+
+	-- treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
-		config = function() require('user.configs/nvim-treesitter') end
+		config = function() require('user.configs.nvim-treesitter') end
 	}
+
+	-- lsp
 	use {
-		'neovim/nvim-lspconfig',
-		config = function() require('user.configs/lspconfig') end
+		'williamboman/nvim-lsp-installer',
+		requires = {
+			{ 'neovim/nvim-lspconfig' },
+			{ 'jose-elias-alvarez/null-ls.nvim', run = 'npm install -g prettierd eslint_d'},
+		},
+		config = function() require('user.configs.lsp') end
 	}
 
 	-- telescope
@@ -50,25 +57,25 @@ return packer.startup(function(use)
 			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			{ 'nvim-telescope/telescope-file-browser.nvim' },
 		},
-		config = function() require('user.configs/telescope') end
+		config = function() require('user.configs.telescope') end
 	}
 
 	-- quality of life
-	use { 'terrortylor/nvim-comment', config = function() require('user.configs/nvim_comment') end }
+	use { 'terrortylor/nvim-comment', config = function() require('user.configs.nvim_comment') end }
 	use { 'rhlobo/vim-super-retab' }
-	use { 'folke/which-key.nvim', config = function() require('user.configs/which-key') end }
+	use { 'folke/which-key.nvim', config = function() require('user.configs.which-key') end }
 	use { 'editorconfig/editorconfig-vim' }
 	use { 'tpope/vim-fugitive' }
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
-			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-lua.plenary.nvim' },
 		},
-		config = function() require('user.configs/gitsigns') end
+		config = function() require('user.configs.gitsigns') end
 	}
 
 	-- window management
-	use { 'beauwilliams/focus.nvim', config = function() require('user.configs/focus') end }
+	use { 'beauwilliams/focus.nvim', config = function() require('user.configs.focus') end }
 
 	-- completion
 	use {
@@ -84,27 +91,27 @@ return packer.startup(function(use)
 			{ 'hrsh7th/vim-vsnip' },
 			{ 'rafamadriz/friendly-snippets' },
 		},
-		config = function() require('user.configs/cmp') end
+		config = function() require('user.configs.cmp') end
 	}
 
 	-- linting
 	use {
 		'mhartington/formatter.nvim',
-		config = function() require('user.configs/formatter') end
+		config = function() require('user.configs.formatter') end
 	}
 
 	-- interface
-	use { 'folke/twilight.nvim', config = function() require('user.configs/twilight') end }
-	use { 'folke/zen-mode.nvim', config = function() require('user.configs/zen-mode') end }
+	use { 'folke/twilight.nvim', config = function() require('user.configs.twilight') end }
+	use { 'folke/zen-mode.nvim', config = function() require('user.configs.zen-mode') end }
 	use { 'millermedeiros/vim-statline' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
-	require('packer').sync()
+		require('packer').sync()
 	end
 
-	if debug_mode==true then
-	print('- plugins.lua...OK!')
+	if Debug==true then
+		print('- plugins.lua...OK!')
 	end
 end)
