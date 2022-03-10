@@ -28,17 +28,22 @@ packer.init {
 }
 
 return packer.startup(function(use)
-	-- core
+	-- plugins
 	use { 'wbthomason/packer.nvim' }
+
+	-- treesitter
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function() require('user.configs.nvim-treesitter') end
 	}
+
+	-- lsp
 	use {
 		'williamboman/nvim-lsp-installer',
 		requires = {
 			{ 'neovim/nvim-lspconfig' },
+			{ 'jose-elias-alvarez/null-ls.nvim' },
 		},
 		config = function() require('user.configs.lsp') end
 	}
