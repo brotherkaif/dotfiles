@@ -3,6 +3,6 @@ if not status_ok then
 	return
 end
 
-require("user.configs.lsp.lsp-installer")
+require("user.configs.lsp.nvim-lsp-installer")
 require("user.configs.lsp.handlers").setup()
 require("user.configs.lsp.null-ls")

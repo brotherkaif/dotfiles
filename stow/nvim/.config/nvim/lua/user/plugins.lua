@@ -28,6 +28,12 @@ packer.init {
 }
 
 return packer.startup(function(use)
+	-- OS check
+	local admin = ''
+	if vim.fn.has('unix') == 1 then
+		admin = 'sudo '
+	end
+
 	-- plugins
 	use { 'wbthomason/packer.nvim' }
 
@@ -43,7 +49,7 @@ return packer.startup(function(use)
 		'williamboman/nvim-lsp-installer',
 		requires = {
 			{ 'neovim/nvim-lspconfig' },
-			{ 'jose-elias-alvarez/null-ls.nvim', run = 'npm install -g prettierd eslint_d'},
+			{ 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d'},
 		},
 		config = function() require('user.configs.lsp') end
 	}
@@ -52,8 +58,8 @@ return packer.startup(function(use)
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
-			{'nvim-lua/popup.nvim'},
-			{'nvim-lua/plenary.nvim'},
+			{ 'nvim-lua/popup.nvim' },
+			{ 'nvim-lua/plenary.nvim' },
 			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			{ 'nvim-telescope/telescope-file-browser.nvim' },
 		},
@@ -69,7 +75,7 @@ return packer.startup(function(use)
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
-			{ 'nvim-lua.plenary.nvim' },
+			{ 'nvim-lua/plenary.nvim' },
 		},
 		config = function() require('user.configs.gitsigns') end
 	}

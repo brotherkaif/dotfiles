@@ -3,9 +3,9 @@ local M = {}
 M.setup = function()
 	-- define signs
 	local signs = {
-		{ name = "DiagnosticSignError", text = "✗" },
-		{ name = "DiagnosticSignWarn", text = "➜" },
-		{ name = "DiagnosticSignHint", text = "✓" },
+		{ name = "DiagnosticSignError", text = "‼" },
+		{ name = "DiagnosticSignWarn", text = "⁉" },
+		{ name = "DiagnosticSignHint", text = "?" },
 		{ name = "DiagnosticSignInfo", text = "ℹ" },
 	}
 

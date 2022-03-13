@@ -3,6 +3,16 @@ if not status_ok then
 	return
 end
 
+lsp_installer.settings({
+    ui = {
+        icons = {
+            server_installed = "»",
+            server_pending = "*",
+            server_uninstalled = "«"
+        }
+    }
+})
+
 -- Include the servers you want to have installed by default below
 local servers = {
 	"jsonls",
