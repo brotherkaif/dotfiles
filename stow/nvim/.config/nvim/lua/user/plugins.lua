@@ -29,9 +29,9 @@ packer.init {
 
 return packer.startup(function(use)
 	-- OS check
-	local admin = ''
-	if vim.fn.has('unix') == 1 then
-		admin = 'sudo '
+	local admin = 'sudo '
+	if vim.fn.has('mac') == 1 then
+		admin = ''
 	end
 
 	-- plugins
@@ -41,6 +41,9 @@ return packer.startup(function(use)
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
+		requires = {
+			{ 'p00f/nvim-ts-rainbow' },
+		},
 		config = function() require('user.configs.nvim-treesitter') end
 	}
 
