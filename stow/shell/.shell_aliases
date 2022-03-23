@@ -11,8 +11,8 @@
 alias ll="ls -la"
 alias sync-config="ansible-pull -U https://github.com/brotherkaif/config.git"
 alias sync-dotfiles="ansible-pull -U https://github.com/brotherkaif/config.git --tags dotfiles"
-alias sync-local-config="ansible-playbook $HOME/2-areas/config/local.yml"
-alias sync-local-dotfiles="ansible-playbook $HOME/2-areas/config/local.yml --tags dotfiles"
+alias sync-local-config="ansible-playbook $HOME/config/local.yml"
+alias sync-local-dotfiles="ansible-playbook $HOME/config/local.yml --tags dotfiles"
 
 # GIT ALIASES
 alias lg="lazygit"
@@ -29,9 +29,9 @@ alias tms="tmux -2 new -s"
 
 # PRODUCTIVITY ALIASES
 alias scratch="$HOME/bin/scratch.sh"
-alias dev-notes="cd $HOME/3-resources/notes/dev-notes && nvim -c ':Telescope file_browser' README.md"
-alias til="echo '$(date "+%y-%m-%d %H.%M.%S"):$1' >> $HOME/3-resources/notes/til.md"
-alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/3-resources/notes/til.md"
+alias dev-notes="cd $HOME/dev-notes && nvim -c ':Telescope file_browser' README.md"
+alias til="echo '$(date "+%y-%m-%d %H.%M.%S"):$1' >> $HOME/scratch/til.md"
+alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/scratch/til.md"
 
 # CRYPTO ALIASES
 alias xmr="monero-wallet-cli --config-file ~/.bitmonero/bitmonero.conf"
