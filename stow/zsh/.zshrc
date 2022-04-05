@@ -4,16 +4,15 @@
 # _ / /\__ \ | | | | | (__
 #(_)___|___/_| |_|_|  \___|
 #==========================
-# ADDED VIA ANSIBLE
 
 # SOURCE COMMON
 if [ -f ~/.shell_common ]; then
-   source ~/.shell_common
+    source ~/.shell_common
 fi
 
 # SOURCE ALIASES
 if [ -f ~/.shell_aliases ]; then
-   source ~/.shell_aliases
+    source ~/.shell_aliases
 fi
 
 # VIM MODE & CTRL-R fix

@@ -4,16 +4,15 @@
 # _| |_) | (_| \__ \ | | | | | (__
 #(_)_.__/ \__,_|___/_| |_|_|  \___|
 #==================================
-# ADDED VIA ANSIBLE
 
 # SOURCE COMMON
 if [ -f ~/.shell_common ]; then
-   source ~/.shell_common
+    source ~/.shell_common
 fi
 
 # SOURCE ALIASES
 if [ -f ~/.shell_aliases ]; then
-   source ~/.shell_aliases
+    source ~/.shell_aliases
 fi
 
 # GOOGLE CLOUD SHELL
@@ -25,13 +24,8 @@ esac
 
 ## source config
 if [ -f "/google/devshell/bashrc.google" ]; then
-	source "/google/devshell/bashrc.google"
+    source "/google/devshell/bashrc.google"
 fi
-
-# TMUX AUTO LOAD
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#     tmux -2 attach -t TERM || tmux -2 new -s TERM
-# fi
 
 # MOTD
 echo -e "\e[43;30m CONSOLE \e[0m"

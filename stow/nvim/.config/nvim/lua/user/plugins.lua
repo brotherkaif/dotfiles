@@ -75,6 +75,7 @@ return packer.startup(function(use)
 	use { 'folke/which-key.nvim', config = function() require('user.configs.which-key') end }
 	use { 'editorconfig/editorconfig-vim' }
 	use { 'tpope/vim-fugitive' }
+	use { 'tpope/vim-sleuth' }
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {

@@ -5,7 +5,11 @@
 #(_)___/_| |_|\___|_|_|___\___\___/|_| |_| |_|_| |_| |_|\___/|_| |_|
 #                    |_____|
 #===================================================================
-# ADDED VIA ANSIBLE
+
+# TMUX AUTO LOAD
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux -2 attach -t TERM || tmux -2 new -s TERM
+fi
 
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace
