@@ -103,6 +103,7 @@ return packer.startup(function(use)
 		},
 		config = function() require('user.configs.cmp') end
 	}
+	use { 'github/copilot.vim' }
 
 	-- linting
 	use {
