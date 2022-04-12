@@ -74,6 +74,8 @@ wk.register({
 			z = {'toggle zen mode'},
 			m = {'maximise buffer window'},
 			e = {'equalise buffer windows'},
+			x = {'split horizontal'},
+			v = {'split vertical'},
 			q = {'quit buffer'},
 			o = {'close other buffer windows'},
 			f = {'format buffer'},

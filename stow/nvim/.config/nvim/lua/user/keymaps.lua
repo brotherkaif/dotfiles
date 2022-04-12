@@ -52,6 +52,8 @@ keymap('n', '<leader>bw', ':w<CR>', opts) -- write buffer
 keymap('n', '<leader>br', ':e<CR>', opts) -- reload buffer
 keymap('n', '<Leader>bz', ':ZenMode<CR>', opts) -- toggle zen mode
 keymap('n', '<leader>bm', '<C-W>_<C-W>|', opts) -- maximise buffer window
+keymap('n', '<leader>bx', ':split<CR>', opts) -- split horizontal
+keymap('n', '<leader>bv', ':vsplit<CR>', opts) -- split vertical
 keymap('n', '<leader>be', '<C-W>=', opts) -- equalise buffer windows
 keymap('n', '<leader>bq', ':q<CR>', opts) -- quit buffer
 keymap('n', '<leader>bo', '<C-W>o', opts) -- close other buffer windows
