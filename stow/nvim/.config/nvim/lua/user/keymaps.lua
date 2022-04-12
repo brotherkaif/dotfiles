@@ -29,10 +29,10 @@ keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 
 -- ## CURSOR MOVEMENT = `h` + `j` + `k` + `l`
-keymap('n', '<leader>h', ':FocusSplitLeft<CR>', opts) -- cursor left
-keymap('n', '<leader>j', ':FocusSplitDown<CR>', opts) -- cursor down
-keymap('n', '<leader>k', ':FocusSplitUp<CR>', opts) -- cursor up
-keymap('n', '<leader>l', ':FocusSplitRight<CR>', opts) -- cursor right
+keymap('n', '<leader>h', '<C-W>h', opts) -- cursor left
+keymap('n', '<leader>j', '<C-W>j', opts) -- cursor down
+keymap('n', '<leader>k', '<C-W>k', opts) -- cursor up
+keymap('n', '<leader>l', '<C-W>l', opts) -- cursor right
 
 -- ## WINDOW MOVEMENT = `H` + `J` + `K` + `L`
 keymap('n', '<leader>H', '<C-W>H', opts) -- window left
