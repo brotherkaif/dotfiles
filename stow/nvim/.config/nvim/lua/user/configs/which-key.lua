@@ -3,22 +3,6 @@ local wk = require('which-key')
 wk.setup()
 
 wk.register({
-	-- # PREVIOUS
-	['['] = {
-		name = 'PREVIOUS',
-		b = {'buffer'},
-		q = {'quick fix'},
-		d = {'LSP: diagnostic'}, -- LSP
-	},
-
-	-- # NEXT
-	[']'] = {
-		name = 'NEXT',
-		b = {'buffer'},
-		q = {'quick fix'},
-		d = {'LSP: diagnostic'}, -- LSP
-	},
-
 	-- # GOTO
 	['g'] = {
 		name = 'GO TO',
@@ -43,9 +27,27 @@ wk.register({
 
 	-- # LEADER BINDS
 	['<leader>'] = {
+		-- # LEADER BINDS
 		name = 'LEADER BINDS',
-		p = {'telescope command pallette'},
+		[';'] = {'telescope command pallette'},
 		t = {'open terminal'},
+
+		-- # PREVIOUS
+		['p'] = {
+			name = 'PREVIOUS',
+			b = {'buffer'},
+			q = {'quick fix'},
+			d = {'LSP: diagnostic'}, -- LSP
+		},
+
+		-- # NEXT
+		['n'] = {
+			name = 'NEXT',
+			b = {'buffer'},
+			q = {'quick fix'},
+			d = {'LSP: diagnostic'}, -- LSP
+		},
+
 
 		-- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
 		h = {'cursor left'},
