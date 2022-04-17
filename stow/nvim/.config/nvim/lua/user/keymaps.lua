@@ -56,10 +56,6 @@ keymap('n', '<leader>bf', ':Format<CR>', opts) -- format buffer
 keymap('n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>', opts) -- toggle spellcheck
 keymap('n', '<Leader>b/', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts) -- grep buffer
 
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
--- ^^^^^^ CURRENTLY PORTED ^^^^^^
--- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 -- ### FILES = `f`
 keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts) -- find file
 keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>', opts) -- find git file
@@ -85,24 +81,15 @@ keymap('n', '<leader>nq', ':cn<CR>', opts) -- next quick fix
 keymap("n", "<leader>pb", ":bprevious<CR>", opts) -- previous buffer
 keymap('n', '<leader>pq', ':cp<CR>', opts) -- previous quick fix
 
--- VISUAL MODE
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- # VISUAL MODE
+-- ## GLOBAL BINDS
+keymap("v", "J", ":m .+1<CR>==", opts) -- move lines down
+keymap("v", "K", ":m .-2<CR>==", opts) -- move lines up
+keymap("v", "<", "<gv", opts) -- persist unindent
+keymap("v", ">", ">gv", opts) -- persist indent
+-- keymap("v", "p", '"_dP', opts) -- fix HORRIBLE paste behaviour
 
--- Move text up and down
-keymap("v", "J", ":m .+1<CR>==", opts)
-keymap("v", "K", ":m .-2<CR>==", opts)
-
--- Fix HORRIBLE paste behaviour
-keymap("v", "p", '"_dP', opts)
-
--- VISUAL BLOCK MODE
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-
-
-if Debug==true then
-  print('- binds.lua...OK!')
-end
+-- # VISUAL BLOCK MODE
+-- ## GLOBAL BINDS
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts) -- move lines down
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts) -- move lines up
