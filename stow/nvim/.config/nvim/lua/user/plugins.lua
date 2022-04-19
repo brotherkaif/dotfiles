@@ -112,6 +112,7 @@ return packer.startup(function(use)
 	use { 'folke/twilight.nvim', config = function() require('user.configs.twilight') end }
 	use { 'folke/zen-mode.nvim', config = function() require('user.configs.zen-mode') end }
 	use { 'millermedeiros/vim-statline' }
+	use { 'arcticicestudio/nord-vim' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
