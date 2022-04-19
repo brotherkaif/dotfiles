@@ -84,9 +84,6 @@ return packer.startup(function(use)
 		config = function() require('user.configs.gitsigns') end
 	}
 
-	-- window management
-	use { 'beauwilliams/focus.nvim', config = function() require('user.configs.focus') end }
-
 	-- completion
 	use {
 		'hrsh7th/nvim-cmp',
@@ -103,7 +100,7 @@ return packer.startup(function(use)
 		},
 		config = function() require('user.configs.cmp') end
 	}
-	use { 'github/copilot.vim' }
+	-- use { 'github/copilot.vim' }
 
 	-- linting
 	use {
