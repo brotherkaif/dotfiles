@@ -4,7 +4,7 @@ if not cmp_status_ok then
 end
 
 tsconfig.setup({
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 	sync_install = false,
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {

@@ -26,7 +26,7 @@ local options = {
 	splitbelow = true,							-- force all horizontal splits to go below current window
 	splitright = true,							-- force all vertical splits to go to the right of current window
 	swapfile = false,							-- creates a swapfile
-	-- tabstop = 4,								-- insert 2 spaces for a tab
+	tabstop = 2,								-- insert 2 spaces for a tab
 	-- expandtab = false,							-- convert tabs to spaces
 	-- termguicolors = true,						-- set term gui colors (most terminals support this)
 	timeoutlen = 1000,							-- time to wait for a mapped sequence to complete (in milliseconds)
@@ -39,7 +39,7 @@ local options = {
 local window_options = {
 	foldlevel = 2,			-- sets the fold level
 	foldmethod = 'indent',		-- the kind of folding used for the current window
-	list = true,			-- display unprintable characters like tab and trailing spaces
+	list = false,			-- display unprintable characters like tab and trailing spaces
 	signcolumn = 'yes',		-- enable the signs column
 }
 

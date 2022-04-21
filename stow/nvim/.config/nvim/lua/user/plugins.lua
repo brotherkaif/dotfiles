@@ -76,6 +76,7 @@ return packer.startup(function(use)
 	use { 'editorconfig/editorconfig-vim' }
 	use { 'tpope/vim-fugitive' }
 	use { 'tpope/vim-sleuth' }
+	use { 'tpope/vim-surround' }
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
