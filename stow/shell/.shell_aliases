@@ -8,10 +8,10 @@
 
 # CONVENIENCE ALIASES
 alias ll="ls -la"
-alias sync-config="ansible-pull -U https://github.com/brotherkaif/config.git"
-alias sync-dotfiles="ansible-pull -U https://github.com/brotherkaif/config.git --tags dotfiles"
-alias sync-local-config="ansible-playbook $HOME/config/local.yml"
-alias sync-local-dotfiles="ansible-playbook $HOME/config/local.yml --tags dotfiles"
+alias sync-config="ansible-pull -U https://github.com/brotherkaif/personal_ansible_desktop_configs.git"
+alias sync-dotfiles="ansible-pull -U https://github.com/brotherkaif/personal_ansible_desktop_configs.git --tags dotfiles"
+alias sync-local-config="ansible-playbook $HOME/personal_ansible_desktop_configs/local.yml"
+alias sync-local-dotfiles="ansible-playbook $HOME/personal_ansible_desktop_configs/local.yml --tags dotfiles"
 
 # GIT ALIASES
 alias lg="lazygit"

@@ -53,9 +53,9 @@ cmp.setup({
 		select = false,
 	},
 
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	},
+	-- window = {
+	-- 	documentation = 'native',
+	-- },
 
 	experimental = {
 		ghost_text = false,
