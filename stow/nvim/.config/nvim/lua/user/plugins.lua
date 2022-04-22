@@ -71,12 +71,12 @@ return packer.startup(function(use)
 
 	-- quality of life
 	use { 'terrortylor/nvim-comment', config = function() require('user.configs.nvim_comment') end }
+	use { 'tpope/vim-surround' }
+	use { 'tpope/vim-fugitive' }
 	use { 'rhlobo/vim-super-retab' }
 	use { 'folke/which-key.nvim', config = function() require('user.configs.which-key') end }
-	use { 'editorconfig/editorconfig-vim' }
-	use { 'tpope/vim-fugitive' }
 	use { 'tpope/vim-sleuth' }
-	use { 'tpope/vim-surround' }
+	use { 'editorconfig/editorconfig-vim' }
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
@@ -84,7 +84,11 @@ return packer.startup(function(use)
 		},
 		config = function() require('user.configs.gitsigns') end
 	}
-
+	use {
+		'phaazon/hop.nvim',
+		config = function() require('user.configs.hop') end,
+		branch = 'v1',
+	}
 	-- completion
 	use {
 		'hrsh7th/nvim-cmp',
