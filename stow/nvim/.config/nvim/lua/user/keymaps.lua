@@ -102,3 +102,7 @@ keymap("v", ">", ">gv", opts) -- persist indent
 -- ## GLOBAL BINDS
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts) -- move lines down
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts) -- move lines up
+
+if Debug==true then
+	print('- keymaps.lua...OK!')
+end
