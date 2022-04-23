@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 
 -- common options
 local opts = {noremap = true, silent = true}
-local term_opts = { silent = true }
 
 -- shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -40,6 +39,16 @@ keymap("n", "<leader><Left>", ":vertical resize -2<CR>", opts) -- decrease horiz
 keymap("n", "<leader><Down>", ":resize -2<CR>", opts) -- decrease vertical size
 keymap("n", "<leader><Up>", ":resize +2<CR>", opts) -- increase vertical size
 keymap("n", "<leader><Right>", ":vertical resize +2<CR>", opts) -- increase horizontal size
+
+-- ### EASY MOTION
+keymap("n", "<leader><leader>s", ":HopChar1<CR>", opts) -- search character
+keymap("n", "<leader><leader>f", ":HopChar1AC<CR>", opts) -- find character forwards
+keymap("n", "<leader><leader>F", ":HopChar1BC<CR>", opts) -- find character backwards
+keymap("n", "<leader><leader>w", ":HopWordAC<CR>", opts) -- start of word forwards
+keymap("n", "<leader><leader>b", ":HopWordBC<CR>", opts) -- start of word backwards
+keymap("n", "<leader><leader>j", ":HopLineStartAC<CR>", opts) -- start of line forwards
+keymap("n", "<leader><leader>k", ":HopLineStartBC<CR>", opts) -- start of line backwards
+keymap("n", "<leader><leader>/", ":HopPattern<CR>", opts) -- search n-character
 
 -- ## GROUPED BINDS
 -- ### BUFFERS = `b`

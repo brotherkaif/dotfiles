@@ -17,9 +17,9 @@ wk.register({
 	['<space>q'] = {'LSP: diagnostic set local list'}, -- LSP
 	['K'] = {'LSP: display hover information'}, -- LSP
 	['<C-k>'] = {'LSP: display signature information'}, -- LSP
-	['<space>wa'] = {'LSP: add workspace folder'},
-	['<space>wr'] = {'LSP: remove workspace folder'},
-	['<space>wl'] = {'LSP: list workspace folders'},
+	['<space>wa'] = {'LSP: add workspace folder'}, -- LSP
+	['<space>wr'] = {'LSP: remove workspace folder'}, -- LSP
+	['<space>wl'] = {'LSP: list workspace folders'}, -- LSP
 	['<space>D'] = {'LSP: type definition'}, -- LSP
 	['<space>rn'] = {'LSP: rename'}, -- LSP
 	['<space>ca'] = {'LSP: code action'}, -- LSP
@@ -31,23 +31,6 @@ wk.register({
 		name = 'LEADER BINDS',
 		[';'] = {'telescope command pallette'},
 		t = {'open terminal'},
-
-		-- # PREVIOUS
-		['p'] = {
-			name = 'PREVIOUS',
-			b = {'buffer'},
-			q = {'quick fix'},
-			d = {'LSP: diagnostic'}, -- LSP
-		},
-
-		-- # NEXT
-		['n'] = {
-			name = 'NEXT',
-			b = {'buffer'},
-			q = {'quick fix'},
-			d = {'LSP: diagnostic'}, -- LSP
-		},
-
 
 		-- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
 		h = {'cursor left'},
@@ -61,11 +44,24 @@ wk.register({
 		K = {'window up'},
 		L = {'window right'},
 
-		-- WINDOW RESIZE = `UP` + `DOWN` + `LEFT` + `RIGHT`
+		-- WINDOW RESIZE = `<Left>` + `<Down>` + `<Up>` + `<Right>`
 		['<Up>'] = {'increase vertical size'},
 		['<Down>'] = {'decrease vertical size'},
 		['<Left>'] = {'decrease horizontal size'},
 		['<Right>'] = {'increase horizontal size'},
+
+		-- EASY MOTION
+		['<leader>'] = {
+			name = 'EASY MOTION',
+			s = {'search character'},
+			f = {'find character forwards'},
+			F = {'find character backwards'},
+			w = {'start of word forwards'},
+			b = {'start of word backwards'},
+			j = {'start of line forwards'},
+			k = {'start of line backwards'},
+			['/'] = {'search n-character'},
+		},
 
 		-- # GROUPED BINDS
 		-- BUFFERS = `b`
@@ -109,6 +105,22 @@ wk.register({
 			d = {'set dark theme'},
 			n = {'toggle relative line numbers'},
 			c = {'toggle character display'},
+		},
+
+		-- # PREVIOUS
+		['p'] = {
+			name = 'PREVIOUS',
+			b = {'buffer'},
+			q = {'quick fix'},
+			d = {'LSP: diagnostic'}, -- LSP
+		},
+
+		-- # NEXT
+		['n'] = {
+			name = 'NEXT',
+			b = {'buffer'},
+			q = {'quick fix'},
+			d = {'LSP: diagnostic'}, -- LSP
 		},
 
 		-- WORKSPACE = `w`
