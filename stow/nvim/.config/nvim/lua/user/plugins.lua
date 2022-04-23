@@ -52,7 +52,7 @@ return packer.startup(function(use)
 		'williamboman/nvim-lsp-installer',
 		requires = {
 			{ 'neovim/nvim-lspconfig' },
-			{ 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d'},
+			{ 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d' },
 		},
 		config = function() require('user.configs.lsp') end
 	}
@@ -114,10 +114,11 @@ return packer.startup(function(use)
 	}
 
 	-- interface
-	use { 'folke/twilight.nvim', config = function() require('user.configs.twilight') end }
 	use { 'folke/zen-mode.nvim', config = function() require('user.configs.zen-mode') end }
-	use { 'millermedeiros/vim-statline' }
-	use { 'arcticicestudio/nord-vim' }
+	use {
+		'nvim-lualine/lualine.nvim',
+		config = function() require('user.configs.lualine') end
+	}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
@@ -125,7 +126,7 @@ return packer.startup(function(use)
 		require('packer').sync()
 	end
 
-	if Debug==true then
+	if Debug == true then
 		print('- plugins.lua...OK!')
 	end
 end)
