@@ -27,3 +27,7 @@ export EDITOR="$VISUAL"
 
 # ANSIBLE OPTIONS
 export ANSIBLE_NOCOWS=1
+
+# MOTD
+clear
+echo -e "\e[30;41m CONSOLE \e[0m"
