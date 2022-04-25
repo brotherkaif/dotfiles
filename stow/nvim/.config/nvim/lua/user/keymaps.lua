@@ -18,7 +18,7 @@ local keymap = vim.api.nvim_set_keymap
 -- # NORMAL MODE
 -- ## GLOBAL BINDS
 -- ### LEADER BINDS
-keymap('n', '<Leader><Esc>', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
+keymap('n', '<Leader><CR>', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
 keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 
