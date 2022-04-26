@@ -28,16 +28,16 @@ packer.init {
 }
 
 return packer.startup(function(use)
-	-- OS check
+	-- OS CHECK
 	local admin = 'sudo '
 	if vim.fn.has('mac') == 1 then
 		admin = ''
 	end
 
-	-- plugins
+	-- PLUGINS
 	use { 'wbthomason/packer.nvim' }
 
-	-- treesitter
+	-- TREESITTER
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
@@ -47,7 +47,7 @@ return packer.startup(function(use)
 		config = function() require('user.configs.nvim-treesitter') end
 	}
 
-	-- lsp
+	-- LSP
 	use {
 		'williamboman/nvim-lsp-installer',
 		requires = {
@@ -57,7 +57,7 @@ return packer.startup(function(use)
 		config = function() require('user.configs.lsp') end
 	}
 
-	-- telescope
+	-- TELESCOPE
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -69,27 +69,23 @@ return packer.startup(function(use)
 		config = function() require('user.configs.telescope') end
 	}
 
-	-- quality of life
+	-- DEVELOPMENT
 	use { 'terrortylor/nvim-comment', config = function() require('user.configs.nvim_comment') end }
 	use { 'tpope/vim-surround' }
 	use { 'tpope/vim-fugitive' }
 	use { 'rhlobo/vim-super-retab' }
-	use { 'folke/which-key.nvim', config = function() require('user.configs.which-key') end }
 	use { 'tpope/vim-sleuth' }
 	use { 'editorconfig/editorconfig-vim' }
-	use {
-		'lewis6991/gitsigns.nvim',
-		requires = {
-			{ 'nvim-lua/plenary.nvim' },
-		},
-		config = function() require('user.configs.gitsigns') end
-	}
+	use { 'akinsho/toggleterm.nvim', config = function() require('user.configs.toggleterm') end }
+
+	-- MOVEMENT
 	use {
 		'phaazon/hop.nvim',
 		config = function() require('user.configs.hop') end,
 		branch = 'v1',
 	}
-	-- completion
+
+	-- COMPLETION
 	use {
 		'hrsh7th/nvim-cmp',
 		requires = {
@@ -107,17 +103,25 @@ return packer.startup(function(use)
 	}
 	-- use { 'github/copilot.vim' }
 
-	-- linting
+	-- LINTING
 	use {
 		'mhartington/formatter.nvim',
 		config = function() require('user.configs.formatter') end
 	}
 
-	-- interface
+	-- INTERFACE
 	use { 'folke/zen-mode.nvim', config = function() require('user.configs.zen-mode') end }
 	use {
 		'nvim-lualine/lualine.nvim',
 		config = function() require('user.configs.lualine') end
+	}
+	use { 'folke/which-key.nvim', config = function() require('user.configs.which-key') end }
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			{ 'nvim-lua/plenary.nvim' },
+		},
+		config = function() require('user.configs.gitsigns') end
 	}
 
 	-- Automatically set up your configuration after cloning packer.nvim

@@ -19,7 +19,8 @@ local keymap = vim.api.nvim_set_keymap
 -- ## GLOBAL BINDS
 -- ### LEADER BINDS
 keymap('n', '<Leader><CR>', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
-keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
+keymap('n', '<leader>t', ':ToggleTerm<CR>', opts) -- toggle terminal
+-- keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 
 -- ### CURSOR MOVEMENT = `h` + `j` + `k` + `l`
