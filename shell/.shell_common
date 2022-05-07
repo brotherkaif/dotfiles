@@ -22,7 +22,7 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 # ENV VARIABLES
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # ANSIBLE OPTIONS
