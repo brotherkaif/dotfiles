@@ -1,9 +1,0 @@
-[user]
-	email = dm@kaif.dev
-	name = Kaif Ahmed
-[pull]
-	rebase = false
-[commit]
-	template = ~/.config/git/git-commit-template.txt
-[push]
-	default = current
