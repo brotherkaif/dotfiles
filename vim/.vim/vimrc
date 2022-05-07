@@ -1,0 +1,13 @@
+" BASE
+set nocompatible
+filetype plugin on
+
+" INTERFACE
+syntax enable
+set background=dark
+set relativenumber
+set cursorline
+set wildmenu
+
+" FINDING FILES
+set path+=**
