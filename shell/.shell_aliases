@@ -1,0 +1,36 @@
+#       _          _ _          _ _
+#   ___| |__   ___| | |    __ _| (_) __ _ ___  ___  ___
+#  / __| '_ \ / _ \ | |   / _` | | |/ _` / __|/ _ \/ __|
+# _\__ \ | | |  __/ | |  | (_| | | | (_| \__ \  __/\__ \
+#(_)___/_| |_|\___|_|_|___\__,_|_|_|\__,_|___/\___||___/
+#                    |_____|
+#=======================================================
+
+# CONVENIENCE ALIASES
+alias ll="ls -la"
+alias sync-config="ansible-pull -U https://github.com/brotherkaif/personal_ansible_desktop_configs.git"
+alias sync-dotfiles="ansible-pull -U https://github.com/brotherkaif/personal_ansible_desktop_configs.git --tags dotfiles"
+alias sync-local-config="ansible-playbook $HOME/personal_ansible_desktop_configs/local.yml"
+alias sync-local-dotfiles="ansible-playbook $HOME/personal_ansible_desktop_configs/local.yml --tags dotfiles"
+
+# GIT ALIASES
+alias lg="lazygit"
+alias gst="git status"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gco="git checkout"
+
+# APP ALIASES
+alias tmux="tmux -2"
+alias tms="tmux -2 new -s"
+
+# PRODUCTIVITY ALIASES
+alias scratch="$HOME/bin/scratch.sh"
+alias dev-notes="cd $HOME/dev-notes && nvim -c ':Telescope file_browser' README.md"
+alias til="echo '$(date "+%y-%m-%d %H.%M.%S"):$1' >> $HOME/scratch/til.md"
+alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/scratch/til.md"
+
+# CRYPTO ALIASES
+alias xmr="monero-wallet-cli --config-file ~/.bitmonero/bitmonero.conf"

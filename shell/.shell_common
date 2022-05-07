@@ -1,0 +1,33 @@
+#       _          _ _
+#   ___| |__   ___| | |    ___ ___  _ __ ___  _ __ ___   ___  _ __
+#  / __| '_ \ / _ \ | |   / __/ _ \| '_ ` _ \| '_ ` _ \ / _ \| '_ \
+# _\__ \ | | |  __/ | |  | (_| (_) | | | | | | | | | | | (_) | | | |
+#(_)___/_| |_|\___|_|_|___\___\___/|_| |_| |_|_| |_| |_|\___/|_| |_|
+#                    |_____|
+#===================================================================
+
+# TMUX AUTO LOAD
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#     tmux -2 attach -t TERM || tmux -2 new -s TERM
+# fi
+
+# HISTORY TOGGLE
+export HISTCONTROL=ignorespace
+
+# XDG BASE DIRECTORY CONFIG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+export XDG_CONFIG_DIRS="/etc/xdg"
+
+# ENV VARIABLES
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# ANSIBLE OPTIONS
+export ANSIBLE_NOCOWS=1
+
+# MOTD
+clear
+echo -e "\e[30;41m CONSOLE \e[0m"
