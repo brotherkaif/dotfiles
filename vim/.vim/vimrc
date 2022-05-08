@@ -1,5 +1,6 @@
 " BASE
 set nocompatible
+set noswapfile
 filetype plugin on
 
 " INTERFACE
