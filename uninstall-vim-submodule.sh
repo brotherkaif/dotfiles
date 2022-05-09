@@ -1,4 +1,11 @@
 #!/bin/bash
+gitsubrm() {
+    git rm "$1"
+    rm -rf ".git/modules/$1"
+    git config -f ".git/config" --remove-section "submodule.$1" 2> /dev/null
+    git commit -m "Remove submodule $1"
+}
+
 uninstall_submodule () {
 	echo -e "[UNINSTALL VIM SUBMODULE]"
 	echo "Enter module path (e.g. 'tpope/vim-suround):"
@@ -16,12 +23,7 @@ uninstall_submodule () {
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ]
 	then
 		echo "Removing submodule..."
-		cd ~/dotfiles
-		rm -rf ~/dotfiles/submodules/$plugin
-		git submodule deinit -f -- submodules/$plugin    
-		rm -rf ~/dotfiles/.git/modules/submodules/$plugin
-		git rm -f submodules/$plugin
-		cd ~/dotfiles && git rm "submodules/$plugin"
+		gitsubrm submodules/$plugin	
 		echo "...done!"
 		echo "Removing symlink..."
 		rm ~/dotfiles/vim/.vim/pack/plugins/start/$plugin
