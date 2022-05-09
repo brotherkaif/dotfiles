@@ -6,9 +6,8 @@ echo "│▌ ▌▌ ▌▌ ▌ ▌ ▖ ▌ ▌ ▌▚ ▌ ▌▌  │"
 echo "│▀▀ ▝▀ ▝▀  ▘ ▝▀  ▘ ▘ ▘▘ ▘▘  │"
 echo "└───────────────────────────┘"
 
-#!/bin/bash
 display_message () {
-	echo -e "\e[43;30m $1 \e[0m"
+	echo -e "[$1]"
 }
 
 # usage: $1=stow-dir $2=cleanup-callback
@@ -35,3 +34,7 @@ symlink themes $(rm -rf $XDG_CONFIG_HOME/customisation/macos-terminal-themes)
 symlink tmux $(rm -rf $HOME/.tmux*)
 symlink vim $(rm -rf $HOME/.vim)
 symlink zsh $(rm -rf $HOME/.zsh*)
+
+display_message SYNC-SUBMODULES
+
+./submodules/sync-submodules.sh
