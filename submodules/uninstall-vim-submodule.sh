@@ -23,6 +23,7 @@ uninstall_submodule () {
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ]
 	then
 		echo "Removing submodule..."
+		cd ~/dotfiles
 		gitsubrm submodules/$plugin	
 		echo "...done!"
 		echo "Removing symlink..."
