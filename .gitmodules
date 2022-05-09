@@ -19,3 +19,6 @@
 [submodule "submodules/vim-repeat"]
 	path = submodules/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "submodules/ctrlp.vim"]
+	path = submodules/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
