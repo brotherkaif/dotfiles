@@ -2,6 +2,8 @@
 set nocompatible
 set noswapfile
 filetype plugin on
+set nobackup
+set history=1000
 
 " INTERFACE
 syntax enable
@@ -10,8 +12,185 @@ set relativenumber
 set cursorline
 set wildmenu
 set wildignorecase
-set wildignore=\*.git/\*
+set wildignore=\*.git/\*,*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set wildmode=longest:full,full
+set scrolloff=10
+set nowrap
 
 " FINDING FILES
 set path+=**
+
+" INDENTATION BEHAVIOUR
+set shiftwidth=4
+set tabstop=4
+set noexpandtab
+
+" SEARCHING
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+set hlsearch
+
+" MAPPINGS
+let mapleader = " "
+
+" # NORMAL MODE
+" ## GLOBAL BINDS
+" ### LEADER BINDS
+" command pallette
+nnoremap <Leader><CR> <cmd>:Commands<CR>
+
+" toggle terminal
+nnoremap <leader>t :terminal<CR>
+
+" normal mode within terminal window
+" TODO implement this
+
+" ### CURSOR MOVEMENT = `h` + `j` + `k` + `l`
+" cursor left
+nnoremap <leader>h <C-W>h
+
+" cursor down
+nnoremap <leader>j <C-W>j
+
+" cursor up
+nnoremap <leader>k <C-W>k
+
+" cursor right
+nnoremap <leader>l <C-W>l
+
+" ### WINDOW MOVEMENT = `H` + `J` + `K` + `L`
+" window left
+nnoremap <leader>H <C-W>H
+
+" window down
+nnoremap <leader>J <C-W>J
+
+" window up
+nnoremap <leader>K <C-W>K
+
+" window right
+nnoremap <leader>L <C-W>L
+
+" ### WINDOW RESIZE = `<Left>` + `<Down>` + `<Up>` + `<Right>`
+" decrease horizontal size
+nnoremap <leader><Left> :vertical resize -2<CR>
+
+" decrease vertical size
+nnoremap <leader><Down> :resize -2<CR>
+
+" increase vertical size
+nnoremap <leader><Up> :resize +2<CR>
+
+" increase horizontal size
+nnoremap <leader><Right> :vertical resize +2<CR>
+
+" ### EASY MOTION
+" search character
+" find character forwards
+" find character backwards
+" start of word forwards
+" start of word backwards
+" start of line forwards
+" start of line backwards
+" search n-character
+" TODO implement this
+
+" ## GROUPED BINDS
+" ### BUFFERS = `b`
+" write buffer
+nnoremap <leader>bw :w<CR>
+
+" reload buffer
+nnoremap <leader>br :e<CR>
+
+" maximise buffer window
+nnoremap <leader>bm <C-W>_<C-W>|
+
+" split horizontal
+nnoremap <leader>bx :split<CR>
+
+" split vertical
+nnoremap <leader>bv :vsplit<CR>
+
+" equalise buffer windows
+nnoremap <leader>be <C-W>=
+
+" quit buffer
+nnoremap <leader>bq :q<CR>
+
+" close other buffer windows
+nnoremap <leader>bo <C-W>o
+
+" format buffer
+nnoremap <leader>bf :Format<CR>
+
+" toggle spellcheck
+nnoremap <Leader>bs :setlocal spell! spelllang=en_gb,en_us<CR>
+
+"telescope.builtin").current_buffer_fuzzy_find()<CR> " grep buffer
+nnoremap <Leader>b/ :Ag<CR>
+
+" ### FILES = `f`
+" find file
+nnoremap <leader>ff :Files<CR>
+
+" find git file
+nnoremap <leader>fg :GFiles<CR>
+
+" file browser (project directory)
+nnoremap <leader>fb :Lexplore<CR>
+
+" file browser (current directory)
+nnoremap <leader>fd :Lexplore %:p:h<CR>
+
+" grep files
+nnoremap <Leader>f/ :Ag<CR>
+
+" ### GIT = `g`
+" git status
+nnoremap <leader>g :Git<CR>
+
+" git commit
+nnoremap <leader>gc :Git commit<CR>
+
+" ### INTERFACE = `i`
+" set theme to light
+nnoremap <leader>il :set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>
+
+" set theme to dark
+nnoremap <leader>id :set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>
+
+" toggle relative line numbers
+nnoremap <leader>in :set relativenumber!<CR>
+
+" toggle display unprintable chars
+nnoremap <leader>ic :set list!<CR>
+
+" ### NEXT = `n`
+" next buffer
+nnoremap <leader>nb :bnext<CR>
+
+" next quick fix
+nnoremap <leader>nq :cn<CR>
+
+" ### PREV = `p`
+" previous buffer
+nnoremap <leader>pb :bprevious<CR>
+
+" previous quick fix
+nnoremap <leader>pq :cp<CR>
+
+" # VISUAL MODE
+" ## GLOBAL BINDS
+" keymap("v", "J", ":m .+1<CR>==", opts) " move lines down
+" keymap("v", "K", ":m .-2<CR>==", opts) " move lines up
+" keymap("v", "<", "<gv", opts) " persist unindent
+" keymap("v", ">", ">gv", opts) " persist indent
+" keymap("v", "p", '"_dP', opts) " fix HORRIBLE paste behaviour
+
+" # VISUAL BLOCK MODE
+" ## GLOBAL BINDS
+" keymap("x", "J", ":move '>+1<CR>gv-gv", opts) " move lines down
+" keymap("x", "K", ":move '<-2<CR>gv-gv", opts) " move lines up
