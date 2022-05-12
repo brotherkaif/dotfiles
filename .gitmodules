@@ -25,3 +25,6 @@
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "submodules/vim-super-retab"]
+	path = submodules/vim-super-retab
+	url = https://github.com/rhlobo/vim-super-retab
