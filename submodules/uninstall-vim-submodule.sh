@@ -1,9 +1,10 @@
 #!/bin/bash
-gitsubrm() {
+gitsubremove() {
     git rm "$1"
     rm -rf ".git/modules/$1"
     git config -f ".git/config" --remove-section "submodule.$1" 2> /dev/null
-    git commit -m "Remove submodule $1"
+    git add .
+    git commit -m "chore(submodules): removed $1"
 }
 
 uninstall_submodule () {
@@ -24,7 +25,7 @@ uninstall_submodule () {
 	then
 		echo "Removing submodule..."
 		cd ~/dotfiles
-		gitsubrm submodules/$plugin	
+		gitsubremove submodules/$plugin	
 		echo "...done!"
 		echo "Removing symlink..."
 		rm ~/dotfiles/vim/.vim/pack/plugins/start/$plugin
@@ -35,7 +36,7 @@ uninstall_submodule () {
 		echo "...done!"
 		echo "VIM RESTART REQUIRED"
 	else
-		echo "VIM SUBMODULE INSTALLATION SKIPPED"
+		echo "VIM SUBMODULE UNINSTALLATION SKIPPED"
 	fi
 }
 

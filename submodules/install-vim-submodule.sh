@@ -1,4 +1,10 @@
 #!/bin/bash
+gitsubadd() {
+	git submodule add https://github.com/$1
+	git add .
+    git commit -m "chore(submodules): added $2"
+}
+
 install_submodule () {
 	echo -e "[INSTALL VIM SUBMODULE]"
 	echo "Enter module path (e.g. 'tpope/vim-suround):"
@@ -15,8 +21,9 @@ install_submodule () {
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ]
 	then
-		echo "Cloning repo..."
-		cd ~/dotfiles/submodules && git submodule add https://github.com/$plugaddress
+		echo "Adding submodule..."
+		cd ~/dotfiles/submodules
+		gitsubadd $plugaddress submodules/$plugin
 		echo "...done!"
 		echo "Symlinking submodule..."
 		cd ~/dotfiles/vim/.vim/pack/plugins/start/ 
