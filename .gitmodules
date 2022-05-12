@@ -28,6 +28,3 @@
 [submodule "submodules/vim-super-retab"]
 	path = submodules/vim-super-retab
 	url = https://github.com/rhlobo/vim-super-retab
-[submodule "submodules/toggle-terminal"]
-	path = submodules/toggle-terminal
-	url = https://github.com/pakutoma/toggle-terminal
