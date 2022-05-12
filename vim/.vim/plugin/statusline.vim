@@ -5,11 +5,9 @@ set statusline+=%4*
 set statusline+=%{StatuslineMode()}
 set statusline+=%9*
 set statusline+=\ 
-set statusline+=<
+set statusline+=[
 set statusline+=%n
-set statusline+=>
-set statusline+=\ 
-set statusline+=%f
+set statusline+=]
 set statusline+=%=
 set statusline+=%m
 set statusline+=%h
