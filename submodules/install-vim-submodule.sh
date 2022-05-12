@@ -1,11 +1,13 @@
 #!/bin/bash
 gitsubadd() {
 	git submodule add https://github.com/$1
+	cd ~/dotfiles/vim/.vim/pack/plugins/start/ 
+	ln -s ../../../../../submodules/$2 $2
 	git add .
-    git commit -m "chore(submodules): added $2"
+	git commit -m "chore(submodules): added $2"
 }
 
-install_submodule () {
+install_submodule() {
 	echo -e "[INSTALL VIM SUBMODULE]"
 	echo "Enter module path (e.g. 'tpope/vim-suround):"
 	read resp
@@ -14,25 +16,24 @@ install_submodule () {
 	author=${arrResp[0]}
 	plugin=${arrResp[1]}
 
-	echo "Would you like to install the following? (y/n)"
 	echo "plugin: $plugin"
 	echo "author: $author"
+	echo "Would you like to install the submodule? (y/n)"
 
 	read resp
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ]
 	then
 		echo "Adding submodule..."
 		cd ~/dotfiles/submodules
-		gitsubadd $plugaddress submodules/$plugin
+		gitsubadd $plugaddress $plugin
 		echo "...done!"
-		echo "Symlinking submodule..."
-		cd ~/dotfiles/vim/.vim/pack/plugins/start/ 
-		ln -s ../../../../../submodules/$plugin $plugin
-		echo "...done!"
+
 		cd ~/dotfiles
+
 		echo "Bootstrapping..."
 		./bootstrap.sh
 		echo "...done!"
+
 		echo "VIM RESTART REQUIRED"
 	else
 		echo "VIM SUBMODULE INSTALLATION SKIPPED"
