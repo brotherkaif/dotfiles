@@ -7,6 +7,7 @@ set history=1000
 
 " INTERFACE
 syntax enable
+set re=0 " Use new regular expression engine
 set background=dark
 set relativenumber
 set cursorline
@@ -96,6 +97,47 @@ nnoremap <leader><Right> :vertical resize +2<CR>
 " start of line backwards
 " search n-character
 " TODO implement this
+
+
+" ### LANGUAGE SERVER PROTOCOL BINDS
+" go to declaration
+nnoremap gD :ALEGoToTypeDefinition<CR>
+
+" go to definition
+nnoremap gd :ALEGoToDefinition<CR>
+
+" go to implementation
+nnoremap gi :ALEGoToImplementation<CR>
+
+" go to references
+nnoremap gr :ALEFindReferences<CR>
+
+" show line diagnostic
+nnoremap gl :ALEErrorLine<CR>
+
+" show hover
+nnoremap K :ALEHover<CR>
+
+" show signature help
+nnoremap <C-k> :echo "Signature help not implemented in ALE"<CR>
+
+" rename symbol
+nnoremap <leader>rn :ALERename<CR>
+
+" show code actions
+nnoremap <leader>ca :ALECodeAction<CR>
+
+" show diagnostic
+nnoremap <leader>d :echo "Diagnostic info is in the command line in ALE"<CR>
+
+" next diagnostic
+nnoremap <leader>nd :ALENextWrap<CR>
+
+" previous diagnostic
+nnoremap <leader>pd :ALEPreviousWrap<CR>
+
+" open diagnostic quickfix list
+nnoremap <leader>q :ALEPopulateQuickfix<CR>
 
 " ## GROUPED BINDS
 " ### BUFFERS = `b`
