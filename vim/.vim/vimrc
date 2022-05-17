@@ -224,15 +224,19 @@ nnoremap <leader>pb :bprevious<CR>
 " previous quick fix
 nnoremap <leader>pq :cp<CR>
 
-" # VISUAL MODE
-" ## GLOBAL BINDS
-" keymap("v", "J", ":m .+1<CR>==", opts) " move lines down
-" keymap("v", "K", ":m .-2<CR>==", opts) " move lines up
-" keymap("v", "<", "<gv", opts) " persist unindent
-" keymap("v", ">", ">gv", opts) " persist indent
-" keymap("v", "p", '"_dP', opts) " fix HORRIBLE paste behaviour
+" ### SHIFT = `s`
+" shift lines down
+nnoremap <leader>sj :m .+1<CR>==
+vnoremap <leader>sj :m '>+1<CR>gv=gv
 
-" # VISUAL BLOCK MODE
-" ## GLOBAL BINDS
-" keymap("x", "J", ":move '>+1<CR>gv-gv", opts) " move lines down
-" keymap("x", "K", ":move '<-2<CR>gv-gv", opts) " move lines up
+" shift lines up
+nnoremap <leader>sk :m .-2<CR>==
+vnoremap <leader>sk :m '<-2<CR>gv=gv
+
+" shift lines left
+nnoremap <leader>sh <<
+vnoremap <leader>sh <gv
+
+" shift lines right
+nnoremap <leader>sl >>
+vnoremap <leader>sl >gv
