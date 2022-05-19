@@ -25,9 +25,9 @@ set statusline+=%c
 set statusline+=\ 
 set statusline+=%9*
 set statusline+=%y
-hi User4 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
+hi User4 ctermbg=cyan ctermfg=black guibg=cyan guifg=black
 hi User9 ctermbg=black ctermfg=white guibg=black guifg=white
-hi User2 ctermbg=black ctermfg=lightgreen guibg=black guifg=lightgreen
+hi User2 ctermbg=black ctermfg=green guibg=black guifg=green
 hi User3 ctermbg=black ctermfg=magenta guibg=black guifg=magenta
 
 function! StatuslineMode()
