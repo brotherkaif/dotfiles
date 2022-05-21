@@ -1,1 +1,1 @@
-let g:fzf_layout = { 'up': '~50%' }
+let g:fzf_layout = { 'down': '~50%' }

@@ -7,7 +7,7 @@ let mapleader="\<Space>"
 " command pallette
 nnoremap <Leader><CR> <cmd>:Commands<CR>
 " open terminal
-nnoremap <leader>t :terminal<CR>
+nnoremap <leader>t :belowright terminal<CR>
 " normal mode in terminal
 tnoremap <Esc><Esc> <C-\><C-N>
 " git status
