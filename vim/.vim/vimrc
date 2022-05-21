@@ -4,12 +4,13 @@ set noswapfile
 filetype plugin on
 set nobackup
 set history=1000
+set mouse=a
 
 " INTERFACE
 syntax enable
 set re=0 " Use new regular expression engine
 set background=dark
-set relativenumber
+set number relativenumber
 set cursorline
 set wildmenu
 set wildignorecase
