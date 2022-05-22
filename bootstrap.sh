@@ -34,7 +34,3 @@ symlink themes $(rm -rf $XDG_CONFIG_HOME/customisation/macos-terminal-themes)
 symlink tmux $(rm -rf $HOME/.tmux*)
 symlink vim $(rm -rf $HOME/.vim)
 symlink zsh $(rm -rf $HOME/.zsh*)
-
-display_message SYNC-SUBMODULES
-
-./submodules/sync-submodules.sh
