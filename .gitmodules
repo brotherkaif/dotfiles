@@ -31,6 +31,3 @@
 [submodule "submodules/ale"]
 	path = submodules/ale
 	url = https://github.com/dense-analysis/ale
-[submodule "submodules/ultisnips"]
-	path = submodules/ultisnips
-	url = https://github.com/SirVer/ultisnips
