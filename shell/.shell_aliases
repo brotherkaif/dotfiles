@@ -27,10 +27,12 @@ alias tmux="tmux -2"
 alias tms="tmux -2 new -s"
 
 # PRODUCTIVITY ALIASES
-alias sc="$HOME/bin/scratch.sh"
-alias dev-notes="cd $HOME/dev-notes && nvim -c ':Telescope file_browser' README.md"
-alias til="echo '$(date "+%y-%m-%d %H.%M.%S"):$1' >> $HOME/scratch/til.md"
-alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/scratch/til.md"
+alias sp="$HOME/bin/scratch.sh"
+alias dn="cd $HOME/dev-notes && vim ."
+alias wl="gh gist edit 92f0423ccade1927b6490ec98d36990c"
+alias tss="date '+%F'"
+alias tsm="date '+%F %a'"
+alias tsl="date '+%F %a %H:%M:%S'"
 
 # CRYPTO ALIASES
 alias xmr="monero-wallet-cli --config-file ~/.bitmonero/bitmonero.conf"
