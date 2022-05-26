@@ -27,7 +27,7 @@ alias tmux="tmux -2"
 alias tms="tmux -2 new -s"
 
 # PRODUCTIVITY ALIASES
-alias scratch="$HOME/bin/scratch.sh"
+alias sc="$HOME/bin/scratch.sh"
 alias dev-notes="cd $HOME/dev-notes && nvim -c ':Telescope file_browser' README.md"
 alias til="echo '$(date "+%y-%m-%d %H.%M.%S"):$1' >> $HOME/scratch/til.md"
 alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/scratch/til.md"

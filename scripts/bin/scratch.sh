@@ -1,13 +1,15 @@
 #!/bin/bash
 
-noteFilename="$HOME/3-resources/notes/scratchpads/$(date +%Y-%m-%d).md"
+scratchpadsDir=$HOME/scratchpads
+noteFilePath="$scratchpadsDir/$(date +%Y-%m-%d).md"
 
-if [ ! -f $noteFilename ]; then
-  echo "# Notes for $(date +%Y-%m-%d)" > $noteFilename
+if [[ ! -f $noteFilePath ]]
+then
+  echo "# Notes for $(date +%Y-%m-%d)" > $noteFilePath
 fi
 
-nvim -c "norm Go" \
+vim -c "norm Go" \
   -c "norm Go## $(date +%H:%M)" \
   -c "norm G2o" \
   -c "norm zz" \
-  -c "startinsert" $noteFilename
+  -c "startinsert" $noteFilePath
