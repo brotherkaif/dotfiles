@@ -11,7 +11,7 @@ nnoremap <leader>t <cmd>:belowright terminal<CR>
 " normal mode in terminal
 tnoremap <Esc><Esc> <C-\><C-N>
 " git status
-nnoremap <leader>g <cmd>:belowright terminal lazygit<CR>
+nnoremap <leader>g <cmd>:belowright terminal ++close lazygit<CR>
 
 " #### Cursor Movement = `h` + `j` + `k` + `l`
 " cursor left
