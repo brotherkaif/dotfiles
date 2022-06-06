@@ -31,3 +31,6 @@
 [submodule "submodules/ale"]
 	path = submodules/ale
 	url = https://github.com/dense-analysis/ale
+[submodule "submodules/ctrlp.vim"]
+	path = submodules/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
