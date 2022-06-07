@@ -88,9 +88,10 @@ nnoremap <Leader>b/ <cmd>:Ag<CR>
 
 " #### Files = `f`
 " find file
-nnoremap <leader>ff <cmd>:Files<CR>
+nnoremap <leader>ff <cmd>:CtrlP<CR>
+" nnoremap <leader>ff <cmd>:Files<CR>
 " find git file
-nnoremap <leader>fg <cmd>:GFiles<CR>
+" nnoremap <leader>fg <cmd>:GFiles<CR>
 " file browser (project directory)
 nnoremap <leader>fb <cmd>:Lexplore<CR>
 " file browser (current directory)
