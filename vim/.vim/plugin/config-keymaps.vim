@@ -84,20 +84,17 @@ nnoremap <leader>bf <cmd>:ALEFix<CR>
 " toggle spellcheck
 nnoremap <Leader>bs <cmd>:setlocal spell! spelllang=en_gb,en_us<CR>
 " grep buffer
-nnoremap <Leader>b/ <cmd>:Ag<CR>
+" nnoremap <Leader>b/ <cmd>:Ag<CR>
 
 " #### Files = `f`
 " find file
 nnoremap <leader>ff <cmd>:CtrlP<CR>
-" nnoremap <leader>ff <cmd>:Files<CR>
-" find git file
-" nnoremap <leader>fg <cmd>:GFiles<CR>
 " file browser (project directory)
-nnoremap <leader>fb <cmd>:Lexplore<CR>
+nnoremap <leader>fb <cmd>:Explore<CR>
 " file browser (current directory)
-nnoremap <leader>fd <cmd>:Lexplore %:p:h<CR>
+nnoremap <leader>fd <cmd>:Explore %:p:h<CR>
 " grep files
-nnoremap <Leader>f/ <cmd>:Ag<CR>
+" nnoremap <Leader>f/ <cmd>:Ag<CR>
 
 " #### Code = `c`
 " go to type declaration

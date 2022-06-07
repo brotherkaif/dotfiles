@@ -14,13 +14,13 @@ set number relativenumber
 set cursorline
 set wildmenu
 set wildignorecase
-set wildignore=\*.git/\*,\*node-modules/\*,*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+set wildignore=\*.git/\*,\*node-modules/\*,\*submodules/\*,*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set wildmode=longest:full,full
 set scrolloff=10
 set nowrap
 
 " FINDING FILES
-set path+=**
+set path+=**/*
 
 " INDENTATION BEHAVIOUR
 set shiftwidth=4
