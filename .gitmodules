@@ -19,9 +19,6 @@
 [submodule "submodules/vim-repeat"]
 	path = submodules/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule "submodules/fzf.vim"]
-	path = submodules/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf
