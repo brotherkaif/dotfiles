@@ -25,3 +25,6 @@
 [submodule "submodules/ale"]
 	path = submodules/ale
 	url = https://github.com/dense-analysis/ale
+[submodule "submodules/vim-commentary"]
+	path = submodules/vim-commentary
+	url = https://github.com/tpope/vim-commentary
