@@ -11,7 +11,7 @@ display_message () {
 }
 
 # usage: $1=stow-dir $2=cleanup-callback
-symlink () {
+symlink_dotfiles () {
 	display_message $1
 	echo "Tidying up existing $1 config..."
 	$2
@@ -20,19 +20,28 @@ symlink () {
 	echo "...done!"
 }
 
-display_message SYMLINKING
+# usage: call
+sync_submodules() {
+	git submodule deinit --all -f
+	git submodule init
+	git submodule update
+}
 
-symlink bash $(rm -rf $HOME/.bash* && rm -rf $HOME/.inputrc)
-symlink devdocs $(rm -rf $XDG_CONFIG_HOME/customisation/devdocs)
-symlink git $(rm -rf $HOME/.gitconfig && rm -rf $XDG_CONFIG_HOME/git)
-symlink lazygit $(rm -rf $XDG_CONFIG_HOME/lazygit)
-symlink monero $(rm -rf $HOME/.bitmonero)
-symlink newsboat $(rm -rf $XDG_CONFIG_HOME/newsboat)
-symlink lynx $(rm -rf $HOME/.lynx*)
-symlink nvim $(rm -rf $XDG_CONFIG_HOME/nvim && rm -rf $XDG_DATA_HOME/nvim)
-symlink scripts $(rm -rf $HOME/bin)
-symlink shell $(rm -rf $HOME/.shell*)
-symlink themes $(rm -rf $XDG_CONFIG_HOME/customisation/macos-terminal-themes)
-symlink tmux $(rm -rf $HOME/.tmux*)
-symlink vim $(rm -rf $HOME/.vim)
-symlink zsh $(rm -rf $HOME/.zsh*)
+display_message SYMLINKING
+symlink_dotfiles bash $(rm -rf $HOME/.bash* && rm -rf $HOME/.inputrc)
+symlink_dotfiles devdocs $(rm -rf $XDG_CONFIG_HOME/customisation/devdocs)
+symlink_dotfiles git $(rm -rf $HOME/.gitconfig && rm -rf $XDG_CONFIG_HOME/git)
+symlink_dotfiles lazygit $(rm -rf $XDG_CONFIG_HOME/lazygit)
+symlink_dotfiles monero $(rm -rf $HOME/.bitmonero)
+symlink_dotfiles newsboat $(rm -rf $XDG_CONFIG_HOME/newsboat)
+symlink_dotfiles lynx $(rm -rf $HOME/.lynx*)
+symlink_dotfiles nvim $(rm -rf $XDG_CONFIG_HOME/nvim && rm -rf $XDG_DATA_HOME/nvim)
+symlink_dotfiles scripts $(rm -rf $HOME/bin)
+symlink_dotfiles shell $(rm -rf $HOME/.shell*)
+symlink_dotfiles themes $(rm -rf $XDG_CONFIG_HOME/customisation/macos-terminal-themes)
+symlink_dotfiles tmux $(rm -rf $HOME/.tmux*)
+symlink_dotfiles vim $(rm -rf $HOME/.vim)
+symlink_dotfiles zsh $(rm -rf $HOME/.zsh*)
+
+display_message SYNCING
+sync_submodules
