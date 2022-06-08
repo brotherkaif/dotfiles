@@ -27,7 +27,7 @@ alias tmux="tmux -2"
 alias tms="tmux -2 new -s"
 
 # PRODUCTIVITY ALIASES
-alias scratchpads="$HOME/bin/scratch.sh"
+alias scratchpad="$HOME/bin/scratch.sh"
 alias devnotes="cd $HOME/dev-notes && vim ."
 alias worklog="gh gist edit 92f0423ccade1927b6490ec98d36990c"
 alias tss="date '+%F'"
