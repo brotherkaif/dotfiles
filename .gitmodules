@@ -28,3 +28,6 @@
 [submodule "submodules/vim-commentary"]
 	path = submodules/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "submodules/fzf.vim"]
+	path = submodules/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
