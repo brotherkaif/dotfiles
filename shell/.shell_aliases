@@ -75,3 +75,8 @@ alias somafm-thetrip="mpv https://somafm.com/thetrip.pls"
 alias somafm-thistle="mpv https://somafm.com/thistle.pls"
 alias somafm-u80s="mpv https://somafm.com/u80s.pls"
 alias somafm-vaporwaves="mpv https://somafm.com/vaporwaves.pls"
+
+# WORK ALIASES
+alias lh-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); cd -'
+alias lh-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); cd -'
+alias lh-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); cd -'
