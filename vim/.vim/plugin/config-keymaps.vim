@@ -12,6 +12,22 @@ nnoremap <leader>t <cmd>:belowright terminal<CR>
 tnoremap <C-]><Esc> <C-\><C-N>
 " git status
 nnoremap <leader>g <cmd>:!lazygit<CR>
+" split horizontal
+nnoremap <leader>x <cmd>:split<CR>
+" split vertical
+nnoremap <leader>v <cmd>:vsplit<CR>
+" write buffer
+nnoremap <leader>w <cmd>:w<CR>
+" reload buffer
+nnoremap <leader>r <cmd>:e<CR>
+" quit buffer
+nnoremap <leader>q <cmd>:q<CR>
+" equalise windows
+nnoremap <leader>e <C-W>=
+" maximise window
+nnoremap <leader>m <C-W>_<C-W>\|
+" close other windows
+nnoremap <leader>o <C-W>o
 
 " #### Cursor Movement = `h` + `j` + `k` + `l`
 " cursor left
@@ -61,22 +77,7 @@ nnoremap [q <cmd>:cp<CR>
 
 " ### Leader Groups
 " #### Buffers = `b`
-" write buffer
-nnoremap <leader>bw <cmd>:w<CR>
-" reload buffer
-nnoremap <leader>br <cmd>:e<CR>
-" quit buffer
-nnoremap <leader>bq <cmd>:q<CR>
-" split horizontal
-nnoremap <leader>bx <cmd>:split<CR>
-" split vertical
-nnoremap <leader>bv <cmd>:vsplit<CR>
-" equalise buffer windows
-nnoremap <leader>be <C-W>=
-" maximise buffer window
-nnoremap <leader>bm <C-W>_<C-W>|
-" close other buffer windows
-nnoremap <leader>bo <C-W>o
+
 " format buffer
 nnoremap <leader>bf <cmd>:ALEFix<CR>
 " toggle spellcheck
@@ -116,9 +117,9 @@ nnoremap <leader>cq <cmd>:ALEPopulateQuickfix<CR>
 
 " #### Interface = `i`
 " set theme to light
-nnoremap <leader>il <cmd>:set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>
+nnoremap <leader>il <cmd>:set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>:highlight clear VertSplit<CR>
 " set theme to dark
-nnoremap <leader>id <cmd>:set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>
+nnoremap <leader>id <cmd>:set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>:highlight clear VertSplit<CR>
 " toggle display unprintable chars
 nnoremap <leader>ic <cmd>:set list!<CR>
 

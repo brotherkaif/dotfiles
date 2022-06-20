@@ -10,6 +10,9 @@ set mouse=a
 syntax enable
 set re=0 " Use new regular expression engine
 set background=dark
+hi clear SignColumn
+hi clear Folded
+hi clear VertSplit
 set number relativenumber
 set cursorline
 set wildmenu
