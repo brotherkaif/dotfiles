@@ -91,7 +91,7 @@ nnoremap <leader>ff <cmd>:Files<CR>
 " find git file
 nnoremap <leader>fg <cmd>:GFiles<CR>
 " file browser (project directory)
-nnoremap <leader>fb <cmd>:Explore<CR>
+nnoremap <leader>fb <cmd>:Explore .<CR>
 " file browser (current directory)
 nnoremap <leader>fd <cmd>:Explore %:p:h<CR>
 " grep files
