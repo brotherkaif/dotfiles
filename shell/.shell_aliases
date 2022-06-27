@@ -80,3 +80,4 @@ alias somafm-vaporwaves="mpv https://somafm.com/vaporwaves.pls"
 alias lh-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); cd -'
 alias lh-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); cd -'
 alias lh-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); cd -'
+alias cc-cs='vim ~/Dropbox\ \(BBC\)/3-resources/common-catalogue-cheatsheet.md'
