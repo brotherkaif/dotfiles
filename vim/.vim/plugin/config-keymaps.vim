@@ -8,8 +8,8 @@ let mapleader="\<Space>"
 nnoremap <Leader><CR> <cmd>:Commands<CR>
 " open terminal right
 nnoremap <leader>t <cmd>:vertical belowright terminal<CR>
-" open terminal bottom
-nnoremap <leader>T <cmd>:belowright terminal<CR>
+" open terminal tab
+nnoremap <leader>T <cmd>:tab terminal<CR>
 " normal mode in terminal
 tnoremap <C-]><Esc> <C-\><C-N>
 " git status
