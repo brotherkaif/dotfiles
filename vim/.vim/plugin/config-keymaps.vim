@@ -60,30 +60,24 @@ nnoremap <leader><Up> <cmd>:resize +2<CR>
 nnoremap <leader><Right> <cmd>:vertical resize +2<CR>
 
 " #### Next = `]`
-" next buffer
-nnoremap ]b <cmd>:bnext<CR>
-" next diagnostic
-nnoremap ]d <cmd>:ALENextWrap<CR>
 " next quick fix
 nnoremap ]q <cmd>:cn<CR>
-
-" #### Previous = `[`
-" previous buffer
-nnoremap [b <cmd>:bprevious<CR>
-" previous diagnostic
-nnoremap [d <cmd>:ALEPreviousWrap<CR>
 " previous quick fix
 nnoremap [q <cmd>:cp<CR>
+" #### Previous = `[`
 
 " ### Leader Groups
 " #### Buffers = `b`
-
 " format buffer
 nnoremap <leader>bf <cmd>:ALEFix<CR>
 " toggle spellcheck
 nnoremap <Leader>bs <cmd>:setlocal spell! spelllang=en_gb,en_us<CR>
 " grep buffer
 nnoremap <Leader>b/ <cmd>:Ag<CR>
+" next buffer
+nnoremap ]b <cmd>:bnext<CR>
+" previous buffer
+nnoremap [b <cmd>:bprevious<CR>
 
 " #### Files = `f`
 " find file
@@ -97,23 +91,31 @@ nnoremap <leader>fd <cmd>:Explore %:p:h<CR>
 " grep files
 nnoremap <Leader>f/ <cmd>:Ag<CR>
 
-" #### Code = `c`
-" go to type declaration
-nnoremap <leader>ct <cmd>:ALEGoToTypeDefinition<CR>
+" #### LSP
 " go to definition
-nnoremap <leader>cd <cmd>:ALEGoToDefinition<CR>
-" go to implementation
-nnoremap <leader>ci <cmd>:ALEGoToImplementation<CR>
+nnoremap gd <cmd>:ALEGoToDefinition<CR>
+" go to document symbol
+nnoremap gs <cmd>:echo 'not implemented'<CR>
+" go to workspace symbol
+nnoremap gS <cmd>:echo 'not implemented'<CR>
 " go to references
-nnoremap <leader>cr <cmd>:ALEFindReferences<CR>
-" show hover
-nnoremap <leader>ch <cmd>:ALEHover<CR>
+nnoremap gr <cmd>:ALEFindReferences<CR>
+" go to implementation
+nnoremap gi <cmd>:ALEGoToImplementation<CR>
+" go to type declaration
+nnoremap gt <cmd>:ALEGoToTypeDefinition<CR>
 " rename symbol
-nnoremap <leader>cn <cmd>:ALERename<CR>
+nnoremap <leader>rn <cmd>:ALERename<CR>
+" show hover
+nnoremap K <cmd>:ALEHover<CR>
 " show code actions
 nnoremap <leader>ca <cmd>:ALECodeAction<CR>
 " open diagnostic quickfix list
 nnoremap <leader>cq <cmd>:ALEPopulateQuickfix<CR>
+" next LSP diagnostic
+nnoremap ]g <cmd>:ALENextWrap<CR>
+" previous LSP diagnostic
+nnoremap [g <cmd>:ALEPreviousWrap<CR>
 
 " #### Interface = `i`
 " set theme to light
