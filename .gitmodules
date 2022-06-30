@@ -37,6 +37,3 @@
 [submodule "submodules/vim-snippets"]
 	path = submodules/vim-snippets
 	url = https://github.com/honza/vim-snippets
-[submodule "submodules/vim-snipmate"]
-	path = submodules/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate
