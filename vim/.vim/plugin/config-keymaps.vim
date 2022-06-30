@@ -13,7 +13,7 @@ nnoremap <leader>T <cmd>:tab terminal<CR>
 " normal mode in terminal
 tnoremap <C-]><Esc> <C-\><C-N>
 " git status
-nnoremap <leader>g <cmd>:!lazygit<CR>
+nnoremap <leader>g <cmd>:Git<CR>
 " split horizontal
 nnoremap <leader>x <cmd>:split<CR>
 " split vertical
