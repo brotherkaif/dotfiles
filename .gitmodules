@@ -7,9 +7,6 @@
 [submodule "submodules/vim-surround"]
 	path = submodules/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "submodules/vim-sleuth"]
-	path = submodules/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth
 [submodule "submodules/vim-vinegar"]
 	path = submodules/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
