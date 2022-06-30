@@ -37,9 +37,6 @@
 [submodule "submodules/vim-snippets"]
 	path = submodules/vim-snippets
 	url = https://github.com/honza/vim-snippets
-[submodule "submodules/tlib_vim"]
-	path = submodules/tlib_vim
-	url = https://github.com/tomtom/tlib_vim
 [submodule "submodules/vim-addon-mw-utils"]
 	path = submodules/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils
