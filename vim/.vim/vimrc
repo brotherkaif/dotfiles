@@ -146,14 +146,8 @@ nnoremap [b <cmd>:bprevious<CR>
 " #### Files = `f`
 " find file
 nnoremap <leader>f <cmd>:CtrlP<CR>
-" find git file
-nnoremap <leader>fg <cmd>:GFiles<CR>
-" file browser (project directory)
-nnoremap <leader>fb <cmd>:Explore .<CR>
-" file browser (current directory)
-nnoremap <leader>fd <cmd>:Explore %:p:h<CR>
 " grep files
-nnoremap <Leader>f/ <cmd>:Ag<CR>
+nnoremap <Leader>/ <cmd>:Ag<CR>
 
 " #### LSP
 " go to definition
