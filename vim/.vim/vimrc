@@ -38,7 +38,7 @@ set showmatch
 set hlsearch
 
 " PLUGIN: CtrlP
-let g:ctrlp_map = '<leader>ff'
+let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_show_hidden = 1
