@@ -37,3 +37,6 @@
 [submodule "submodules/editorconfig-vim"]
 	path = submodules/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "submodules/ctrlp.vim"]
+	path = submodules/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
