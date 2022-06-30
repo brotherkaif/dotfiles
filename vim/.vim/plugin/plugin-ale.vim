@@ -1,7 +1,7 @@
 let g:ale_hover_to_floating_preview=1
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
-set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
 
 let js_fixers = ['prettier', 'eslint']
 
