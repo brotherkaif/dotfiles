@@ -34,3 +34,6 @@
 [submodule "submodules/vim-fugitive"]
 	path = submodules/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "submodules/vim-polyglot"]
+	path = submodules/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
