@@ -28,9 +28,6 @@
 [submodule "submodules/vim-gitgutter"]
 	path = submodules/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "submodules/vim-snippets"]
-	path = submodules/vim-snippets
-	url = https://github.com/honza/vim-snippets
 [submodule "submodules/vim-fugitive"]
 	path = submodules/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
