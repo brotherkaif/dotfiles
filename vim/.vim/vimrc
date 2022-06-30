@@ -145,7 +145,7 @@ nnoremap [b <cmd>:bprevious<CR>
 
 " #### Files = `f`
 " find file
-nnoremap <leader>ff <cmd>:CtrlP<CR>
+nnoremap <leader>f <cmd>:CtrlP<CR>
 " find git file
 nnoremap <leader>fg <cmd>:GFiles<CR>
 " file browser (project directory)
