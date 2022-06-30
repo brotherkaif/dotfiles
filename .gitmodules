@@ -31,3 +31,6 @@
 [submodule "submodules/vim-snippets"]
 	path = submodules/vim-snippets
 	url = https://github.com/honza/vim-snippets
+[submodule "submodules/vim-fugitive"]
+	path = submodules/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
