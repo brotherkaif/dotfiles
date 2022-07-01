@@ -42,6 +42,7 @@ let g:ctrlp_map = '<leader>ff'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|submodules|dist)|(\.(swp|ico|git|svn))$'
 
 " PLUGIN: ale
 let g:ale_hover_to_floating_preview=1
