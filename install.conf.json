@@ -3,7 +3,8 @@
     "defaults": {
       "link": {
         "create": true,
-        "relink": true
+        "relink": true,
+        "force": true
       }
     }
   },
@@ -12,7 +13,22 @@
   },
   {
     "link": {
-      "~/.config/newsboat": "newsboat"
+      "~/.bash_profile": "bash/.bash_profile",
+      "~/.bashrc": "bash/.bashrc",
+      "~/.bitmonero": "monero",
+      "~/.config/devdocs": "devdocs",
+      "~/.config/git/git-commit-template.txt": "git/git-commit-template.txt",
+      "~/.config/lazygit": "lazygit",
+      "~/.config/lynx": "lynx",
+      "~/.config/newsboat": "newsboat",
+      "~/.config/nvim": "nvim",
+      "~/.gitconfig": "git/.gitconfig",
+      "~/.inputrc": "bash/.inputrc",
+      "~/.shell_aliases": "shell/.shell_aliases",
+      "~/.shell_common": "shell/.shell_common",
+      "~/.tmux.conf": "tmux/.tmux.conf",
+      "~/.vim": "vim",
+      "~/.zshrc": "zsh/.zshrc"
     }
   }
 ]
