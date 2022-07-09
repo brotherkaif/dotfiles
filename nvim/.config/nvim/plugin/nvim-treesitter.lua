@@ -1,9 +1,6 @@
-local cmp_status_ok, tsconfig = pcall(require, 'nvim-treesitter.configs')
-if not cmp_status_ok then
-	return
-end
+tsconfig = require('nvim-treesitter.configs')
 
-languages = { 
+languages = {
 	-- "astro",
 	"bash",
 	-- "beancount",

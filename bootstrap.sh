@@ -164,32 +164,33 @@ setup_nvim() {
 		rm -rf $XDG_CONFIG_HOME/nvim &&
 		rm -rf $XDG_DATA_HOME/nvim &&
 		mkdir -p $XDG_DATA_HOME/nvim &&
-		mkdir -p $XDG_CONFIG_HOME/nvim/lua/user/configs/lsp/settings
+		mkdir -p $XDG_CONFIG_HOME/nvim/lua &&
+		mkdir -p $XDG_CONFIG_HOME/nvim/plugin
 	)
 
 	local paths=(
 		".config/nvim/init.lua"
-		".config/nvim/lua/user/keymaps.lua"
-		".config/nvim/lua/user/options.lua"
-		".config/nvim/lua/user/plugins.lua"
-		".config/nvim/lua/user/configs/cmp.lua"
-		".config/nvim/lua/user/configs/formatter.lua"
-		".config/nvim/lua/user/configs/gitsigns.lua"
-		".config/nvim/lua/user/configs/hop.lua"
-		".config/nvim/lua/user/configs/lualine.lua"
-		".config/nvim/lua/user/configs/nvim_comment.lua"
-		".config/nvim/lua/user/configs/nvim-treesitter.lua"
-		".config/nvim/lua/user/configs/telescope.lua"
-		".config/nvim/lua/user/configs/toggleterm.lua"
-		".config/nvim/lua/user/configs/twilight.lua"
-		".config/nvim/lua/user/configs/which-key.lua"
-		".config/nvim/lua/user/configs/zen-mode.lua"
-		".config/nvim/lua/user/configs/lsp/handlers.lua"
-		".config/nvim/lua/user/configs/lsp/init.lua"
-		".config/nvim/lua/user/configs/lsp/null-ls.lua"
-		".config/nvim/lua/user/configs/lsp/nvim-lsp-installer.lua"
-		".config/nvim/lua/user/configs/lsp/settings/jsonls.lua"
-		".config/nvim/lua/user/configs/lsp/settings/sumneko_lua.lua"
+		".config/nvim/lua/pack.lua"
+		".config/nvim/plugin/nvim-treesitter.lua"
+		# ".config/nvim/lua/user/keymaps.lua"
+		# ".config/nvim/lua/user/options.lua"
+		# ".config/nvim/lua/user/configs/cmp.lua"
+		# ".config/nvim/lua/user/configs/formatter.lua"
+		# ".config/nvim/lua/user/configs/gitsigns.lua"
+		# ".config/nvim/lua/user/configs/hop.lua"
+		# ".config/nvim/lua/user/configs/lualine.lua"
+		# ".config/nvim/lua/user/configs/nvim_comment.lua"
+		# ".config/nvim/lua/user/configs/telescope.lua"
+		# ".config/nvim/lua/user/configs/toggleterm.lua"
+		# ".config/nvim/lua/user/configs/twilight.lua"
+		# ".config/nvim/lua/user/configs/which-key.lua"
+		# ".config/nvim/lua/user/configs/zen-mode.lua"
+		# ".config/nvim/lua/user/configs/lsp/handlers.lua"
+		# ".config/nvim/lua/user/configs/lsp/init.lua"
+		# ".config/nvim/lua/user/configs/lsp/null-ls.lua"
+		# ".config/nvim/lua/user/configs/lsp/nvim-lsp-installer.lua"
+		# ".config/nvim/lua/user/configs/lsp/settings/jsonls.lua"
+		# ".config/nvim/lua/user/configs/lsp/settings/sumneko_lua.lua"
 	)
 
 	execute_cleanup $application $cleanup
