@@ -40,3 +40,7 @@
 [submodule "submodules/ctrlp.vim"]
 	path = submodules/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
