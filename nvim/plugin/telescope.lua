@@ -13,8 +13,6 @@ telescope.setup({
 						dir_icon = '›',
 						grouped = true,
 						hidden = true,
-						preview = false,
-						layout_strategy = 'vertical',
 				  	sorting_strategy = 'ascending',
 						layout_config = {
 								prompt_position = 'top',

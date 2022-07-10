@@ -61,8 +61,7 @@ keymap('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_bro
 keymap('n', '<Leader>/f', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opts) -- grep files
 
 -- ### GIT = `g`
-keymap('n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts) -- git status
-keymap('n', '<leader>gc', ':!git commit<CR>', opts) -- git commit
+keymap('n', '<leader>g', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts) -- git status
 
 -- ### INTERFACE = `i`
 keymap('n', '<leader>il', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>', opts) -- set theme to light
@@ -70,21 +69,21 @@ keymap('n', '<leader>id', ':set background=dark<CR>:highlight clear SignColumn<C
 keymap('n', '<leader>in', ':set relativenumber!<CR>', opts) -- toggle relative line numbers
 keymap('n', '<leader>ic', ':set list!<CR>', opts) -- toggle display unprintable chars
 
--- ### NEXT = `n`
-keymap("n", "<leader>nb", ":bnext<CR>", opts) -- next buffer
-keymap('n', '<leader>nq', ':cn<CR>', opts) -- next quick fix
+-- ### NEXT = `]`
+keymap("n", "]b", ":bnext<CR>", opts) -- next buffer
+keymap('n', ']q', ':cn<CR>', opts) -- next quick fix
 
--- ### PREV = `p`
-keymap("n", "<leader>pb", ":bprevious<CR>", opts) -- previous buffer
-keymap('n', '<leader>pq', ':cp<CR>', opts) -- previous quick fix
+-- ### PREV = `[`
+keymap("n", "[b", ":bprevious<CR>", opts) -- previous buffer
+keymap('n', '[q', ':cp<CR>', opts) -- previous quick fix
 
 -- # VISUAL MODE
 -- ## GLOBAL BINDS
+-- keymap("v", "p", '"_dP', opts) -- fix HORRIBLE paste behaviour
 keymap("v", "J", ":m .+1<CR>==", opts) -- move lines down
 keymap("v", "K", ":m .-2<CR>==", opts) -- move lines up
 keymap("v", "<", "<gv", opts) -- persist unindent
 keymap("v", ">", ">gv", opts) -- persist indent
--- keymap("v", "p", '"_dP', opts) -- fix HORRIBLE paste behaviour
 
 -- # VISUAL BLOCK MODE
 -- ## GLOBAL BINDS

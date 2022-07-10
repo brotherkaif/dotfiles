@@ -42,14 +42,13 @@ return packer.startup(function(use)
 	}
 
 	-- LSP
-	-- use {
-	-- 	'williamboman/nvim-lsp-installer',
-	-- 	requires = {
-	-- 		{ 'neovim/nvim-lspconfig' },
-	-- 		-- { 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d' },
-	-- 	},
-	-- 	config = function() require('user.configs.lsp') end
-	-- }
+  use {
+  	'williamboman/nvim-lsp-installer',
+  	requires = {
+  		{ 'neovim/nvim-lspconfig' },
+  		-- { 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d' },
+  	},
+  }
 
 	-- TELESCOPE
 	use {
