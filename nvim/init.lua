@@ -1,3 +1,3 @@
 require('pack')
--- require('options')
--- require('keymaps')
+require('options')
+require('keymaps')

@@ -19,8 +19,7 @@ local keymap = vim.api.nvim_set_keymap
 -- ## GLOBAL BINDS
 -- ### LEADER BINDS
 keymap('n', '<Leader><CR>', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
-keymap('n', '<leader>t', ':ToggleTerm<CR>', opts) -- toggle terminal
--- keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
+keymap('n', '<leader>t', ':term<CR>', opts) -- open terminal
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 
 -- ### CURSOR MOVEMENT = `h` + `j` + `k` + `l`
@@ -41,16 +40,6 @@ keymap("n", "<leader><Down>", ":resize -2<CR>", opts) -- decrease vertical size
 keymap("n", "<leader><Up>", ":resize +2<CR>", opts) -- increase vertical size
 keymap("n", "<leader><Right>", ":vertical resize +2<CR>", opts) -- increase horizontal size
 
--- ### EASY MOTION
-keymap("n", "<leader><leader>s", ":HopChar1<CR>", opts) -- search character
-keymap("n", "<leader><leader>f", ":HopChar1AC<CR>", opts) -- find character forwards
-keymap("n", "<leader><leader>F", ":HopChar1BC<CR>", opts) -- find character backwards
-keymap("n", "<leader><leader>w", ":HopWordAC<CR>", opts) -- start of word forwards
-keymap("n", "<leader><leader>b", ":HopWordBC<CR>", opts) -- start of word backwards
-keymap("n", "<leader><leader>j", ":HopLineStartAC<CR>", opts) -- start of line forwards
-keymap("n", "<leader><leader>k", ":HopLineStartBC<CR>", opts) -- start of line backwards
-keymap("n", "<leader><leader>/", ":HopPattern<CR>", opts) -- search n-character
-
 -- ## GROUPED BINDS
 -- ### BUFFERS = `b`
 keymap('n', '<leader>bw', ':w<CR>', opts) -- write buffer
@@ -64,18 +53,16 @@ keymap('n', '<leader>bq', ':q<CR>', opts) -- quit buffer
 keymap('n', '<leader>bo', '<C-W>o', opts) -- close other buffer windows
 keymap('n', '<leader>bf', ':Format<CR>', opts) -- format buffer
 keymap('n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>', opts) -- toggle spellcheck
-keymap('n', '<Leader>b/', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts) -- grep buffer
+keymap('n', '<Leader>/b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts) -- grep buffer
 
 -- ### FILES = `f`
-keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts) -- find file
-keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>', opts) -- find git file
-keymap('n', '<leader>fb', '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>', opts) -- file browser (project directory)
-keymap('n', '<leader>fd', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', opts) -- file browser (current directory)
-keymap('n', '<Leader>f/', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opts) -- grep files
+keymap('n', '<leader>f', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts) -- find file
+keymap('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', opts) -- file browser (current directory)
+keymap('n', '<Leader>/f', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opts) -- grep files
 
 -- ### GIT = `g`
 keymap('n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts) -- git status
-keymap('n', '<leader>gc', ':Git commit<CR>', opts) -- git commit
+keymap('n', '<leader>gc', ':!git commit<CR>', opts) -- git commit
 
 -- ### INTERFACE = `i`
 keymap('n', '<leader>il', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>', opts) -- set theme to light
@@ -103,7 +90,3 @@ keymap("v", ">", ">gv", opts) -- persist indent
 -- ## GLOBAL BINDS
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts) -- move lines down
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts) -- move lines up
-
-if Debug==true then
-	print('- keymaps.lua...OK!')
-end

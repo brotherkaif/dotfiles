@@ -36,7 +36,7 @@ return packer.startup(function(use)
 	use { 'wbthomason/packer.nvim' }
 
 	-- TREESITTER
-    use {
+	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
@@ -52,16 +52,15 @@ return packer.startup(function(use)
 	-- }
 
 	-- TELESCOPE
-	-- use {
-	-- 	'nvim-telescope/telescope.nvim',
-	-- 	requires = {
-	-- 		{ 'nvim-lua/popup.nvim' },
-	-- 		{ 'nvim-lua/plenary.nvim' },
-	-- 		{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-	-- 		{ 'nvim-telescope/telescope-file-browser.nvim' },
-	-- 	},
-	-- 	config = function() require('user.configs.telescope') end
-	-- }
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {
+			{ 'nvim-lua/popup.nvim' },
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+			{ 'nvim-telescope/telescope-file-browser.nvim' },
+		},
+	}
 
 	-- DEVELOPMENT
 	-- use { 'terrortylor/nvim-comment', config = function() require('user.configs.nvim_comment') end }

@@ -93,8 +93,3 @@ end
 for _, command in ipairs(commands) do
 	vim.cmd(command)
 end
-
--- DEBUG
-if Debug==true then
-	print('- options.lua...OK!')
-end
