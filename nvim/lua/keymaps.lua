@@ -19,6 +19,7 @@ local keymap = vim.api.nvim_set_keymap
 -- ## GLOBAL BINDS
 -- ### LEADER BINDS
 keymap('n', '<Leader><CR>', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
+keymap('n', '<Leader>P', '<cmd>:Telescope<CR>', opts) -- telescope command pallette
 keymap('n', '<leader>t', ':term<CR>', opts) -- open terminal
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 
@@ -51,14 +52,13 @@ keymap('n', '<leader>bv', ':vsplit<CR>', opts) -- split vertical
 keymap('n', '<leader>be', '<C-W>=', opts) -- equalise buffer windows
 keymap('n', '<leader>bq', ':q<CR>', opts) -- quit buffer
 keymap('n', '<leader>bo', '<C-W>o', opts) -- close other buffer windows
-keymap('n', '<leader>bf', ':Format<CR>', opts) -- format buffer
 keymap('n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>', opts) -- toggle spellcheck
 keymap('n', '<Leader>/b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts) -- grep buffer
 
 -- ### FILES = `f`
-keymap('n', '<leader>f', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts) -- find file
+keymap('n', '<leader>p', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts) -- find file
 keymap('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', opts) -- file browser (current directory)
-keymap('n', '<Leader>/f', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opts) -- grep files
+keymap('n', '<Leader>/p', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opts) -- grep files
 
 -- ### GIT = `g`
 keymap('n', '<leader>g', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts) -- git status
