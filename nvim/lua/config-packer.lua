@@ -27,10 +27,10 @@ packer.init {
 
 return packer.startup(function(use)
 	-- OS CHECK
-	local admin = 'sudo '
-	if vim.fn.has('mac') == 1 then
-		admin = ''
-	end
+	-- local admin = 'sudo '
+	-- if vim.fn.has('mac') == 1 then
+	-- 	admin = ''
+	-- end
 
 	-- PLUGINS
 	use { 'wbthomason/packer.nvim' }
@@ -48,6 +48,15 @@ return packer.startup(function(use)
 			{ 'neovim/nvim-lspconfig' },
 			-- { 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d' },
 		},
+	}
+
+	-- DAP
+	use {
+		"mfussenegger/nvim-dap",
+		requires = {
+			{ "rcarriga/nvim-dap-ui" },
+			{ "Pocco81/DAPInstall.nvim" },
+		}
 	}
 
 	-- TELESCOPE

@@ -1,6 +1,3 @@
--- <leader> = space
-vim.g.mapleader = " "
-
 -- common options
 local opts = {noremap = true, silent = true}
 
@@ -14,6 +11,9 @@ local keymap = vim.api.nvim_set_keymap
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+-- <leader> = space
+vim.g.mapleader = " "
 
 -- # NORMAL MODE
 -- ## GLOBAL BINDS
