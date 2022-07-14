@@ -32,8 +32,11 @@ return packer.startup(function(use)
 	-- 	admin = ''
 	-- end
 
-	-- PLUGINS
+	-- PLUGIN MANAGEMENT
 	use { 'wbthomason/packer.nvim' }
+
+	-- DEPENDENCY MANAGEMENT
+	use { "williamboman/mason.nvim", branch = "alpha" }
 
 	-- TREESITTER
 	use {
@@ -42,20 +45,13 @@ return packer.startup(function(use)
 	}
 
 	-- LSP
-	use {
-		'williamboman/nvim-lsp-installer',
-		requires = {
-			{ 'neovim/nvim-lspconfig' },
-			-- { 'jose-elias-alvarez/null-ls.nvim', run = admin .. 'npm install -g prettierd eslint_d' },
-		},
-	}
+	use { 'neovim/nvim-lspconfig' }
 
 	-- DAP
 	use {
 		"mfussenegger/nvim-dap",
 		requires = {
 			{ "rcarriga/nvim-dap-ui" },
-			{ "Pocco81/DAPInstall.nvim" },
 		}
 	}
 

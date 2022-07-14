@@ -5,6 +5,7 @@ The dotfiles of Brother Kaif.
 The `bootstrap.sh` script can be run to setup a basic development environment. The scripts within the `scripts` directory can be run individually if only specific setup needs to occur.
 
 ## Keymaps
+### General
 | Mode     | Mapping           | Effect                           | Neovim                | VSCode                                      |
 |----------|-------------------|----------------------------------|-----------------------|---------------------------------------------|
 | normal   | '<Leader><CR>'    | Open Command Palette             | '<cmd>:Telescope<CR>' | "workbench.action.showCommands"             |
@@ -44,6 +45,23 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 | normal   | ']q'              | next quick fix                   | ':cn<CR>' | |
 | normal   | "[b"              | previous buffer                  | ":bprevious<CR>" | |
 | normal   | '[q'              | previous quick fix               | ':cp<CR>' | |
+
+### LSP
+| Mode     | Mapping     | Effect                  |
+|----------|-------------|-------------------------|
+| normal   | 'gD'        | go to declaration       |
+| normal   | 'gd'        | go to definition        |
+| normal   | 'K'         | cursor hover            |
+| normal   | 'gi'        | go to implementation    |
+| normal   | '<C-k>'     | signature help          |
+| normal   | '<space>wa' | add workspace folder    |
+| normal   | '<space>wr' | remove workspace folder |
+| normal   | '<space>wl' | list workspace folders  |
+| normal   | '<space>D'  | go to type definition   |
+| normal   | '<space>rn' | rename                  |
+| normal   | '<space>ca' | code action             |
+| normal   | 'gr'        | go to references        |
+| normal   | '<space>f'  | format                  |
 
 -- # VISUAL MODE
 -- ## GLOBAL BINDS
