@@ -51,18 +51,18 @@ return packer.startup(function(use)
 	use {
 		"mfussenegger/nvim-dap",
 		requires = {
-			{ "rcarriga/nvim-dap-ui" },
-		}
+			"rcarriga/nvim-dap-ui",
+		},
 	}
 
 	-- TELESCOPE
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
-			{ 'nvim-lua/popup.nvim' },
-			{ 'nvim-lua/plenary.nvim' },
+			'nvim-lua/popup.nvim',
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope-file-browser.nvim',
 			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-			{ 'nvim-telescope/telescope-file-browser.nvim' },
 		},
 	}
 
