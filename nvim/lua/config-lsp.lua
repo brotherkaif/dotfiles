@@ -73,4 +73,6 @@ require('lspconfig').sumneko_lua.setup({
 	},
 })
 
-require('lspconfig').marksman.setup({})
+require('lspconfig').marksman.setup({
+	on_attach = on_attach,
+})

@@ -1,6 +1,6 @@
-local dap = require("dap")
+local dap, dapui = require("dap"), require("dapui")
 
-local install_root_dir = vim.fn.stdpath "data" .. "/mason"
+local install_root_dir = vim.fn.stdpath "data" .. "/mason/packages"
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', "<Leader>dd", "<Cmd>lua require'dap'.continue()<CR>", opts)
@@ -18,7 +18,7 @@ vim.keymap.set('n', "<Leader>dp", "<Cmd>lua require'dap'.run_last()<CR>", opts)
 dap.adapters.node2 = {
 	type = 'executable',
 	command = 'node',
-	args = { install_root_dir .. '/vscode-node-debug2/out/src/nodeDebug.js' },
+	args = { install_root_dir .. '/node-debug2-adapter/out/src/nodeDebug.js' },
 }
 
 dap.configurations.javascript = {
@@ -61,3 +61,15 @@ dap.configurations.typescript = {
 		processId = require 'dap.utils'.pick_process,
 	},
 }
+
+dapui.setup()
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
