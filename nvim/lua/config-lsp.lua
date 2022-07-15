@@ -45,11 +45,11 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-require('lspconfig')['tsserver'].setup {
+require('lspconfig').tsserver.setup({
 	on_attach = on_attach,
-}
+})
 
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig').sumneko_lua.setup({
 	on_attach = on_attach,
 	settings = {
 		Lua = {
@@ -71,4 +71,6 @@ require('lspconfig')['sumneko_lua'].setup {
 			},
 		},
 	},
-}
+})
+
+require('lspconfig').marksman.setup({})
