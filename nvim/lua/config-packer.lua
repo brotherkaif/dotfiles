@@ -67,12 +67,13 @@ return packer.startup(function(use)
 	}
 
 	-- DEVELOPMENT
+	use { 'github/copilot.vim' }
+	-- use { 'editorconfig/editorconfig-vim' }
 	-- use { 'terrortylor/nvim-comment', config = function() require('user.configs.nvim_comment') end }
 	-- use { 'tpope/vim-surround' }
 	-- use { 'tpope/vim-fugitive' }
 	-- use { 'rhlobo/vim-super-retab' }
 	-- use { 'tpope/vim-sleuth' }
-	-- use { 'editorconfig/editorconfig-vim' }
 	-- use { 'akinsho/toggleterm.nvim', config = function() require('user.configs.toggleterm') end }
 
 	-- -- COMPLETION
@@ -91,7 +92,6 @@ return packer.startup(function(use)
 	-- 	},
 	-- 	config = function() require('user.configs.cmp') end
 	-- }
-	-- use { 'github/copilot.vim' }
 
 	-- LINTING
 	-- use {

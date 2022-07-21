@@ -47,31 +47,36 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 | normal   | '[q'              | previous quick fix               |
 
 ### LSP
-| Mode     | Mapping     | Effect                  |
-|----------|-------------|-------------------------|
-| normal   | 'gD'        | go to declaration       |
-| normal   | 'gd'        | go to definition        |
-| normal   | 'K'         | cursor hover            |
-| normal   | 'gi'        | go to implementation    |
-| normal   | '<C-k>'     | signature help          |
-| normal   | '<space>wa' | add workspace folder    |
-| normal   | '<space>wr' | remove workspace folder |
-| normal   | '<space>wl' | list workspace folders  |
-| normal   | '<space>D'  | go to type definition   |
-| normal   | '<space>rn' | rename                  |
-| normal   | '<space>ca' | code action             |
-| normal   | 'gr'        | go to references        |
-| normal   | '<space>f'  | format                  |
+| Mode   | Mapping     | Effect                  |
+|--------|-------------|-------------------------|
+| normal | 'gD'        | go to declaration       |
+| normal | 'gd'        | go to definition        |
+| normal | 'K'         | cursor hover            |
+| normal | 'gi'        | go to implementation    |
+| normal | '<C-k>'     | signature help          |
+| normal | '<space>wa' | add workspace folder    |
+| normal | '<space>wr' | remove workspace folder |
+| normal | '<space>wl' | list workspace folders  |
+| normal | '<space>D'  | go to type definition   |
+| normal | '<space>rn' | rename                  |
+| normal | '<space>ca' | code action             |
+| normal | 'gr'        | go to references        |
+| normal | '<space>f'  | format                  |
 
--- # VISUAL MODE
--- ## GLOBAL BINDS
--- keymap("v", "p", '"_dP', opts) -- fix HORRIBLE paste behaviour
-keymap("v", "J", ":m .+1<CR>==", opts) -- move lines down
-keymap("v", "K", ":m .-2<CR>==", opts) -- move lines up
-keymap("v", "<", "<gv", opts) -- persist unindent
-keymap("v", ">", ">gv", opts) -- persist indent
+### VISUAL MODE
+#### Shift Lines
+| Mode   | Mapping | Effect            |
+|--------|---------|-------------------|
+| visual | '<'     | shift lines left  |
+| visual | 'J'     | shift lines down  |
+| visual | 'K'     | shift lines up    |
+| visual | '>'     | shift lines right |
 
--- # VISUAL BLOCK MODE
--- ## GLOBAL BINDS
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts) -- move lines down
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts) -- move lines up
+### INSERT MODE
+#### Copilot
+| Mode   | Mapping | Effect                   |
+|--------|---------|--------------------------|
+| insert | '<C-h>' | show previous suggestion |
+| insert | '<C-j>' | accept suggestion        |
+| insert | '<C-k>' | dismiss suggestion       |
+| insert | '<C-l>' | show next suggestion     |
