@@ -67,13 +67,10 @@ return packer.startup(function(use)
 	}
 
 	-- DEVELOPMENT
-	use { 'github/copilot.vim' }
 	use { 'terrortylor/nvim-comment' }
-	-- use { 'editorconfig/editorconfig-vim' }
-	-- use { 'tpope/vim-surround' }
-	-- use { 'tpope/vim-fugitive' }
+	use { 'gpanders/editorconfig.nvim' }
+
 	-- use { 'rhlobo/vim-super-retab' }
-	-- use { 'tpope/vim-sleuth' }
 	-- use { 'akinsho/toggleterm.nvim', config = function() require('user.configs.toggleterm') end }
 
 	-- -- COMPLETION
@@ -100,17 +97,13 @@ return packer.startup(function(use)
 	-- }
 
 	-- INTERFACE
-	-- use {
-	-- 	'nvim-lualine/lualine.nvim',
-	-- 	config = function() require('user.configs.lualine') end
-	-- }
-	-- use {
-	-- 	'lewis6991/gitsigns.nvim',
-	-- 	requires = {
-	-- 		{ 'nvim-lua/plenary.nvim' },
-	-- 	},
-	-- 	config = function() require('user.configs.gitsigns') end
-	-- }
+	use { 'nvim-lualine/lualine.nvim' }
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			{ 'nvim-lua/plenary.nvim' },
+		},
+	}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
