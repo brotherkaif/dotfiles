@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/ahmedk02/dev-notes/typescript'
+let g:netrw_dirhist_1='/Users/ahmedk02/dev-notes'
+let g:netrw_dirhist_0='/Users/ahmedk02/dev-notes/javascript'
+let g:netrw_dirhist_9='/Users/ahmedk02/dev-notes'
 let g:netrw_dirhist_8='/home/kaifahmed/dotfiles'
 let g:netrw_dirhist_7='/home/kaifahmed/dotfiles/zsh'
 let g:netrw_dirhist_6='/home/kaifahmed/dotfiles'
 let g:netrw_dirhist_5='/home/kaifahmed/dotfiles/vim'
 let g:netrw_dirhist_4='/home/kaifahmed/dotfiles/vim/.vim'
 let g:netrw_dirhist_3='/home/kaifahmed/dotfiles/vim'
-let g:netrw_dirhist_2='/home/kaifahmed/dotfiles'
-let g:netrw_dirhist_1='/home/kaifahmed/dotfiles/tmux'
-let g:netrw_dirhist_0='/home/kaifahmed/dotfiles'
-let g:netrw_dirhist_9='/home/kaifahmed/dotfiles/shell'

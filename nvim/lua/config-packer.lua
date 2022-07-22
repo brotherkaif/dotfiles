@@ -68,8 +68,8 @@ return packer.startup(function(use)
 
 	-- DEVELOPMENT
 	use { 'github/copilot.vim' }
+	use { 'terrortylor/nvim-comment' }
 	-- use { 'editorconfig/editorconfig-vim' }
-	-- use { 'terrortylor/nvim-comment', config = function() require('user.configs.nvim_comment') end }
 	-- use { 'tpope/vim-surround' }
 	-- use { 'tpope/vim-fugitive' }
 	-- use { 'rhlobo/vim-super-retab' }
