@@ -57,8 +57,16 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 |--------|---------|--------------------------|
 
 ### Completion
-| Mode   | Mapping | Effect                   |
-|--------|---------|--------------------------|
+| Mode   | Mapping     | Effect               |
+|--------|-------------|----------------------|
+| insert | '<C-n>'     | select next item     |
+| insert | '<C-p>'     | select previous item |
+| insert | '<C-y>'     | accept suggestion    |
+| insert | '<C-e>'     | dismiss suggestion   |
+| insert | '<C-k>'     | expand/jump snippet  |
+| insert | '<C-f>'     | scroll docs down     |
+| insert | '<C-d>'     | scroll docs up       |
+| insert | '<C-Space>' | complete suggestion  |
 
 ### Copilot
 | Mode   | Mapping | Effect                   |

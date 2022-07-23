@@ -69,26 +69,25 @@ return packer.startup(function(use)
 	-- DEVELOPMENT
 	use { 'terrortylor/nvim-comment' }
 	use { 'gpanders/editorconfig.nvim' }
+	use { 'github/copilot.vim' }
 
 	-- use { 'rhlobo/vim-super-retab' }
 	-- use { 'akinsho/toggleterm.nvim', config = function() require('user.configs.toggleterm') end }
 
-	-- -- COMPLETION
-	-- use {
-	-- 	'hrsh7th/nvim-cmp',
-	-- 	requires = {
-	-- 		{ 'hrsh7th/nvim-cmp' },
-	-- 		{ 'hrsh7th/cmp-buffer' },
-	-- 		{ 'hrsh7th/cmp-path' },
-	-- 		{ 'f3fora/cmp-spell' },
-	-- 		{ 'hrsh7th/cmp-nvim-lsp' },
-	-- 		{ 'hrsh7th/cmp-nvim-lua' },
-	-- 		{ 'hrsh7th/cmp-vsnip' },
-	-- 		{ 'hrsh7th/vim-vsnip' },
-	-- 		{ 'rafamadriz/friendly-snippets' },
-	-- 	},
-	-- 	config = function() require('user.configs.cmp') end
-	-- }
+	-- COMPLETION
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {
+			{ 'hrsh7th/vim-vsnip' },
+			{ 'hrsh7th/cmp-vsnip' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'f3fora/cmp-spell' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+			{ 'rafamadriz/friendly-snippets' },
+		},
+	}
 
 	-- LINTING
 	-- use {
