@@ -8,10 +8,6 @@
 
 # CONVENIENCE ALIASES
 alias ll="ls -la"
-alias sync-config="ansible-pull -U https://github.com/brotherkaif/ansible_config.git"
-alias sync-dotfiles="ansible-pull -U https://github.com/brotherkaif/ansible_config.git --tags dotfiles"
-alias sync-local-config="ansible-playbook $HOME/ansible_config/local.yml"
-alias sync-local-dotfiles="ansible-playbook $HOME/ansible_config/local.yml --tags dotfiles"
 
 # GIT ALIASES
 alias lg="lazygit"
@@ -28,7 +24,7 @@ alias tms="tmux -2 new -s"
 
 # PRODUCTIVITY ALIASES
 alias scratchpad="$HOME/bin/scratch.sh"
-alias devnotes="cd $HOME/dev-notes && vim ."
+alias devnotes="cd $HOME/dev-notes && nvim README.md"
 alias worklog="gh gist edit 92f0423ccade1927b6490ec98d36990c"
 alias journal="gh gist edit d78e04055dcdcf9caba2e26eb4a47bb5"
 alias tss="date '+%F'"
@@ -81,4 +77,4 @@ alias somafm-vaporwaves="mpv https://somafm.com/vaporwaves.pls"
 alias lh-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); cd -'
 alias lh-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); cd -'
 alias lh-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); cd -'
-alias cc-cs='vim ~/Dropbox\ \(BBC\)/3-resources/common-catalogue-cheatsheet.md'
+alias cc-cs='nvim ~/Dropbox\ \(BBC\)/3-resources/common-catalogue-cheatsheet.md'
