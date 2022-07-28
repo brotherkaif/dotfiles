@@ -36,7 +36,7 @@ return packer.startup(function(use)
 	use { 'wbthomason/packer.nvim' }
 
 	-- DEPENDENCY MANAGEMENT
-	use { "williamboman/mason.nvim", branch = "alpha" }
+	use { "williamboman/mason.nvim" }
 
 	-- TREESITTER
 	use {
@@ -69,9 +69,7 @@ return packer.startup(function(use)
 	-- DEVELOPMENT
 	use { 'terrortylor/nvim-comment' }
 	use { 'gpanders/editorconfig.nvim' }
-	use { 'github/copilot.vim' }
 
-	-- use { 'rhlobo/vim-super-retab' }
 	-- use { 'akinsho/toggleterm.nvim', config = function() require('user.configs.toggleterm') end }
 
 	-- COMPLETION
@@ -86,14 +84,9 @@ return packer.startup(function(use)
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'hrsh7th/cmp-nvim-lua' },
 			{ 'rafamadriz/friendly-snippets' },
+			{ 'andys8/vscode-jest-snippets' },
 		},
 	}
-
-	-- LINTING
-	-- use {
-	-- 	'mhartington/formatter.nvim',
-	-- 	config = function() require('user.configs.formatter') end
-	-- }
 
 	-- INTERFACE
 	use { 'nvim-lualine/lualine.nvim' }
