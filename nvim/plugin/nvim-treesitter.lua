@@ -1,6 +1,6 @@
-tsconfig = require('nvim-treesitter.configs')
+local tsconfig = require('nvim-treesitter.configs')
 
-languages = {
+local languages = {
 	-- "astro",
 	"bash",
 	-- "beancount",

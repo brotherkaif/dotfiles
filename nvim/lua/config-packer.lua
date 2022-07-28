@@ -67,10 +67,9 @@ return packer.startup(function(use)
 	}
 
 	-- DEVELOPMENT
+	use { 'voldikss/vim-floaterm' }
 	use { 'terrortylor/nvim-comment' }
 	use { 'gpanders/editorconfig.nvim' }
-
-	-- use { 'akinsho/toggleterm.nvim', config = function() require('user.configs.toggleterm') end }
 
 	-- COMPLETION
 	use {

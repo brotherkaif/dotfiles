@@ -6,18 +6,19 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 
 ## Keymaps
 ### Tools
-| Mode     | Mapping        | Effect                      |
-|----------|----------------|-----------------------------|
-| normal   | '<Leader><CR>' | Open Command Palette        |
-| normal   | '<leader>t'    | Open terminal               |
-| terminal | '<Esc><Esc>'   | Normal mode within terminal |
-| normal   | '<leader>g'    | git status                  |
+| Mode     | Mapping            | Effect                      |
+|----------|--------------------|-----------------------------|
+| normal   | '<Leader><Leader>' | Open Command Palette        |
+| normal   | '<leader>t'        | Open terminal               |
+| terminal | '<Esc><Esc>'       | Normal mode within terminal |
+| normal   | '<leader>g'        | git status                  |
 
 ### Buffers
 | Mode   | Mapping      | Effect            |
 |--------|--------------|-------------------|
 | normal | '<leader>br' | reload buffer     |
 | normal | '<Leader>bs' | toggle spellcheck |
+| normal | '<space>bf'  | format buffer     |
 | normal | '<Leader>/b' | grep buffer       |
 | visual | '<'          | shift lines left  |
 | visual | 'J'          | shift lines down  |
@@ -30,8 +31,8 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 | Mode   | Mapping      | Effect                          |
 |--------|--------------|---------------------------------|
 | normal | '-'         | file browser (current directory) |
-| normal | '<leader>p' | find file                        |
-| normal | '<Leader>/p'| grep files                       |
+| normal | '<leader>f' | find file                        |
+| normal | '<Leader>/f'| grep files                       |
 | normal | ']q'        | next quick fix                   |
 | normal | '[q'        | previous quick fix               |
 
@@ -50,7 +51,6 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 | normal | '<space>rn' | rename                  |
 | normal | '<space>ca' | code action             |
 | normal | 'gr'        | go to references        |
-| normal | '<space>f'  | format                  |
 
 ### DAP
 | Mode   | Mapping | Effect                   |
