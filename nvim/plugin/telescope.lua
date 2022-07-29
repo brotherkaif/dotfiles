@@ -6,8 +6,8 @@ telescope.setup({
 		layout_strategy = 'flex',
 		color_devicons = false,
 		layout_config = {
-			height = 0.75,
-			width = 0.75
+			height = 0.80,
+			width = 0.80
 		},
 	},
 
