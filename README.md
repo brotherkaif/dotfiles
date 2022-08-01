@@ -18,7 +18,7 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 |--------|--------------|-------------------|
 | normal | `<leader>br` | reload buffer     |
 | normal | `<Leader>bs` | toggle spellcheck |
-| normal | `<space>bf`  | format buffer     |
+| normal | `<Leader>bf` | format buffer     |
 | normal | `<Leader>/b` | grep buffer       |
 | visual | `<`          | shift lines left  |
 | visual | `J`          | shift lines down  |
@@ -28,13 +28,13 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 | normal | `[b`         | previous buffer   |
 
 ### Navigation
-| Mode   | Mapping      | Effect                          |
-|--------|--------------|---------------------------------|
-| normal | `-`         | file browser (current directory) |
-| normal | `<leader>f` | find file                        |
-| normal | `<Leader>/f`| grep files                       |
-| normal | `]q`        | next quick fix                   |
-| normal | `[q`        | previous quick fix               |
+| Mode   | Mapping      | Effect                           |
+|--------|--------------|----------------------------------|
+| normal | `-`          | file browser (current directory) |
+| normal | `<leader>f`  | find file                        |
+| normal | `<Leader>/f` | grep files                       |
+| normal | `]q`         | next quick fix                   |
+| normal | `[q`         | previous quick fix               |
 
 ### LSP
 | Mode   | Mapping     | Effect                  |
