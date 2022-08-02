@@ -36,7 +36,10 @@ return packer.startup(function(use)
 	use { 'wbthomason/packer.nvim' }
 
 	-- DEPENDENCY MANAGEMENT
-	use { "williamboman/mason.nvim" }
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	}
 
 	-- TREESITTER
 	use {
@@ -95,7 +98,7 @@ return packer.startup(function(use)
 			{ 'nvim-lua/plenary.nvim' },
 		},
 	}
-  use { 'sainnhe/everforest' }
+	use { 'sainnhe/everforest' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

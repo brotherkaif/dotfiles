@@ -18,7 +18,6 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 |--------|--------------|-------------------|
 | normal | `<leader>br` | reload buffer     |
 | normal | `<Leader>bs` | toggle spellcheck |
-| normal | `<Leader>bf` | format buffer     |
 | normal | `<Leader>/b` | grep buffer       |
 | visual | `<`          | shift lines left  |
 | visual | `J`          | shift lines down  |
@@ -69,20 +68,21 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 | normal | `<leader>ic` | toggle display unprintable chars |
 
 ### LSP
-| Mode   | Mapping     | Effect                  |
-|--------|-------------|-------------------------|
-| normal | `gD`        | go to declaration       |
-| normal | `gd`        | go to definition        |
-| normal | `K`         | cursor hover            |
-| normal | `gi`        | go to implementation    |
-| normal | `<C-k>`     | signature help          |
-| normal | `<space>wa` | add workspace folder    |
-| normal | `<space>wr` | remove workspace folder |
-| normal | `<space>wl` | list workspace folders  |
-| normal | `<space>D`  | go to type definition   |
-| normal | `<space>rn` | rename                  |
-| normal | `<space>ca` | code action             |
-| normal | `gr`        | go to references        |
+| Mode   | Mapping      | Effect                  |
+|--------|--------------|-------------------------|
+| normal | `gD`         | go to declaration       |
+| normal | `gd`         | go to definition        |
+| normal | `K`          | cursor hover            |
+| normal | `gi`         | go to implementation    |
+| normal | `<C-k>`      | signature help          |
+| normal | `<leader>bf` | format buffer           |
+| normal | `<leader>wa` | add workspace folder    |
+| normal | `<leader>wr` | remove workspace folder |
+| normal | `<leader>wl` | list workspace folders  |
+| normal | `<leader>D`  | go to type definition   |
+| normal | `<leader>rn` | rename                  |
+| normal | `<leader>ca` | code action             |
+| normal | `gr`         | go to references        |
 
 ### DAP
 | Mode   | Mapping        | Effect            |
