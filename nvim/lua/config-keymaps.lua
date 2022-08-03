@@ -2,7 +2,7 @@
 local opts = {noremap = true, silent = true}
 
 -- shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Modes
 --   normal_mode = "n",

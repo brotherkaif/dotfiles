@@ -8,9 +8,9 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 ### Tools
 | Mode     | Mapping            | Effect                      |
 |----------|--------------------|-----------------------------|
-| normal   | `<Leader><Leader>` | Open Command Palette        |
-| normal   | `<leader>t`        | Open terminal               |
-| terminal | `<Esc><Esc>`       | Normal mode within terminal |
+| normal   | `<Leader><Leader>` | open command palette        |
+| normal   | `<leader>t`        | open terminal               |
+| terminal | `<Esc><Esc>`       | normal mode within terminal |
 | normal   | `<leader>g`        | git status                  |
 
 ### Buffers
@@ -70,19 +70,23 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 ### LSP
 | Mode   | Mapping      | Effect                  |
 |--------|--------------|-------------------------|
-| normal | `gD`         | go to declaration       |
 | normal | `gd`         | go to definition        |
-| normal | `K`          | cursor hover            |
-| normal | `gi`         | go to implementation    |
-| normal | `<C-k>`      | signature help          |
-| normal | `<leader>bf` | format buffer           |
-| normal | `<leader>wa` | add workspace folder    |
-| normal | `<leader>wr` | remove workspace folder |
-| normal | `<leader>wl` | list workspace folders  |
-| normal | `<leader>D`  | go to type definition   |
-| normal | `<leader>rn` | rename                  |
-| normal | `<leader>ca` | code action             |
+| normal | `gD`         | go to declaration       |
 | normal | `gr`         | go to references        |
+| normal | `gi`         | go to implementation    |
+| normal | `<leader>D`  | go to type definition   |
+| normal | `K`          | cursor hover            |
+| normal | `<C-k>`      | signature help          |
+| normal | `<leader>sa` | add workspace folder    |
+| normal | `<leader>sr` | remove workspace folder |
+| normal | `<leader>sl` | list workspace folders  |
+| normal | `<leader>cn` | code rename             |
+| normal | `<leader>ca` | code action             |
+| normal | `<leader>cf` | code format             |
+| normal | `<leader>e`  | diagnostic float        |
+| normal | `<leader>q`  | diagnostic quickfix     |
+| normal | `]d`         | next diagnostic         |
+| normal | `[d`         | previous diagnostic     |
 
 ### DAP
 | Mode   | Mapping        | Effect            |
