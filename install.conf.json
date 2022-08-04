@@ -41,9 +41,7 @@
   },
   {
     "shell": [
-      "mkdir $HOME/.apps/love",
-      "cd $HOME/.apps/love",
-      "curl -LO https://github.com/love2d/love/releases/download/11.4/love-11.4-x86_64.AppImage"
+      "./scripts/bin/test.sh"
     ]
   }
 ]
