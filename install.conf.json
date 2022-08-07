@@ -36,12 +36,17 @@
 		  "~/projects",
 		  "~/playground",
 		  "~/scratchpads",
-		  "~/.apps"
+		  "~/.local/bin"
 		]
   },
   {
     "shell": [
-      "./scripts/bin/test.sh"
+      {
+        "command": "./scripts/bin/install_debian.sh",
+        "stdin": true,
+        "stdout": true,
+        "description": "Running Debian setup script"
+      }		
     ]
   }
 ]

@@ -14,6 +14,9 @@
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace
 
+# PATH SETUP
+export PATH=$PATH:$HOME/.local/bin
+
 # XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
