@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-echo "┌──────────────────────────────────┐"
-echo "│▜▘▙ ▌▞▀▖▀▛▘▞▀▖▌  ▌  ▞▀▖▀▛▘▜▘▞▀▖▙ ▌│"
-echo "│▐ ▌▌▌▚▄  ▌ ▙▄▌▌  ▌  ▙▄▌ ▌ ▐ ▌ ▌▌▌▌│"
-echo "│▐ ▌▝▌▖ ▌ ▌ ▌ ▌▌  ▌  ▌ ▌ ▌ ▐ ▌ ▌▌▝▌│"
-echo "│▀▘▘ ▘▝▀  ▘ ▘ ▘▀▀▘▀▀▘▘ ▘ ▘ ▀▘▝▀ ▘ ▘│"
-echo "└──────────────────────────────────┘"
 
 install_debian_packages () {
+		echo "┌──────────────────────────────────┐"
+		echo "│▜▘▙ ▌▞▀▖▀▛▘▞▀▖▌  ▌  ▞▀▖▀▛▘▜▘▞▀▖▙ ▌│"
+		echo "│▐ ▌▌▌▚▄  ▌ ▙▄▌▌  ▌  ▙▄▌ ▌ ▐ ▌ ▌▌▌▌│"
+		echo "│▐ ▌▝▌▖ ▌ ▌ ▌ ▌▌  ▌  ▌ ▌ ▌ ▐ ▌ ▌▌▝▌│"
+		echo "│▀▘▘ ▘▝▀  ▘ ▘ ▘▀▀▘▀▀▘▘ ▘ ▘ ▀▘▝▀ ▘ ▘│"
+		echo "└──────────────────────────────────┘"
 		echo "This utility will install PACKAGES for debian."
 		echo "WARNING: DO NOT run as root!"
 		echo "Proceed? (y/n)"
@@ -161,6 +161,8 @@ install_debian_packages () {
 }
 
 if [ $( echo "$OSTYPE" | grep 'linux-gnu' ) ] ; then
-		echo "DEBIAN DETECTED"
+		echo "DEBIAN OS DETECTED"
 		install_debian_packages
+else
+		echo "NON-DEBIAN OS DETECTED, SKIPPING"
 fi
