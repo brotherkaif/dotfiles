@@ -7,7 +7,7 @@ install_debian_packages () {
 		echo "│▐ ▌▝▌▖ ▌ ▌ ▌ ▌▌  ▌  ▌ ▌ ▌ ▐ ▌ ▌▌▝▌│"
 		echo "│▀▘▘ ▘▝▀  ▘ ▘ ▘▀▀▘▀▀▘▘ ▘ ▘ ▀▘▝▀ ▘ ▘│"
 		echo "└──────────────────────────────────┘"
-		echo "This utility will install PACKAGES for debian."
+		echo "This utility will install packages for DEBIAN."
 		echo "WARNING: DO NOT run as root!"
 		echo "Proceed? (y/n)"
 		read resp

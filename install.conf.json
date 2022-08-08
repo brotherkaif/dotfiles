@@ -42,10 +42,16 @@
   {
     "shell": [
       {
-        "command": "./scripts/bin/install_debian.sh",
+        "command": "./scripts/bin/setup_debian.sh",
         "stdin": true,
         "stdout": true,
         "description": "Running Debian setup script"
+      },
+      {
+        "command": "./scripts/bin/setup_darwin.sh",
+        "stdin": true,
+        "stdout": true,
+        "description": "Running Darwin setup script"
       }		
     ]
   }
