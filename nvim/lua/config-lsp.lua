@@ -76,3 +76,12 @@ require('lspconfig').sumneko_lua.setup({
 require('lspconfig').marksman.setup({
 	on_attach = on_attach,
 })
+
+local null_ls = require('null-ls')
+
+-- register any number of sources simultaneously
+local sources = {
+	null_ls.builtins.formatting.prettier
+}
+
+null_ls.setup({ sources = sources })
