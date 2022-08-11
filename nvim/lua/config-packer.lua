@@ -49,7 +49,12 @@ return packer.startup(function(use)
 
 	-- LSP
 	use { 'neovim/nvim-lspconfig' }
-	use { 'jose-elias-alvarez/null-ls.nvim' }
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		requires = {
+			{ 'nvim-lua/plenary.nvim' },
+		},
+	}
 
 	-- DAP
 	use {
@@ -93,13 +98,13 @@ return packer.startup(function(use)
 
 	-- INTERFACE
 	use { 'nvim-lualine/lualine.nvim' }
+	use { 'chentoast/marks.nvim' }
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = {
 			{ 'nvim-lua/plenary.nvim' },
 		},
 	}
-	use { 'sainnhe/everforest' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
