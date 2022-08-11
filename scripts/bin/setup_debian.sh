@@ -111,15 +111,9 @@ install_debian_packages () {
 				# vscode
 				echo "VSCODE"
 				# installation instructions: https://code.visualstudio.com/docs/setup/linux
-				curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-				install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-				sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-				sudo apt install apt-transport-https -y
-				sudo apt update
-				sudo apt install code -y
-				echo "$PROMPT VS Codes adds some GPG key during its install. Removing it!"
-				rm packages.microsoft.gpg
-				code --install-extension Shan.code-settings-sync
+				wget -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+				sudo apt install /tmp/vscode.deb
+				rm /tmp/vscode.deb
 
 				# ---------------------------------------------
 				# Stupid Terminal Nonsense
