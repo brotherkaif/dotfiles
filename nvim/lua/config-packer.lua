@@ -79,6 +79,7 @@ return packer.startup(function(use)
 	use { 'voldikss/vim-floaterm' }
 	use { 'terrortylor/nvim-comment' }
 	use { 'gpanders/editorconfig.nvim' }
+	use { 'vim-test/vim-test' }
 
 	-- COMPLETION
 	use {
