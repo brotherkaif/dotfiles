@@ -91,12 +91,12 @@ The `bootstrap.sh` script can be run to setup a basic development environment. T
 ### DAP
 | Mode   | Mapping        | Effect            |
 |--------|----------------|-------------------|
-| normal | `<F9>`         | toggle breakpoint |
 | normal | `<F5>`         | start/continue    |
 | normal | `<Shift><F5>`  | stop              |
+| normal | `<F9>`         | toggle breakpoint |
+| normal | `<F10>`        | step over         |
 | normal | `<F11>`        | step into         |
 | normal | `<Shift><F11>` | step out          |
-| normal | `<F10>`        | step over         |
 
 ### Completion
 | Mode   | Mapping     | Effect               |

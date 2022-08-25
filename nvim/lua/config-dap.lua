@@ -3,17 +3,17 @@ local dap, dapui = require("dap"), require("dapui")
 local install_root_dir = vim.fn.stdpath "data" .. "/mason/packages"
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', "<Leader>dd", "<Cmd>lua require'dap'.continue()<CR>", opts)
-vim.keymap.set('n', "<Leader>dv", "<Cmd>lua require'dap'.step_over()<CR>", opts)
-vim.keymap.set('n', "<Leader>di", "<Cmd>lua require'dap'.step_into()<CR>", opts)
-vim.keymap.set('n', "<Leader>do", "<Cmd>lua require'dap'.step_out()<CR>", opts)
-vim.keymap.set('n', "<Leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
-vim.keymap.set('n', "<Leader>dc", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-	opts)
-vim.keymap.set('n', "<Leader>dl",
-	"<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
-vim.keymap.set('n', "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", opts)
-vim.keymap.set('n', "<Leader>dp", "<Cmd>lua require'dap'.run_last()<CR>", opts)
+vim.keymap.set('n', "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
+vim.keymap.set('n', "<S-F5>", "<Cmd>lua require'dap'.stop()<CR>", opts)
+vim.keymap.set('n', "<F9>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+vim.keymap.set('n', "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
+vim.keymap.set('n', "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
+vim.keymap.set('n', "<S-F11>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
+-- vim.keymap.set('n', "<Leader>dc", "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
+-- vim.keymap.set('n', "<Leader>dl",
+-- 	"<Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+-- vim.keymap.set('n', "<Leader>dr", "<Cmd>lua require'dap'.repl.open()<CR>", opts)
+-- vim.keymap.set('n', "<Leader>dp", "<Cmd>lua require'dap'.run_last()<CR>", opts)
 
 dap.adapters.node2 = {
 	type = 'executable',
@@ -40,7 +40,6 @@ dap.configurations.javascript = {
 		processId = require 'dap.utils'.pick_process,
 	},
 }
-
 
 dap.configurations.typescript = {
 	{

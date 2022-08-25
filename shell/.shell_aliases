@@ -74,7 +74,13 @@ alias somafm-u80s="mpv https://somafm.com/u80s.pls"
 alias somafm-vaporwaves="mpv https://somafm.com/vaporwaves.pls"
 
 # WORK ALIASES
-alias lh-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); cd -'
-alias lh-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); cd -'
-alias lh-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); cd -'
+alias cc-aws-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); cd -'
+alias cc-aws-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); cd -'
+alias cc-aws-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); cd -'
+alias cc-bastion-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); pnpm bastion'
+alias cc-bastion-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); pnpm bastion'
+alias cc-bastion-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); pnpm bastion'
+alias cc-db-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); pnpm adminer -o'
+alias cc-db-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); pnpm adminer -o'
+alias cc-db-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); pnpm adminer -o'
 alias cc-cs='nvim ~/Dropbox\ \(BBC\)/3-resources/common-catalogue-cheatsheet.md'
