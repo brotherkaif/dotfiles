@@ -4,9 +4,6 @@
 [submodule "submodules/vim-vinegar"]
 	path = submodules/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
-[submodule "submodules/vim-super-retab"]
-	path = submodules/vim-super-retab
-	url = https://github.com/rhlobo/vim-super-retab
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
