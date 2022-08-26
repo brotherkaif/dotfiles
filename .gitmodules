@@ -7,9 +7,6 @@
 [submodule "submodules/vim-vinegar"]
 	path = submodules/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
-[submodule "submodules/vim-repeat"]
-	path = submodules/vim-repeat
-	url = https://github.com/tpope/vim-repeat
 [submodule "submodules/vim-super-retab"]
 	path = submodules/vim-super-retab
 	url = https://github.com/rhlobo/vim-super-retab
