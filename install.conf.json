@@ -27,17 +27,16 @@
       "~/.shell_aliases": "shell/.shell_aliases",
       "~/.shell_common": "shell/.shell_common",
       "~/.tmux.conf": "tmux/.tmux.conf",
-      "~/.vim": "vim",
       "~/.zshrc": "zsh/.zshrc"
     }
   },
   {
     "create": [
-		  "~/projects",
-		  "~/playground",
-		  "~/scratchpads",
-		  "~/.local/bin"
-		]
+      "~/projects",
+      "~/playground",
+      "~/scratchpads",
+      "~/.local/bin"
+    ]
   },
   {
     "shell": [
@@ -52,7 +51,7 @@
         "stdin": true,
         "stdout": true,
         "description": "Running Darwin setup script"
-      }		
+      }
     ]
   }
 ]
