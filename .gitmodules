@@ -31,9 +31,6 @@
 [submodule "submodules/vim-polyglot"]
 	path = submodules/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "submodules/editorconfig-vim"]
-	path = submodules/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
