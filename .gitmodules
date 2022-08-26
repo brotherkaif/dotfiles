@@ -1,6 +1,3 @@
-[submodule "submodules/vim-sensible"]
-	path = submodules/vim-sensible
-	url = https://github.com/tpope/vim-sensible
 [submodule "submodules/vim-surround"]
 	path = submodules/vim-surround
 	url = https://github.com/tpope/vim-surround
