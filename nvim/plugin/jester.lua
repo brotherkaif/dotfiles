@@ -1,18 +1,22 @@
 require("jester").setup({
 	path_to_jest_run = 'node node_modules/jest/bin/jest.js',
-	dap = {
-		type = 'node2',
-		request = 'launch',
-		cwd = vim.fn.getcwd(),
-		runtimeArgs = { '--inspect-brk', '$path_to_jest', '--no-coverage', '-t', '$result', '--', '$file' },
-		args = { '--no-cache' },
-		sourceMaps = false,
-		protocol = 'inspector',
-		skipFiles = { '<node_internals>/**/*.js' },
-		console = 'integratedTerminal',
-		port = 9229,
-		disableOptimisticBPs = true
-	}
+	path_to_jest_debug = './node_modules/jest',
+	-- dap = {
+	--     name = 'Jest test',
+	--     type = 'node2',
+	--     request = 'launch',
+	-- 	cwd = vim.fn.getcwd(),
+	-- 	sourceMaps = true,
+	-- 	outFiles = {
+	-- 		'${workspaceFolder}/src/*.js',
+	-- 	},
+	-- 	console = 'integratedTerminal',
+	-- 	internalConsoleOptions = 'neverOpen',
+	--     program = '${workspaceFolder}/node_modules/jest/bin/jest.js',
+	--     windows = {
+	-- 		program = '${workspaceFolder}/node_modules/jest/bin/jest'
+	--     }
+	--   }
 })
 
 vim.api.nvim_create_user_command('JestRun', 'lua require("jester").run()', { desc = 'Run nearest Jest test(s) under the cursor' })
