@@ -79,7 +79,6 @@ return packer.startup(function(use)
 	use { 'voldikss/vim-floaterm' }
 	use { 'terrortylor/nvim-comment' }
 	use { 'tpope/vim-sleuth' }
-	use { 'David-Kunz/jester' }
 
 	-- COMPLETION
 	use {
