@@ -11,7 +11,7 @@ vim.keymap.set('n', '<F10>', '<Cmd>lua require("dap").step_over()<CR>', opts)
 vim.keymap.set('n', '<F11>', '<Cmd>lua require("dap").step_into()<CR>', opts)
 vim.keymap.set('n', '<S-F11>', '<Cmd>lua require("dap").step_out()<CR>', opts)
 
-dap.adapters.node = {
+dap.adapters.node2 = {
 	type = 'executable',
 	command = 'node',
 	args = { install_root_dir .. '/node-debug2-adapter/out/src/nodeDebug.js' },
@@ -20,10 +20,10 @@ dap.adapters.node = {
 -- load any launch.json configs from a project .vscode directory
 require('dap.ext.vscode').load_launchjs(nil, { node = { 'javascript', 'typescript' } })
 
-local node_configurations = {
+local node2_configurations = {
 	{
 		name = 'Launch',
-		type = 'node',
+		type = 'node2',
 		request = 'launch',
 		program = '${file}',
 		cwd = vim.fn.getcwd(),
@@ -34,13 +34,13 @@ local node_configurations = {
 	{
 		-- For this to work you need to make sure the node process is started with the `--inspect` flag.
 		name = 'Attach to process',
-		type = 'node',
+		type = 'node2',
 		request = 'attach',
 		processId = require 'dap.utils'.pick_process,
 	},
 	{
 		name = 'BBC-CC: All Jest tests',
-		type = 'node',
+		type = 'node2',
 		request = 'launch',
 		program = '${workspaceFolder}/node_modules/jest/bin/jest.js',
 		env = {
@@ -58,7 +58,7 @@ local node_configurations = {
 	},
 	{
 		name = 'BBC-CC: Single Jest test',
-		type = 'node',
+		type = 'node2',
 		request = 'launch',
 		program = '${workspaceFolder}/node_modules/jest/bin/jest.js',
 		env = {
@@ -77,8 +77,8 @@ local node_configurations = {
 	}
 }
 
-dap.configurations.javascript = node_configurations
-dap.configurations.typescript = node_configurations
+dap.configurations.javascript = node2_configurations
+dap.configurations.typescript = node2_configurations
 
 dapui.setup()
 
