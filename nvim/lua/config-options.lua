@@ -47,7 +47,6 @@ local window_options = {
 -- }
 
 local commands = {
-	'colorscheme pablo',
 	'highlight clear SignColumn',										-- make the sign column transparent
 	'highlight clear Folded',										-- make folds transparent
 	'highlight VertSplit cterm=NONE gui=NONE',								-- make the split line transparent

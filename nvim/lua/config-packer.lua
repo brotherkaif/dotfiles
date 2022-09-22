@@ -106,6 +106,7 @@ return packer.startup(function(use)
 			{ 'nvim-lua/plenary.nvim' },
 		},
 	}
+	use { 'arcticicestudio/nord-vim' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

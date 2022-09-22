@@ -1,6 +1,7 @@
+require('config-packer')
+require('config-mac')
 require('config-options')
 require('config-keymaps')
-require('config-packer')
 require('config-mason')
 require('config-lsp')
 require('config-dap')
