@@ -18,7 +18,7 @@ dap.adapters.node2 = {
 }
 
 -- load any launch.json configs from a project .vscode directory
-require('dap.ext.vscode').load_launchjs(nil, { node = { 'javascript', 'typescript' } })
+-- require('dap.ext.vscode').load_launchjs(nil, { node = { 'javascript', 'typescript' } })
 
 local node2_configurations = {
 	{
