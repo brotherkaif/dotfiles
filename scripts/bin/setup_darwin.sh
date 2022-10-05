@@ -121,6 +121,9 @@ install_darwin_packages () {
 				echo "TOILET"
 				brew install toilet
 
+				# rose-pine
+				git clone https://github.com/rose-pine/alacritty.git $HOME/customisation/rose-pine/alacritty
+
 				# ---------------------------------------------
 				# Cleanup
 				# ---------------------------------------------

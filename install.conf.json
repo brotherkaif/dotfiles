@@ -16,6 +16,7 @@
       "~/.bash_profile": "bash/.bash_profile",
       "~/.bashrc": "bash/.bashrc",
       "~/.bitmonero": "monero",
+      "~/.config/alacritty": "alacritty",
       "~/.config/devdocs": "devdocs",
       "~/.config/git/git-commit-template.txt": "git/git-commit-template.txt",
       "~/.config/lazygit": "lazygit",
@@ -34,6 +35,7 @@
     "create": [
       "~/projects",
       "~/playground",
+      "~/customisation",
       "~/scratchpads",
       "~/.local/bin"
     ]

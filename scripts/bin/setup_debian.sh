@@ -139,6 +139,9 @@ install_debian_packages () {
 				wget -O $HOME/.local/bin/crt https://github.com/Swordfish90/cool-retro-term/releases/download/1.1.1/Cool-Retro-Term-1.1.1-x86_64.AppImage
 				chmod u+x $HOME/.local/bin/crt
 
+				# rose-pine
+				git clone https://github.com/rose-pine/alacritty.git $HOME/customisation/rose-pine/alacritty
+
 				# ---------------------------------------------
 				# Cleanup
 				# ---------------------------------------------
