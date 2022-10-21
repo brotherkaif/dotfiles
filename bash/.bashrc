@@ -15,10 +15,5 @@ if [ -f ~/.shell_aliases ]; then
     source ~/.shell_aliases
 fi
 
-## source config
-if [ -f "/google/devshell/bashrc.google" ]; then
-    source "/google/devshell/bashrc.google"
-fi
-
 # PROMPT
 export PS1="\[\e[34m\]\w\[\e[m\]\[\e[33m\]\n\\$\[\e[39m\] "
