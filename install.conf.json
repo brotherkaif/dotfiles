@@ -9,16 +9,18 @@
     }
   },
   {
-    "clean": ["~"]
+    "clean": [
+      "~"
+    ]
   },
   {
     "link": {
       "~/.bash_profile": "bash/.bash_profile",
       "~/.bashrc": "bash/.bashrc",
       "~/.bitmonero": "monero",
-      "~/.config/alacritty": "alacritty",
       "~/.config/devdocs": "devdocs",
       "~/.config/git/git-commit-template.txt": "git/git-commit-template.txt",
+      "~/.config/kitty": "kitty",
       "~/.config/lazygit": "lazygit",
       "~/.config/lynx": "lynx",
       "~/.config/newsboat": "newsboat",
