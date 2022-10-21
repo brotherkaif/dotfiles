@@ -27,6 +27,8 @@ install_debian_packages () {
 				echo "UPGRADE"
 				sudo apt upgrade -y
 
+				echo "...done!"
+
 				# ---------------------------------------------
 				# Programming Languages and Frameworks
 				# ---------------------------------------------
@@ -36,9 +38,27 @@ install_debian_packages () {
 
 				# node
 				echo "NODE"
-				echo "Setting up node/nvm..."
-				wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-				echo "...done!"
+				# make cache folder (if missing) and take ownership
+				sudo mkdir -p /usr/local/n
+				sudo chown -R $(whoami) /usr/local/n
+				# make sure the required folders exist (safe to execute even if they already exist)
+				sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+				# take ownership of Node.js install destination folders
+				sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+				# pull down n installation script
+				curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+				# install node lts via n
+				bash n lts
+				# Now node and npm are available
+				npm install -g n
+
+				# python
+				echo "PYTHON"
+				# TODO: add debian installation
+
+				# cargo
+				echo "RUST"
+				# TODO: add debian installation
 
 				# love
 				echo "LOVE"
@@ -80,6 +100,8 @@ install_debian_packages () {
 				echo "IRSSI"
 				sudo apt install irssi -y
 
+				echo "...done!"
+
 				# ---------------------------------------------
 				# Applications
 				# ---------------------------------------------
@@ -115,6 +137,8 @@ install_debian_packages () {
 				sudo apt install /tmp/vscode.deb
 				rm /tmp/vscode.deb
 
+				echo "...done!"
+
 				# ---------------------------------------------
 				# Stupid Terminal Nonsense
 				# ---------------------------------------------
@@ -139,8 +163,7 @@ install_debian_packages () {
 				wget -O $HOME/.local/bin/crt https://github.com/Swordfish90/cool-retro-term/releases/download/1.1.1/Cool-Retro-Term-1.1.1-x86_64.AppImage
 				chmod u+x $HOME/.local/bin/crt
 
-				# rose-pine
-				git clone https://github.com/rose-pine/alacritty.git $HOME/customisation/rose-pine/alacritty
+				echo "...done!"
 
 				# ---------------------------------------------
 				# Cleanup
@@ -152,6 +175,8 @@ install_debian_packages () {
 				# cleanup the cache
 				echo "CACHE"
 				sudo apt clean
+
+				echo "...done!"
 		else
 				echo "INSTALLATION CANCELLED"
 		fi

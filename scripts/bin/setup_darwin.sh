@@ -50,7 +50,27 @@ install_darwin_packages () {
 
 				# node
 				echo "NODE"
-				brew install node
+				# make cache folder (if missing) and take ownership
+				sudo mkdir -p /usr/local/n
+				sudo chown -R $(whoami) /usr/local/n
+				# make sure the required folders exist (safe to execute even if they already exist)
+				sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+				# take ownership of Node.js install destination folders
+				sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+				# pull down n installation script
+				curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o $HOME/n
+				# install node lts via n
+				bash $HOME/n lts
+				# Now node and npm are available
+				npm install -g n
+
+				# python
+				echo "PYTHON"
+				python3 -m ensurepip
+
+				# cargo
+				echo "RUST"
+				brew install --cask cargo
 
 				# ---------------------------------------------
 				# Tools
@@ -92,7 +112,12 @@ install_darwin_packages () {
 
 				# neovim
 				echo "NEOVIM"
+				rm -rf ~/.local/share/nvim
 				brew install neovim
+
+				# lunarvim
+				echo "LUNARVIM"
+				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y	
 
 				# github cli
 				echo "GITHUB CLI"
@@ -105,6 +130,10 @@ install_darwin_packages () {
 				# vscode
 				echo "VSCODE"
 				brew cask install visual-studio-code
+
+				# kitty
+				echo "KITTY"
+				brew install --cask kitty
 
 				# ---------------------------------------------
 				# Stupid Terminal Nonsense
@@ -120,9 +149,6 @@ install_darwin_packages () {
 				# toilet
 				echo "TOILET"
 				brew install toilet
-
-				# rose-pine
-				git clone https://github.com/rose-pine/alacritty.git $HOME/customisation/rose-pine/alacritty
 
 				# ---------------------------------------------
 				# Cleanup
