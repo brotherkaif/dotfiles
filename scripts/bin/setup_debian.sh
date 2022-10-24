@@ -46,19 +46,19 @@ install_debian_packages () {
 				# take ownership of Node.js install destination folders
 				sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
 				# pull down n installation script
-				curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+				curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o $HOME/n
 				# install node lts via n
-				bash n lts
+				bash $HOME/n lts
 				# Now node and npm are available
 				npm install -g n
 
 				# python
 				echo "PYTHON"
-				# TODO: add debian installation
+				echo "already installed on Debian"
 
 				# cargo
 				echo "RUST"
-				# TODO: add debian installation
+				curl https://sh.rustup.rs -sSf | sh
 
 				# love
 				echo "LOVE"
@@ -127,8 +127,15 @@ install_debian_packages () {
 
 				# neovim
 				echo "NEOVIM"
-				wget -O $HOME/.local/bin/nvim https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-				chmod u+x $HOME/.local/bin/nvim
+				rm $HOME/.local/bin/nvim
+				rm $HOME/.config/nvim
+				wget -O /tmp/nvim.deb https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
+				sudo apt install /tmp/nvim.deb -y
+				rm /tmp/nvim.deb
+
+				# lunarvim
+				echo "LUNARVIM"
+				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
 
 				# vscode
 				echo "VSCODE"
@@ -157,11 +164,6 @@ install_debian_packages () {
 				# mplayer
 				echo "MPLAYER"
 				sudo apt install mplayer -y
-
-				# cool-retro-term
-				echo "COOL RETRO TERM"
-				wget -O $HOME/.local/bin/crt https://github.com/Swordfish90/cool-retro-term/releases/download/1.1.1/Cool-Retro-Term-1.1.1-x86_64.AppImage
-				chmod u+x $HOME/.local/bin/crt
 
 				echo "...done!"
 

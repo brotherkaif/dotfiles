@@ -117,7 +117,7 @@ install_darwin_packages () {
 
 				# lunarvim
 				echo "LUNARVIM"
-				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y	
+				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
 
 				# github cli
 				echo "GITHUB CLI"
