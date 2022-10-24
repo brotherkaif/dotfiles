@@ -9,6 +9,22 @@
     }
   },
   {
+    "shell": [
+      {
+        "command": "./scripts/bin/setup_debian.sh",
+        "stdin": true,
+        "stdout": true,
+        "description": "Running Debian setup script"
+      },
+      {
+        "command": "./scripts/bin/setup_darwin.sh",
+        "stdin": true,
+        "stdout": true,
+        "description": "Running Darwin setup script"
+      }
+    ]
+  },
+  {
     "clean": [
       "~"
     ]
@@ -25,6 +41,7 @@
       "~/.config/lynx": "lynx",
       "~/.config/newsboat": "newsboat",
       "~/.config/nvim": "nvim",
+      "~/.config/lvim/config.lua": "lvim/config.lua",
       "~/.gitconfig": "git/.gitconfig",
       "~/.inputrc": "bash/.inputrc",
       "~/.shell_aliases": "shell/.shell_aliases",
@@ -40,22 +57,6 @@
       "~/customisation",
       "~/scratchpads",
       "~/.local/bin"
-    ]
-  },
-  {
-    "shell": [
-      {
-        "command": "./scripts/bin/setup_debian.sh",
-        "stdin": true,
-        "stdout": true,
-        "description": "Running Debian setup script"
-      },
-      {
-        "command": "./scripts/bin/setup_darwin.sh",
-        "stdin": true,
-        "stdout": true,
-        "description": "Running Darwin setup script"
-      }
     ]
   }
 ]
