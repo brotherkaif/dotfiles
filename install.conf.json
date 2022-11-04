@@ -42,7 +42,7 @@
       "~/.config/newsboat": "newsboat",
       "~/.config/nvim": "nvim",
       "~/.config/lvim/config.lua": "lvim/config.lua",
-      "~/.gitconfig": "git/.gitconfig",
+      "~/.config/git": "git",
       "~/.inputrc": "bash/.inputrc",
       "~/.shell_aliases": "shell/.shell_aliases",
       "~/.shell_common": "shell/.shell_common",
