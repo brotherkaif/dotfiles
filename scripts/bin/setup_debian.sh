@@ -100,6 +100,9 @@ install_debian_packages () {
 				echo "IRSSI"
 				sudo apt install irssi -y
 
+				# gpg-tui
+        sudo apt install libgpgme-dev libx11-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev
+        cargo install gpg-tui
 				echo "...done!"
 
 				# ---------------------------------------------
