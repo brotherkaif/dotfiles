@@ -100,11 +100,6 @@ install_debian_packages () {
 				echo "IRSSI"
 				sudo apt install irssi -y
 
-				# gpg-tui
-        sudo apt install libgpgme-dev libx11-dev libxcb-shape0-dev libxcb-xfixes0-dev libxkbcommon-dev
-        cargo install gpg-tui
-				echo "...done!"
-
 				# ---------------------------------------------
 				# Applications
 				# ---------------------------------------------
@@ -147,6 +142,11 @@ install_debian_packages () {
 				wget -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
 				sudo apt install /tmp/vscode.deb
 				rm /tmp/vscode.deb
+
+				# love
+				echo "OBSIDIAN"
+				wget -O $HOME/.local/bin/obsidian https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage
+				chmod u+x $HOME/.local/bin/obsidian
 
 				echo "...done!"
 
