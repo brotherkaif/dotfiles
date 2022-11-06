@@ -1,6 +1,12 @@
 lvim.format_on_save = true
 lvim.lsp.diagnostics.virtual_text = true
-lvim.colorscheme = "onenord"
+lvim.colorscheme = "tokyonight"
+
+-- PLUGINS
+lvim.plugins = {
+  { "lunarvim/colorschemes" },
+  { "WhoIsSethDaniel/mason-tool-installer.nvim" }
+}
 
 -- PACKAGES
 require('mason-tool-installer').setup {
@@ -33,9 +39,3 @@ linters.setup {
 --     command = "proselint"
 --   },
 -- }
-
--- PLUGINS
-lvim.plugins = {
-  { "lunarvim/colorschemes" },
-  { "WhoIsSethDaniel/mason-tool-installer.nvim" }
-}
