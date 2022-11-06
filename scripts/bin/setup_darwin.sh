@@ -117,7 +117,8 @@ install_darwin_packages () {
 
 				# lunarvim
 				echo "LUNARVIM"
-				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
+				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)
+				LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
 
 				# github cli
 				echo "GITHUB CLI"

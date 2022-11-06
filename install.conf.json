@@ -35,7 +35,6 @@
       "~/.bashrc": "bash/.bashrc",
       "~/.bitmonero": "monero",
       "~/.config/devdocs": "devdocs",
-      "~/.config/git/git-commit-template.txt": "git/git-commit-template.txt",
       "~/.config/kitty": "kitty",
       "~/.config/lazygit": "lazygit",
       "~/.config/lynx": "lynx",
