@@ -25,9 +25,7 @@
     ]
   },
   {
-    "clean": [
-      "~"
-    ]
+    "clean": ["~"]
   },
   {
     "link": {
@@ -41,6 +39,7 @@
       "~/.config/newsboat": "newsboat",
       "~/.config/nvim": "nvim",
       "~/.config/lvim/config.lua": "lvim/config.lua",
+      "~/.config/lvim/lua": "lvim/lua",
       "~/.config/git": "git",
       "~/.inputrc": "bash/.inputrc",
       "~/.shell_aliases": "shell/.shell_aliases",
