@@ -27,15 +27,21 @@ detectOS () {
 case $(detectOS) in
     "debian")
         echo "Debian detected, running setup script for Debian"
-        $HOME/bin/setup_debian.sh
+        ./setup_debian.sh
         ;;
     "codespaces")
         echo "Codespace instance detected, running setup script for GitHub Codespaces"
-        $HOME/bin/setup_codespace.sh
+	# Make passwordless sudo work
+	export SUDO_ASKPASS=/bin/true
+
+	# Install neovim
+	wget -O /tmp/nvim.deb https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+	sudo apt install /tmp/nvim.deb -y
+	rm /tmp/nvim.deb
         ;;
     "macos")
         echo "MacOS detected, running setup script for Darwin"
-        $HOME/bin/setup_darwin.sh
+        ./setup_darwin.sh
         ;;
     *)
         echo "Unknown OS detected, no script executed"
