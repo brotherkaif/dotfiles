@@ -31,9 +31,6 @@ export EDITOR="$VISUAL"
 # ANSIBLE OPTIONS
 export ANSIBLE_NOCOWS=1
 
-# CARGO ENV
-. "$HOME/.cargo/env"
-
 # MOTD
 clear
 echo -e "\e[31m┌┬┐┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬  \e[0m"
