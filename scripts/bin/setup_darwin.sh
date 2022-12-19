@@ -83,6 +83,10 @@ install_darwin_packages () {
 				echo "STOW"
 				brew install stow
 
+				# fx
+				echo "FX"
+				brew install fx
+
 				# tree
 				echo "TREE"
 				brew install tree

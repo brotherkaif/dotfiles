@@ -11,10 +11,10 @@
   {
     "shell": [
       {
-        "command": "./scripts/bin/setup_codespace.sh",
+        "command": "./scripts/bin/test.sh",
         "stdin": true,
         "stdout": true,
-        "description": "Running Github Codespace setup script"
+        "description": "Running test script"
       }
     ]
   },

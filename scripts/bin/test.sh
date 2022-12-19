@@ -1,0 +1,1 @@
+touch ~/TEST-SCRIPT-CONFIRMATION.txt
