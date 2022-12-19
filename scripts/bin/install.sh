@@ -27,16 +27,15 @@ detectOS () {
 case $(detectOS) in
     "debian")
         echo "Debian detected, running setup script for Debian"
-        ./setup_debian.sh
+        ./$HOME/dotfiles/scripts/bin/setup_debian.sh
         ;;
     "codespaces")
         echo "Codespace instance detected, running setup script for GitHub Codespaces"
-	touch ~/RAN-INSTALL-SCRIPT
-        ./setup_codespace.sh
+        ./$HOME/dotfiles/scripts/bin/setup_codespace.sh
         ;;
-    "MacOS")
+    "macos")
         echo "MacOS detected, running setup script for Darwin"
-        ./setup_darwin.sh
+        ./$HOME/dotfiles/scripts/bin/setup_darwin.sh
         ;;
     *)
         echo "UNKNOWN"
