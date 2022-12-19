@@ -27,15 +27,15 @@ detectOS () {
 case $(detectOS) in
     "debian")
         echo "Debian detected, running setup script for Debian"
-        ./$HOME/bin/setup_debian.sh
+        $HOME/bin/setup_debian.sh
         ;;
     "codespaces")
         echo "Codespace instance detected, running setup script for GitHub Codespaces"
-        ./$HOME/bin/setup_codespace.sh
+        $HOME/bin/setup_codespace.sh
         ;;
     "macos")
         echo "MacOS detected, running setup script for Darwin"
-        ./$HOME/bin/setup_darwin.sh
+        $HOME/bin/setup_darwin.sh
         ;;
     *)
         echo "Unknown OS detected, no script executed"
