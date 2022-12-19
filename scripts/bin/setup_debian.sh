@@ -127,7 +127,7 @@ install_debian_packages () {
 				echo "NEOVIM"
 				rm $HOME/.local/bin/nvim
 				rm $HOME/.config/nvim
-				wget -O /tmp/nvim.deb https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb
+				wget -O /tmp/nvim.deb https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
 				sudo apt install /tmp/nvim.deb -y
 				rm /tmp/nvim.deb
 

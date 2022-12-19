@@ -11,10 +11,10 @@
   {
     "shell": [
       {
-        "command": "./scripts/bin/test.sh",
+        "command": "./scripts/bin/install.sh",
         "stdin": true,
         "stdout": true,
-        "description": "Running test script"
+        "description": "Installation script for packages."
       }
     ]
   },
