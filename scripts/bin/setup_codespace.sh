@@ -1,4 +1,5 @@
 #!/bin/sh
+touch ~/RAN-CODESPACE-SCRIPT
 cd $HOME
 
 # Make passwordless sudo work

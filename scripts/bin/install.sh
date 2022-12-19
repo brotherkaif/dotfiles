@@ -31,6 +31,7 @@ case $(detectOS) in
         ;;
     "codespaces")
         echo "Codespace instance detected, running setup script for GitHub Codespaces"
+	touch ~/RAN-INSTALL-SCRIPT
         ./setup_codespace.sh
         ;;
     "MacOS")
