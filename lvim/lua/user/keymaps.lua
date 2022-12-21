@@ -1,4 +1,4 @@
-lvim.builtin.which_key.mappings["p"] = {
+lvim.builtin.which_key.mappings["p"]f= {
   ":Telescope<CR>", "Command Palette"
 }
 
