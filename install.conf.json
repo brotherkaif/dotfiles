@@ -37,6 +37,7 @@
       "~/.config/git": "git",
       "~/.inputrc": "bash/.inputrc",
       "~/bin": "scripts/bin",
+      "/usr/local/bin/obsidian-backup": "scripts/bin/obsidian-backup.sh",
       "~/.shell_aliases": "shell/.shell_aliases",
       "~/.shell_common": "shell/.shell_common",
       "~/.tmux.conf": "tmux/.tmux.conf",
