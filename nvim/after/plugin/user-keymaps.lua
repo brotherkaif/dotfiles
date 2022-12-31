@@ -6,10 +6,10 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
-vim.keymap.set('n', '<leader>c', '<cmd>close<CR>', { desc = '[C]lose Buffer' })
-vim.keymap.set('n', '<leader>e', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = '[E]xplorer' })
-vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[F]ind Files' })
-vim.keymap.set('n', '<leader>h', '<cmd>nohlsearch<CR>', { desc = 'No [H]ighlight' })
+-- vim.keymap.set('n', '<leader>c', '<cmd>close<CR>', { desc = '[C]lose Buffer' })
+vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = '[E]xplorer' })
+-- vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[F]ind Files' })
+-- vim.keymap.set('n', '<leader>h', '<cmd>nohlsearch<CR>', { desc = 'No [H]ighlight' })
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite/Save' })
 
