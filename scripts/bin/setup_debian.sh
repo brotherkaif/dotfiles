@@ -143,7 +143,7 @@ install_debian_packages () {
 				sudo apt install /tmp/vscode.deb
 				rm /tmp/vscode.deb
 
-				# love
+				# obsidian
 				echo "OBSIDIAN"
 				wget -O $HOME/.local/bin/obsidian https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage
 				chmod u+x $HOME/.local/bin/obsidian
