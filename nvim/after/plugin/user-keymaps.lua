@@ -6,34 +6,17 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
--- vim.keymap.set('n', '<leader>c', '<cmd>close<CR>', { desc = '[C]lose Buffer' })
-vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = '[E]xplorer' })
--- vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = '[F]ind Files' })
--- vim.keymap.set('n', '<leader>h', '<cmd>nohlsearch<CR>', { desc = 'No [H]ighlight' })
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit' })
-vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite/Save' })
+vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = 'Explorer' })
 
--- [B]uffers: 
-vim.keymap.set('n', '<leader>bf', require('telescope.builtin').buffers, { desc = '[B]uffers: [F]ind' })
-vim.keymap.set('n', '<leader>bW', "<cmd>noautocmd w<cr>", { desc = '[B]uffers: [W]rite/Save Without Formatting' })
+vim.keymap.set('n', '<leader>g', "<cmd>Git<CR>", { desc = "[G]it: [G]it Source Control" })
 
--- TODO: d -> [D]ebug: 
 
--- TODO: g -> [G]it: 
-vim.keymap.set('n', '<leader>gg', "<cmd>Git<CR>", { desc = "[G]it: [G]it Source Control" })
-vim.keymap.set('n', '<leader>gj', "<cmd>lua require('gitsigns').next_hunk({navigation_message = false})<cr>", { desc = "[G]it: Next Hunk Down ([J])" })
-vim.keymap.set('n', '<leader>gk', "<cmd>lua require('gitsigns').prev_hunk({navigation_message = false})<cr>", { desc = "[G]it: Prev Hunk Up ([K])" })
-vim.keymap.set('n', '<leader>gl', require('gitsigns').blame_line, { desc = "[G]it: Blame [L]ine" })
-vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, { desc = "[G]it: [P]review Hunk" })
-vim.keymap.set('n', '<leader>gr', require('gitsigns').reset_hunk, { desc = "[G]it: [R]eset Hunk" })
-vim.keymap.set('n', '<leader>gR', require('gitsigns').reset_buffer, { desc = "[G]it: [R]eset Buffer" })
-vim.keymap.set('n', '<leader>gs', require('gitsigns').stage_hunk, { desc = "[G]it: [S]tage Hunk" })
-vim.keymap.set('n', '<leader>gu', require('gitsigns').undo_stage_hunk, { desc = "[G]it: [U]ndo Stage Hunk" })
-vim.keymap.set('n', '<leader>go', require('telescope.builtin').git_status, { desc = "[G]it: [O]pen Changed File" })
-vim.keymap.set('n', '<leader>gb', require('telescope.builtin').git_branches, { desc = "[G]it: Checkout [B]ranch" })
-vim.keymap.set('n', '<leader>gc', require('telescope.builtin').git_commits, { desc = "[G]it: [C]heckout Commit" })
-vim.keymap.set('n', '<leader>gC', require('telescope.builtin').git_bcommits, { desc = "[G]it: Checkout Commit (for [C]urrent file)" })
-vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns diffthis HEAD<cr>", { desc = "[G]it: [D]iff" })
+-- keymap("v", "<", "<gv", opts) -- shift lines left
+-- keymap("v", "J", ":m .+1<CR>==", opts) -- shift lines down
+-- keymap("x", "J", ":move '>+1<CR>gv-gv", opts) -- shift lines down
+-- keymap("v", "K", ":m .-2<CR>==", opts) -- shift lines up
+-- keymap("x", "K", ":move '<-2<CR>gv-gv", opts) -- shift lines up
+-- keymap("v", ">", ">gv", opts) -- shift lines right
 
 -- TODO: l -> [L]SP: 
 -- TODO: p -> [P]acker: 
@@ -56,12 +39,6 @@ vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns diffthis HEAD<cr>", { desc = "[
 -- keymap('n', '<leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>', opts) -- toggle spellcheck
 -- keymap('n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts) -- format buffer
 -- keymap('n', '<leader>/b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts) -- grep buffer
--- keymap("v", "<", "<gv", opts) -- shift lines left
--- keymap("v", "J", ":m .+1<CR>==", opts) -- shift lines down
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts) -- shift lines down
--- keymap("v", "K", ":m .-2<CR>==", opts) -- shift lines up
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts) -- shift lines up
--- keymap("v", ">", ">gv", opts) -- shift lines right
 -- keymap("n", "]b", ":bnext<CR>", opts) -- next buffer
 -- keymap("n", "[b", ":bprevious<CR>", opts) -- previous buffer
 
