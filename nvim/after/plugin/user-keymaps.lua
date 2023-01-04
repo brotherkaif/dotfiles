@@ -6,6 +6,7 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+vim.keymap.set('n', '<leader>p', "<cmd>Telescope<CR>", { desc = "Command [P]allette" })
 vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = 'Explorer' })
 
 vim.keymap.set('n', '<leader>g', "<cmd>Git<CR>", { desc = "[G]it: [G]it Source Control" })
