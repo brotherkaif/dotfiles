@@ -90,6 +90,9 @@ local window_options = {
 -- }
 
 local commands = {
+	-- set colorscheme
+	'colorscheme rose-pine',
+
 	-- make the sign column transparent
 	'highlight clear SignColumn',
 
