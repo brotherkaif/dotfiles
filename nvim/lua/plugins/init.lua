@@ -26,9 +26,14 @@ return {
     }
   },
 
-  -- Git related plugins
+  -- AI
+  'github/copilot.vim',
+
+  -- The obligatory Tim Pope section
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'tpope/vim-sleuth',
+
   'lewis6991/gitsigns.nvim',
 
   { -- The most sophisticated theme
@@ -38,7 +43,7 @@ return {
 
   'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'hinell/move.nvim', -- Line manipulation
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-file-browser.nvim' } },

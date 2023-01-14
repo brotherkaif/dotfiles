@@ -6,6 +6,13 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Remap for visual mode
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope<CR>', { desc = 'Command [P]allette' })
 vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = 'Explorer' })
 
@@ -25,10 +32,11 @@ vim.keymap.set('n', '<leader>J', '<C-W>J', { desc = '[J] Window Down' })
 vim.keymap.set('n', '<leader>K', '<C-W>K', { desc = '[K] Window Up' })
 vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
--- TODO: add this plugin: https://github.com/fedepujol/move.nvim
--- vim.keymap.set("v", "<leader><left>", "<gv", { desc = '[<] Shift Lines Left' })
--- vim.keymap.set("v", "<leader><down>", ":m .+1<CR>==", { desc = '[J] Shift Lines Down' })
--- vim.keymap.set("x", "<leader><down>", ":move '>+1<CR>gv-gv'", { desc = '[J] Shift Lines Down' })
--- vim.keymap.set("v", "<leader><up>", ":m .-2<CR>==", { desc = '[K] Shift Lines Up' })
--- vim.keymap.set("x", "<leader><up>", ":move '<-2<CR>gv-gv'", { desc = '[K] Shift Lines Up' })
--- vim.keymap.set("v", "<leader><right>", ">gv", { desc = '[<] Shift Lines Right' })
+vim.keymap.set('n', '<leader><down>', ':MoveLine 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
+vim.keymap.set('n', '<leader><up>', ':MoveLine -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
+vim.keymap.set('n', '<leader><left>', ':MoveHChar -1<CR>', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
+vim.keymap.set('n', '<leader><right>', ':MoveHChar 1<CR>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
+vim.keymap.set('x', '<leader><down>', ':MoveBlock 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
+vim.keymap.set('x', '<leader><up>', ':MoveBlock -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
+vim.keymap.set('v', '<leader><left>', ':MoveHBlock -1<CR>', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
+vim.keymap.set('v', '<leader><right>', ':MoveHBlock 1<CR>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
