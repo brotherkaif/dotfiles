@@ -1,4 +1,26 @@
 local options = {
+	-- set highlight on search
+	hlsearch = false,
+
+	-- enable mouse mode
+	mouse = 'a',
+
+	-- enable break indent
+	breakindent = true,
+
+	-- case insensitive searching UNLESS /C or capital in search
+	ignorecase = true,
+	smartcase = true,
+
+	-- faster completion (4000ms default)
+	updatetime = 250,
+
+	-- set colorscheme
+	termguicolors = true,
+
+	-- set completeopt to have a better completion experience
+	completeopt = 'menuone,noselect',
+
 	-- creates a backup file
 	backup = false,
 
@@ -21,7 +43,7 @@ local options = {
 	pumheight = 10,
 
 	-- set relative numbered lines
-	-- relativenumber = true,							
+	-- relativenumber = true,
 
 	-- offset vertical scrolling
 	scrolloff = 8,
@@ -62,8 +84,6 @@ local options = {
 	-- enable persistent undo
 	undofile = true,
 
-	-- faster completion (4000ms default)
-	updatetime = 300,
 
 	-- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 	writebackup = false,
@@ -84,6 +104,9 @@ local window_options = {
 
 	-- enable the signs column
 	signcolumn = 'yes',
+
+	-- Make line numbers default
+	number = true,
 }
 
 -- local buffer_options = {
