@@ -5,7 +5,15 @@ noteFilePath="$scratchpadsDir/$(date +%Y-%m-%d).md"
 
 if [[ ! -f $noteFilePath ]]
 then
-  echo "# Notes for $(date +%Y-%m-%d)" > $noteFilePath
+  echo "# $(date +%Y-%m-%d) Daily Log" > $noteFilePath
+  echo "## Tasks" > $noteFilePath
+  echo "- [ ] " > $noteFilePath
+  echo "" > $noteFilePath
+  echo "## Events" > $noteFilePath
+  echo "- " > $noteFilePath
+  echo "" > $noteFilePath
+  echo "## Notes" > $noteFilePath
+  echo "" > $noteFilePath
 fi
 
 nvim -c "norm Go" \
