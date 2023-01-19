@@ -14,7 +14,7 @@ return {
         -- Ensure the packages below are installed
         'williamboman/mason-lspconfig.nvim',
         config = {
-          ensure_installed = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' },
+          ensure_installed = { 'clangd', 'pyright', 'tsserver', 'sumneko_lua' },
         }
       },
 
