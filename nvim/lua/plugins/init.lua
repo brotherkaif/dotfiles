@@ -69,12 +69,6 @@ return {
   },
 
   {
-    -- The most sophisticated theme
-    'rose-pine/neovim',
-    name = 'rose-pine',
-  },
-
-  {
     -- The most professional theme
     'projekt0n/github-nvim-theme',
     branch = '0.0.x',
