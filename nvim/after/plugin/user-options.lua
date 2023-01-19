@@ -16,7 +16,7 @@ local options = {
 	updatetime = 250,
 
 	-- set colorscheme
-	termguicolors = true,
+	-- termguicolors = true,
 
 	-- set completeopt to have a better completion experience
 	completeopt = 'menuone,noselect',
@@ -114,7 +114,8 @@ local window_options = {
 
 local commands = {
 	-- set colorscheme
-	'colorscheme rose-pine',
+	'colorscheme github_dark_default',
+	-- 'colorscheme rose-pine',
 
 	-- make the sign column transparent
 	'highlight clear SignColumn',

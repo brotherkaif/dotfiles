@@ -26,6 +26,11 @@ return {
     }
   },
 
+  { -- Hop/EasyMotion
+    'phaazon/hop.nvim',
+    config = true
+  },
+
   -- AI
   'github/copilot.vim',
 
@@ -39,6 +44,11 @@ return {
   { -- The most sophisticated theme
     'rose-pine/neovim',
     name = 'rose-pine',
+  },
+
+  { -- The most professional theme
+    'projekt0n/github-nvim-theme',
+    branch = '0.0.x',
   },
 
   'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
