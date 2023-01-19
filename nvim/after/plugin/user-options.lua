@@ -15,9 +15,6 @@ local options = {
 	-- faster completion (4000ms default)
 	updatetime = 250,
 
-	-- set colorscheme
-	-- termguicolors = true,
-
 	-- set completeopt to have a better completion experience
 	completeopt = 'menuone,noselect',
 
@@ -76,7 +73,7 @@ local options = {
 	-- expandtab = false,
 
 	-- set term gui colors (most terminals support this)
-	-- termguicolors = true,
+	termguicolors = true,
 
 	-- time to wait for a mapped sequence to complete (in milliseconds)
 	timeoutlen = 1000,

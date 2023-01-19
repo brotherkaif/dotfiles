@@ -1,17 +1,33 @@
 return {
-  { -- LSP Configuration & Plugins
+  {
+    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      {
+        -- Setup mason so it can manage external tooling
+        'williamboman/mason.nvim',
+        config = true
+      },
+
+      {
+        -- Ensure the packages below are installed
+        'williamboman/mason-lspconfig.nvim',
+        config = {
+          ensure_installed = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' },
+        }
+      },
 
       -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
+      {
+        'j-hui/fidget.nvim',
+        config = true
+      },
     },
   },
 
-  { -- Autocompletion
+  {
+    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
@@ -39,20 +55,47 @@ return {
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
 
-  'lewis6991/gitsigns.nvim',
+  {
+    'lewis6991/gitsigns.nvim',
+    config = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    }
+  },
 
-  { -- The most sophisticated theme
+  {
+    -- The most sophisticated theme
     'rose-pine/neovim',
     name = 'rose-pine',
   },
 
-  { -- The most professional theme
+  {
+    -- The most professional theme
     'projekt0n/github-nvim-theme',
     branch = '0.0.x',
   },
 
-  'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
-  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
+  {
+    -- Add indentation guides even on blank lines
+    -- See `:help indent_blankline.txt`
+    'lukas-reineke/indent-blankline.nvim',
+    config = {
+      char = '┊',
+      show_trailing_blankline_indent = false,
+    }
+  },
+
+  {
+    -- Comment.nvim
+    'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
+    config = true
+  },
+
   'hinell/move.nvim', -- Line manipulation
 
   -- Fuzzy Finder (files, lsp, etc)
