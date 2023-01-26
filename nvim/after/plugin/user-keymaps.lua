@@ -34,12 +34,12 @@ vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
 vim.keymap.set('n', '<leader><down>', ':MoveLine 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
 vim.keymap.set('n', '<leader><up>', ':MoveLine -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><left>', ':MoveHChar -1<CR>', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><right>', ':MoveHChar 1<CR>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
+vim.keymap.set('n', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
+vim.keymap.set('n', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
 vim.keymap.set('x', '<leader><down>', ':MoveBlock 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
 vim.keymap.set('x', '<leader><up>', ':MoveBlock -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
-vim.keymap.set('v', '<leader><left>', ':MoveHBlock -1<CR>', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
-vim.keymap.set('v', '<leader><right>', ':MoveHBlock 1<CR>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
+vim.keymap.set('v', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
+vim.keymap.set('v', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
 
 vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>', { desc = 'Hop: Search character', noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>', { desc = 'Hop: Find character forwards', noremap = true, silent = true })
@@ -57,14 +57,13 @@ vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>', { desc = 'Hop: S
 vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>', { desc = 'Hop: Search n-character', noremap = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = '[[] Previous [D]iagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = '[]] Next [D]iagnostic' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Diagnostic Op[E]n Float ' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic Open [Q]uickfix List' })
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
