@@ -14,20 +14,6 @@ return {
   'tpope/vim-sleuth',
 
   {
-    -- gitsigns - Git feedback and integration
-    'lewis6991/gitsigns.nvim',
-    config = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    }
-  },
-
-  {
     -- github-nvim-theme - The most professional theme
     'projekt0n/github-nvim-theme',
     lazy = false,
