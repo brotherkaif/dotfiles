@@ -8,13 +8,6 @@ return {
   'tpope/vim-sleuth',
 
   {
-    -- github-nvim-theme - The most professional theme
-    'projekt0n/github-nvim-theme',
-    lazy = false,
-    branch = '0.0.x',
-  },
-
-  {
     -- indent-blankline.nvim - Add indentation guides even on blank lines
     -- See `:help indent_blankline.txt`
     'lukas-reineke/indent-blankline.nvim',

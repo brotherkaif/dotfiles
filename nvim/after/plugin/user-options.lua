@@ -110,10 +110,6 @@ local window_options = {
 -- }
 
 local commands = {
-	-- set colorscheme
-	'colorscheme github_dark_default',
-	-- 'colorscheme rose-pine',
-
 	-- make the sign column transparent
 	'highlight clear SignColumn',
 
