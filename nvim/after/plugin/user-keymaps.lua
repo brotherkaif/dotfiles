@@ -19,9 +19,10 @@ vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.
 vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>', { desc = '[G]it: [G]it Source Control' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
-vim.keymap.set('n', '<leader>ts', '<cmd>split | terminal<CR>', { desc = '[T]erminal: [S]plit' })
-vim.keymap.set('n', '<leader>tv', '<cmd>vsplit | terminal<CR>', { desc = '[T]erminal: [V]ertical Split' })
-vim.keymap.set('n', '<leader>tf', '<cmd>terminal<CR>', { desc = '[T]erminal: [F]ullscreen' })
+vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<CR>', { desc = '[T]erminal: [S]plit' })
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>', { desc = '[T]erminal: [V]ertical Split' })
+vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { desc = '[T]erminal: [F]ullscreen' })
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<CR>', { desc = '[T]erminal: [T]ab' })
 
 vim.keymap.set('n', '<leader>h', '<C-W>h', { desc = '[H] Cursor Left' })
 vim.keymap.set('n', '<leader>j', '<C-W>j', { desc = '[J] Cursor Down' })
