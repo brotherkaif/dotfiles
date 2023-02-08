@@ -164,12 +164,33 @@ return {
     -- Telescope - Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
+    init = function()
+      pcall(require('telescope').load_extension, 'file_browser')
+    end,
     config = {
       defaults = {
+        hidden = true,
+        layout_strategy = 'flex',
+        color_devicons = false,
+        layout_config = {
+          height = 0.80,
+          width = 0.80
+        },
         mappings = {
           i = {
             ['<C-u>'] = false,
             ['<C-d>'] = false,
+          },
+        },
+      },
+      extensions = {
+        file_browser = {
+          dir_icon = '›',
+          grouped = true,
+          hidden = true,
+          sorting_strategy = 'ascending',
+          layout_config = {
+            prompt_position = 'top',
           },
         },
       },
