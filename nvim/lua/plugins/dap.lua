@@ -30,7 +30,7 @@ return {
 
     local node2_configurations = {
       {
-        name = 'Launch',
+        name = 'Node: Launch Program',
         type = 'node2',
         request = 'launch',
         program = '${file}',
@@ -41,31 +41,13 @@ return {
       },
       {
         -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-        name = 'Attach to process',
+        name = 'Node: Attach to Process',
         type = 'node2',
         request = 'attach',
         processId = require 'dap.utils'.pick_process,
       },
       {
-        name = 'BBC-CC: All Jest tests',
-        type = 'node2',
-        request = 'launch',
-        program = '${workspaceFolder}/node_modules/jest/bin/jest.js',
-        env = {
-          LOG_LEVEL = 'silent'
-        },
-        args = {
-          '-c',
-          '${workspaceFolder}/jest.config.js',
-          '--verbose',
-          '-i',
-          '--no-cache'
-        },
-        console = 'integratedTerminal',
-        internalConsoleOptions = 'neverOpen'
-      },
-      {
-        name = 'BBC-CC: Single Jest test',
+        name = 'CC: Jest Test',
         type = 'node2',
         request = 'launch',
         program = '${workspaceFolder}/node_modules/jest/bin/jest.js',
@@ -81,6 +63,7 @@ return {
           '--no-cache'
         },
         console = 'integratedTerminal',
+        sourceMaps = true,
         internalConsoleOptions = 'neverOpen'
       }
     }
