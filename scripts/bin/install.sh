@@ -26,11 +26,19 @@ detectOS () {
 
 case $(detectOS) in
     "debian")
-        echo "Debian detected, running setup script for Debian"
-        ./setup_debian.sh
+        echo "Debian detected, running setup script."
+        ./setup-debian.sh
+        ;;
+    "fedora")
+        echo "Fedora detected, running setup script."
+        ./setup-fedora.sh
+        ;;
+    "macos")
+        echo "MacOS detected, running setup script."
+        ./setup-darwin.sh
         ;;
     "codespaces")
-        echo "Codespace instance detected, running setup script for GitHub Codespaces"
+        echo "GitHub Codespace instance detected, running setup script."
 	# Make passwordless sudo work
 	export SUDO_ASKPASS=/bin/true
 
@@ -38,10 +46,6 @@ case $(detectOS) in
 	wget -O /tmp/nvim.deb https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
 	sudo apt install /tmp/nvim.deb -y
 	rm /tmp/nvim.deb
-        ;;
-    "macos")
-        echo "MacOS detected, running setup script for Darwin"
-        ./setup_darwin.sh
         ;;
     *)
         echo "Unknown OS detected, no script executed"
