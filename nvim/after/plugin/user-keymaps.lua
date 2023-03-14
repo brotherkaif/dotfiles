@@ -18,12 +18,14 @@ vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.
 
 vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>', { desc = '[G]it: [G]it Source Control' })
 
+-- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
 vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<CR>', { desc = '[T]erminal: [S]plit' })
 vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>', { desc = '[T]erminal: [V]ertical Split' })
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { desc = '[T]erminal: [F]ullscreen' })
 vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<CR>', { desc = '[T]erminal: [T]ab' })
 
+-- Cursor movement
 vim.keymap.set('n', '<leader>h', '<C-W>h', { desc = '[H] Cursor Left' })
 vim.keymap.set('n', '<leader>j', '<C-W>j', { desc = '[J] Cursor Down' })
 vim.keymap.set('n', '<leader>k', '<C-W>k', { desc = '[K] Cursor Up' })
@@ -33,6 +35,7 @@ vim.keymap.set('n', '<leader>J', '<C-W>J', { desc = '[J] Window Down' })
 vim.keymap.set('n', '<leader>K', '<C-W>K', { desc = '[K] Window Up' })
 vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
+-- Line movement
 vim.keymap.set('n', '<leader><down>', ':MoveLine 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
 vim.keymap.set('n', '<leader><up>', ':MoveLine -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
 vim.keymap.set('n', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
@@ -42,6 +45,7 @@ vim.keymap.set('x', '<leader><up>', ':MoveBlock -1<CR>', { desc = 'Shift Lines [
 vim.keymap.set('v', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
 vim.keymap.set('v', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
 
+-- Hop keymaps
 vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>', { desc = 'Hop: Search character', noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>', { desc = 'Hop: Find character forwards', noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>F', ':HopChar1BC<cr>', { desc = 'Hop: Find character backwards', noremap = true, silent = true })
@@ -56,6 +60,10 @@ vim.keymap.set('n', '<leader><leader>ge', ':HopWordBC<cr>', { desc = 'Hop: End o
 vim.keymap.set('n', '<leader><leader>j', ':HopLineStartAC<cr>', { desc = 'Hop: Start of line forwards', noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>', { desc = 'Hop: Start of line backwards', noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>', { desc = 'Hop: Search n-character', noremap = true, silent = true })
+
+-- Formatting keymaps
+vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>', { desc = 'Format and Save', noremap = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = '[[] Previous [D]iagnostic' })
@@ -73,6 +81,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
+-- Telescope keymaps
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
