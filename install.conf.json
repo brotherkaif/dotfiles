@@ -9,17 +9,13 @@
     }
   },
   {
-    "shell": [
-      {
-        "command": "./scripts/bin/install.sh",
-        "stdin": true,
-        "stdout": true,
-        "description": "Installation script for packages."
-      }
-    ]
+    "clean": ["~"]
   },
   {
-    "clean": ["~"]
+    "create": [
+      "~/projects",
+      "~/playground"
+    ]
   },
   {
     "link": {
@@ -39,12 +35,19 @@
     }
   },
   {
-    "create": [
-      "~/projects",
-      "~/playground",
-      "~/customisation",
-      "~/scratchpads",
-      "~/.local/bin"
+    "shell": [
+      {
+        "command": "./scripts/setup-codespace.sh",
+        "stdin": true,
+        "stdout": true,
+        "description": "Setup script for GitHub Codespace"
+      },
+      {
+        "command": "./scripts/setup-debian.sh",
+        "stdin": true,
+        "stdout": true,
+        "description": "Setup script for Debian"
+      }
     ]
   }
 ]

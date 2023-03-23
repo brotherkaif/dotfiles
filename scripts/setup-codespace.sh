@@ -25,20 +25,8 @@ detectOS () {
 }
 
 case $(detectOS) in
-    "debian")
-        echo "Debian detected, running setup script."
-        ./setup-debian.sh
-        ;;
-    "fedora")
-        echo "Fedora detected, running setup script."
-        ./setup-fedora.sh
-        ;;
-    "macos")
-        echo "MacOS detected, running setup script."
-        ./setup-darwin.sh
-        ;;
     "codespaces")
-        echo "GitHub Codespace instance detected, running setup script."
+        echo "GitHub Codespace instance detected. Running setup script."
 	# Make passwordless sudo work
 	export SUDO_ASKPASS=/bin/true
 
@@ -48,6 +36,6 @@ case $(detectOS) in
 	rm /tmp/nvim.deb
         ;;
     *)
-        echo "Unknown OS detected, no script executed"
+        echo "GitHub Codespace instance not detected. Skipping."
         ;;
 esac
