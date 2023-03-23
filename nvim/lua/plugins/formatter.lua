@@ -1,7 +1,7 @@
 return {
   -- formatting helper
   'mhartington/formatter.nvim',
-  config = {
+  opts = {
     filetype = {
       typescript = {
         function()

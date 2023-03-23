@@ -1,7 +1,7 @@
 return {
   -- gitsigns - Git feedback and integration
   'lewis6991/gitsigns.nvim',
-  config = {
+  opts = {
     signs = {
       add = { text = '+' },
       change = { text = '~' },

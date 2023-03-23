@@ -12,7 +12,7 @@ return {
     {
       -- Ensure the packages below are installed
       'williamboman/mason-lspconfig.nvim',
-      config = {
+      opts = {
         ensure_installed = { 'clangd', 'pyright', 'tsserver', 'sumneko_lua' },
       }
     },

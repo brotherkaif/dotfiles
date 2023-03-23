@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim', -- Fancier statusline
-  config = {
+  opts = {
     options = {
       icons_enabled = false,
       theme = 'auto',

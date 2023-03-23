@@ -6,7 +6,7 @@ return {
     pcall(require('telescope').load_extension, 'file_browser')
   end,
 
-  config = {
+  opts = {
     defaults = {
       hidden = true,
       layout_strategy = 'flex',
