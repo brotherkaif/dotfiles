@@ -36,6 +36,11 @@ case $(detectOS) in
 	sudo apt upgrade -y
 
 	echo "Install tools"
+	sudo apt install build-essential -y
+	sudo apt install manpages-dev -y
+	sudo apt install ripgrep -y
+	sudo apt install fd-find -y
+	ln -s $(which fdfind) ~/.local/bin/fd
 	sudo apt install tree -y
 
 	echo "Installing Node Manager (n)"
