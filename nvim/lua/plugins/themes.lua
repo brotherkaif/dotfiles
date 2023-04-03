@@ -1,10 +1,10 @@
 return {
   {
-    -- dim: Default IMproved
-    'jeffkreeftmeijer/vim-dim',
+    -- noctu
+    'noahfrederick/vim-noctu',
     lazy = false,
     config = function()
-      vim.cmd('colorscheme dim')
+      vim.cmd('colorscheme noctu')
     end
   },
 }

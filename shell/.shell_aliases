@@ -31,56 +31,5 @@ alias tss="date '+%F'"
 alias tsm="date '+%F %a'"
 alias tsl="date '+%F %a %H:%M:%S'"
 
-# CRYPTO ALIASES
-alias xmr="monero-wallet-cli --config-file ~/.bitmonero/bitmonero.conf"
-
-# RADIO ALIASES
-alias somafm-beatblender="mpv https://somafm.com/beatblender.pls"
-alias somafm-brfm="mpv https://somafm.com/brfm.pls"
-alias somafm-bootliquor="mpv https://somafm.com/bootliquor.pls"
-alias somafm-cliqhop="mpv https://somafm.com/cliqhop.pls"
-alias somafm-covers="mpv https://somafm.com/covers.pls"
-alias somafm-deepspaceone="mpv https://somafm.com/deepspaceone.pls"
-alias somafm-defcon="mpv https://somafm.com/defcon.pls"
-alias somafm-digitalis="mpv https://somafm.com/digitalis.pls"
-alias somafm-dronezone="mpv https://somafm.com/dronezone.pls"
-alias somafm-dubstep="mpv https://somafm.com/dubstep.pls"
-alias somafm-fluid="mpv https://somafm.com/fluid.pls"
-alias somafm-folkfwd="mpv https://somafm.com/folkfwd.pls"
-alias somafm-groovesalad="mpv https://somafm.com/groovesalad.pls"
-alias somafm-gsclassic="mpv https://somafm.com/gsclassic.pls"
-alias somafm-reggae="mpv https://somafm.com/reggae.pls"
-alias somafm-illstreet="mpv https://somafm.com/illstreet.pls"
-alias somafm-indiepop="mpv https://somafm.com/indiepop.pls"
-alias somafm-seventies="mpv https://somafm.com/seventies.pls"
-alias somafm-lush="mpv https://somafm.com/lush.pls"
-alias somafm-metal="mpv https://somafm.com/metal.pls"
-alias somafm-missioncontrol="mpv https://somafm.com/missioncontrol.pls"
-alias somafm-n5md="mpv https://somafm.com/n5md.pls"
-alias somafm-poptron="mpv https://somafm.com/poptron.pls"
-alias somafm-secretagent="mpv https://somafm.com/secretagent.pls"
-alias somafm-7soul="mpv https://somafm.com/7soul.pls"
-alias somafm-sf1033="mpv https://somafm.com/sf1033.pls"
-alias somafm-scanner="mpv https://somafm.com/scanner.pls"
-alias somafm-live="mpv https://somafm.com/live.pls"
-alias somafm-specials="mpv https://somafm.com/specials.pls"
-alias somafm-sonicuniverse="mpv https://somafm.com/sonicuniverse.pls"
-alias somafm-spacestation="mpv https://somafm.com/spacestation.pls"
-alias somafm-suburbsofgoa="mpv https://somafm.com/suburbsofgoa.pls"
-alias somafm-synphaera="mpv https://somafm.com/synphaera.pls"
-alias somafm-thetrip="mpv https://somafm.com/thetrip.pls"
-alias somafm-thistle="mpv https://somafm.com/thistle.pls"
-alias somafm-u80s="mpv https://somafm.com/u80s.pls"
-alias somafm-vaporwaves="mpv https://somafm.com/vaporwaves.pls"
-
-# WORK ALIASES
-alias cc-aws-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); cd -'
-alias cc-aws-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); cd -'
-alias cc-aws-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); cd -'
-alias cc-bastion-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); pnpm bastion'
-alias cc-bastion-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); pnpm bastion'
-alias cc-bastion-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); pnpm bastion'
-alias cc-db-tools='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole tools); pnpm adminer -o'
-alias cc-db-dev='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole dev); pnpm adminer -o'
-alias cc-db-prod='cd ~/projects/sounds-common-catalogue; eval $(pnpm loginhole prod); pnpm adminer -o'
-alias cc-cs='nvim ~/Dropbox\ \(BBC\)/3-resources/common-catalogue-cheatsheet.md'
+# COPILOT ALIASES
+eval "$(github-copilot-cli alias -- "$0")"
