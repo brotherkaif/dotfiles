@@ -73,7 +73,7 @@ local options = {
 	-- expandtab = false,
 
 	-- set term gui colors (most terminals support this)
-	termguicolors = true,
+	termguicolors = false,
 
 	-- time to wait for a mapped sequence to complete (in milliseconds)
 	timeoutlen = 1000,
@@ -132,7 +132,7 @@ local commands = {
 	-- 'highlight PmenuThumb ctermbg=Grey guibg=Grey',
 
 	-- Twilight styling
-	'highlight Twilight ctermfg=8',
+	-- 'highlight Twilight ctermfg=8',
 
 	-- netrw default listing style (tree style listing)
 	'let g:netrw_liststyle = 3',
@@ -153,31 +153,31 @@ local commands = {
 	'highlight NonText ctermfg=DarkGrey guifg=DarkGrey',
 
 	-- lsp styling
-	'highlight LspDiagnosticsFloating ctermbg=Black guibg=Black',
+	-- 'highlight LspDiagnosticsFloating ctermbg=Black guibg=Black',
 
 	-- lsp styling
-	'highlight LspDiagnosticsVirtualTextError ctermfg=Red guifg=Red',
+	-- 'highlight LspDiagnosticsVirtualTextError ctermfg=Red guifg=Red',
 
 	-- lsp styling
-	'highlight LspDiagnosticsVirtualTextWarning ctermfg=Yellow guifg=Yellow',
+	-- 'highlight LspDiagnosticsVirtualTextWarning ctermfg=Yellow guifg=Yellow',
 
 	-- lsp styling
-	'highlight LspDiagnosticsVirtualTextHint ctermfg=Blue guifg=Blue',
+	-- 'highlight LspDiagnosticsVirtualTextHint ctermfg=Blue guifg=Blue',
 
 	-- lsp styling
-	'highlight LspDiagnosticsVirtualTextInformation ctermfg=DarkGrey guifg=DarkGrey',
+	-- 'highlight LspDiagnosticsVirtualTextInformation ctermfg=DarkGrey guifg=DarkGrey',
 
 	-- lsp styling
-	'highlight LspDiagnosticsUnderlineError ctermfg=none guifg=none cterm=underline gui=underline',
+	-- 'highlight LspDiagnosticsUnderlineError ctermfg=none guifg=none cterm=underline gui=underline',
 
 	-- lsp styling
-	'highlight LspDiagnosticsUnderlineWarning ctermfg=none guifg=none cterm=underline gui=underline',
+	-- 'highlight LspDiagnosticsUnderlineWarning ctermfg=none guifg=none cterm=underline gui=underline',
 
 	-- lsp styling
-	'highlight LspDiagnosticsUnderlineInformation ctermfg=none guifg=none cterm=underline gui=underline',
+	-- 'highlight LspDiagnosticsUnderlineInformation ctermfg=none guifg=none cterm=underline gui=underline',
 
 	-- lsp styling
-	'highlight LspDiagnosticsUnderlineHint ctermfg=none guifg=none cterm=underline gui=underline',
+	-- 'highlight LspDiagnosticsUnderlineHint ctermfg=none guifg=none cterm=underline gui=underline',
 
 	-- dashes count as whole words
 	[[set iskeyword+=-]],
