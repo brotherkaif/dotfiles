@@ -42,6 +42,7 @@ case $(detectOS) in
 	sudo apt install fd-find -y
 	ln -s $(which fdfind) ~/.local/bin/fd
 	sudo apt install tree -y
+	curl https://fx.wtf | sh
 
 	echo "Installing Node Manager (n)"
 	# installation instructions: https://www.npmjs.com/package/n#installation
@@ -96,6 +97,9 @@ case $(detectOS) in
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 	sudo apt update
 	sudo apt install gh -y
+
+	echo "Installing Github Copilot CLI"
+	npm install -g @githubnext/github-copilot-cli
 
 	echo "Installing dev container CLI"
 	npm install -g @devcontainers/cli
