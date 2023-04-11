@@ -26,6 +26,7 @@ local options = {
 
 	-- highlight the current line
 	cursorline = true,
+	cursorlineopt = 'number',
 
 	-- disable terminal error bell
 	errorbells = false,

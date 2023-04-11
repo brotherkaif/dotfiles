@@ -1,10 +1,20 @@
 return {
   {
-    -- noctu
     'noahfrederick/vim-noctu',
-    lazy = false,
+    -- config = function()
+    --   vim.cmd('colorscheme noctu')
+    -- end
+  },
+  {
+    'jeffkreeftmeijer/vim-dim',
+    -- config = function()
+    --   vim.cmd('colorscheme dim')
+    -- end
+  },
+  {
+    'dylanaraps/wal.vim',
     config = function()
-      vim.cmd('colorscheme noctu')
+      vim.cmd('colorscheme wal')
     end
   },
 }
