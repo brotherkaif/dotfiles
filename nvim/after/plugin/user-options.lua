@@ -26,7 +26,6 @@ local options = {
 
 	-- highlight the current line
 	cursorline = true,
-	cursorlineopt = 'number',
 
 	-- disable terminal error bell
 	errorbells = false,
@@ -113,6 +112,10 @@ local window_options = {
 local commands = {
 	-- make the sign column transparent
 	'highlight clear SignColumn',
+
+	-- change cursorline highlight
+	'highlight clear CursorLine',
+	'highlight CursorLine ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
 
 	-- make folds transparent
 	'highlight clear Folded',
