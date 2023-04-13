@@ -1,4 +1,5 @@
 return {
+  -- nvim-dap - Debug Adapter Protocol client implementation for Neovim
   'mfussenegger/nvim-dap',
 
   dependencies = {
@@ -8,12 +9,12 @@ return {
   init = function()
     -- set keymaps
     local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<F5>', '<Cmd>lua require("dap").continue()<CR>', opts)
-    vim.keymap.set('n', '<S-F5>', '<Cmd>lua require("dap").stop()<CR>', opts)
-    vim.keymap.set('n', '<F9>', '<Cmd>lua require("dap").toggle_breakpoint()<CR>', opts)
-    vim.keymap.set('n', '<F10>', '<Cmd>lua require("dap").step_over()<CR>', opts)
-    vim.keymap.set('n', '<F11>', '<Cmd>lua require("dap").step_into()<CR>', opts)
-    vim.keymap.set('n', '<S-F11>', '<Cmd>lua require("dap").step_out()<CR>', opts)
+    vim.keymap.set('n', '<F5>', '<Cmd>lua require("dap").continue()<CR>', { desc = 'DEBUG: Continue' })
+    vim.keymap.set('n', '<S-F5>', '<Cmd>lua require("dap").stop()<CR>', { desc = 'DEBUG: Stop' })
+    vim.keymap.set('n', '<F9>', '<Cmd>lua require("dap").toggle_breakpoint()<CR>', { desc = 'DEBUG: Toggle Breakpoint' })
+    vim.keymap.set('n', '<F10>', '<Cmd>lua require("dap").step_over()<CR>', { desc = 'DEBUG: Step Over' })
+    vim.keymap.set('n', '<F11>', '<Cmd>lua require("dap").step_into()<CR>', { desc = 'DEBUG: Step Into' })
+    vim.keymap.set('n', '<S-F11>', '<Cmd>lua require("dap").step_out()<CR>', { desc = 'DEBUG: Step Out' })
   end,
 
   config = function()

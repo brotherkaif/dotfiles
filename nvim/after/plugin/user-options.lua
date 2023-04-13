@@ -124,19 +124,19 @@ local commands = {
 	'highlight VertSplit cterm=NONE gui=NONE',
 
 	-- popup menu styling
-	-- 'highlight Pmenu ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
+	'highlight Pmenu ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
 
 	-- popup menu styling
-	-- 'highlight PmenuSel ctermbg=Grey guibg=Grey ctermfg=Black guifg=Black',
+	'highlight PmenuSel ctermbg=Grey guibg=Grey ctermfg=Black guifg=Black',
 
 	-- popup menu styling
-	-- 'highlight PmenuSbar ctermbg=Black guibg=Black',
+	'highlight PmenuSbar ctermbg=Black guibg=Black',
 
 	-- popup menu styling
-	-- 'highlight PmenuThumb ctermbg=Grey guibg=Grey',
+	'highlight PmenuThumb ctermbg=Grey guibg=Grey',
 
 	-- Twilight styling
-	-- 'highlight Twilight ctermfg=8',
+	'highlight Twilight ctermfg=8',
 
 	-- netrw default listing style (tree style listing)
 	'let g:netrw_liststyle = 3',
