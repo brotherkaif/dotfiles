@@ -23,6 +23,7 @@ return {
     -- packages are installed via mason, so we need to construct the path 
     local install_root_dir = vim.fn.stdpath('data') .. '/mason/packages'
 
+    -- mason package: node-debug2-adapter
     dap.adapters.node2 = {
             type = 'executable',
             command = 'node',
