@@ -1,0 +1,53 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Default settings for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 2
+
+# TypeScript and JavaScript specific settings
+[*.{ts,js}]
+indent_size = 2
+
+# Bash specific settings
+[*.sh]
+indent_size = 2
+
+# Lua specific settings
+[*.lua]
+indent_size = 2
+
+# YAML specific settings
+[*.yml]
+indent_style = space
+indent_size = 2
+
+# Markdown specific settings
+[*.md]
+trim_trailing_whitespace = false
+
+# HTML specific settings
+[*.html]
+indent_size = 2
+
+# CSS specific settings
+[*.css]
+indent_style = space
+indent_size = 2
+
+# XML specific settings
+[*.xml]
+indent_style = space
+indent_size = 4
+
+# Makefile specific settings
+[Makefile]
+indent_style = tab
+indent_size = 4
