@@ -89,14 +89,14 @@ local commands = {
 	'highlight clear SignColumn',
 
 	-- change cursorline highlight
-	'highlight clear CursorLine',
-	'highlight CursorLine ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
+	-- 'highlight clear CursorLine',
+	-- 'highlight CursorLine ctermbg=Black guibg=Black',
 
 	-- make folds transparent
 	'highlight clear Folded',
 
 	-- make the split line transparent
-	'highlight VertSplit cterm=NONE gui=NONE',
+	'highlight clear VertSplit',
 
 	-- popup menu styling
 	'highlight Pmenu ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
