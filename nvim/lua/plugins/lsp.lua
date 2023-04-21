@@ -3,8 +3,6 @@
 local servers = {
 	'bashls',
 	'clangd',
-	'emmet_ls',
-	'eslint',
 	-- 'gopls', requires go to be installed first
 	'marksman',
 	'pyright',
