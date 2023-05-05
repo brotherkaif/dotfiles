@@ -1,5 +1,5 @@
 return {
-  -- Hop - Code Navigation
-  'phaazon/hop.nvim',
-  config = true
+  -- -- Hop - Code Navigation
+  -- 'phaazon/hop.nvim',
+  -- config = true
 }
