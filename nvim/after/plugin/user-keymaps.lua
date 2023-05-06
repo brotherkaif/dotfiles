@@ -35,16 +35,6 @@ vim.keymap.set('n', '<leader>J', '<C-W>J', { desc = '[J] Window Down' })
 vim.keymap.set('n', '<leader>K', '<C-W>K', { desc = '[K] Window Up' })
 vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
--- Line movement
-vim.keymap.set('n', '<leader><down>', ':MoveLine 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><up>', ':MoveLine -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
-vim.keymap.set('x', '<leader><down>', ':MoveBlock 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
-vim.keymap.set('x', '<leader><up>', ':MoveBlock -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
-vim.keymap.set('v', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
-vim.keymap.set('v', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
-
 -- Formatting keymaps
 vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>', { desc = 'Format and Save', noremap = true, silent = true })
