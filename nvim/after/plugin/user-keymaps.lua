@@ -45,29 +45,11 @@ vim.keymap.set('x', '<leader><up>', ':MoveBlock -1<CR>', { desc = 'Shift Lines [
 vim.keymap.set('v', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
 vim.keymap.set('v', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
 
--- Hop keymaps
-vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>', { desc = 'Hop: Search character', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>', { desc = 'Hop: Find character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>F', ':HopChar1BC<cr>', { desc = 'Hop: Find character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>t', ':HopChar1AC<cr>', { desc = 'Hop: Til character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>T', ':HopChar1BC<cr>', { desc = 'Hop: Til character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>w', ':HopWordAC<cr>', { desc = 'Hop: Start of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>b', ':HopWordBC<cr>', { desc = 'Hop: Start of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>l', ':HopWordAC<cr>', { desc = 'Hop: Matches beginning & ending of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>h', ':HopWordBC<cr>', { desc = 'Hop: Matches beginning & ending of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>e', ':HopWordAC<cr>', { desc = 'Hop: End of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>ge', ':HopWordBC<cr>', { desc = 'Hop: End of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>j', ':HopLineStartAC<cr>', { desc = 'Hop: Start of line forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>', { desc = 'Hop: Start of line backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>', { desc = 'Hop: Search n-character', noremap = true, silent = true })
-
 -- Formatting keymaps
 vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>', { desc = 'Format and Save', noremap = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = '[[] Previous [D]iagnostic' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = '[]] Next [D]iagnostic' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Diagnostic Op[E]n Float ' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic Open [Q]uickfix List' })
 
