@@ -16,7 +16,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope<CR>', { desc = 'Command [P]allette' })
 vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = 'Explorer' })
 
-vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>', { desc = '[G]it: [G]it Source Control' })
+vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc = '[G]it: [G]it Source Control' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
