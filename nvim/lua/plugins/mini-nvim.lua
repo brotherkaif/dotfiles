@@ -11,7 +11,7 @@ return {
 	-- require('mini.bufremove').setup()
 	-- require('mini.colors').setup()
 	require('mini.comment').setup()
-	-- require('mini.completion').setup()
+	require('mini.completion').setup()
 	require('mini.cursorword').setup()
 	-- require('mini.doc').setup()
 	-- require('mini.fuzzy').setup()
