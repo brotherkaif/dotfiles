@@ -33,7 +33,7 @@ return {
 		require("mini.move").setup()
 		require("mini.pairs").setup()
 		-- require('mini.sessions').setup()
-		-- require('mini.splitjoin').setup()
+		require('mini.splitjoin').setup()
 		require("mini.starter").setup(starter_config)
 		require("mini.statusline").setup()
 		-- require('mini.surround').setup()
