@@ -14,14 +14,17 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope<CR>', { desc = 'Command Pallette' })
-vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = 'Explorer' })
+vim.keymap.set('n', '-',
+	'<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>',
+	{ desc = 'Explorer' })
 
 vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc = '[G]it: [G]it Source Control' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
 vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<CR>', { desc = '[T]erminal: [S]plit' })
-vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>', { desc = '[T]erminal: [V]ertical Split' })
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>',
+	{ desc = '[T]erminal: [V]ertical Split' })
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { desc = '[T]erminal: [F]ullscreen' })
 vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<CR>', { desc = '[T]erminal: [T]ab' })
 
@@ -46,11 +49,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+		winblend = 10,
+		previewer = false,
+	})
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
 -- Telescope keymaps
