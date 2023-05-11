@@ -12,13 +12,35 @@ return {
 			}, "\n"),
 			footer = os.date(),
 		}
+
+		local map_config = {
+			integrations = {
+				require("mini.map").gen_integration.builtin_search(),
+				require("mini.map").gen_integration.diagnostic({
+					error = "DiagnosticFloatingError",
+					warn = "DiagnosticFloatingWarn",
+					info = "DiagnosticFloatingInfo",
+					hint = "DiagnosticFloatingHint",
+				}),
+				require("mini.map").gen_integration.gitsigns(),
+			},
+			symbols = {
+				encode = require("mini.map").gen_encode_symbols.dot("4x2"),
+			},
+			window = {
+				focusable = true,
+				side = "right",
+				winblend = 50,
+				show_integration_count = false,
+			},
+		}
+
 		-- require("mini.ai").setup()
-		-- require("mini.align").setup()
+		require("mini.align").setup()
 		require("mini.animate").setup()
-		-- require("mini.base16").setup()
 		require("mini.basics").setup()
 		require("mini.bracketed").setup()
-		-- require("mini.bufremove").setup()
+		require("mini.bufremove").setup()
 		-- require("mini.colors").setup()
 		require("mini.comment").setup()
 		require("mini.completion").setup()
@@ -28,7 +50,7 @@ return {
 		require("mini.indentscope").setup()
 		require("mini.jump").setup()
 		require("mini.jump2d").setup()
-		-- require("mini.map").setup()
+		require("mini.map").setup(map_config)
 		-- require("mini.misc").setup()
 		require("mini.move").setup()
 		require("mini.pairs").setup()

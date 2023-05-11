@@ -30,7 +30,7 @@ local options = {
 	-- relativenumber = true,
 
 	-- offset vertical scrolling
-	-- scrolloff = 8,
+	scrolloff = 8,
 	-- highlight matches on search pattern in real time
 	-- showmatch = true,
 	-- we don't need to see things like -- INSERT -- anymore
@@ -39,7 +39,7 @@ local options = {
 	-- showtabline = 2,
 
 	-- offset horizontal scrolling
-	-- sidescrolloff = 8,
+	sidescrolloff = 8,
 	-- make indenting smarter again
 	-- smartindent = true,
 

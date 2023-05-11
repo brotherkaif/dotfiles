@@ -66,3 +66,6 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- AI keymaps
 vim.keymap.set('n', '<leader>ae', ':Copilot enable<cr>', { desc = '[A]I [E]nable' })
 vim.keymap.set('n', '<leader>ad', ':Copilot disable<cr>', { desc = '[A]I [D]isable' })
+
+-- UI keymaps
+vim.keymap.set('n', '<leader>m', require('mini.map').toggle, { desc = '[S]earch [D]iagnostics' })
