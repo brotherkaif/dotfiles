@@ -14,7 +14,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope<CR>', { desc = 'Command Pallette' })
-vim.keymap.set('n', '-',
+vim.keymap.set('n', '<BS>',
 	'<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>',
 	{ desc = 'Explorer' })
 
