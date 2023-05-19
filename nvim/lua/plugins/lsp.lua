@@ -8,7 +8,7 @@ local servers = {
 	'pyright',
 	'rust_analyzer',
 	'sqlls',
-	'sumneko_lua',
+	'lua_ls',
 	'tsserver',
 	'yamlls',
 }
@@ -88,10 +88,6 @@ return {
 			end, { desc = 'Format current buffer with LSP' })
 		end
 
-		-- nvim-cmp supports additional completion capabilities
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
 		for _, lsp in ipairs(servers) do
 			require('lspconfig')[lsp].setup {
 				on_attach = on_attach,
@@ -106,7 +102,7 @@ return {
 		table.insert(runtime_path, 'lua/?.lua')
 		table.insert(runtime_path, 'lua/?/init.lua')
 
-		require('lspconfig').sumneko_lua.setup {
+		require('lspconfig').lua_ls.setup {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = {

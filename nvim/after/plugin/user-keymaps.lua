@@ -13,15 +13,18 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('n', '<leader>p', '<cmd>Telescope<CR>', { desc = 'Command [P]allette' })
-vim.keymap.set('n', '-', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', { desc = 'Explorer' })
+vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope<CR>', { desc = 'Command Pallette' })
+vim.keymap.set('n', '<BS>',
+	'<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>',
+	{ desc = 'Explorer' })
 
-vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>', { desc = '[G]it: [G]it Source Control' })
+vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc = '[G]it: [G]it Source Control' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
 vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<CR>', { desc = '[T]erminal: [S]plit' })
-vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>', { desc = '[T]erminal: [V]ertical Split' })
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>',
+	{ desc = '[T]erminal: [V]ertical Split' })
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { desc = '[T]erminal: [F]ullscreen' })
 vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<CR>', { desc = '[T]erminal: [T]ab' })
 
@@ -35,50 +38,22 @@ vim.keymap.set('n', '<leader>J', '<C-W>J', { desc = '[J] Window Down' })
 vim.keymap.set('n', '<leader>K', '<C-W>K', { desc = '[K] Window Up' })
 vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
--- Line movement
-vim.keymap.set('n', '<leader><down>', ':MoveLine 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><up>', ':MoveLine -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
-vim.keymap.set('n', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
-vim.keymap.set('x', '<leader><down>', ':MoveBlock 1<CR>', { desc = 'Shift Lines [Down]', noremap = true, silent = true})
-vim.keymap.set('x', '<leader><up>', ':MoveBlock -1<CR>', { desc = 'Shift Lines [Up]', noremap = true, silent = true})
-vim.keymap.set('v', '<leader><left>', '<<', { desc = 'Shift Lines [Left]', noremap = true, silent = true})
-vim.keymap.set('v', '<leader><right>', '>>', { desc = 'Shift Lines [Right]', noremap = true, silent = true})
-
--- Hop keymaps
-vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>', { desc = 'Hop: Search character', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>', { desc = 'Hop: Find character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>F', ':HopChar1BC<cr>', { desc = 'Hop: Find character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>t', ':HopChar1AC<cr>', { desc = 'Hop: Til character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>T', ':HopChar1BC<cr>', { desc = 'Hop: Til character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>w', ':HopWordAC<cr>', { desc = 'Hop: Start of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>b', ':HopWordBC<cr>', { desc = 'Hop: Start of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>l', ':HopWordAC<cr>', { desc = 'Hop: Matches beginning & ending of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>h', ':HopWordBC<cr>', { desc = 'Hop: Matches beginning & ending of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>e', ':HopWordAC<cr>', { desc = 'Hop: End of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>ge', ':HopWordBC<cr>', { desc = 'Hop: End of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>j', ':HopLineStartAC<cr>', { desc = 'Hop: Start of line forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>', { desc = 'Hop: Start of line backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>', { desc = 'Hop: Search n-character', noremap = true, silent = true })
-
 -- Formatting keymaps
 vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>', { desc = 'Format and Save', noremap = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = '[[] Previous [D]iagnostic' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = '[]] Next [D]iagnostic' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Diagnostic Op[E]n Float ' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic Open [Q]uickfix List' })
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+		winblend = 10,
+		previewer = false,
+	})
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
 -- Telescope keymaps
@@ -91,3 +66,6 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- AI keymaps
 vim.keymap.set('n', '<leader>ae', ':Copilot enable<cr>', { desc = '[A]I [E]nable' })
 vim.keymap.set('n', '<leader>ad', ':Copilot disable<cr>', { desc = '[A]I [D]isable' })
+
+-- UI keymaps
+vim.keymap.set('n', '<leader>m', require('mini.map').toggle, { desc = '[S]earch [D]iagnostics' })

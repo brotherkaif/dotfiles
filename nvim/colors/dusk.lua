@@ -1,0 +1,21 @@
+require("mini.base16").setup({
+	palette = {
+		base00 = "#2D3452",
+		base01 = "#F4B5FB",
+		base02 = "#E3FEEF",
+		base03 = "#E7F936",
+		base04 = "#9573F5",
+		base05 = "#FFA08B",
+		base06 = "#30E2EA",
+		base07 = "#434D7B",
+		base08 = "#8D9CF6",
+		base09 = "#F882FF",
+		base0A = "#87FFC5",
+		base0B = "#F1FF67",
+		base0C = "#B39AF5",
+		base0D = "#FFBCAD",
+		base0E = "#80F9F9",
+		base0F = "#414976",
+	},
+	use_cterm = false,
+})
