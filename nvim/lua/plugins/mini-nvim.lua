@@ -38,6 +38,7 @@ return {
 		-- require("mini.ai").setup()
 		require("mini.align").setup()
 		require("mini.animate").setup()
+		-- require("mini.base16").setup()
 		require("mini.basics").setup()
 		require("mini.bracketed").setup()
 		require("mini.bufremove").setup()
