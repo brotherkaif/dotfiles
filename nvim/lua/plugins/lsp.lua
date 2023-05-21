@@ -2,7 +2,7 @@
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 local servers = {
 	'bashls',
-	'clangd',
+	-- 'clangd',
 	-- 'gopls', requires go to be installed first
 	'marksman',
 	'pyright',
