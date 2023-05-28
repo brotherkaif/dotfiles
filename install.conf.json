@@ -33,21 +33,5 @@
       "~/.tmux.conf": "tmux/.tmux.conf",
       "~/.zshrc": "zsh/.zshrc"
     }
-  },
-  {
-    "shell": [
-      {
-        "command": "./scripts/setup-codespace.sh",
-        "stdin": true,
-        "stdout": true,
-        "description": "Setup script for GitHub Codespace"
-      },
-      {
-        "command": "./scripts/setup-debian.sh",
-        "stdin": true,
-        "stdout": true,
-        "description": "Setup script for Debian"
-      }
-    ]
   }
 ]
