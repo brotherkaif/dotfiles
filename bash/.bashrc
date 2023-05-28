@@ -1,11 +1,13 @@
-# SOURCE COMMON
-if [ -f ~/.shell_common ]; then
-    source ~/.shell_common
-fi
-
-# SOURCE ALIASES
-if [ -f ~/.shell_aliases ]; then
-    source ~/.shell_aliases
+if [ -f "/google/devshell/bashrc.google" ]; then
+	source "/google/devshell/bashrc.google"
+	source ~/.config/shell/.shell_aliases
+	source ~/.config/shell/.shell_env
+	source ~/.config/shell/.shell_motd
+else
+	source ~/.config/shell/.shell_tmux
+	source ~/.config/shell/.shell_aliases
+	source ~/.config/shell/.shell_env
+	source ~/.config/shell/.shell_motd
 fi
 
 # PROMPT

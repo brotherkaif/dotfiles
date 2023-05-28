@@ -28,8 +28,7 @@
       "~/.config/nvim": "nvim",
       "~/.config/git": "git",
       "~/.inputrc": "bash/.inputrc",
-      "~/.shell_aliases": "shell/.shell_aliases",
-      "~/.shell_common": "shell/.shell_common",
+      "~/.config/shell": "shell",
       "~/.tmux.conf": "tmux/.tmux.conf",
       "~/.zshrc": "zsh/.zshrc"
     }

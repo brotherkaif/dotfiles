@@ -1,12 +1,7 @@
-# SOURCE COMMON
-if [ -f ~/.shell_common ]; then
-    source ~/.shell_common
-fi
-
-# SOURCE ALIASES
-if [ -f ~/.shell_aliases ]; then
-    source ~/.shell_aliases
-fi
+source ~/.config/shell/.shell_tmux
+source ~/.config/shell/.shell_aliases
+source ~/.config/shell/.shell_env
+source ~/.config/shell/.shell_motd
 
 # VIM MODE & CTRL-R fix
 bindkey -v

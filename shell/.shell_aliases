@@ -10,10 +10,6 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gco="git checkout"
 
-# APP ALIASES
-alias tmux="tmux -2"
-alias tms="tmux -2 new -s"
-
 # PRODUCTIVITY ALIASES
 alias scratchpad="$HOME/bin/scratch.sh"
 alias devnotes="cd $HOME/dev-notes && lvim README.md"
@@ -24,4 +20,4 @@ alias tsm="date '+%F %a'"
 alias tsl="date '+%F %a %H:%M:%S'"
 
 # COPILOT ALIASES
-eval "$(github-copilot-cli alias -- "$0")"
+# eval "$(github-copilot-cli alias -- "$0")"
