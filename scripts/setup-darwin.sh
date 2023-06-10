@@ -48,22 +48,6 @@ install_darwin_packages () {
 				echo "┣╸ ┣┳┛┣━┫┃┃┃┣╸ ┃╻┃┃ ┃┣┳┛┣┻┓┗━┓"
 				echo "╹  ╹┗╸╹ ╹╹ ╹┗━╸┗┻┛┗━┛╹┗╸╹ ╹┗━┛"
 
-				# node
-				echo "NODE"
-				# make cache folder (if missing) and take ownership
-				sudo mkdir -p /usr/local/n
-				sudo chown -R $(whoami) /usr/local/n
-				# make sure the required folders exist (safe to execute even if they already exist)
-				sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
-				# take ownership of Node.js install destination folders
-				sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
-				# pull down n installation script
-				curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o $HOME/n
-				# install node lts via n
-				bash $HOME/n lts
-				# Now node and npm are available
-				npm install -g n
-
 				# python
 				echo "PYTHON"
 				python3 -m ensurepip
@@ -106,39 +90,6 @@ install_darwin_packages () {
 				# ffmpeg
 				echo "FFMPEG"
 				brew install ffmpeg
-
-				# ---------------------------------------------
-				# Applications
-				# ---------------------------------------------
-				echo "┏━┓┏━┓┏━┓╻  ╻┏━╸┏━┓╺┳╸╻┏━┓┏┓╻┏━┓"
-				echo "┣━┫┣━┛┣━┛┃  ┃┃  ┣━┫ ┃ ┃┃ ┃┃┗┫┗━┓"
-				echo "╹ ╹╹  ╹  ┗━╸╹┗━╸╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛"
-
-				# neovim
-				echo "NEOVIM"
-				rm -rf ~/.local/share/nvim
-				brew install neovim
-
-				# lunarvim
-				echo "LUNARVIM"
-				bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)
-				LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) -y
-
-				# github cli
-				echo "GITHUB CLI"
-				brew install gh
-
-				# docker
-				echo "DOCKER"
-				brew install docker
-
-				# vscode
-				echo "VSCODE"
-				brew cask install visual-studio-code
-
-				# kitty
-				echo "KITTY"
-				brew install --cask kitty
 
 				# ---------------------------------------------
 				# Stupid Terminal Nonsense

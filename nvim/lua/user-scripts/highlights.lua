@@ -3,40 +3,40 @@ local M = {}
 function M.SetHighlights()
 	local commands = {
 		-- make the sign column transparent
-		'highlight clear SignColumn',
+		-- 'highlight clear SignColumn',
 
 		-- change cursorline highlight
-		'highlight clear CursorLine',
+		-- 'highlight clear CursorLine',
 
 		-- 'highlight CursorLine ctermbg=Black guibg=Black',
-		'highlight CursorLine cterm=underline guibg=underline',
+		-- 'highlight CursorLine cterm=underline guibg=underline',
 
 		-- make folds transparent
-		'highlight clear Folded',
+		-- 'highlight clear Folded',
 
 		-- make the split line transparent
-		'highlight clear VertSplit',
+		-- 'highlight clear VertSplit',
 
 		-- list characters styling
-		'highlight SpecialKey ctermfg=DarkGrey guifg=DarkGrey',
+		-- 'highlight SpecialKey ctermfg=DarkGrey guifg=DarkGrey',
 
 		-- list characters styling
-		'highlight NonText ctermfg=DarkGrey guifg=DarkGrey',
+		-- 'highlight NonText ctermfg=DarkGrey guifg=DarkGrey',
 
 		-- popup menu styling
-		'highlight Pmenu ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
+		-- 'highlight Pmenu ctermbg=Black guibg=Black ctermfg=Grey guifg=Grey',
 
 		-- popup menu styling
-		'highlight PmenuSel ctermbg=Grey guibg=Grey ctermfg=Black guifg=Black',
+		-- 'highlight PmenuSel ctermbg=Grey guibg=Grey ctermfg=Black guifg=Black',
 
 		-- popup menu styling
-		'highlight PmenuSbar ctermbg=Black guibg=Black',
+		-- 'highlight PmenuSbar ctermbg=Black guibg=Black',
 
 		-- popup menu styling
-		'highlight PmenuThumb ctermbg=Grey guibg=Grey',
+		-- 'highlight PmenuThumb ctermbg=Grey guibg=Grey',
 
 		-- Twilight styling
-		'highlight Twilight ctermfg=8',
+		-- 'highlight Twilight ctermfg=8',
 
 		-- lsp styling
 		-- 'highlight LspDiagnosticsFloating ctermbg=Black guibg=Black',

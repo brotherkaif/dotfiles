@@ -18,7 +18,7 @@ return {
 			lsp_doc_border = false,    -- add a border to hover docs and signature help
 		},
 		popupmenu = {
-			enabled = false, -- enables the Noice popupmenu UI
+			enabled = false, -- enables the Noice popupmenu UI / disabled due to conflict with mini.completion
 		},
 	},
 	dependencies = {
