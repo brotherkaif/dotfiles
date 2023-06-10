@@ -7,9 +7,6 @@ return {
     local wk = require('which-key')
     wk.setup()
     wk.register({
-      [" "] = {
-        name = "Hop/Easymotion",
-      },
       t = {
         name = "[T]erminal",
       },

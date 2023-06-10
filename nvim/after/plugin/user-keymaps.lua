@@ -22,7 +22,7 @@ vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc
 
 -- Quality of life
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite Buffer' })
-vim.keymap.set('n', '<leader>q', '<cmd>w<CR>', { desc = '[Q]uit Buffer' })
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit Buffer' })
 vim.keymap.set('n', '<leader>i', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [I]nterface Scheme' })
 
 -- Terminal
@@ -46,10 +46,6 @@ vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 -- Formatting keymaps
 vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>', { desc = 'Format and Save', noremap = true, silent = true })
-
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Diagnostic Op[E]n Float ' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostic Open [Q]uickfix List' })
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
