@@ -4,12 +4,18 @@ return {
 	config = function()
 		local starter_config = {
 			header = table.concat({
-				[[  /\ \▔\___  ___/\   /(●)_ __ ___  ]],
-				[[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-				[[/ /\  /  __/ (_) \ V /| | | | | | |]],
-				[[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
-				[[───────────────────────────────────]],
+				[[          /\ \▔\___  ___/\   /(●)_ __ ___          ]],
+				[[         /  \/ / _ \/ _ \ \ / / | '_ ` _ \         ]],
+				[[        / /\  /  __/ (_) \ V /| | | | | | |        ]],
+				[[        \_\ \/ \___|\___/ \_/ |_|_| |_| |_|        ]],
+				[[───────────────────────────────────────────────────]],
 			}, "\n"),
+			items = {
+				require("mini.starter").sections.telescope(),
+				require("mini.starter").sections.recent_files(5, false, false),
+				require("mini.starter").sections.sessions(),
+				require("mini.starter").sections.builtin_actions(),
+			},
 			footer = os.date(),
 		}
 
@@ -55,7 +61,7 @@ return {
 		-- require("mini.misc").setup()
 		require("mini.move").setup()
 		require("mini.pairs").setup()
-		-- require("mini.sessions").setup()
+		require("mini.sessions").setup()
 		require("mini.splitjoin").setup()
 		require("mini.starter").setup(starter_config)
 		require("mini.statusline").setup()
