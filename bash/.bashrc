@@ -12,4 +12,6 @@ fi
 
 # PROMPT
 export PS1="\[\e[34m\]\w\[\e[m\]\[\e[33m\]\n\\$\[\e[39m\] "
+
+# RUST CONFIG
 . "$HOME/.cargo/env"

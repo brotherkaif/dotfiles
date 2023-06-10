@@ -12,3 +12,6 @@ PROMPT="%F{blue}%~"$'\n'"%F{yellow}%#%f "
 
 # NODE PATH FIX DARWIN
 export PATH="/usr/local/opt/node@14/bin:$PATH"
+
+# RUST CONFIG
+. "$HOME/.cargo/env"
