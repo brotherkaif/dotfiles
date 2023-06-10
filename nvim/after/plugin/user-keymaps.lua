@@ -23,7 +23,7 @@ vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc
 -- Quality of life
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite Buffer' })
 vim.keymap.set('n', '<leader>q', '<cmd>w<CR>', { desc = '[Q]uit Buffer' })
-vim.keymap.set('n', '<leader>c', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [C]olourscheme' })
+vim.keymap.set('n', '<leader>i', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [I]nterface Scheme' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
