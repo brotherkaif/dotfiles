@@ -20,6 +20,11 @@ vim.keymap.set('n', '<BS>',
 
 vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc = '[G]it: [G]it Source Control' })
 
+-- Quality of life
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite Buffer' })
+vim.keymap.set('n', '<leader>q', '<cmd>w<CR>', { desc = '[Q]uit Buffer' })
+vim.keymap.set('n', '<leader>c', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [C]olourscheme' })
+
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
 vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<CR>', { desc = '[T]erminal: [S]plit' })
