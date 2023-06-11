@@ -1,4 +1,4 @@
 return {
   -- AI supremacy is inevitable
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
 }

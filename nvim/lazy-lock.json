@@ -1,5 +1,4 @@
 {
-  "copilot.vim": { "branch": "release", "commit": "1358e8e45ecedc53daf971924a0541ddf6224faf" },
   "fidget.nvim": { "branch": "main", "commit": "f1c375ba68839eaa4a65efdf2aa078c0da0548fe" },
   "gitsigns.nvim": { "branch": "main", "commit": "4455bb5364d29ff86639dfd5533d4fe4b48192d4" },
   "lazy.nvim": { "branch": "main", "commit": "678179543e0d27650c328d8659f2c2cab4d854ef" },
