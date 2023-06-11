@@ -1,6 +1,5 @@
 -- linters and formatters that will be installed and configured by mason-null-ls respectively
-local tools = {
-	"alex",
+local install_list = {
 	"emmet_ls",
 	"eslint",
 	"prettier",
@@ -21,7 +20,7 @@ return {
 	config = function()
 		require("mason").setup()
 		require("mason-null-ls").setup({
-			ensure_installed = tools,
+			ensure_installed = install_list,
 			automatic_installation = false,
 			handlers = {},
 		})

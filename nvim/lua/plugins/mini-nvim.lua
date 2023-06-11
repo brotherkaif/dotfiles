@@ -15,6 +15,7 @@ return {
 				require("mini.starter").sections.recent_files(5, false, false),
 				require("mini.starter").sections.sessions(),
 				require("mini.starter").sections.builtin_actions(),
+
 			},
 			footer = os.date(),
 		}

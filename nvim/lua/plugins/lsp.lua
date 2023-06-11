@@ -17,14 +17,10 @@ local config_list = {
 	"clangd",
 	"marksman",
 	"pyright",
-	-- "rust_analyzer",
 	"sqlls",
 	"tsserver",
 	"yamlls",
 }
-
--- setup generic capabilities
-local generic_capabilities = vim.lsp.protocol.make_client_capabilities()
 
 return {
 	-- LSP - Configuration & Plugin
@@ -112,6 +108,11 @@ return {
 				end
 			end, { desc = "Format current buffer with LSP" })
 		end
+
+		-- COMPLETION CONFIGURATION
+		-- nvim-cmp supports additional completion capabilities
+		local generic_capabilities = vim.lsp.protocol.make_client_capabilities()
+		-- generic_capabilities = require('cmp_nvim_lsp').default_capabilities(generic_capabilities)
 
 		-- GENERIC CONFIGURATION
 		-- auto config of servers in `config_list`
