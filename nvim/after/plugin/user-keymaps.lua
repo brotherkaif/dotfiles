@@ -21,8 +21,6 @@ vim.keymap.set('n', '<BS>',
 vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc = '[G]it: [G]it Source Control' })
 
 -- Quality of life
-vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite Buffer' })
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = '[Q]uit Buffer' })
 vim.keymap.set('n', '<leader>i', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [I]nterface Scheme' })
 
 -- Terminal
