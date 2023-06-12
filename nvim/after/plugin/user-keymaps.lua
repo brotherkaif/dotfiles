@@ -22,6 +22,8 @@ vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc
 
 -- Quality of life
 vim.keymap.set('n', '<leader>i', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [I]nterface Scheme' })
+vim.keymap.set('n', '<leader>=', '<C-w>|<C-w>_', { desc = 'Maximise Pane' })
+vim.keymap.set('n', '<leader>-', '<C-w>=', { desc = 'Equalise Panes' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })

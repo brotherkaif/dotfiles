@@ -103,7 +103,6 @@ return {
 		-- COMPLETION CONFIGURATION
 		-- nvim-cmp supports additional completion capabilities
 		local generic_capabilities = vim.lsp.protocol.make_client_capabilities()
-		-- generic_capabilities = require('cmp_nvim_lsp').default_capabilities(generic_capabilities)
 
 		-- GENERIC CONFIGURATION
 		-- auto config of servers in `config_list`
