@@ -69,12 +69,10 @@ return {
 				vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
 			end
 
-			nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-			nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
+			nmap("gn", vim.lsp.buf.rename, "[G]oto Re[n]ame Dialog")
+			nmap("ga", vim.lsp.buf.code_action, "[G]oto Code [A]ction")
 			nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 			nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-			nmap("gR", "<cmd>TroubleToggle lsp_references<cr>", "Trouble References")
 			nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
 			nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
 			nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
@@ -91,13 +89,6 @@ return {
 			nmap("<leader>wl", function()
 				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 			end, "[W]orkspace [L]ist Folders")
-
-			-- Lua
-			nmap("<leader>xx", "<cmd>TroubleToggle<cr>", "Toggle Trouble")
-			nmap("<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics")
-			nmap("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics")
-			nmap("<leader>xl", "<cmd>TroubleToggle loclist<cr>", "Local List Diagnostics")
-			nmap("<leader>xq", "<cmd>TroubleToggle quickfix<cr>", "Quickfix List Diagnostics")
 
 			-- Create a command `:Format` local to the LSP buffer
 			vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
