@@ -5,9 +5,11 @@ vim.wo["foldlevel"] = 4
 vim.wo["foldmethod"] = "indent"
 
 -- Mac only options
-if vim.fn.has("mac") then
+if vim.fn.has("mac") == 1 then
   vim.opt["termguicolors"] = false
 else
   vim.opt["termguicolors"] = true
-	vim.cmd("colorscheme randomhue")
+
+  local scheme = "colorscheme randomhue"
+  vim.cmd(scheme)
 end
