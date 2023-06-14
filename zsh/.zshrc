@@ -15,3 +15,7 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 
 # RUST CONFIG
 . "$HOME/.cargo/env"
+
+# MAC CONFIG
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
