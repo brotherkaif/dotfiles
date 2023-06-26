@@ -8,7 +8,7 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 
 # PROMPT
-PROMPT="%F{blue}%~"$'\n'"%F{yellow}%#%f "
+PROMPT="%F{yellow}%~"$'\n'"%F{red}%#%f "
 
 # NODE PATH FIX DARWIN
 export PATH="/usr/local/opt/node@14/bin:$PATH"
