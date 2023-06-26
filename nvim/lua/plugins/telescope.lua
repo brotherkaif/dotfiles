@@ -10,7 +10,7 @@ return {
     defaults = {
       hidden = true,
       layout_strategy = 'flex',
-      color_devicons = false,
+      -- color_devicons = false,
       layout_config = {
         height = 0.80,
         width = 0.80
@@ -24,7 +24,7 @@ return {
     },
     extensions = {
       file_browser = {
-        dir_icon = '›',
+        -- dir_icon = '›',
         grouped = true,
         hidden = true,
         sorting_strategy = 'ascending',
@@ -38,6 +38,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
+		'nvim-tree/nvim-web-devicons',
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
     {
       'nvim-telescope/telescope-fzf-native.nvim',
