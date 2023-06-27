@@ -9,5 +9,5 @@ vim.wo["sidescrolloff"] = 8
 
 vim.opt["termguicolors"] = true
 
-local scheme = "colorscheme randomhue"
+local scheme = "colorscheme rose-pine"
 vim.cmd(scheme)

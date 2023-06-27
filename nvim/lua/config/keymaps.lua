@@ -18,7 +18,7 @@ vim.keymap.set('n', '<BS>',
 	'<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>',
 	{ desc = 'Explorer' })
 
-vim.keymap.set('n', '<leader>g', require('telescope.builtin').git_status, { desc = '[G]it: [G]it Source Control' })
+vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>', { desc = '[G]it Source Control' })
 
 -- Quality of life
 vim.keymap.set('n', '<leader>i', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [I]nterface Scheme' })
