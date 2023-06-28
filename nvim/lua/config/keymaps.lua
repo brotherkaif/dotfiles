@@ -13,27 +13,27 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('n', '<leader>p', '<cmd>Telescope<CR>', { desc = 'Command [P]allette' })
+vim.keymap.set('n', '<leader>p', '<cmd>Telescope<cr>', { desc = 'Command [P]allette' })
 
-vim.keymap.set('n', '<BS>',
-	'<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>',
-	{ desc = 'Explorer' })
+vim.keymap.set('n', '<BS>', '<cmd>:NvimTreeFindFile<cr>', { desc = 'Show Active File in Explorer' })
+vim.keymap.set('n', '<leader>b', '<cmd>:NvimTreeToggle<cr>', { desc = 'Toggle Explorer' })
 
-vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>', { desc = '[G]it Source Control' })
-vim.keymap.set('n', '<cr>', '<cmd>HopAnywhere<CR>', { desc = 'Hop Anywhere' })
+vim.keymap.set('n', '<leader>g', '<cmd>Git<cr>', { desc = '[G]it Source Control' })
+vim.keymap.set('n', '<cr>', '<cmd>HopAnywhere<cr>', { desc = 'Hop Anywhere' })
 
 -- Quality of life
-vim.keymap.set('n', '<leader>i', '<cmd>colorscheme randomhue<CR>', { desc = 'Random [I]nterface Scheme' })
+vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = '[W]rite Buffer' })
+vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = '[Q]uit Buffer' })
 vim.keymap.set('n', '<leader>=', '<C-w>|<C-w>_', { desc = 'Maximise Pane' })
 vim.keymap.set('n', '<leader>-', '<C-w>=', { desc = 'Equalise Panes' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '[<Esc>] Normal Mode in Terminal' })
-vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<CR>', { desc = '[T]erminal: [S]plit' })
-vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<CR>',
+vim.keymap.set('n', '<leader>ts', '<cmd>ToggleTerm size=15 direction=horizontal<cr>', { desc = '[T]erminal: [S]plit' })
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<cr>',
 	{ desc = '[T]erminal: [V]ertical Split' })
-vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<CR>', { desc = '[T]erminal: [F]ullscreen' })
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<CR>', { desc = '[T]erminal: [T]ab' })
+vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { desc = '[T]erminal: [F]ullscreen' })
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=tab<cr>', { desc = '[T]erminal: [T]ab' })
 
 -- Cursor movement
 vim.keymap.set('n', '<leader>h', '<C-W>h', { desc = '[H] Cursor Left' })
@@ -46,20 +46,34 @@ vim.keymap.set('n', '<leader>K', '<C-W>K', { desc = '[K] Window Up' })
 vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
 -- Hop keymaps
-vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>', { desc = 'Hop: Search character', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>', { desc = 'Hop: Find character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>F', ':HopChar1BC<cr>', { desc = 'Hop: Find character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>t', ':HopChar1AC<cr>', { desc = 'Hop: Til character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>T', ':HopChar1BC<cr>', { desc = 'Hop: Til character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>w', ':HopWordAC<cr>', { desc = 'Hop: Start of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>b', ':HopWordBC<cr>', { desc = 'Hop: Start of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>l', ':HopWordAC<cr>', { desc = 'Hop: Matches beginning & ending of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>h', ':HopWordBC<cr>', { desc = 'Hop: Matches beginning & ending of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>e', ':HopWordAC<cr>', { desc = 'Hop: End of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>ge', ':HopWordBC<cr>', { desc = 'Hop: End of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>j', ':HopLineStartAC<cr>', { desc = 'Hop: Start of line forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>', { desc = 'Hop: Start of line backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>', { desc = 'Hop: Search n-character', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>',
+	{ desc = 'Hop: Search character', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>',
+	{ desc = 'Hop: Find character forwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>F', ':HopChar1BC<cr>',
+	{ desc = 'Hop: Find character backwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>t', ':HopChar1AC<cr>',
+	{ desc = 'Hop: Til character forwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>T', ':HopChar1BC<cr>',
+	{ desc = 'Hop: Til character backwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>w', ':HopWordAC<cr>',
+	{ desc = 'Hop: Start of word forwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>b', ':HopWordBC<cr>',
+	{ desc = 'Hop: Start of word backwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>l', ':HopWordAC<cr>',
+	{ desc = 'Hop: Matches beginning & ending of word forwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>h', ':HopWordBC<cr>',
+	{ desc = 'Hop: Matches beginning & ending of word backwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>e', ':HopWordAC<cr>',
+	{ desc = 'Hop: End of word forwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>ge', ':HopWordBC<cr>',
+	{ desc = 'Hop: End of word backwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>j', ':HopLineStartAC<cr>',
+	{ desc = 'Hop: Start of line forwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>',
+	{ desc = 'Hop: Start of line backwards', noremap = true, silent = true })
+vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>',
+	{ desc = 'Hop: Search n-character', noremap = true, silent = true })
 
 -- Formatting keymaps
 vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
