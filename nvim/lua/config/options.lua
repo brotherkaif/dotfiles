@@ -9,5 +9,12 @@ vim.wo["sidescrolloff"] = 8
 
 vim.opt["termguicolors"] = true
 
-local scheme = "colorscheme rose-pine"
-vim.cmd(scheme)
+local background = vim.api.nvim_get_option("background")
+
+if background == "dark" then
+	local scheme = "colorscheme rose-pine-moon"
+	vim.cmd(scheme)
+else
+	local scheme = "colorscheme rose-pine-dawn"
+	vim.cmd(scheme)
+end

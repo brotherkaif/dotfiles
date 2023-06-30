@@ -15,8 +15,8 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope<cr>', { desc = 'Command [P]allette' })
 
-vim.keymap.set('n', '<BS>', '<cmd>:NvimTreeFindFile<cr>', { desc = 'Show Active File in Explorer' })
-vim.keymap.set('n', '<leader>b', '<cmd>:NvimTreeToggle<cr>', { desc = 'Toggle Explorer' })
+vim.keymap.set('n', '<bs>', '<cmd>:NvimTreeFindFile<cr>', { desc = 'Show Active File in Explorer' })
+vim.keymap.set('n', '<s-bs>', '<cmd>:NvimTreeToggle<cr>', { desc = 'Toggle Explorer' })
 
 vim.keymap.set('n', '<leader>g', '<cmd>Git<cr>', { desc = '[G]it Source Control' })
 vim.keymap.set('n', '<cr>', '<cmd>HopAnywhere<cr>', { desc = 'Hop Anywhere' })
