@@ -41,10 +41,6 @@ return {
 			}
 		},
 
-		-- Useful status updates for LSP
-		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ 'j-hui/fidget.nvim', opts = {} },
-
 		{
 			-- A plugin to improve your rust experience in neovim.
 			"simrat39/rust-tools.nvim",

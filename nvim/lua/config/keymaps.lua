@@ -13,13 +13,12 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('n', '<leader>p', '<cmd>Telescope<cr>', { desc = 'Command [P]allette' })
+vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope<cr>', { desc = 'Command Pallette' })
 
 vim.keymap.set('n', '<bs>', '<cmd>:NvimTreeFindFile<cr>', { desc = 'Show Active File in Explorer' })
 vim.keymap.set('n', '<s-bs>', '<cmd>:NvimTreeToggle<cr>', { desc = 'Toggle Explorer' })
 
 vim.keymap.set('n', '<leader>g', '<cmd>Git<cr>', { desc = '[G]it Source Control' })
-vim.keymap.set('n', '<cr>', '<cmd>HopAnywhere<cr>', { desc = 'Hop Anywhere' })
 
 -- Quality of life
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = '[W]rite Buffer' })
@@ -45,36 +44,6 @@ vim.keymap.set('n', '<leader>J', '<C-W>J', { desc = '[J] Window Down' })
 vim.keymap.set('n', '<leader>K', '<C-W>K', { desc = '[K] Window Up' })
 vim.keymap.set('n', '<leader>L', '<C-W>L', { desc = '[L] Window Right' })
 
--- Hop keymaps
-vim.keymap.set('n', '<leader><leader>s', ':HopChar<cr>',
-	{ desc = 'Hop: Search character', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>f', ':HopChar1AC<cr>',
-	{ desc = 'Hop: Find character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>F', ':HopChar1BC<cr>',
-	{ desc = 'Hop: Find character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>t', ':HopChar1AC<cr>',
-	{ desc = 'Hop: Til character forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>T', ':HopChar1BC<cr>',
-	{ desc = 'Hop: Til character backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>w', ':HopWordAC<cr>',
-	{ desc = 'Hop: Start of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>b', ':HopWordBC<cr>',
-	{ desc = 'Hop: Start of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>l', ':HopWordAC<cr>',
-	{ desc = 'Hop: Matches beginning & ending of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>h', ':HopWordBC<cr>',
-	{ desc = 'Hop: Matches beginning & ending of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>e', ':HopWordAC<cr>',
-	{ desc = 'Hop: End of word forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>ge', ':HopWordBC<cr>',
-	{ desc = 'Hop: End of word backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>j', ':HopLineStartAC<cr>',
-	{ desc = 'Hop: Start of line forwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>k', ':HopLineStartBC<cr>',
-	{ desc = 'Hop: Start of line backwards', noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>["/"]', ':HopPattern<cr>',
-	{ desc = 'Hop: Search n-character', noremap = true, silent = true })
-
 -- Formatting keymaps
 vim.keymap.set('n', '<leader>f', ':Format<cr>', { desc = 'Format', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>', { desc = 'Format and Save', noremap = true, silent = true })
@@ -99,6 +68,3 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- AI keymaps
 vim.keymap.set('n', '<leader>ae', ':Copilot enable<cr>', { desc = '[A]I [E]nable' })
 vim.keymap.set('n', '<leader>ad', ':Copilot disable<cr>', { desc = '[A]I [D]isable' })
-
--- UI keymaps
-vim.keymap.set('n', '<leader>m', require('mini.map').toggle, { desc = '[S]earch [D]iagnostics' })

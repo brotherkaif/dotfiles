@@ -1,11 +1,9 @@
 return {
-	'nvim-lualine/lualine.nvim', -- Fancier statusline
+	-- lualine - A blazing fast and easy to configure Neovim statusline written in Lua.
+	'nvim-lualine/lualine.nvim',
 	opts = {
 		options = {
-			icons_enabled = false,
 			theme = 'auto',
-			component_separators = '|',
-			section_separators = '',
 		},
 	}
 }
