@@ -5,7 +5,7 @@ return {
 	opts = {},
 	keys = {
 		{
-			"<s-cr>",
+			"<cr>",
 			mode = { "n", "x", "o" },
 			function()
 				require("flash").jump({
