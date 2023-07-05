@@ -30,7 +30,8 @@
       "~/.inputrc": "bash/.inputrc",
       "~/.config/shell": "shell",
       "~/.tmux.conf": "tmux/.tmux.conf",
-      "~/.zshrc": "zsh/.zshrc"
+      "~/.zshrc": "zsh/.zshrc",
+      "~/.nixpkgs": "nixpkgs"
     }
   }
 ]
