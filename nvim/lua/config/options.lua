@@ -1,3 +1,6 @@
+-- TODO: add legacy terminal overrides
+-- TODO: refactor to not use iterator
+
 local options = {
 	-- set highlight on search
 	hlsearch = false,
