@@ -7,6 +7,7 @@
     [
       pkgs.gh
       pkgs.fx
+      pkgs.ripgrep
       pkgs.tree
       pkgs.htop
       pkgs.figlet
