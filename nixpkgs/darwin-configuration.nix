@@ -12,6 +12,7 @@
       pkgs.htop
       pkgs.figlet
       pkgs.toilet
+      pkgs.lazygit
     ];
 
   # Use a custom configuration.nix location.
