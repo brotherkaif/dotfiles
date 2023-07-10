@@ -15,9 +15,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  # boot.initrd.secrets = {
+  #   "/crypto_keyfile.bin" = null;
+  # };
 
   # Enable swap on luks
   boot.initrd.luks.devices."luks-0ce34be9-0148-408e-b345-ee960650fcf3".device = "/dev/disk/by-uuid/0ce34be9-0148-408e-b345-ee960650fcf3";
@@ -96,11 +96,19 @@
     description = "Kaif Ahmed";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-			libgccjit
-			gnumake
-			unzip
+      libgccjit
+      gnumake
+      llvmPackages_rocm.clang
+      unzip
       git
       neovim
+      ripgrep
+      fd
+      wget
+      nodejs_20
+      rustup
+      python3Full
+      jsoncpp
       lazygit
       gh
       starship
@@ -151,4 +159,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
+  # Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
 }
