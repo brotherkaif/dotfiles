@@ -13,6 +13,7 @@
       pkgs.figlet
       pkgs.toilet
       pkgs.lazygit
+      pkgs.starship
     ];
 
   # Use a custom configuration.nix location.

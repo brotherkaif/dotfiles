@@ -7,9 +7,6 @@ source ~/.config/shell/.shell_motd
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 
-# PROMPT
-PROMPT="%F{yellow}%#%f "
-
 # NODE PATH FIX DARWIN
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 
@@ -19,3 +16,6 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 # MAC CONFIG
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# ENABLE STARSHIP
+eval "$(starship init zsh)"

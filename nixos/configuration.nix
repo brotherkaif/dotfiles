@@ -103,6 +103,7 @@
       neovim
       lazygit
       gh
+      starship
     ];
   };
 

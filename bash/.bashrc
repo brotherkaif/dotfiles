@@ -10,12 +10,12 @@ else
 	source ~/.config/shell/.shell_motd
 fi
 
-# PROMPT
-export PS1="\[\e[33m\]\w\[\e[m\]\[\e[33m\]\n\\$\[\e[39m\] "
-
 # RUST CONFIG
 . "$HOME/.cargo/env"
 
 # MAC CONFIG
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# ENABLE STARSHIP
+eval "$(starship init bash)"
