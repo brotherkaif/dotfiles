@@ -7,7 +7,7 @@ return {
     "LazyVim/LazyVim",
     keys = {
       {
-        "<leader>uh",
+        "<leader>uu",
         function()
           vim.cmd("colorscheme randomhue")
         end,
