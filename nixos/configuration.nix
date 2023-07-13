@@ -14,15 +14,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Setup keyfile
-  # boot.initrd.secrets = {
-  #   "/crypto_keyfile.bin" = null;
-  # };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-0ce34be9-0148-408e-b345-ee960650fcf3".device = "/dev/disk/by-uuid/0ce34be9-0148-408e-b345-ee960650fcf3";
-  boot.initrd.luks.devices."luks-0ce34be9-0148-408e-b345-ee960650fcf3".keyFile = "/crypto_keyfile.bin";
-
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -91,7 +82,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kaif = {
+  users.users.brotherkaif = {
     isNormalUser = true;
     description = "Kaif Ahmed";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -114,14 +105,6 @@
       starship
     ];
   };
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kaif";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
