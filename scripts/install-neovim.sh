@@ -12,13 +12,21 @@ case $(detectOS) in
 				curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 
 				rm -rf $HOME/.local/share/nvim
+				rm -rf $HOME/.local/state/nvim
+				rm -rf $HOME/.cache/nvim
+
 				mkdir -p $HOME/.local/bin
 				mv nvim.appimage $HOME/.local/bin/nvim
 
 				chmod u+x $HOME/.local/bin/nvim
 				;;
     "darwin")
+				echo "Darwin detected. Installing..."
+
 				rm -rf $HOME/.local/share/nvim
+				rm -rf $HOME/.local/state/nvim
+				rm -rf $HOME/.cache/nvim
+
 				brew install neovim
 				;;
     *)
