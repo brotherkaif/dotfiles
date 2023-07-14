@@ -1,38 +1,41 @@
 [
-  {
-    "defaults": {
-      "link": {
-        "create": true,
-        "relink": true,
-        "force": true
-      }
-    }
-  },
-  {
-    "clean": ["~"]
-  },
-  {
-    "create": [
-      "~/projects",
-      "~/playground"
-    ]
-  },
-  {
-    "link": {
-      "~/.bash_profile": "bash/.bash_profile",
-      "~/.bashrc": "bash/.bashrc",
-      "~/.config/devdocs": "devdocs",
-      "~/.config/lazygit": "lazygit",
-      "~/.config/lynx": "lynx",
-      "~/.config/newsboat": "newsboat",
-      "~/.config/nvim": "nvim",
-      "~/.config/git": "git",
-      "~/.inputrc": "bash/.inputrc",
-      "~/.config/shell": "shell",
-      "~/.tmux.conf": "tmux/.tmux.conf",
-      "~/.zshrc": "zsh/.zshrc",
-      "~/.nixpkgs": "nixpkgs",
-      "/etc/nixos/configuration.nix": "nixos/configuration.nix"
-    }
-  }
+	{
+		"defaults": {
+			"link": {
+				"create": true,
+				"relink": true,
+				"force": true
+			}
+		}
+	},
+	{
+		"clean": [
+			"~"
+		]
+	},
+	{
+		"create": [
+			"~/projects",
+			"~/playground"
+		]
+	},
+	{
+		"link": {
+			"~/.bash_profile": "bash/.bash_profile",
+			"~/.bashrc": "bash/.bashrc",
+			"~/.config/alacritty": "alacritty",
+			"~/.config/devdocs": "devdocs",
+			"~/.config/lazygit": "lazygit",
+			"~/.config/lynx": "lynx",
+			"~/.config/newsboat": "newsboat",
+			"~/.config/nvim": "nvim",
+			"~/.config/git": "git",
+			"~/.inputrc": "bash/.inputrc",
+			"~/.config/shell": "shell",
+			"~/.tmux.conf": "tmux/.tmux.conf",
+			"~/.zshrc": "zsh/.zshrc",
+			"~/.nixpkgs": "nixpkgs",
+			"/etc/nixos/configuration.nix": "nixos/configuration.nix"
+		}
+	}
 ]
