@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Import detectOS
 . ./detect-os.sh
 
