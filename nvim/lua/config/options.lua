@@ -3,3 +3,6 @@
 -- Add any additional options here
 vim.wo["foldlevel"] = 4
 vim.wo["foldmethod"] = "indent"
+
+vim.cmd.aunmenu({ "PopUp.How-to\\ disable\\ mouse" })
+vim.cmd.aunmenu({ "PopUp.-1-" })
