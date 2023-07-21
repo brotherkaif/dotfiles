@@ -7,7 +7,7 @@ echo "INSTALL STARSHIP"
 # https://starship.rs
 
 case $(detectOS) in
-"debian" | "fedora" | "codespaces")
+"debian" | "pop" | "fedora" | "codespaces")
 	echo "Linux detected. Installing..."
 	curl -sS https://starship.rs/install.sh | sh
 	;;

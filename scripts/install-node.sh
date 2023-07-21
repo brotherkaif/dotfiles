@@ -7,7 +7,7 @@ echo "INSTALL NODE"
 # https://github.com/tj/n
 
 case $(detectOS) in
-"debian" | "fedora" | "codespaces" | "darwin")
+"debian" | "pop" | "fedora" | "codespaces" | "darwin")
 	echo "OS detected. Installing..."
 
 	# make cache folder (if missing) and take ownership

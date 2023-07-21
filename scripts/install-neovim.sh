@@ -7,10 +7,11 @@ echo "INSTALL NEOVIM"
 # https://github.com/neovim/neovim/wiki/Installing-Neovim
 
 case $(detectOS) in
-"debian")
+"debian" | "pop")
 	echo "Linux detected. Installing..."
 
 	# install dependencies
+	sudo apt install libfuse2
 	sudo apt install build-essential
 	sudo apt install ripgrep
 	sudo apt install fd-find

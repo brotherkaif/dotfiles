@@ -7,7 +7,7 @@ echo "INSTALL LAZYGIT"
 # https://github.com/jesseduffield/lazygit#installation
 
 case $(detectOS) in
-"debian" | "codespaces")
+"debian" | "pop" | "codespaces")
 	echo "Debian detected. Installing..."
 
 	LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
