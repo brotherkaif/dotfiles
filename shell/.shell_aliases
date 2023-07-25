@@ -21,3 +21,6 @@ alias tsl="date '+%F %a %H:%M:%S'"
 
 # COPILOT ALIASES
 # eval "$(github-copilot-cli alias -- "$0")"
+
+# CC ALIASES
+source $HOME/.cc-aliases
