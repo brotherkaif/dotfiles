@@ -5,6 +5,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
+      pkgs.tmux
       pkgs.gh
       pkgs.fx
       pkgs.ripgrep
@@ -14,6 +15,7 @@
       pkgs.toilet
       pkgs.lazygit
       pkgs.starship
+      pkgs.go
     ];
 
   # Use a custom configuration.nix location.
