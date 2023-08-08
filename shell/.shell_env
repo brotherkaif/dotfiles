@@ -17,3 +17,7 @@ export EDITOR="$VISUAL"
 
 # ANSIBLE OPTIONS
 export ANSIBLE_NOCOWS=1
+
+# GO OPTIONS
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
