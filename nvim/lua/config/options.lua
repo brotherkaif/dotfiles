@@ -6,3 +6,15 @@ vim.wo["foldmethod"] = "indent"
 
 vim.cmd.aunmenu({ "PopUp.How-to\\ disable\\ mouse" })
 vim.cmd.aunmenu({ "PopUp.-1-" })
+
+if os.getenv("COLORTERM") ~= "truecolor" then
+  -- disable termguicolors
+  vim.opt["termguicolors"] = false
+
+  -- set default colorscheme
+  vim.cmd("colorscheme default")
+else
+  -- enable termguicolors
+  vim.opt["termguicolors"] = true
+  vim.cmd("colorscheme default")
+end
