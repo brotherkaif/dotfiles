@@ -9,21 +9,17 @@
 		}
 	},
 	{
-		"clean": [
-			"~"
-		]
+		"clean": ["~"]
 	},
 	{
-		"create": [
-			"~/projects",
-			"~/playground"
-		]
+		"create": ["~/projects", "~/playground"]
 	},
 	{
 		"link": {
 			"~/.bash_profile": "bash/.bash_profile",
 			"~/.bashrc": "bash/.bashrc",
 			"~/.config/alacritty": "alacritty",
+			"~/.config/starship.toml": "starship/starship.toml",
 			"~/.config/devdocs": "devdocs",
 			"~/.config/lazygit": "lazygit",
 			"~/.config/lynx": "lynx",
