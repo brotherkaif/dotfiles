@@ -7,6 +7,8 @@ vim.wo["foldmethod"] = "indent"
 vim.cmd.aunmenu({ "PopUp.How-to\\ disable\\ mouse" })
 vim.cmd.aunmenu({ "PopUp.-1-" })
 
+vim.opt.conceallevel = 0
+
 if os.getenv("COLORTERM") ~= "truecolor" then
   -- disable termguicolors
   vim.opt["termguicolors"] = false
