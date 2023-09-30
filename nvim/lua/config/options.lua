@@ -11,17 +11,11 @@ vim.cmd.aunmenu({ "PopUp.How-to\\ disable\\ mouse" })
 vim.cmd.aunmenu({ "PopUp.-1-" })
 
 -- Disable conceal
-vim.o.conceallevel = 0
+vim.opt.conceallevel = 0
 
--- Terminal truecolor fallback
-if os.getenv("COLORTERM") ~= "truecolor" then
-  -- disable termguicolors
+-- Truecolor fallback
+local trueColor = os.getenv("COLORTERM") == "truecolor"
+if not trueColor then
   vim.opt.termguicolors = false
-
-  -- set default colorscheme
-  vim.cmd("colorscheme default")
-else
-  -- enable termguicolors
-  vim.opt.termguicolors = true
-  vim.cmd("colorscheme default")
+  vim.opt.pumblend = 0
 end

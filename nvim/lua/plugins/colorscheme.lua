@@ -6,31 +6,25 @@ return {
       update_interval = 1000,
       set_dark_mode = function()
         vim.api.nvim_set_option("background", "dark")
-        -- vim.cmd("colorscheme lunaperche")
+        vim.cmd("colorscheme tokyonight-night")
       end,
 
       set_light_mode = function()
         vim.api.nvim_set_option("background", "light")
-        -- vim.cmd("colorscheme lunaperche")
+        vim.cmd("colorscheme tokyonight-day")
       end,
     },
   },
 
-  -- Configure LazyVim
+  -- tokyonight transparency override
   {
-    "LazyVim/LazyVim",
-    opts = function()
-      -- check if truecolor is enabled in terminal
-      local trueColor = os.getenv("COLORTERM") == "truecolor"
-
-      if not trueColor then
-        vim.opt.termguicolors = false
-        vim.o.pumblend = 0
-      end
-
-      return {
-        colorscheme = "lunaperche",
-      }
-    end,
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
 }
