@@ -1,30 +1,54 @@
+local isTrueColor = os.getenv("COLORTERM") == "truecolor"
+
 return {
-  -- auto-dark-mode.nvim
+  -- add github-nvim-theme
+  { "projekt0n/github-nvim-theme" },
+
+  -- add auto-dark-mode.nvim
   {
     "f-person/auto-dark-mode.nvim",
     config = {
       update_interval = 1000,
       set_dark_mode = function()
         vim.api.nvim_set_option("background", "dark")
-        vim.cmd("colorscheme tokyonight-night")
+        if isTrueColor then
+          vim.cmd("colorscheme github_dark_high_contrast")
+        else
+          -- and fall back to non truecolor colorscheme
+          vim.cmd("colorscheme lunaperche")
+        end
       end,
-
       set_light_mode = function()
         vim.api.nvim_set_option("background", "light")
-        vim.cmd("colorscheme tokyonight-day")
+        if isTrueColor then
+          vim.cmd("colorscheme github_light_high_contrast")
+        else
+          -- and fall back to non truecolor colorscheme
+          vim.cmd("colorscheme lunaperche")
+        end
       end,
     },
   },
 
-  -- tokyonight transparency override
+  -- Configure LazyVim
   {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
+    "LazyVim/LazyVim",
+    opts = function()
+      -- check if truecolor is enabled in terminal
+      if isTrueColor then
+        -- otherwise, set colorscheme to github_dark_high_contrast
+        return {
+          colorscheme = "github_dark_high_contrast",
+        }
+      else
+        -- if not, disable termguicolors
+        vim.opt["termguicolors"] = false
+
+        -- and fall back to non truecolor colorscheme
+        return {
+          colorscheme = "lunaperche",
+        }
+      end
+    end,
   },
 }
