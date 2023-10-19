@@ -23,6 +23,6 @@ alias tsl="date '+%F %a %H:%M:%S'"
 # eval "$(github-copilot-cli alias -- "$0")"
 
 # LOCAL ALIASES
-if [ -f "$HOME/.local-aliases" ]; then
-  source "$HOME/.local-aliases"
+if [ -f "$HOME/.local-config" ]; then
+  source "$HOME/.local-config"
 fi
