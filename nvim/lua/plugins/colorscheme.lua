@@ -1,7 +1,6 @@
 local isTrueColor = os.getenv("COLORTERM") == "truecolor"
-
 return {
-  -- add github-nvim-theme
+  { "rose-pine/neovim", name = "rose-pine" },
   { "projekt0n/github-nvim-theme" },
 
   -- add auto-dark-mode.nvim
