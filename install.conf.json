@@ -29,9 +29,7 @@
 			"~/.inputrc": "bash/.inputrc",
 			"~/.config/shell": "shell",
 			"~/.tmux.conf": "tmux/.tmux.conf",
-			"~/.zshrc": "zsh/.zshrc",
-			"~/.nixpkgs": "nixpkgs",
-			"/etc/nixos/configuration.nix": "nixos/configuration.nix"
+			"~/.zshrc": "zsh/.zshrc"
 		}
 	}
 ]
