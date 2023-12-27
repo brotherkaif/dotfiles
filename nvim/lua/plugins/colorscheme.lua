@@ -1,19 +1,9 @@
 local isTrueColor = os.getenv("COLORTERM") == "truecolor"
+local colorscheme = isTrueColor and "tokyonight-night" or "default"
 
-if isTrueColor then
-  return {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-night",
-    },
-  }
-else
-  vim.opt["termguicolors"] = false
-
-  return {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "default",
-    },
-  }
-end
+return {
+  "LazyVim/LazyVim",
+  opts = {
+    colorscheme = colorscheme,
+  },
+}
