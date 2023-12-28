@@ -4,10 +4,10 @@ return {
 		'tpope/vim-fugitive',
 		keys = {
 			{
-				"<leader>gg", "<cmd>Git<CR>", desc = "[G]it Manager",
+				'<leader>gg', '<cmd>Git<CR>', desc = '[G]it Manager',
 			},
 		},
 	},
-  { 'tpope/vim-rhubarb' },
-  { 'tpope/vim-sleuth' },
+	{ 'tpope/vim-rhubarb' },
+	{ 'tpope/vim-sleuth' },
 }

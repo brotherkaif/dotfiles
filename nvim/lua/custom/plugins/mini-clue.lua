@@ -1,6 +1,6 @@
 return {
-	"echasnovski/mini.clue",
-	opts = function ()
+	'echasnovski/mini.clue',
+	opts = function()
 		local miniclue = require('mini.clue')
 
 		local opts = {
