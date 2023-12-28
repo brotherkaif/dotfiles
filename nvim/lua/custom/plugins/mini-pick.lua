@@ -1,5 +1,8 @@
 return {
 	"echasnovski/mini.pick",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	-- opts = {},
   keys = {
     { "<leader><space>", function() require("mini.pick").builtin.buffers() end, desc = "Open buffers picker" },
