@@ -24,7 +24,6 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
-
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -99,15 +98,6 @@ require('lazy').setup({
       end,
     },
   },
-
--- TODO: add mini.statusline
--- TODO: add mini.indentscope
-
--- TODO: replace with mini.comment
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
--- TODO: add mini.indentscope
 
   {
     -- Highlight, edit, and navigate code
