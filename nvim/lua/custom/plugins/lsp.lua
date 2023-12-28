@@ -111,5 +111,5 @@ return {
 				}
 			end,
 		}
-	end
+	end,
 }

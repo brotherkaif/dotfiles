@@ -15,3 +15,4 @@ vim.o.undofile = true
 
 -- Folding
 vim.wo.foldmethod = "indent"
+vim.wo.foldlevel = 2
