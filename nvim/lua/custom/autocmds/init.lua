@@ -1,1 +1,1 @@
-require('custom.autocmds.highlight-on-yank')
+-- require('custom.autocmds.EXAMPLECOMMAND')

@@ -34,6 +34,13 @@ return {
 				-- `z` key
 				{ mode = 'n', keys = 'z' },
 				{ mode = 'x', keys = 'z' },
+
+				-- Toggles
+				{ mode = 'n', keys = [[\]] },
+
+				-- Brackets
+				{ mode = 'n', keys = '[' },
+				{ mode = 'n', keys = ']' },
 			},
 
 			clues = {
