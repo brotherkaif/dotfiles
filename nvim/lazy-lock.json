@@ -9,6 +9,7 @@
   "mini.comment": { "branch": "main", "commit": "67f00d3ebbeae15e84584d971d0c32aad4f4f3a4" },
   "mini.completion": { "branch": "main", "commit": "3469773c1280a962bff89c06278007e8aaa30eb5" },
   "mini.files": { "branch": "main", "commit": "8e4541ee5d2c3d37c49fa0953c0255066939b09a" },
+  "mini.hues": { "branch": "main", "commit": "46feda15aa55b1522e380768e2b4c1bac364014c" },
   "mini.indentscope": { "branch": "main", "commit": "5a8369475cd7cd6f207a4d288406d03b0fc48bdb" },
   "mini.pick": { "branch": "main", "commit": "7d4e412f77fb94ab747d6a9ff0a27891a82fa35d" },
   "mini.statusline": { "branch": "main", "commit": "7a6ffc0ae966aff5e2bb3e1ba53d625a7db34094" },
