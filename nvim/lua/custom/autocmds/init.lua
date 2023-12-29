@@ -1,1 +1,1 @@
--- require('custom.autocmds.EXAMPLECOMMAND')
+require('custom.autocmds.format-on-save')
