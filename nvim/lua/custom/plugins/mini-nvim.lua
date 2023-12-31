@@ -158,7 +158,7 @@ return {
 		require("mini.jump2d").setup()
 		-- require("mini.map").setup()
 		-- require("mini.misc").setup()
-		-- require("mini.move").setup()
+		require("mini.move").setup()
 		-- require("mini.operators").setup()
 		require("mini.pairs").setup()
 		require("mini.pick").setup()
