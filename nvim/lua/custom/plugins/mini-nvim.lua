@@ -1,6 +1,5 @@
 return {
 	"echasnovski/mini.nvim",
-	version = "*",
 	lazy = false,
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
@@ -142,12 +141,12 @@ return {
 		-- require("mini.base16").setup()
 		require("mini.basics").setup(basics_config)
 		require("mini.bracketed").setup()
-		-- require("mini.bufremove").setup()
+		require("mini.bufremove").setup()
 		require("mini.clue").setup(clue_config())
 		-- require("mini.colors").setup()
 		require("mini.comment").setup()
 		require("mini.completion").setup()
-		-- require("mini.cursorword").setup()
+		require("mini.cursorword").setup()
 		-- require("mini.doc").setup()
 		-- require("mini.extra").setup()
 		require("mini.files").setup(files_config)
@@ -155,22 +154,22 @@ return {
 		require("mini.hipatterns").setup(hipatterns_config)
 		-- require("mini.hues").setup()
 		require("mini.indentscope").setup()
-		-- require("mini.jump").setup()
-		-- require("mini.jump2d").setup()
-		-- require("mini.map").setup(map_config)
+		require("mini.jump").setup()
+		require("mini.jump2d").setup()
+		-- require("mini.map").setup()
 		-- require("mini.misc").setup()
 		-- require("mini.move").setup()
 		-- require("mini.operators").setup()
 		require("mini.pairs").setup()
-		-- require("mini.pick").setup()
+		require("mini.pick").setup()
 		-- require("mini.sessions").setup()
 		-- require("mini.splitjoin").setup()
 		require("mini.starter").setup(starter_config)
 		require("mini.statusline").setup()
 		require("mini.surround").setup()
-		-- require("mini.tabline").setup()
+		require("mini.tabline").setup()
 		-- require("mini.test").setup()
-		-- require("mini.trailspace").setup()
+		require("mini.trailspace").setup()
 		-- require("mini.visits").setup()
 	end,
 
