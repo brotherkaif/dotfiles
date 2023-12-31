@@ -19,27 +19,6 @@ return {
 				vim.keymap.set(mode, l, r, opts)
 			end
 
-			-- Navigation
-			map({ 'n', 'v' }, ']c', function()
-				if vim.wo.diff then
-					return ']c'
-				end
-				vim.schedule(function()
-					gs.next_hunk()
-				end)
-				return '<Ignore>'
-			end, { expr = true, desc = 'NEXT [c]hange' })
-
-			map({ 'n', 'v' }, '[c', function()
-				if vim.wo.diff then
-					return '[c'
-				end
-				vim.schedule(function()
-					gs.prev_hunk()
-				end)
-				return '<Ignore>'
-			end, { expr = true, desc = 'PREV [c]hange' })
-
 			-- Actions
 			-- visual mode
 			map('v', '<leader>hs', function()
