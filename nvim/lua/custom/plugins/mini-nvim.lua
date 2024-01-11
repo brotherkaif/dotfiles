@@ -179,7 +179,7 @@ return {
 		require("mini.completion").setup()
 		require("mini.cursorword").setup()
 		-- require("mini.doc").setup()
-		-- require("mini.extra").setup()
+		require("mini.extra").setup()
 		require("mini.files").setup(files_config)
 		-- require("mini.fuzzy").setup()
 		require("mini.hipatterns").setup(hipatterns_config)
@@ -206,22 +206,27 @@ return {
 
 	keys = {
 		{
-			'<leader>fm',
+			'-',
 			function()
 				require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
 			end,
-			desc = '[f]ile [m]ap (file)',
+			desc = 'File Navigation (file)',
 		},
 		{
-			'<leader>fM',
+			'_',
 			function() require('mini.files').open(vim.loop.cwd(), true) end,
-			desc = '[f]ile [M]ap (cwd)',
+			desc = 'File Navigation (cwd)',
 		},
 		{ '<leader>cc',      function() vim.cmd('colorscheme randomhue') end,         desc = '[c]olors[c]heme randomhue' },
 		{ '<leader>cd',      function() vim.cmd('colorscheme default') end,           desc = '[c]olorscheme [d]efault' },
-		{ '<leader><space>', function() require('mini.pick').builtin.buffers() end,   desc = 'Open buffers picker' },
-		{ '<leader>ff',      function() require('mini.pick').builtin.files() end,     desc = 'Open file picker' },
-		{ '<leader>fh',      function() require('mini.pick').builtin.help() end,      desc = 'Open help tags picker' },
-		{ '<leader>fg',      function() require('mini.pick').builtin.grep_live() end, desc = 'Open grep picker' },
+		{ '<leader><space>', function() require('mini.pick').builtin.buffers() end,   desc = 'find buffer' },
+		{ '<leader>ff',      function() require('mini.pick').builtin.files() end,     desc = '[f]ind [f]ile' },
+		{ '<leader>fh',      function() require('mini.pick').builtin.help() end,      desc = '[f]ind [h]elp' },
+		{ '<leader>fg',      function() require('mini.pick').builtin.grep_live() end, desc = '[f]ind with [g]rep' },
+		{ '<leader>fm',      function() require('mini.extra').pickers.marks() end,    desc = '[f]ind [m]arks' },
+		{ '<leader>fe',      function() require('mini.extra').pickers.explorer() end,    desc = '[f]ind in [e]xplorer' },
+		{ '<leader>fd',      function() require('mini.extra').pickers.diagnostic() end,    desc = '[f]ind [d]iagnostic' },
+		{ '<leader>fp',      function() require('mini.extra').pickers.commands() end,    desc = '[f]ind command [p]alette' },
+		{ '<leader>f/',      function() require('mini.extra').pickers.buf_lines() end,    desc = '[f]ind in buffer' },
 	},
 }
