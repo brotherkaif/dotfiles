@@ -16,3 +16,6 @@ vim.o.undofile = false
 -- Folding
 vim.wo.foldmethod = "indent"
 vim.wo.foldlevel = 2
+
+-- Scroll offset
+vim.o.scrolloff = 7
