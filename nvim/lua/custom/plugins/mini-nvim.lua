@@ -190,6 +190,7 @@ return {
 		-- require("mini.map").setup()
 		-- require("mini.misc").setup()
 		require("mini.move").setup()
+		require("mini.notify").setup()
 		-- require("mini.operators").setup()
 		require("mini.pairs").setup()
 		require("mini.pick").setup()
@@ -217,16 +218,16 @@ return {
 			function() require('mini.files').open(vim.loop.cwd(), true) end,
 			desc = 'File Navigation (cwd)',
 		},
-		{ '<leader>cc',      function() vim.cmd('colorscheme randomhue') end,         desc = '[c]olors[c]heme randomhue' },
-		{ '<leader>cd',      function() vim.cmd('colorscheme default') end,           desc = '[c]olorscheme [d]efault' },
-		{ '<leader><space>', function() require('mini.pick').builtin.buffers() end,   desc = 'find buffer' },
-		{ '<leader>ff',      function() require('mini.pick').builtin.files() end,     desc = '[f]ind [f]ile' },
-		{ '<leader>fh',      function() require('mini.pick').builtin.help() end,      desc = '[f]ind [h]elp' },
-		{ '<leader>fg',      function() require('mini.pick').builtin.grep_live() end, desc = '[f]ind with [g]rep' },
-		{ '<leader>fm',      function() require('mini.extra').pickers.marks() end,    desc = '[f]ind [m]arks' },
-		{ '<leader>fe',      function() require('mini.extra').pickers.explorer() end,    desc = '[f]ind in [e]xplorer' },
-		{ '<leader>fd',      function() require('mini.extra').pickers.diagnostic() end,    desc = '[f]ind [d]iagnostic' },
-		{ '<leader>fp',      function() require('mini.extra').pickers.commands() end,    desc = '[f]ind command [p]alette' },
-		{ '<leader>f/',      function() require('mini.extra').pickers.buf_lines() end,    desc = '[f]ind in buffer' },
+		{ '<leader>cc',      function() vim.cmd('colorscheme randomhue') end,           desc = '[c]olors[c]heme randomhue' },
+		{ '<leader>cd',      function() vim.cmd('colorscheme default') end,             desc = '[c]olorscheme [d]efault' },
+		{ '<leader><space>', function() require('mini.pick').builtin.buffers() end,     desc = 'find buffer' },
+		{ '<leader>ff',      function() require('mini.pick').builtin.files() end,       desc = '[f]ind [f]ile' },
+		{ '<leader>fh',      function() require('mini.pick').builtin.help() end,        desc = '[f]ind [h]elp' },
+		{ '<leader>fg',      function() require('mini.pick').builtin.grep_live() end,   desc = '[f]ind with [g]rep' },
+		{ '<leader>fm',      function() require('mini.extra').pickers.marks() end,      desc = '[f]ind [m]arks' },
+		{ '<leader>fe',      function() require('mini.extra').pickers.explorer() end,   desc = '[f]ind in [e]xplorer' },
+		{ '<leader>fd',      function() require('mini.extra').pickers.diagnostic() end, desc = '[f]ind [d]iagnostic' },
+		{ '<leader>fp',      function() require('mini.extra').pickers.commands() end,   desc = '[f]ind command [p]alette' },
+		{ '<leader>f/',      function() require('mini.extra').pickers.buf_lines() end,  desc = '[f]ind in buffer' },
 	},
 }
