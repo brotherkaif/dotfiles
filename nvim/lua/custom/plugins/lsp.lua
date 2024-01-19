@@ -74,7 +74,7 @@ return {
 		--  If you want to override the default filetypes that your language server will attach to you can
 		--  define the property 'filetypes' to the map in question.
 		local servers = {
-			-- clangd = {},
+			clangd = {},
 			-- gopls = {},
 			-- pyright = {},
 			-- rust_analyzer = {},
@@ -87,7 +87,7 @@ return {
 					workspace = { checkThirdParty = false },
 					telemetry = { enable = false },
 					-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-					-- diagnostics = { disable = { 'missing-fields' } },
+					diagnostics = { disable = { 'missing-fields' } },
 				},
 			},
 		}
