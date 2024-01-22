@@ -3,7 +3,7 @@ return {
 	config = true,
 	cmd = "ToggleTerm",
 	keys = {
-		{ "<C-\\>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal", { noremap = true, silent = true } },
+		{ "<C-\\>", "<cmd>ToggleTerm<cr>", desc = "toggle terminal (horizontal)", { noremap = true, silent = true } },
 		{
 			"<Esc><Esc>",
 			"<C-\\><C-n>",
