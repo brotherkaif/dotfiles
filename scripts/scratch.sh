@@ -1,22 +1,14 @@
 #!/bin/bash
 
-scratchpadsDir=$HOME/scratchpads
-noteFilePath="$scratchpadsDir/$(date +%Y-%m-%d).md"
+SCRATCHPADS_DIR=$HOME/scratchpads
+NOTE_FILE_PATH="$SCRATCHPADS_DIR/1$(date +%Y%m%d).md"
 
-if [[ ! -f $noteFilePath ]]; then
-	echo "# $(date +%Y-%m-%d) Daily Log" >$noteFilePath
-	echo "## Tasks" >$noteFilePath
-	echo "- [ ] " >$noteFilePath
-	echo "" >$noteFilePath
-	echo "## Events" >$noteFilePath
-	echo "- " >$noteFilePath
-	echo "" >$noteFilePath
-	echo "## Notes" >$noteFilePath
-	echo "" >$noteFilePath
+if [[ ! -f $NOTE_FILE_PATH ]]; then
+	echo "# 1$(date +%Y%m%d)" >$NOTE_FILE_PATH
 fi
 
 nvim -c "norm Go" \
 	-c "norm Go## $(date +%H:%M)" \
 	-c "norm G2o" \
 	-c "norm zz" \
-	-c "startinsert" $noteFilePath
+	-c "startinsert" $NOTE_FILE_PATH

@@ -27,6 +27,7 @@
 			"~/.config/newsboat": "newsboat",
 			"~/.config/nvim": "nvim",
 			"~/.config/shell": "shell",
+			"~/.local/bin/scratch": "scripts/scratch.sh",
 			"~/.config/starship.toml": "starship/starship.toml",
 			"~/.inputrc": "bash/.inputrc",
 			"~/.tmux.conf": "tmux/.tmux.conf",

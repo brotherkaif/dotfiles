@@ -11,16 +11,12 @@ alias gcm="git commit -m"
 alias gco="git checkout"
 
 # PRODUCTIVITY ALIASES
-alias scratchpad="$HOME/bin/scratch.sh"
 alias devnotes="cd $HOME/dev-notes && nvim README.md"
 alias worklog="gh gist edit 92f0423ccade1927b6490ec98d36990c"
 alias journal="gh gist edit d78e04055dcdcf9caba2e26eb4a47bb5"
 alias tss="date '+%F'"
 alias tsm="date '+%F %a'"
 alias tsl="date '+%F %a %H:%M:%S'"
-
-# COPILOT ALIASES
-# eval "$(github-copilot-cli alias -- "$0")"
 
 # LOCAL ALIASES
 if [ -f "$HOME/.local-config" ]; then
