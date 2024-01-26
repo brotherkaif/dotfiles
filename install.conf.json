@@ -9,10 +9,15 @@
 		}
 	},
 	{
-		"clean": ["~"]
+		"clean": [
+			"~"
+		]
 	},
 	{
-		"create": ["~/projects", "~/playground"]
+		"create": [
+			"~/projects",
+			"~/playground"
+		]
 	},
 	{
 		"link": {
