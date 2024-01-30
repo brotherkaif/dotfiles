@@ -36,7 +36,8 @@
 			"~/.config/starship.toml": "starship/starship.toml",
 			"~/.inputrc": "bash/.inputrc",
 			"~/.tmux.conf": "tmux/.tmux.conf",
-			"~/.zshrc": "zsh/.zshrc"
+			"~/.zshrc": "zsh/.zshrc",
+			"~/.config/zellij": "zellij"
 		}
 	}
 ]

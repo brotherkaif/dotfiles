@@ -1,0 +1,15 @@
+themes {
+	black-metal {
+		bg "#000000"
+		fg "#c1c1c1"
+		black "#000000"
+		red "#5f8787"
+		green "#dd9999"
+		yellow "#a06666"
+		blue "#9ccfd8"
+		magenta "#999999"
+		orange "#5f8787"
+		cyan "#aaaaaa"
+		white "#c1c1c1"
+	}
+}
