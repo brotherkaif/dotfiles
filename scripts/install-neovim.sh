@@ -18,6 +18,7 @@ case $(detectOS) in
 
 	# install neovim appimage
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+	# curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 
 	# move bin
 	mkdir -p $HOME/.local/bin
