@@ -19,3 +19,6 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # ENABLE STARSHIP
 eval "$(starship init zsh)"
+
+# ENABLE ZELLIJ
+eval "$(zellij setup --generate-auto-start zsh)"

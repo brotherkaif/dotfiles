@@ -1,9 +1,9 @@
 import:
   # - ~/.config/alacritty/themes/black-metal-bathory.yaml
   # - ~/.config/alacritty/themes/black-metal-burzum.yaml
-  - ~/.config/alacritty/themes/black-metal-dark-funeral.yaml
+  # - ~/.config/alacritty/themes/black-metal-dark-funeral.yaml
   # - ~/.config/alacritty/themes/black-metal-gorgoroth.yaml
-  # - ~/.config/alacritty/themes/black-metal-immortal.yaml
+  - ~/.config/alacritty/themes/black-metal-immortal.yaml
   # - ~/.config/alacritty/themes/black-metal-khold.yaml
   # - ~/.config/alacritty/themes/black-metal-marduk.yaml
   # - ~/.config/alacritty/themes/black-metal-mayhem.yaml
