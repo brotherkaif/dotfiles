@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:0,stream
+#EXTVLCOPT:network-caching=1000
+https://stream-relay-geo.ntslive.net/stream
