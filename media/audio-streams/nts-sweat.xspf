@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/">
+	<trackList>
+		<track>
+			<creator>NTS Radio</creator>
+			<title>NTS Sweat</title>
+			<annotation>A new wave of international party music.</annotation>
+			<image>https://cdn-profiles.tunein.com/s309895/images/logod.png</image>
+			<info>https://www.nts.live</info>
+			<location>https://stream-mixtape-geo.ntslive.net/mixtape24</location>
+		</track>
+	</trackList>
+</playlist>
