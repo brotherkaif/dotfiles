@@ -73,6 +73,6 @@ key_bindings:
   - { key: RBracket, mods: Alt, chars: "\x1b\x5d" }  # Alt + ]
   # macOS Special Character Override
   - { key: N, mods: Alt|Shift, chars: "\x1b\x6e" }  # Alt + N
-window:
-  decorations: none
+# window:
+  # decorations: none
   # opacity: 0.9
