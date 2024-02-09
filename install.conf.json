@@ -39,5 +39,16 @@
 			"~/.zshrc": "zsh/.zshrc",
 			"~/.config/zellij": "zellij"
 		}
+	},
+	{
+		"shell": [
+			{
+				"command": "./scripts/setup-environment.sh",
+				"stdin": true,
+				"stdout": true,
+				"description": "Setup Environment",
+				"quiet": false
+			}
+		]
 	}
 ]
