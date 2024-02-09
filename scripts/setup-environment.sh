@@ -57,6 +57,9 @@ setup_environment () {
 				echo "HTOP"
 				brew install htop
 
+				echo "STARSHIP"
+				brew install starship
+
 				echo "ZELLIJ"
 				brew install zellij
 
@@ -71,6 +74,9 @@ setup_environment () {
 
 				echo "FFMPEG"
 				brew install ffmpeg
+
+				# echo "WEECHAT"
+				# brew install weechat
 
 				echo " _| _  _  _     _ "
 				echo "(_|(/_(_|| ||_||_)"

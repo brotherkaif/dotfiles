@@ -14,6 +14,7 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 # ENV VARIABLES
 export VISUAL=nvim
 export TERMINAL="alacritty"
+export TERM=xterm-256color
 export EDITOR="$VISUAL"
 
 # ANSIBLE OPTIONS
