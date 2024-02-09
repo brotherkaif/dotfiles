@@ -72,6 +72,9 @@ setup_environment () {
 				echo "MODS"
 				brew install mods
 
+				echo "GITHUB CLI"
+				brew install gh
+
 				echo "FFMPEG"
 				brew install ffmpeg
 
