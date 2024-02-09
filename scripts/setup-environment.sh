@@ -32,6 +32,9 @@ setup_environment () {
 				echo "CORE UTILS"
 				brew install coreutils
 
+				echo "GCC"
+				brew install gcc
+
 				echo "| _  _  _     _  _  _  _"
 				echo "|(_|| |(_||_|(_|(_|(/__\\"
 				echo "        _|       _|     "
