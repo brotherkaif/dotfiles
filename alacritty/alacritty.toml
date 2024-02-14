@@ -1,3 +1,17 @@
+import = [
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-bathory.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-burzum.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-dark-funeral.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-gorgoroth.toml",
+	"/Users/ahmedk02/.config/alacritty/themes/black-metal-immortal.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-khold.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-marduk.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-mayhem.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-nile.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-venom.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal.toml"
+]
+
 [env]
 TERM = "xterm-256color"
 
@@ -19,3 +33,228 @@ style = "Italic"
 [font.normal]
 family = "FiraCode Nerd Font"
 style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u001Ba"
+key = "A"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bc"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Be"
+key = "E"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bg"
+key = "G"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bh"
+key = "H"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bi"
+key = "I"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bl"
+key = "L"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bm"
+key = "M"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bn"
+key = "N"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bo"
+key = "O"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bp"
+key = "P"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bq"
+key = "Q"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Br"
+key = "R"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bs"
+key = "S"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bt"
+key = "T"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bu"
+key = "U"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bv"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bw"
+key = "W"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bx"
+key = "X"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001By"
+key = "Y"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bz"
+key = "Z"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B0"
+key = 0
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B1"
+key = 1
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B2"
+key = 2
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B3"
+key = 3
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B4"
+key = 4
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B5"
+key = 5
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B6"
+key = 6
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B7"
+key = 7
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B8"
+key = 8
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B9"
+key = 9
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B\u001B[A"
+key = "Up"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B\u001B[B"
+key = "Down"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B\u001B[C"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+Mods = "Alt"
+chars = "\u001B\u001B[D"
+key = "Left"
+
+[[keyboard.bindings]]
+chars = "\u001B+"
+key = "Equals"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B-"
+key = "Minus"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B["
+key = "LBracket"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B]"
+key = "RBracket"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bn"
+key = "N"
+mods = "Alt|Shift"
