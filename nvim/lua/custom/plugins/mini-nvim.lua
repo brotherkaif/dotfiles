@@ -227,7 +227,8 @@ return {
 		{ '<leader>fm',      function() require('mini.extra').pickers.marks() end,      desc = '[f]ind [m]arks' },
 		{ '<leader>fe',      function() require('mini.extra').pickers.explorer() end,   desc = '[f]ind in [e]xplorer' },
 		{ '<leader>fd',      function() require('mini.extra').pickers.diagnostic() end, desc = '[f]ind [d]iagnostic' },
-		{ '<leader>fp',      function() require('mini.extra').pickers.commands() end,   desc = '[f]ind command [p]alette' },
+		{ '<leader>fc',      function() require('mini.extra').pickers.commands() end,   desc = '[f]ind [c]ommand' },
 		{ '<leader>f/',      function() require('mini.extra').pickers.buf_lines() end,  desc = '[f]ind in buffer' },
+		{ '<leader>p',      function() require('mini.extra').pickers.commands() end,   desc = 'command [p]alette' },
 	},
 }
