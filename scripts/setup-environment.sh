@@ -7,33 +7,19 @@ setup_environment () {
 		echo "|___|___|_| |___|  _|"
 		echo "                |_|  "
 		echo "This script will install packages for unix based systems."
+		echo "NOTE: Install homebrew first (goto brew.sh)"
 		echo "WARNING: DO NOT run as root!"
 		echo "Proceed? (y/n)"
 		read resp
 		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 				echo "|_  _  _ _  _ |_  _ _   "
 				echo "| |(_)| | |(/_|_)| (/_VV"
-				# homebrew autoinstall
-				which brew 1>&/dev/null
-				if [ ! "$?" -eq 0 ] ; then
-						echo "Homebrew not installed. Attempting to install Homebrew"
-						/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-						if [ ! "$?" -eq 0 ] ; then
-								echo "Something went wrong. Exiting..." && exit 1
-						fi
-				fi
 
 				echo "UPDATE"
 				brew update
 
 				echo "UPGRADE"
 				brew upgrade
-
-				echo "CORE UTILS"
-				brew install coreutils
-
-				echo "GCC"
-				brew install gcc
 
 				echo "| _  _  _     _  _  _  _"
 				echo "|(_|| |(_||_|(_|(_|(/__\\"
@@ -78,11 +64,11 @@ setup_environment () {
 				echo "GITHUB CLI"
 				brew install gh
 
-				echo "FFMPEG"
-				brew install ffmpeg
+				echo "WEECHAT"
+				brew install weechat
 
-				# echo "WEECHAT"
-				# brew install weechat
+				echo "FIRA CODE NERD FONT"
+				brew install --cask font-fira-code-nerd-font
 
 				echo " _| _  _  _     _ "
 				echo "(_|(/_(_|| ||_||_)"
