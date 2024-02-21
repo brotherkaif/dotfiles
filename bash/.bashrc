@@ -5,12 +5,11 @@ source ~/.config/shell/.shell_motd
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# MAC CONFIG
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+# Only run the following in an interactive terminal session
+if [ -t 1 ]; then
+	# ENABLE STARSHIP
+	eval "$(starship init bash)"
 
-# ENABLE STARSHIP
-eval "$(starship init bash)"
-
-# ENABLE ZELLIJ
-eval "$(zellij setup --generate-auto-start bash)"
+	# ENABLE ZELLIJ
+	eval "$(zellij setup --generate-auto-start bash)"
+fi

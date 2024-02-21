@@ -7,15 +7,11 @@ source ~/.config/shell/.shell_motd
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 
-# NODE PATH FIX DARWIN
-export PATH="/usr/local/opt/node@14/bin:$PATH"
+# Only run the following in an interactive terminal session
+if [ -t 1 ]; then
+	# ENABLE STARSHIP
+	eval "$(starship init zsh)"
 
-# MAC CONFIG
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-
-# ENABLE STARSHIP
-eval "$(starship init zsh)"
-
-# ENABLE ZELLIJ
-eval "$(zellij setup --generate-auto-start zsh)"
+	# ENABLE ZELLIJ
+	eval "$(zellij setup --generate-auto-start zsh)"
+fi
