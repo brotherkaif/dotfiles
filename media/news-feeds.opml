@@ -4,15 +4,11 @@
     <title>RSS Feeds</title>
   </head>
   <body>
-    <outline text="BBC News" title="BBC News" type="rss" xmlUrl="http://feeds.bbci.co.uk/news/rss.xml" htmlUrl="http://www.bbc.co.uk/news"/>
     <outline text="B3ta Combined" title="B3ta Combined" type="rss" xmlUrl="https://b3ta.com/xml/combined.php?rss=1" htmlUrl="https://b3ta.com"/>
-    <outline text="B3ta Newsletter" title="B3ta Newsletter" type="rss" xmlUrl="https://b3ta.com/xml/newsletter.php?rss=1" htmlUrl="https://b3ta.com"/>
     <outline text="Mozilla Blog" title="Mozilla Blog" type="rss" xmlUrl="https://blog.mozilla.org/en/feed/" htmlUrl="https://blog.mozilla.org"/>
     <outline text="Thunderbird Blog" title="Thunderbird Blog" type="rss" xmlUrl="https://blog.thunderbird.net/feed/" htmlUrl="https://blog.thunderbird.net"/>
-    <outline text="Boing Boing" title="Boing Boing" type="rss" xmlUrl="https://boingboing.net/feed" htmlUrl="https://boingboing.net"/>
     <outline text="Neovim This Week" title="Neovim This Week" type="rss" xmlUrl="https://dotfyle.com/this-week-in-neovim/rss.xml" htmlUrl="https://dotfyle.com/this-week-in-neovim"/>
     <outline text="GoNintendo" title="GoNintendo" type="rss" xmlUrl="https://feedpress.me/gonintendo" htmlUrl="https://gonintendo.com"/>
-    <outline text="BBC News - England/London" title="BBC News - England/London" type="rss" xmlUrl="https://feeds.bbci.co.uk/news/england/london/rss.xml" htmlUrl="http://www.bbc.co.uk/news/london"/>
     <outline text="Hacker News" title="Hacker News" type="rss" xmlUrl="https://hnrss.org/frontpage" htmlUrl="https://news.ycombinator.com/"/>
     <outline text="JavaScript Weekly" title="JavaScript Weekly" type="rss" xmlUrl="https://javascriptweekly.com/rss/1g9l9b08" htmlUrl="https://javascriptweekly.com"/>
     <outline text="Lifehacker" title="Lifehacker" type="rss" xmlUrl="https://lifehacker.com/feed/rss" htmlUrl="https://lifehacker.com"/>
