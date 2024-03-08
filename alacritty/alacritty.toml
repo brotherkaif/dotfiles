@@ -1,9 +1,9 @@
 import = [
 	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-bathory.toml",
-	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-burzum.toml",
+	"/Users/ahmedk02/.config/alacritty/themes/black-metal-burzum.toml",
 	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-dark-funeral.toml",
 	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-gorgoroth.toml",
-	"/Users/ahmedk02/.config/alacritty/themes/black-metal-immortal.toml",
+	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-immortal.toml",
 	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-khold.toml",
 	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-marduk.toml",
 	# "/Users/ahmedk02/.config/alacritty/themes/black-metal-mayhem.toml",
