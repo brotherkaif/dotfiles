@@ -26,4 +26,4 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
 -- Set Colorscheme
-vim.cmd("colorscheme base16-black-metal-burzum")
+-- vim.cmd("colorscheme base16-black-metal-burzum")

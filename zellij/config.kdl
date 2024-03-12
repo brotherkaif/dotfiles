@@ -1,7 +1,9 @@
 simplified_ui true
+theme "nvim-dark"
+// theme "nvim-light"
 // theme "black-metal"
 // theme "black-metal-bathory"
-theme "black-metal-burzum"
+// theme "black-metal-burzum"
 // theme "black-metal-dark-funeral"
 // theme "black-metal-gorgoroth"
 // theme "black-metal-immortal"
