@@ -27,3 +27,9 @@ vim.o.shiftwidth = 4
 
 -- Set Colorscheme
 -- vim.cmd("colorscheme base16-black-metal-burzum")
+
+-- Light/Dark Theme Fallback
+-- TODO: add automatic light/dark switching
+-- if os.getenv('theme') == 'light' then
+-- 	vim.o.background = 'light'
+-- end
