@@ -1,6 +1,6 @@
 simplified_ui true
-// theme "nvim-dark"
-theme "nvim-light"
+theme "nvim-dark"
+// theme "nvim-light"
 // theme "black-metal"
 // theme "black-metal-bathory"
 // theme "black-metal-burzum"
