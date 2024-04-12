@@ -148,21 +148,15 @@ return {
 			integrations = {
 				require("mini.map").gen_integration.builtin_search(),
 				require("mini.map").gen_integration.diagnostic({
-					error = "DiagnosticFloatingError",
-					warn = "DiagnosticFloatingWarn",
-					info = "DiagnosticFloatingInfo",
-					hint = "DiagnosticFloatingHint",
+					error = 'DiagnosticFloatingError',
+					warn  = 'DiagnosticFloatingWarn',
+					info  = 'DiagnosticFloatingInfo',
+					hint  = 'DiagnosticFloatingHint',
 				}),
 				require("mini.map").gen_integration.gitsigns(),
 			},
 			symbols = {
-				encode = require("mini.map").gen_encode_symbols.dot("4x2"),
-			},
-			window = {
-				focusable = true,
-				side = "right",
-				winblend = 50,
-				show_integration_count = false,
+				encode = require("mini.map").gen_encode_symbols.dot("3x2"),
 			},
 		}
 
@@ -187,7 +181,7 @@ return {
 		require("mini.indentscope").setup()
 		require("mini.jump").setup()
 		require("mini.jump2d").setup()
-		-- require("mini.map").setup()
+		require("mini.map").setup(map_config)
 		-- require("mini.misc").setup()
 		require("mini.move").setup()
 		require("mini.notify").setup()
@@ -202,7 +196,7 @@ return {
 		require("mini.tabline").setup()
 		-- require("mini.test").setup()
 		require("mini.trailspace").setup()
-		-- require("mini.visits").setup()
+		require("mini.visits").setup()
 	end,
 
 	keys = {
@@ -228,7 +222,14 @@ return {
 		{ '<leader>fe',      function() require('mini.extra').pickers.explorer() end,   desc = '[f]ind in [e]xplorer' },
 		{ '<leader>fd',      function() require('mini.extra').pickers.diagnostic() end, desc = '[f]ind [d]iagnostic' },
 		{ '<leader>fc',      function() require('mini.extra').pickers.commands() end,   desc = '[f]ind [c]ommand' },
+		{ '<leader>fv',      function() require('mini.extra').pickers.visit_paths() end,  desc = '[f]ind recent [v]isits' },
 		{ '<leader>f/',      function() require('mini.extra').pickers.buf_lines() end,  desc = '[f]ind in buffer' },
-		{ '<leader>p',      function() require('mini.extra').pickers.commands() end,   desc = 'command [p]alette' },
+		{ '<leader>p',       function() require('mini.extra').pickers.commands() end,   desc = 'command [p]alette' },
+		{ '<leader>mm',      function() require('mini.map').toggle() end,               desc = '[m]ini [m]ap toggle' },
+		{ '<leader>mo',      function() require('mini.map').open() end,                 desc = 'mini [m]ap [o]pen' },
+		{ '<leader>mc',      function() require('mini.map').close() end,                desc = 'mini [m]ap [c]lose' },
+		{ '<leader>mf',      function() require('mini.map').toggle_focus() end,         desc = 'mini [m]ap toggle [f]ocus' },
+		{ '<leader>ms',      function() require('mini.map').toggle_side() end,          desc = 'mini [m]ap toggle [s]ide' },
+		{ '<leader>mr',      function() require('mini.map').refresh() end,              desc = 'mini [m]ap [r]efresh' },
 	},
 }
