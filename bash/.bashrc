@@ -11,5 +11,5 @@ if [ -t 1 ]; then
 	eval "$(starship init bash)"
 
 	# ENABLE ZELLIJ
-	eval "$(zellij setup --generate-auto-start bash)"
+	# eval "$(zellij setup --generate-auto-start bash)"
 fi
