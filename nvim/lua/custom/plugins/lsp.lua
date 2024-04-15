@@ -71,7 +71,7 @@ return {
 		--  define the property 'filetypes' to the map in question.
 		local servers = {
 			clangd = {},
-			-- gopls = {},
+			gopls = {},
 			-- pyright = {},
 			-- rust_analyzer = {},
 			-- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -93,8 +93,8 @@ return {
 
 		-- TODO: delete this
 		-- -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 		-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Ensure the servers above are installed
 		local mason_lspconfig = require 'mason-lspconfig'
