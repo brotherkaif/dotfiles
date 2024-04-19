@@ -46,8 +46,6 @@ now(function()
 	source('plugins/auto-dark-mode-nvim.lua')
 end)
 
-
-
 -- LAZY
 later(function() require('mini.extra').setup() end)
 later(function() require('mini.ai').setup() end)
