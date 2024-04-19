@@ -78,6 +78,8 @@ return {
 
 			tsserver = {},
 
+			marksman = {},
+
 			lua_ls = {
 				Lua = {
 					workspace = { checkThirdParty = false },
@@ -91,13 +93,10 @@ return {
 		-- Setup neovim lua configuration
 		require('neodev').setup()
 
-		-- TODO: delete this
-		-- -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-		-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 		-- Ensure the servers above are installed
-		local mason_lspconfig = require 'mason-lspconfig'
+		local mason_lspconfig = require('mason-lspconfig')
 
 		mason_lspconfig.setup {
 			ensure_installed = vim.tbl_keys(servers),
