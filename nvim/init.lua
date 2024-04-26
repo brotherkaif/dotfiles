@@ -28,10 +28,22 @@ now(function() require('mini.notify').setup() end)
 now(function() require('mini.sessions').setup() end)
 now(function() require('mini.statusline').setup() end)
 now(function() require('mini.tabline').setup() end)
+now(function() require('mini.completion').setup() end)
 now(function() require('src.plugins.mini-starter') end)
 now(function() require('src.plugins.mini-basics') end)
 now(function() require('src.plugins.mini-files') end)
 now(function() add('nvim-tree/nvim-web-devicons') end)
+
+now(function()
+	add({
+		source = 'neovim/nvim-lspconfig',
+		depends = {
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim'
+		},
+	})
+	require('src.plugins.nvim-lspconfig')
+end)
 
 now(function()
 	add('f-person/auto-dark-mode.nvim')
@@ -45,7 +57,6 @@ later(function() require('mini.align').setup() end)
 later(function() require('mini.bracketed').setup() end)
 later(function() require('mini.bufremove').setup() end)
 later(function() require('mini.comment').setup() end)
-later(function() require('mini.completion').setup() end)
 later(function() require('mini.cursorword').setup() end)
 later(function() require('mini.diff').setup() end)
 later(function() require('mini.doc').setup() end)
@@ -64,17 +75,6 @@ later(function() require('src.plugins.mini-clue') end)
 later(function() require('src.plugins.mini-hipatterns') end)
 later(function() require('src.plugins.mini-map') end)
 later(function() require('src.plugins.mini-move') end)
-
-later(function()
-	add({
-		source = 'neovim/nvim-lspconfig',
-		depends = {
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim'
-		},
-	})
-	require('src.plugins.nvim-lspconfig')
-end)
 
 later(function()
 	local ts_spec = {
