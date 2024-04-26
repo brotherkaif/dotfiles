@@ -1,40 +1,41 @@
-pcall(function() vim.loader.enable() end)
-
 _G.Config = {
 	path_package = vim.fn.stdpath('data') .. '/site/',
-	path_source = vim.fn.stdpath('config') .. '/src/',
+	-- path_source = vim.fn.stdpath('config') .. '/src/',
 }
-
+-- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
 local mini_path = Config.path_package .. 'pack/deps/start/mini.nvim'
 
 if not vim.loop.fs_stat(mini_path) then
-	vim.cmd([[echo "Installing 'mini.nvim'" | redraw]])
-	local clone_cmd = { 'git', 'clone', '--filter=blob:none', 'https://github.com/echasnovski/mini.nvim', mini_path }
-	vim.fn.system(clone_cmd)
+  vim.cmd('echo "Installing `mini.nvim`" | redraw')
+  local clone_cmd = { 'git', 'clone', '--filter=blob:none', 'https://github.com/echasnovski/mini.nvim', mini_path }
+  vim.fn.system(clone_cmd)
+  vim.cmd('packadd mini.nvim | helptags ALL')
+  vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
+-- Set up 'mini.deps' (customize to your liking)
 require('mini.deps').setup({ path = { package = Config.path_package } })
 
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
-local source = function(path) dofile(Config.path_source .. path) end
 
 -- SETTINGS
-now(function() source('settings.lua') end)
-now(function() source('keymaps.lua') end)
-now(function() source('functions.lua') end)
+now(function() require('src.settings') end)
+now(function() require('src.keymaps') end)
+now(function() require('src.functions') end)
 
 -- PRIORITY PLUGINS
 now(function() require('mini.notify').setup() end)
 now(function() require('mini.sessions').setup() end)
 now(function() require('mini.statusline').setup() end)
 now(function() require('mini.tabline').setup() end)
-now(function() source('plugins/mini-starter.lua') end)
-now(function() source('plugins/mini-basics.lua') end)
+now(function() require('src.plugins.mini-starter') end)
+now(function() require('src.plugins.mini-basics') end)
+now(function() require('src.plugins.mini-files') end)
 now(function() add('nvim-tree/nvim-web-devicons') end)
 
 now(function()
 	add('f-person/auto-dark-mode.nvim')
-	source('plugins/auto-dark-mode-nvim.lua')
+	require('src.plugins.auto-dark-mode-nvim')
 end)
 
 -- LAZY PLUGINS
@@ -58,12 +59,11 @@ later(function() require('mini.splitjoin').setup() end)
 later(function() require('mini.trailspace').setup() end)
 later(function() require('mini.visits').setup() end)
 later(function() require('mini.pairs').setup() end)
-later(function() source('plugins/mini-animate.lua') end)
-later(function() source('plugins/mini-clue.lua') end)
-later(function() source('plugins/mini-files.lua') end)
-later(function() source('plugins/mini-hipatterns.lua') end)
-later(function() source('plugins/mini-map.lua') end)
-later(function() source('plugins/mini-move.lua') end)
+later(function() require('src.plugins.mini-animate') end)
+later(function() require('src.plugins.mini-clue') end)
+later(function() require('src.plugins.mini-hipatterns') end)
+later(function() require('src.plugins.mini-map') end)
+later(function() require('src.plugins.mini-move') end)
 
 later(function()
 	add({
@@ -73,7 +73,7 @@ later(function()
 			'williamboman/mason-lspconfig.nvim'
 		},
 	})
-	source('plugins/nvim-lspconfig.lua')
+	require('src.plugins.nvim-lspconfig')
 end)
 
 later(function()
@@ -83,17 +83,17 @@ later(function()
 		hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 	}
 	add({ source = 'nvim-treesitter/nvim-treesitter-textobjects', depends = { ts_spec } })
-	source('plugins/nvim-treesitter.lua')
+	require('src.plugins.nvim-treesitter')
 end)
 
 later(function()
 	add('stevearc/conform.nvim')
-	source('plugins/conform.lua')
+	require('src.plugins.conform')
 end)
 
 later(function()
 	add('lewis6991/gitsigns.nvim')
-	source('plugins/gitsigns.lua')
+	require('src.plugins.gitsigns')
 end)
 
 -- later(function() require('mini.base16').setup() end)
