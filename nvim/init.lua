@@ -1,13 +1,10 @@
--- INIT =============================================================
 pcall(function() vim.loader.enable() end)
 
--- Define main config table
 _G.Config = {
 	path_package = vim.fn.stdpath('data') .. '/site/',
 	path_source = vim.fn.stdpath('config') .. '/src/',
 }
 
--- Ensure 'mini.nvim' is set up
 local mini_path = Config.path_package .. 'pack/deps/start/mini.nvim'
 
 if not vim.loop.fs_stat(mini_path) then
@@ -18,21 +15,15 @@ end
 
 require('mini.deps').setup({ path = { package = Config.path_package } })
 
--- Define helpers
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 local source = function(path) dofile(Config.path_source .. path) end
 
--- SETTINGS AND MAPPINGS ======================================================
+-- SETTINGS
 now(function() source('settings.lua') end)
-now(function() source('mappings.lua') end)
+now(function() source('keymaps.lua') end)
 now(function() source('functions.lua') end)
--- now(function() source('mappings-leader.lua') end)
--- if vim.g.vscode ~= nil then now(function() source('vscode.lua') end) end
 
--- Mini.nvim ==================================================================
-add({ name = 'mini.nvim', checkout = 'HEAD' })
-
--- PRIORITY
+-- PRIORITY PLUGINS
 now(function() require('mini.notify').setup() end)
 now(function() require('mini.sessions').setup() end)
 now(function() require('mini.statusline').setup() end)
@@ -46,7 +37,7 @@ now(function()
 	source('plugins/auto-dark-mode-nvim.lua')
 end)
 
--- LAZY
+-- LAZY PLUGINS
 later(function() require('mini.extra').setup() end)
 later(function() require('mini.ai').setup() end)
 later(function() require('mini.align').setup() end)

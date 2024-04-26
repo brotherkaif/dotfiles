@@ -16,8 +16,8 @@ vim.keymap.set('n', '-', function() require('mini.files').open(vim.api.nvim_buf_
 	{ desc = 'File Navigation (file)' })
 vim.keymap.set('n', '_', function() require('mini.files').open(vim.loop.cwd(), true) end,
 	{ desc = 'File Navigation (cwd)' })
-vim.keymap.set('n', '<leader>cc', function() vim.cmd('colorscheme randomhue') end, { desc = '[c]olors[c]heme randomhue' })
-vim.keymap.set('n', '<leader>cd', function() vim.cmd('colorscheme default') end, { desc = '[c]olorscheme [d]efault' })
+vim.keymap.set('n', '=', function() vim.cmd('colorscheme randomhue') end, { desc = 'colorscheme randomhue' })
+vim.keymap.set('n', '+', function() vim.cmd('colorscheme default') end, { desc = 'colorscheme default' })
 vim.keymap.set('n', '<leader><space>', function() require('mini.pick').builtin.buffers() end, { desc = 'find buffer' })
 vim.keymap.set('n', '<leader>ff', function() require('mini.pick').builtin.files() end, { desc = '[f]ind [f]ile' })
 vim.keymap.set('n', '<leader>fh', function() require('mini.pick').builtin.help() end, { desc = '[f]ind [h]elp' })
