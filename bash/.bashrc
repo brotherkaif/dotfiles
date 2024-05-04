@@ -5,11 +5,5 @@ source ~/.config/shell/.shell_motd
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# Only run the following in an interactive terminal session
-if [ -t 1 ]; then
-	# ENABLE STARSHIP
-	eval "$(starship init bash)"
-
-	# ENABLE ZELLIJ
-	# eval "$(zellij setup --generate-auto-start bash)"
-fi
+# PROMPT
+export PS1="\[\e[33m\]\w\[\e[m\]\[\e[31m\]\n\\$\[\e[39m\] "

@@ -46,9 +46,6 @@ setup_environment () {
 				echo "HTOP"
 				brew install htop
 
-				echo "STARSHIP"
-				brew install starship
-
 				echo "ZELLIJ"
 				brew install zellij
 
