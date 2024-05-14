@@ -8,4 +8,4 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 
 # PROMPT
-PROMPT="%F{yellow}%~"$'\n'"%F{red}%#%f "
+PROMPT="%B%~%b"$'\n'"%# "
