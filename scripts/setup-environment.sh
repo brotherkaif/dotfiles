@@ -43,14 +43,17 @@ setup_environment () {
 				echo "TREE"
 				brew install tree
 
-				echo "HTOP"
-				brew install htop
+				echo "BTOP"
+				brew install btop
 
-				echo "ZELLIJ"
-				brew install zellij
+				echo "DUST"
+				brew install dust
+
+				echo "BAT"
+				brew install bat
 
 				echo "NEOVIM"
-				brew install nvim --HEAD
+				brew install neovim
 
 				echo "GLOW"
 				brew install glow
@@ -66,6 +69,9 @@ setup_environment () {
 
 				echo "FIRA CODE NERD FONT"
 				brew install --cask font-fira-code-nerd-font
+
+				echo "HACK NERD FONT"
+				brew install --cask font-hack-nerd-font
 
 				echo " _| _  _  _     _ "
 				echo "(_|(/_(_|| ||_||_)"

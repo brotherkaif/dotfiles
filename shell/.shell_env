@@ -2,7 +2,7 @@
 export HISTCONTROL=ignorespace
 
 # PATH SETUP
-export PATH=$PATH:$HOME/.local/bin
+export PATH="$GOPATH/bin:$HOME/.local/bin:$PATH"
 
 # XDG BASE DIRECTORY CONFIG
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -22,7 +22,6 @@ export ANSIBLE_NOCOWS=1
 
 # GO OPTIONS
 export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
 
 # MAC CONFIG
 export CLICOLOR=1

@@ -17,8 +17,3 @@ alias journal="gh gist edit d78e04055dcdcf9caba2e26eb4a47bb5"
 alias tss="date '+%F'"
 alias tsm="date '+%F %a'"
 alias tsl="date '+%F %a %H:%M:%S'"
-
-# LOCAL ALIASES
-if [ -f "$HOME/.local-config" ]; then
-  source "$HOME/.local-config"
-fi
