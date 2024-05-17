@@ -76,15 +76,15 @@ later(function() require('src.plugins.mini-hipatterns') end)
 later(function() require('src.plugins.mini-map') end)
 later(function() require('src.plugins.mini-move') end)
 
-later(function()
-	local ts_spec = {
-		source = 'nvim-treesitter/nvim-treesitter',
-		checkout = 'master',
-		hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
-	}
-	add({ source = 'nvim-treesitter/nvim-treesitter-textobjects', depends = { ts_spec } })
-	require('src.plugins.nvim-treesitter')
-end)
+-- later(function()
+-- 	local ts_spec = {
+-- 		source = 'nvim-treesitter/nvim-treesitter',
+-- 		checkout = 'master',
+-- 		hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+-- 	}
+-- 	add({ source = 'nvim-treesitter/nvim-treesitter-textobjects', depends = { ts_spec } })
+-- 	require('src.plugins.nvim-treesitter')
+-- end)
 
 later(function()
 	add('stevearc/conform.nvim')
