@@ -6,11 +6,11 @@ _G.Config = {
 local mini_path = Config.path_package .. 'pack/deps/start/mini.nvim'
 
 if not vim.loop.fs_stat(mini_path) then
-  vim.cmd('echo "Installing `mini.nvim`" | redraw')
-  local clone_cmd = { 'git', 'clone', '--filter=blob:none', 'https://github.com/echasnovski/mini.nvim', mini_path }
-  vim.fn.system(clone_cmd)
-  vim.cmd('packadd mini.nvim | helptags ALL')
-  vim.cmd('echo "Installed `mini.nvim`" | redraw')
+	vim.cmd('echo "Installing `mini.nvim`" | redraw')
+	local clone_cmd = { 'git', 'clone', '--filter=blob:none', 'https://github.com/echasnovski/mini.nvim', mini_path }
+	vim.fn.system(clone_cmd)
+	vim.cmd('packadd mini.nvim | helptags ALL')
+	vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
 -- Set up 'mini.deps' (customize to your liking)
@@ -51,6 +51,14 @@ now(function()
 	require('src.plugins.auto-dark-mode-nvim')
 end)
 
+now(function()
+	add({
+		source = 'nvim-treesitter/nvim-treesitter',
+		hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+	})
+	require('src.plugins.nvim-treesitter')
+end)
+
 -- LAZY PLUGINS
 later(function() require('mini.extra').setup() end)
 later(function() require('mini.ai').setup() end)
@@ -75,16 +83,6 @@ later(function() require('src.plugins.mini-animate') end)
 later(function() require('src.plugins.mini-hipatterns') end)
 later(function() require('src.plugins.mini-map') end)
 later(function() require('src.plugins.mini-move') end)
-
--- later(function()
--- 	local ts_spec = {
--- 		source = 'nvim-treesitter/nvim-treesitter',
--- 		checkout = 'master',
--- 		hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
--- 	}
--- 	add({ source = 'nvim-treesitter/nvim-treesitter-textobjects', depends = { ts_spec } })
--- 	require('src.plugins.nvim-treesitter')
--- end)
 
 later(function()
 	add('stevearc/conform.nvim')
