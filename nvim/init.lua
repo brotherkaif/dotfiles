@@ -94,11 +94,6 @@ now(function()
 	require('src.plugins.conform')
 end)
 
-now(function()
-	add('lewis6991/gitsigns.nvim')
-	require('src.plugins.gitsigns')
-end)
-
 -- later(function() require('mini.base16').setup() end)
 -- later(function() require('mini.colors').setup() end)
 -- later(function() require('mini.fuzzy').setup() end)
