@@ -29,6 +29,7 @@ now(function() require('src.functions') end)
 
 -- PRIORITY PLUGINS
 now(function() require('mini.completion').setup() end)
+now(function() require('mini.icons').setup() end)
 now(function() require('mini.notify').setup() end)
 now(function() require('mini.sessions').setup() end)
 now(function() require('mini.statusline').setup() end)
@@ -37,7 +38,6 @@ now(function() require('src.plugins.mini-basics') end)
 now(function() require('src.plugins.mini-clue') end)
 now(function() require('src.plugins.mini-files') end)
 now(function() require('src.plugins.mini-starter') end)
-now(function() add('nvim-tree/nvim-web-devicons') end)
 
 now(function()
 	add({
