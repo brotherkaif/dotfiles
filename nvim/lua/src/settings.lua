@@ -8,7 +8,8 @@ vim.o.undofile     = true           -- Enable persistent undo
 vim.cmd.aunmenu({ "PopUp.How-to\\ disable\\ mouse" }) -- Disable mouse pop up
 vim.cmd.aunmenu({ "PopUp.-1-" }) -- Disable mouse pop up
 
-vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim
+vim.api.nvim_set_option('clipboard', 'unnamedplus') -- Sync clipboard between OS and Neovim
+
 vim.o.breakindent   = true      -- Indent wrapped lines to match line start
 vim.o.scrolloff = 7
 
