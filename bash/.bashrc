@@ -11,4 +11,4 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # PROMPT
-export PS1="\[\e[1m\w\]\n\$ "
+export PS1="\[\e[1m\w\]\n\$ \[\e[0m\]"
