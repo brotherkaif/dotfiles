@@ -10,7 +10,7 @@ if not vim.loop.fs_stat(mini_path) then
   local clone_cmd = {
     'git', 'clone', '--filter=blob:none',
     -- Uncomment next line to use 'stable' branch
-    '--branch', 'stable',
+    -- '--branch', 'stable',
     'https://github.com/echasnovski/mini.nvim', mini_path
   }
   vim.fn.system(clone_cmd)
