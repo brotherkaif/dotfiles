@@ -30,7 +30,7 @@ local xmap_leader = function(suffix, rhs, desc, opts)
 	vim.keymap.set('x', '<Leader>' .. suffix, rhs, opts)
 end
 
--- b is for 'buffer'
+-- colorscheme quick switch
 nmap('=', '<Cmd>colorscheme randomhue<CR>', 'colorscheme randomhue')
 nmap('+', '<Cmd>colorscheme default<CR>', 'colorscheme default')
 
@@ -59,7 +59,7 @@ nmap_leader('fc', '<Cmd>Pick git_commits<CR>', '[f]ind [c]ommits (all)')
 nmap_leader('fC', '<Cmd>Pick git_commits path="%"<CR>', '[f]ind [C]ommits (current)')
 nmap_leader('fd', '<Cmd>Pick diagnostic scope="all"<CR>', '[f]ind [d]iagnostic (workspace)')
 nmap_leader('fD', '<Cmd>Pick diagnostic scope="current"<CR>', '[f]ind [D]iagnostic (buffer)')
-nmap_leader('ff', '<Cmd>Pick explorer<CR>', '[f]ind in [e]xplorer')
+nmap_leader('fe', '<Cmd>Pick explorer<CR>', '[f]ind in [e]xplorer')
 nmap_leader('ff', '<Cmd>Pick files<CR>', '[f]ind [f]ile')
 nmap_leader('fg', '<Cmd>Pick grep_live<CR>', '[f]ind with [g]rep (interactive)')
 nmap_leader('fG', '<Cmd>Pick grep pattern="<cword>"<CR>', '[f]ind with [G]rep (current word)')
@@ -78,9 +78,9 @@ nmap_leader('fV', '<Cmd>Pick visit_paths<CR>', '[f]ind [V]isits paths (cwd)')
 
 -- g is for git
 nmap_leader('gg', '<Cmd>lua Config.open_lazygit()<CR>', '[g]it mana[g]er')
--- nmap_leader('go', '<Cmd>lua MiniDiff.toggle_overlay()<CR>', '[g]it [o]verlay toggle')
--- nmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>',  'Show at cursor')
--- xmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>',  'Show at selection')
+nmap_leader('go', '<Cmd>lua MiniDiff.toggle_overlay()<CR>', '[g]it [o]verlay toggle')
+nmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>',  '[g]it [s]how at cursor')
+xmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>',  '[g]it [s]how at selection')
 
 -- l is for 'LSP' (Language Server Protocol)
 local formatting_cmd = '<Cmd>lua require("conform").format({ lsp_fallback = true })<CR>'

@@ -7,11 +7,9 @@ local servers = {
 	-- pyright = {},
 	-- rust_analyzer = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
 	tsserver = {},
-
 	marksman = {},
-
+	biome = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
