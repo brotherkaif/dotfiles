@@ -47,7 +47,7 @@ now(function()
 			'williamboman/mason-lspconfig.nvim'
 		},
 	})
-	require('src.plugins.nvim-lspconfig')
+	require('src.plugins.lsp')
 end)
 
 now(function()
