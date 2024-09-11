@@ -1,21 +1,22 @@
 local animate_config = function()
 	-- don't use animate when scrolling with the mouse
 	local mouse_scrolled = false
-	for _, scroll in ipairs({ 'Up', 'Down' }) do
-		local key = '<ScrollWheel' .. scroll .. '>'
-		vim.keymap.set({ '', 'i' }, key, function()
+	for _, scroll in ipairs({ "Up", "Down" }) do
+		local key = "<ScrollWheel" .. scroll .. ">"
+		vim.keymap.set({ "", "i" }, key, function()
 			mouse_scrolled = true
 			return key
 		end, { expr = true })
 	end
 
-	local animate = require('mini.animate')
+	local animate = require("mini.animate")
+
 	return {
 		resize = {
-			timing = animate.gen_timing.linear({ duration = 100, unit = 'total' }),
+			timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
 		},
 		scroll = {
-			timing = animate.gen_timing.linear({ duration = 150, unit = 'total' }),
+			timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
 			subscroll = animate.gen_subscroll.equal({
 				predicate = function(total_scroll)
 					if mouse_scrolled then
@@ -29,4 +30,4 @@ local animate_config = function()
 	}
 end
 
-require('mini.animate').setup(animate_config())
+require("mini.animate").setup(animate_config())

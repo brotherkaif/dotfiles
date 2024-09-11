@@ -1,4 +1,4 @@
-require('auto-dark-mode').setup({
+require("auto-dark-mode").setup({
 	update_interval = 1000,
 
 	set_dark_mode = function()

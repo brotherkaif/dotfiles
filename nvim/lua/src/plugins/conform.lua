@@ -1,9 +1,9 @@
-require('conform').setup({
-  -- Map of filetype to formatters
-  formatters_by_ft = {
-    javascript = { 'prettier' },
-    typescript = { 'prettier' },
-    json = { 'prettier' },
-    lua = { 'stylua' },
-  },
+require("conform").setup({
+	-- Map of filetype to formatters
+	formatters_by_ft = {
+		javascript = { "prettier", "eslint" },
+		typescript = { "prettier", "eslint" },
+		json = { "prettier" },
+		lua = { "stylua" },
+	},
 })

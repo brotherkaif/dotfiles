@@ -1,5 +1,5 @@
-require('mini.move').setup({
+require("mini.move").setup({
 	options = {
-		reindent_linewise = false
-	}
+		reindent_linewise = false,
+	},
 })
