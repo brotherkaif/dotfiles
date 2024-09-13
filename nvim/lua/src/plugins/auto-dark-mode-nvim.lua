@@ -1,3 +1,5 @@
+MiniDeps.add("f-person/auto-dark-mode.nvim")
+
 require("auto-dark-mode").setup({
 	update_interval = 1000,
 

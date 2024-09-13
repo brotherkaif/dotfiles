@@ -1,3 +1,12 @@
+MiniDeps.add({
+	source = "nvim-treesitter/nvim-treesitter",
+	hooks = {
+		post_checkout = function()
+			vim.cmd("TSUpdate")
+		end,
+	},
+})
+
 local ensure_installed = {
 	"bash",
 	"c",

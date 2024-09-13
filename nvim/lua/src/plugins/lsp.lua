@@ -1,3 +1,11 @@
+MiniDeps.add({
+	source = "neovim/nvim-lspconfig",
+	depends = {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	},
+})
+
 require("mason").setup()
 
 local servers = {
@@ -7,7 +15,7 @@ local servers = {
 	-- rust_analyzer = {},
 	-- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-	tsserver = {},
+	ts_ls = {},
 
 	marksman = {},
 
