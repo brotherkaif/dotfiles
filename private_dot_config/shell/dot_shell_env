@@ -17,6 +17,9 @@ export TERMINAL="alacritty"
 export TERM=xterm-256color
 export EDITOR="$VISUAL"
 
+# HOMEBREW OPTIONS
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
+
 # ANSIBLE OPTIONS
 export ANSIBLE_NOCOWS=1
 
