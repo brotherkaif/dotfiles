@@ -1,0 +1,17 @@
+lastupdatecheck: 0
+recentrepos:
+- /Users/ahmedk02/dotfiles
+- /Users/ahmedk02/dev-notes
+- /Users/ahmedk02/playground/zero-conf-testing
+startuppopupversion: 5
+lastversion: 0.41.0
+customcommandshistory:
+- q
+- qa
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 2
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

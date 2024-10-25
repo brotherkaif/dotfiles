@@ -1,0 +1,8 @@
+# TMUX AUTO LOAD
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux -2 attach -t TERM || tmux -2 new -s TERM
+fi
+
+# TMUX ALIASES
+alias tmux="tmux -2"
+alias tms="tmux -2 new -s"
