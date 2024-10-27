@@ -1,6 +1,5 @@
 tap "aws/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 brew "bat"
 brew "chezmoi"
