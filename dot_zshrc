@@ -4,9 +4,9 @@ source ~/.config/shell/.shell_env
 source ~/.config/shell/.shell_motd
 
 # local config
-# if [ -f "$HOME/.local-config" ]; then
-#   source "$HOME/.local-config"
-# fi
+if [ -f "$HOME/.local-config" ]; then
+  source "$HOME/.local-config"
+fi
 
 # VIM MODE & CTRL-R fix
 bindkey -v
