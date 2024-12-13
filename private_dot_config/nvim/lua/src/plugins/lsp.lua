@@ -9,6 +9,7 @@ MiniDeps.add({
 require("mason").setup()
 
 local servers = {
+	cfn_lint = {},
 	clangd = {},
 	cssls = {},
 	gopls = {},
@@ -29,14 +30,14 @@ local servers = {
 	ts_ls = {},
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
 -- Ensure the servers above are installed
 local mason_lspconfig = require("mason-lspconfig")
 
 mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
 })
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 mason_lspconfig.setup_handlers({
 	function(server_name)
