@@ -9,7 +9,6 @@ MiniDeps.add({
 require("mason").setup()
 
 local servers = {
-	cfn_lint = {},
 	clangd = {},
 	cssls = {},
 	gopls = {},
