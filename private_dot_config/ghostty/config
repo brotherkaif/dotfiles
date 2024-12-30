@@ -1,0 +1,2 @@
+theme = dark:NvimDark,light:NvimLight
+macos-option-as-alt = left
