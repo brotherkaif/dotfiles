@@ -11,6 +11,7 @@ require("mason").setup()
 local servers = {
 	clangd = {},
 	cssls = {},
+	eslint = {},
 	gopls = {},
 	html = {},
 	jsonls = {},
