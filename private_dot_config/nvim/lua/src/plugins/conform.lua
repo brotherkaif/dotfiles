@@ -13,7 +13,7 @@ require("conform").setup({
 		json = { "biome", "prettier", stop_after_first = true },
 		jsonc = { "biome", "prettier", stop_after_first = true },
 		less = { "biome", "prettier", stop_after_first = true },
-		markdown = { "biome", "prettier", stop_after_first = true },
+		markdown = { "biome", "prettier", "marksman", stop_after_first = true },
 		scss = { "biome", "prettier", stop_after_first = true },
 		svelte = { "biome", "prettier", stop_after_first = true },
 		typescript = { "biome", "prettier", stop_after_first = true },
