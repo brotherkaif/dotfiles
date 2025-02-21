@@ -26,7 +26,7 @@ local servers = {
 			},
 		},
 	},
-	marksman = {},
+	markdownlint = {},
 	ts_ls = {},
 }
 
