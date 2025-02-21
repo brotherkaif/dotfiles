@@ -6,8 +6,6 @@ MiniDeps.add({
 	},
 })
 
-require("mason").setup()
-
 local servers = {
 	clangd = {},
 	cssls = {},
@@ -22,15 +20,15 @@ local servers = {
 			-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 			diagnostics = {
 				disable = { "missing-fields" },
-				globals = { "vim" },
+				globals = { "vim", "MiniDeps" },
 			},
 		},
 	},
-	markdownlint = {},
 	ts_ls = {},
 }
 
 -- Ensure the servers above are installed
+require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 
 mason_lspconfig.setup({
