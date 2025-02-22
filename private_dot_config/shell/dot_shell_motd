@@ -1,6 +1,3 @@
 # MOTD
 clear
-fastfetch
-echo -e "┌┬┐┌─┐┬─┐┌┬┐┬┌┐┌┌─┐┬  "
-echo -e " │ ├┤ ├┬┘│││││││├─┤│  "
-echo -e " ┴ └─┘┴└─┴ ┴┴┘└┘┴ ┴┴─┘"
+sleep 0.1 && fastfetch
