@@ -51,7 +51,6 @@ MiniDeps.now(function()
 	require("src.plugins.auto-dark-mode-nvim")
 	require("src.plugins.copilot")
 	require("src.plugins.guess-indent-nvim")
-	require("src.plugins.markdown-preview-nvim")
 end)
 
 -- LAZY PLUGINS
