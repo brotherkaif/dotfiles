@@ -6,7 +6,7 @@ MiniDeps.add({
 	},
 })
 
-require("mason-tool-installer").setup {
+require("mason-tool-installer").setup({
 	ensure_installed = {
 		"stylua",
 		"biome",
@@ -51,7 +51,7 @@ require("mason-tool-installer").setup {
 		["mason-null-ls"] = true,
 		["mason-nvim-dap"] = true,
 	},
-}
+})
 
 require("conform").setup({
 	formatters_by_ft = {
@@ -77,11 +77,11 @@ require("conform").setup({
 	formatters = {
 		biome = {
 			cwd = require("conform.util").root_file({ "package.json" }),
-			require_cwd = true
+			require_cwd = true,
 		},
 		prettier = {
 			cwd = require("conform.util").root_file({ "package.json" }),
-			require_cwd = true
+			require_cwd = true,
 		},
 	},
 	format_on_save = function(bufnr)
@@ -96,5 +96,5 @@ require("conform").setup({
 		end
 		-- ...additional logic...
 		return { timeout_ms = 500, lsp_format = "never" }
-	end
+	end,
 })
