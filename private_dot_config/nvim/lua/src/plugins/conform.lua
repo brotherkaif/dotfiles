@@ -11,6 +11,7 @@ require("mason-tool-installer").setup({
 		"stylua",
 		"biome",
 		"markdownlint",
+		"eslint_d",
 	},
 
 	-- if set to true this will check each tool for updates. If updates
@@ -61,7 +62,7 @@ require("conform").setup({
 		graphql = { "biome", "prettier", stop_after_first = true },
 		handlebars = { "biome", "prettier", stop_after_first = true },
 		html = { "biome", "prettier", stop_after_first = true },
-		javascript = { "biome", "prettier", stop_after_first = true },
+		javascript = { "eslint_d", "biome", "prettier", stop_after_first = true },
 		javascriptreact = { "biome", "prettier", stop_after_first = true },
 		json = { "biome", "prettier", stop_after_first = true },
 		jsonc = { "biome", "prettier", stop_after_first = true },
@@ -80,6 +81,10 @@ require("conform").setup({
 			require_cwd = true,
 		},
 		prettier = {
+			cwd = require("conform.util").root_file({ "package.json" }),
+			require_cwd = true,
+		},
+		eslint_d = {
 			cwd = require("conform.util").root_file({ "package.json" }),
 			require_cwd = true,
 		},
