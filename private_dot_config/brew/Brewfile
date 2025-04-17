@@ -1,7 +1,3 @@
-tap "aws/tap"
-tap "homebrew/bundle"
-tap "homebrew/services"
-
 brew "bat"
 brew "chezmoi"
 brew "dust"
