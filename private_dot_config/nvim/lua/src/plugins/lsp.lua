@@ -3,11 +3,11 @@ MiniDeps.add({
 	depends = {
 		{
 			source = "williamboman/mason.nvim",
-			checkout = "^1.0.0"
+			-- checkout = "^1.0.0"
 		},
 		{
 			source = "williamboman/mason-lspconfig.nvim",
-			checkout = "^1.0.0"
+			-- checkout = "^1.0.0"
 		},
 	},
 })
@@ -43,12 +43,12 @@ mason_lspconfig.setup({
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-mason_lspconfig.setup_handlers({
-	function(server_name)
-		require("lspconfig")[server_name].setup({
-			capabilities = capabilities,
-			settings = servers[server_name],
-			filetypes = (servers[server_name] or {}).filetypes,
-		})
-	end,
-})
+-- mason_lspconfig.setup_handlers({
+	-- function(server_name)
+		-- require("lspconfig")[server_name].setup({
+			-- capabilities = capabilities,
+		-- 	settings = servers[server_name],
+			-- filetypes = (servers[server_name] or {}).filetypes,
+		-- })
+	-- end,
+-- })
