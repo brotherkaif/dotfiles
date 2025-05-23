@@ -1,8 +1,14 @@
 MiniDeps.add({
 	source = "neovim/nvim-lspconfig",
 	depends = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		{
+			source = "williamboman/mason.nvim",
+			checkout = "^1.0.0"
+		},
+		{
+			source = "williamboman/mason-lspconfig.nvim",
+			checkout = "^1.0.0"
+		},
 	},
 })
 
