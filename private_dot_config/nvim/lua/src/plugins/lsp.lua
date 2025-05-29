@@ -2,12 +2,10 @@ MiniDeps.add({
 	source = "neovim/nvim-lspconfig",
 	depends = {
 		{
-			source = "williamboman/mason.nvim",
-			-- checkout = "^1.0.0"
+			source = "mason-org/mason.nvim",
 		},
 		{
-			source = "williamboman/mason-lspconfig.nvim",
-			-- checkout = "^1.0.0"
+			source = "mason-org/mason-lspconfig.nvim",
 		},
 	},
 })
@@ -23,7 +21,6 @@ local servers = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
-			-- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 			diagnostics = {
 				disable = { "missing-fields" },
 				globals = { "vim", "MiniDeps" },
@@ -33,22 +30,18 @@ local servers = {
 	ts_ls = {},
 }
 
--- Ensure the servers above are installed
 require("mason").setup()
-local mason_lspconfig = require("mason-lspconfig")
 
-mason_lspconfig.setup({
+require("mason-lspconfig").setup({
 	ensure_installed = vim.tbl_keys(servers),
+	automatic_enable = true,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
--- mason_lspconfig.setup_handlers({
-	-- function(server_name)
-		-- require("lspconfig")[server_name].setup({
-			-- capabilities = capabilities,
-		-- 	settings = servers[server_name],
-			-- filetypes = (servers[server_name] or {}).filetypes,
-		-- })
-	-- end,
--- })
+for server_name, server_config in pairs(servers) do
+	vim.lsp.config(server_name, {
+		capabilities = capabilities,
+		settings = server_config,
+	})
+end
