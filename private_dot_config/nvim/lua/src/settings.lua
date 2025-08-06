@@ -26,3 +26,5 @@ end
 vim.o.tabstop = 2						-- Insert 2 spaces for a tab
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2				-- Use this number of spaces for indentation
+
+vim.g.disable_autoformat = true

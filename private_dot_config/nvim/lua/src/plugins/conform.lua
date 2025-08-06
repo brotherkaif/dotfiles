@@ -70,13 +70,13 @@ require("conform").setup({
 		markdown = { "biome", "prettier", "markdownlint", stop_after_first = true },
 		scss = { "biome", "prettier", stop_after_first = true },
 		svelte = { "biome", "prettier", stop_after_first = true },
-		typescript = { "biome", "prettier", stop_after_first = true },
+		typescript = { "eslint_d", "biome", "prettier", stop_after_first = true },
 		typescriptreact = { "biome", "prettier", stop_after_first = true },
 		vue = { "biome", "prettier", stop_after_first = true },
 		yaml = { "biome", "prettier", stop_after_first = true },
 	},
 	formatters = {
-		biome = {
+		eslint_d = {
 			cwd = require("conform.util").root_file({ "package.json" }),
 			require_cwd = true,
 		},
@@ -84,7 +84,7 @@ require("conform").setup({
 			cwd = require("conform.util").root_file({ "package.json" }),
 			require_cwd = true,
 		},
-		eslint_d = {
+		biome = {
 			cwd = require("conform.util").root_file({ "package.json" }),
 			require_cwd = true,
 		},
