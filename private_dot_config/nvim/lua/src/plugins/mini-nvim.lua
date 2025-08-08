@@ -1,36 +1,43 @@
-local animate_config = function()
-	-- don't use animate when scrolling with the mouse
-	local mouse_scrolled = false
-	for _, scroll in ipairs({ "Up", "Down" }) do
-		local key = "<ScrollWheel" .. scroll .. ">"
-		vim.keymap.set({ "", "i" }, key, function()
-			mouse_scrolled = true
-			return key
-		end, { expr = true })
-	end
+-- TEXT EDITING
+require("mini.ai").setup()
+require("mini.align").setup()
+require("mini.comment").setup()
+require("mini.completion").setup()
+-- require("mini.keymap").setup()
+require("mini.move").setup({
+	options = {
+		reindent_linewise = false,
+	},
+})
+require("mini.operators").setup()
+require("mini.pairs").setup()
+-- require("mini.snippets").setup()
+require("mini.splitjoin").setup()
+require("mini.surround").setup()
 
-	local animate = require("mini.animate")
-
-	return {
-		resize = {
-			timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-		},
-		scroll = {
-			timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-			subscroll = animate.gen_subscroll.equal({
-				predicate = function(total_scroll)
-					if mouse_scrolled then
-						mouse_scrolled = false
-						return false
-					end
-					return total_scroll > 1
-				end,
-			}),
-		},
-	}
-end
-
-local clue_config = function()
+-- GENERAL WORKFLOW
+require("mini.basics").setup({
+	options = {
+		basic = true,
+		-- extra_ui is set to `false` and is instead set using the autocommand `mini-basics-extra-ui-workaround`
+		extra_ui = false,
+		win_borders = "default",
+	},
+	mappings = {
+		basic = true,
+		option_toggle_prefix = [[\]],
+		windows = true,
+		move_with_alt = true,
+	},
+	autocommands = {
+		basic = true,
+		relnum_in_visual_mode = true,
+	},
+	silent = false,
+})
+require("mini.bracketed").setup()
+require("mini.bufremove").setup()
+require("mini.clue").setup((function()
 	local miniclue = require("mini.clue")
 
 	local opts = {
@@ -86,36 +93,88 @@ local clue_config = function()
 	}
 
 	return opts
-end
-
-require("mini.ai").setup()
-require("mini.align").setup()
-
--- TODO: move to inline function
-require("mini.animate").setup(animate_config())
-
--- TODO: convert to function
-require("mini.basics").setup({
+end)())
+-- require("mini.deps").setup()
+require("mini.diff").setup()
+require("mini.extra").setup()
+require("mini.files").setup({
+	windows = {
+		preview = true,
+		width_focus = 30,
+		width_preview = 60,
+	},
 	options = {
-		basic = true,
-		-- extra_ui is set to `false` and is instead set using the autocommand `mini-basics-extra-ui-workaround`
-		extra_ui = false,
-		win_borders = "default",
+		use_as_default_explorer = true,
+		show_dotfiles = true,
 	},
-	mappings = {
-		basic = true,
-		option_toggle_prefix = [[\]],
-		windows = true,
-		move_with_alt = true,
-	},
-	autocommands = {
-		basic = true,
-		relnum_in_visual_mode = true,
-	},
-	silent = false,
 })
+require("mini.git").setup()
+require("mini.jump").setup()
+require("mini.jump2d").setup()
+-- require("mini.misc").setup()
+require("mini.pick").setup()
+require("mini.sessions").setup()
+require("mini.visits").setup()
 
--- TODO: move to inline function
+-- APPEARANCE
+require("mini.animate").setup()
+-- require("mini.base16").setup()
+-- require("mini.colors").setup()
+require("mini.cursorword").setup()
+require("mini.hipatterns").setup({
+	highlighters = {
+		fixme = { pattern = "FIXME:", group = "MiniHipatternsFixme" },
+		hack = { pattern = "HACK:", group = "MiniHipatternsHack" },
+		todo = { pattern = "TODO:", group = "MiniHipatternsTodo" },
+		note = { pattern = "NOTE:", group = "MiniHipatternsNote" },
+	},
+})
+-- require("mini.hues").setup()
+require("mini.icons").setup()
+require("mini.indentscope").setup()
+require("mini.map").setup({
+  integrations = {
+    require("mini.map").gen_integration.builtin_search(),
+    require("mini.map").gen_integration.diagnostic({
+      error = "DiagnosticFloatingError",
+      warn = "DiagnosticFloatingWarn",
+      info = "DiagnosticFloatingInfo",
+      hint = "DiagnosticFloatingHint",
+    }),
+    require("mini.map").gen_integration.gitsigns(),
+  },
+  symbols = {
+    encode = require("mini.map").gen_encode_symbols.dot("3x2"),
+  },
+  window = {
+    side = "right",
+    width = 10,
+    winblend = 25,
+    focusable = false,
+    show_integration_count = true,
+  },
+})
+require("mini.notify").setup()
+require("mini.starter").setup({
+	header = table.concat({
+		[[  /\ \▔\___  ___/\   /(●)_ __ ___  ]],
+		[[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
+		[[/ /\  /  __/ (_) \ V /| | | | | | |]],
+		[[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
+		[[───────────────────────────────────]],
+	}, "\n"),
+	footer = os.date(),
+})
+require("mini.statusline").setup()
+require("mini.tabline").setup()
+require("mini.trailspace").setup()
+
+-- OTHER
+-- require("mini.doc").setup()
+-- require("mini.fuzzy").setup()
+-- require("mini.test").setup()
+
+-- HACK: used to add mini-files compatibility for non-truecolour compatible terminals (can be removed once macOS Tahoe releases)
 vim.api.nvim_create_autocmd("OptionSet", {
 	pattern = "termguicolors",
 	callback = function()
@@ -137,99 +196,3 @@ vim.api.nvim_create_autocmd("OptionSet", {
 		end
 	end,
 })
-
-require("mini.bracketed").setup()
-require("mini.bufremove").setup()
-
--- TODO: move to inline function
-require("mini.clue").setup(clue_config())
-
-require("mini.comment").setup()
-require("mini.completion").setup()
-require("mini.cursorword").setup()
-require("mini.diff").setup()
-require("mini.doc").setup()
-require("mini.extra").setup()
-
-require("mini.files").setup({
-	windows = {
-		preview = true,
-		width_focus = 30,
-		width_preview = 60,
-	},
-	options = {
-		use_as_default_explorer = true,
-		show_dotfiles = true,
-	},
-})
-
-require("mini.git").setup()
-
-require("mini.hipatterns").setup({
-	highlighters = {
-		fixme = { pattern = "FIXME:", group = "MiniHipatternsFixme" },
-		hack = { pattern = "HACK:", group = "MiniHipatternsHack" },
-		todo = { pattern = "TODO:", group = "MiniHipatternsTodo" },
-		note = { pattern = "NOTE:", group = "MiniHipatternsNote" },
-	},
-})
-
-require("mini.icons").setup()
-require("mini.indentscope").setup()
-require("mini.jump").setup()
-require("mini.jump2d").setup()
-
-require("mini.map").setup({
-	integrations = {
-		require("mini.map").gen_integration.builtin_search(),
-		require("mini.map").gen_integration.diagnostic({
-			error = "DiagnosticFloatingError",
-			warn = "DiagnosticFloatingWarn",
-			info = "DiagnosticFloatingInfo",
-			hint = "DiagnosticFloatingHint",
-		}),
-		require("mini.map").gen_integration.gitsigns(),
-	},
-	symbols = {
-		encode = require("mini.map").gen_encode_symbols.dot("3x2"),
-	},
-})
-
-require("mini.move").setup({
-	options = {
-		reindent_linewise = false,
-	},
-})
-
-require("mini.notify").setup()
-
-require("mini.operators").setup()
-
-require("mini.pairs").setup()
-
-require("mini.pick").setup()
-
-require("mini.sessions").setup()
-
-require("mini.splitjoin").setup()
-
-require("mini.starter").setup({
-	header = table.concat({
-		[[  /\ \▔\___  ___/\   /(●)_ __ ___  ]],
-		[[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-		[[/ /\  /  __/ (_) \ V /| | | | | | |]],
-		[[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
-		[[───────────────────────────────────]],
-	}, "\n"),
-	footer = os.date(),
-})
-
-require("mini.statusline").setup()
-
-require("mini.surround").setup()
-
-require("mini.tabline").setup()
-
-require("mini.trailspace").setup()
-
-require("mini.visits").setup()

@@ -84,7 +84,7 @@ nmap_leader("gg", "<cmd>lua Config.open_lazygit()<CR>", "[g]it mana[g]er")
 
 -- l is for 'LSP' (Language Server Protocol)
 local lsp_formatting_cmd = '<cmd>lua vim.lsp.buf.format({ async = true })<CR>'
-local confom_formatting_cmd = '<cmd>lua require("conform").format({ lsp_fallback = true })<CR>'
+local conform_formatting_cmd = '<cmd>lua require("conform").format({ lsp_fallback = true })<CR>'
 nmap_leader("la", "<cmd>lua vim.lsp.buf.signature_help()<CR>", "[l]SP [a]rguments popup")
 nmap_leader("lA", "<cmd>lua vim.lsp.buf.code_action()<CR>", "[l]SP code [A]ction")
 nmap_leader("ld", "<cmd>lua vim.diagnostic.open_float()<CR>", "[l]SP [d]iagnostics popup")
@@ -96,8 +96,8 @@ nmap_leader("lr", "<cmd>lua vim.lsp.buf.references()<CR>", "[l]SP [r]eferences")
 nmap_leader("ls", "<cmd>lua vim.lsp.buf.definition()<CR>", "[l]SP [s]ource definition")
 nmap_leader("lf", lsp_formatting_cmd, "[l]SP [f]ormat")
 xmap_leader("lf", lsp_formatting_cmd, "[l]SP [f]ormat selection")
-nmap_leader("lc", lsp_formatting_cmd, "[l]SP [c]onform format")
-xmap_leader("lc", lsp_formatting_cmd, "[l]SP [c]onform format")
+nmap_leader("lc", conform_formatting_cmd, "[l]SP [c]onform format")
+xmap_leader("lc", conform_formatting_cmd, "[l]SP [c]onform format")
 
 -- m is for 'map'
 nmap_leader("mc", "<cmd>lua MiniMap.close()<CR>", "[m]ap [c]lose")
