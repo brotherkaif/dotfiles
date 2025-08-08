@@ -3,7 +3,7 @@ require("mini.ai").setup()
 require("mini.align").setup()
 require("mini.comment").setup()
 require("mini.completion").setup()
--- require("mini.keymap").setup()
+require("mini.keymap").setup()
 require("mini.move").setup({
 	options = {
 		reindent_linewise = false,
@@ -11,7 +11,21 @@ require("mini.move").setup({
 })
 require("mini.operators").setup()
 require("mini.pairs").setup()
--- require("mini.snippets").setup()
+-- TODO: complete setup for snippets
+-- require("mini.snippets").setup({
+-- 	snippets = {
+-- 		-- Load friendly-snippets (VSCode format) from the path where mini.deps installs it
+-- 		-- require("mini.snippets").gen_loader.from_vscode(vim.fn.stdpath("data") .. "/site/pack/deps/start/friendly-snippets"),
+-- 		-- Load your own custom global snippets if any
+-- 		-- gen_loader.from_file(fn.stdpath("config") .. "/snippets/global.json"),
+-- 		-- Load language-specific snippets from runtimepath
+-- 		require("mini.snippets").gen_loader.from_lang(vim.fn.stdpath("data") .. "/site/pack/deps/opt/friendly-snippets/snippets"),
+-- 	},
+-- 	mappings = {
+-- 		expand_or_jump = "<Tab>",
+-- 		jump_prev = "<S-Tab>",
+-- 	},
+-- })
 require("mini.splitjoin").setup()
 require("mini.surround").setup()
 
@@ -133,26 +147,26 @@ require("mini.hipatterns").setup({
 require("mini.icons").setup()
 require("mini.indentscope").setup()
 require("mini.map").setup({
-  integrations = {
-    require("mini.map").gen_integration.builtin_search(),
-    require("mini.map").gen_integration.diagnostic({
-      error = "DiagnosticFloatingError",
-      warn = "DiagnosticFloatingWarn",
-      info = "DiagnosticFloatingInfo",
-      hint = "DiagnosticFloatingHint",
-    }),
-    require("mini.map").gen_integration.gitsigns(),
-  },
-  symbols = {
-    encode = require("mini.map").gen_encode_symbols.dot("3x2"),
-  },
-  window = {
-    side = "right",
-    width = 10,
-    winblend = 25,
-    focusable = false,
-    show_integration_count = true,
-  },
+	integrations = {
+		require("mini.map").gen_integration.builtin_search(),
+		require("mini.map").gen_integration.diagnostic({
+			error = "DiagnosticFloatingError",
+			warn = "DiagnosticFloatingWarn",
+			info = "DiagnosticFloatingInfo",
+			hint = "DiagnosticFloatingHint",
+		}),
+		require("mini.map").gen_integration.gitsigns(),
+	},
+	symbols = {
+		encode = require("mini.map").gen_encode_symbols.dot("4x2"),
+	},
+	window = {
+		side = "right",
+		width = 15,
+		winblend = 25,
+		focusable = false,
+		show_integration_count = true,
+	},
 })
 require("mini.notify").setup()
 require("mini.starter").setup({
