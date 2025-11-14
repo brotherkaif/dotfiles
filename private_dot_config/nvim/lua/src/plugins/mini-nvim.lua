@@ -11,22 +11,17 @@ require("mini.move").setup({
 })
 require("mini.operators").setup()
 require("mini.pairs").setup()
--- TODO: complete setup for snippets
--- require("mini.snippets").setup({
--- 	snippets = {
--- 		-- Load friendly-snippets (VSCode format) from the path where mini.deps installs it
--- 		-- require("mini.snippets").gen_loader.from_vscode(vim.fn.stdpath("data") .. "/site/pack/deps/start/friendly-snippets"),
--- 		-- Load your own custom global snippets if any
--- 		-- gen_loader.from_file(fn.stdpath("config") .. "/snippets/global.json"),
--- 		-- Load language-specific snippets from runtimepath
--- 		require("mini.snippets").gen_loader.from_lang(vim.fn.stdpath("data") .. "/site/pack/deps/opt/friendly-snippets/snippets"),
--- 	},
--- 	mappings = {
--- 		expand_or_jump = "<Tab>",
--- 		jump_prev = "<S-Tab>",
--- 	},
--- })
-require("mini.splitjoin").setup()
+require('mini.snippets').setup({
+	snippets = {
+		require('mini.snippets').gen_loader.from_lang(),
+		mappings = {
+			expand = '<C-j>',
+			jump_next = '<C-l>',
+			jump_prev = '<C-h>',
+		},
+	},
+})
+
 require("mini.surround").setup()
 
 -- GENERAL WORKFLOW
