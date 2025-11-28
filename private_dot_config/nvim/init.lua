@@ -36,6 +36,7 @@ MiniDeps.now(function()
 	require("src.plugins.nvim-treesitter")
 	require("src.plugins.conform")
 	require("src.plugins.mini-nvim")
+	require("src.plugins.nvim-dap")
 
 	-- OTHER
 	require("src.plugins.auto-dark-mode-nvim")
