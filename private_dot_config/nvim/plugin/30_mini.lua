@@ -34,11 +34,11 @@ local now_if_args = _G.Config.now_if_args
 -- - `:h mini.nvim-color-schemes` - list of other color schemes
 -- - `:h MiniHues-examples` - how to define highlighting with 'mini.hues'
 -- - 'plugin/40_plugins.lua' honorable mentions - other good color schemes
-now(function() vim.cmd('colorscheme miniwinter') end)
+-- now(function() vim.cmd('colorscheme miniwinter') end)
 
 -- You can try these other 'mini.hues'-based color schemes (uncomment with `gcc`):
 -- now(function() vim.cmd('colorscheme minispring') end)
--- now(function() vim.cmd('colorscheme minisummer') end)
+now(function() vim.cmd('colorscheme minisummer') end)
 -- now(function() vim.cmd('colorscheme miniautumn') end)
 -- now(function() vim.cmd('colorscheme randomhue') end)
 
@@ -227,7 +227,7 @@ later(function() require('mini.align').setup() end)
 -- It is not enabled by default because its effects are a matter of taste.
 -- Also scroll and resize have some unwanted side effects (see `:h mini.animate`).
 -- Uncomment next line (use `gcc`) to enable.
--- later(function() require('mini.animate').setup() end)
+later(function() require('mini.animate').setup() end)
 
 -- Go forward/backward with square brackets. Implements consistent sets of mappings
 -- for selected targets (like buffers, diagnostic, quickfix list entries, etc.).
@@ -452,9 +452,19 @@ later(function() require('mini.diff').setup() end)
 -- - `:h MiniFiles-navigation` - more details about how to navigate
 -- - `:h MiniFiles-manipulation` - more details about how to manipulate
 -- - `:h MiniFiles-examples` - examples of common setups
-later(function()
+now(function()
   -- Enable directory/file preview
-  require('mini.files').setup({ windows = { preview = true } })
+  require('mini.files').setup({
+    windows = {
+      preview = true,
+      width_focus = 30,
+      width_preview = 60,
+    },
+    options = {
+      use_as_default_explorer = true,
+      show_dotfiles = true,
+    },
+  })
 
   -- Add common bookmarks for every explorer. Example usage inside explorer:
   -- - `'c` to navigate into your config directory
