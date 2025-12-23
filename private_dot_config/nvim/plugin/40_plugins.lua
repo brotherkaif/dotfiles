@@ -264,3 +264,11 @@ end)
 --   -- Enable only one
 --   vim.cmd('color everforest')
 -- end)
+
+-- Extra Plugins ==============================================================
+
+-- Copilot
+later(function()
+  add('github/copilot.vim')
+  vim.cmd(':Copilot disable')
+end)

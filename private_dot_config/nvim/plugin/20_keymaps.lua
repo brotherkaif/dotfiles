@@ -50,6 +50,7 @@ nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
 -- This is used to provide 'mini.clue' with extra clues.
 -- Add an entry if you create a new group.
 _G.Config.leader_group_clues = {
+  { mode = 'n', keys = '<Leader>a', desc = '+AI' },
   { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
   { mode = 'n', keys = '<Leader>e', desc = '+Explore/Edit' },
   { mode = 'n', keys = '<Leader>f', desc = '+Find' },
@@ -76,6 +77,20 @@ end
 local xmap_leader = function(suffix, rhs, desc)
   vim.keymap.set('x', '<Leader>' .. suffix, rhs, { desc = desc })
 end
+
+-- a is for 'AI'. Common usage:
+-- GitHub Copilot mappings (for copilot.vim plugin)
+-- nmap_leader('aa', '<Cmd>Copilot toggle<CR>', 'Toggle Copilot')
+-- nmap_leader('as', '<Cmd>Copilot status<CR>', 'Copilot status')
+-- nmap_leader('an', '<Cmd>Copilot next<CR>', 'Copilot next suggestion')
+-- nmap_leader('ap', '<Cmd>Copilot previous<CR>', 'Copilot previous suggestion')
+-- nmap_leader('ad', '<Cmd>Copilot dismiss<CR>', 'Dismiss Copilot suggestion')
+-- nmap_leader('ae', '<Cmd>Copilot enable<CR>', 'Enable Copilot')
+-- nmap_leader('aD', '<Cmd>Copilot disable<CR>', 'Disable Copilot')
+-- nmap_leader('a?', '<Cmd>Copilot<CR>', 'Copilot info panel')
+-- nmap_leader('aS', '<Cmd>Copilot accept<CR>', 'Accept Copilot suggestion')
+-- nmap_leader('al', ':Copilot accept_line<CR>', 'Accept Copilot line')
+-- nmap_leader('aw', ':Copilot accept_word<CR>', 'Accept Copilot word')
 
 -- b is for 'Buffer'. Common usage:
 -- - `<Leader>bs` - create scratch (temporary) buffer
