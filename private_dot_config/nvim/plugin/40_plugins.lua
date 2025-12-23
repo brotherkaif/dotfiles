@@ -102,8 +102,8 @@ local servers = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
       diagnostics = {
-        disable = { "missing-fields" },
-        globals = { "vim", "MiniDeps" },
+        disable = { 'missing-fields' },
+        globals = { 'vim', 'MiniDeps' },
       },
     },
   },
@@ -138,7 +138,24 @@ end)
 -- The 'stevearc/conform.nvim' plugin is a good and maintained solution for easier
 -- formatting setup.
 later(function()
-  add('stevearc/conform.nvim')
+  add({
+    source = 'stevearc/conform.nvim',
+    depends = {
+      'williamboman/mason.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+    },
+  })
+
+  require('mason-tool-installer').setup({
+    ensure_installed = {
+      'stylua',
+      'biome',
+      'markdownlint',
+      'eslint_d',
+    },
+    start_delay = 3000,
+    debounce_hours = 5,
+  })
 
   -- See also:
   -- - `:h Conform`
@@ -148,6 +165,53 @@ later(function()
     -- Map of filetype to formatters
     -- Make sure that necessary CLI tool is available
     -- formatters_by_ft = { lua = { 'stylua' } },
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      astro = { 'biome', 'prettier', stop_after_first = true },
+      css = { 'biome', 'prettier', stop_after_first = true },
+      graphql = { 'biome', 'prettier', stop_after_first = true },
+      handlebars = { 'biome', 'prettier', stop_after_first = true },
+      html = { 'biome', 'prettier', stop_after_first = true },
+      javascript = { 'eslint_d', 'biome', 'prettier', stop_after_first = true },
+      javascriptreact = { 'biome', 'prettier', stop_after_first = true },
+      json = { 'biome', 'prettier', stop_after_first = true },
+      jsonc = { 'biome', 'prettier', stop_after_first = true },
+      less = { 'biome', 'prettier', stop_after_first = true },
+      markdown = { 'biome', 'prettier', 'markdownlint', stop_after_first = true },
+      scss = { 'biome', 'prettier', stop_after_first = true },
+      svelte = { 'biome', 'prettier', stop_after_first = true },
+      typescript = { 'eslint_d', 'biome', 'prettier', stop_after_first = true },
+      typescriptreact = { 'biome', 'prettier', stop_after_first = true },
+      vue = { 'biome', 'prettier', stop_after_first = true },
+      yaml = { 'biome', 'prettier', stop_after_first = true },
+    },
+    formatters = {
+      eslint_d = {
+        cwd = require('conform.util').root_file({ 'package.json' }),
+        require_cwd = true,
+      },
+      prettier = {
+        cwd = require('conform.util').root_file({ 'package.json' }),
+        require_cwd = true,
+      },
+      biome = {
+        cwd = require('conform.util').root_file({ 'package.json' }),
+        require_cwd = true,
+      },
+    },
+    format_on_save = function(bufnr)
+      -- Disable with a global or buffer-local variable
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+      -- Disable autoformat for files in a certain path
+      local bufname = vim.api.nvim_buf_get_name(bufnr)
+      if bufname:match('/node_modules/') then
+        return
+      end
+      -- ...additional logic...
+      return { timeout_ms = 500, lsp_format = 'never' }
+    end,
   })
 end)
 
@@ -174,17 +238,15 @@ later(function() add('rafamadriz/friendly-snippets') end)
 -- You can use it like so:
 now_if_args(function()
   add({
-    source = "mason-org/mason.nvim",
+    source = 'mason-org/mason.nvim',
     depends = {
-      {
-        source = "mason-org/mason-lspconfig.nvim",
-      },
+      'mason-org/mason-lspconfig.nvim'
     },
   })
 
   require('mason').setup()
 
-  require("mason-lspconfig").setup({
+  require('mason-lspconfig').setup({
     ensure_installed = vim.tbl_keys(servers),
     automatic_enable = true,
   })
