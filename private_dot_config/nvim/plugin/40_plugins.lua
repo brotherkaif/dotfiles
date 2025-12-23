@@ -87,6 +87,29 @@ end)
 -- inside 'neovim/nvim-lspconfig' plugin.
 --
 -- Add it now if file (and not 'mini.starter') is shown after startup.
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local servers = {
+  clangd = {},
+  cssls = {},
+  eslint = {},
+  gopls = {},
+  html = {},
+  jsonls = {},
+  lua_ls = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+      diagnostics = {
+        disable = { "missing-fields" },
+        globals = { "vim", "MiniDeps" },
+      },
+    },
+  },
+  ts_ls = {},
+}
+
 now_if_args(function()
   add('neovim/nvim-lspconfig')
 
@@ -97,6 +120,13 @@ now_if_args(function()
   -- vim.lsp.enable({
   --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
   -- })
+
+  for server_name, server_config in pairs(servers) do
+    vim.lsp.config(server_name, {
+      capabilities = capabilities,
+      settings = server_config,
+    })
+  end
 end)
 
 -- Formatting =================================================================
@@ -142,10 +172,23 @@ later(function() add('rafamadriz/friendly-snippets') end)
 -- If you need them to work elsewhere, consider using other package managers.
 --
 -- You can use it like so:
--- now_if_args(function()
---   add('mason-org/mason.nvim')
---   require('mason').setup()
--- end)
+now_if_args(function()
+  add({
+    source = "mason-org/mason.nvim",
+    depends = {
+      {
+        source = "mason-org/mason-lspconfig.nvim",
+      },
+    },
+  })
+
+  require('mason').setup()
+
+  require("mason-lspconfig").setup({
+    ensure_installed = vim.tbl_keys(servers),
+    automatic_enable = true,
+  })
+end)
 
 -- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
 -- have full support of its highlight groups. Use if you don't like 'miniwinter'
