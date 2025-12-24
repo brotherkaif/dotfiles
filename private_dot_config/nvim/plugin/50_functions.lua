@@ -78,7 +78,7 @@ Config.set_seasonal_scheme = function()
         return false
     end
 
-    -- Logic to select theme
+    -- Logic to select scheme
     local h = seasons[hemisphere]
     if has_value(h.winter, month) then theme = 'miniwinter'
     elseif has_value(h.spring, month) then theme = 'minispring'
