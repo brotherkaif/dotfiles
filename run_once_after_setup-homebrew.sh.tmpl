@@ -4,13 +4,10 @@
 # --- macOS (Darwin) Setup ---
 setup_darwin() {
     echo ">>> Starting macOS Setup..."
-    
-    # Install Homebrew if not present
     if ! command -v brew &> /dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
-    # Run brew bundle
     if [ -f "$HOME/.config/brew/Brewfile" ]; then
         brew bundle --file=~/.config/brew/Brewfile
     else
@@ -20,12 +17,13 @@ setup_darwin() {
 
 # --- Arch Linux Setup (Containerized) ---
 setup_arch() {
-    echo ">>> Starting Arch Linux Container Setup..."
+    echo ">>> Starting Arch Linux Container Setup (ARM64 Optimized)..."
 
-    # 1. Initialize Keyring (Required for fresh Arch containers)
+    # 1. Initialize Keyring (Crucial for ARM containers)
+    # We force a refresh to ensure keys are valid for the current date
     pacman-key --init
     pacman-key --populate archlinux
-
+    
     # 2. Update and Install all tools via pacman
     echo ">>> Installing tools via pacman..."
     pacman -Syu --noconfirm \
@@ -46,8 +44,7 @@ setup_arch() {
         chezmoi \
         unzip \
         wget \
-        curl \
-        fontconfig
+        curl
 
     # 3. Install fnm (Fast Node Manager)
     if ! command -v fnm &> /dev/null; then
@@ -59,12 +56,10 @@ setup_arch() {
     if ! command -v fx &> /dev/null; then
         echo ">>> Installing fx..."
         go install github.com/antonmedv/fx@latest
-        # Ensure the symlink points to the correct go/bin path in Arch
         ln -sf /root/go/bin/fx /usr/local/bin/fx
     fi
 
     # 5. Environment Persistence & TrueColor Fix
-    # This ensures your terminal environment is ready every time you 'exec'
     {
         echo 'export TERM=xterm-256color'
         echo 'export PATH=$PATH:/usr/local/bin:/root/go/bin'
@@ -83,11 +78,10 @@ setup_environment() {
             setup_darwin
             ;;
         linux-gnu*)
-            # Check if we are in an Arch Linux environment
             if [ -f /etc/arch-release ]; then
                 setup_arch
             else
-                echo "Error: Linux detected, but it is not Arch Linux. Setup aborted."
+                echo "Error: Linux detected, but it is not Arch Linux."
                 exit 1
             fi
             ;;
