@@ -1,186 +1,101 @@
 {{- if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
 #!/bin/bash
 
-setup_environment() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Install Homebrew on macOS
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# --- macOS (Darwin) Setup ---
+setup_darwin() {
+    echo ">>> Starting macOS Setup..."
+    
+    # Install Homebrew if not present
+    if ! command -v brew &> /dev/null; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
 
-    # Run brew bundle to install packages from Brewfile
-    brew bundle --file=~/.config/brew/Brewfile
-  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Configuration
-    GO_VERSION="1.22.2" # Adjust as needed for "latest"
-    PYTHON_VERSION="3.12.3"
-    NERD_FONT_VERSION="v3.2.1"
-    INSTALL_DIR="/usr/local/bin"
-    TEMP_DIR=$(mktemp -d)
+    # Run brew bundle
+    if [ -f "$HOME/.config/brew/Brewfile" ]; then
+        brew bundle --file=~/.config/brew/Brewfile
+    else
+        echo "Error: Brewfile not found at ~/.config/brew/Brewfile"
+    fi
+}
 
-    echo "Starting Debian Dev Environment Setup..."
+# --- Arch Linux Setup (Containerized) ---
+setup_arch() {
+    echo ">>> Starting Arch Linux Container Setup..."
 
-    # 1. Update System and Install Base Dependencies
-    echo ">>> Updating apt and installing base dependencies..."
-    apt-get update && apt-get upgrade -y
-    apt-get install -y \
-        build-essential \
-        curl \
-        git \
+    # 1. Initialize Keyring (Required for fresh Arch containers)
+    pacman-key --init
+    pacman-key --populate archlinux
+
+    # 2. Update and Install all tools via pacman
+    echo ">>> Installing tools via pacman..."
+    pacman -Syu --noconfirm \
+        base-devel \
+        go \
+        python \
+        neovim \
+        lazygit \
+        github-cli \
+        fzf \
+        ripgrep \
+        jq \
+        stow \
+        tree \
+        pv \
+        fastfetch \
+        dust \
+        chezmoi \
         unzip \
         wget \
-        sudo \
-        pkg-config \
-        libssl-dev \
-        zlib1g-dev \
-        libbz2-dev \
-        libreadline-dev \
-        libsqlite3-dev \
-        libncursesw5-dev \
-        xz-utils \
-        tk-dev \
-        libxml2-dev \
-        libxmlsec1-dev \
-        libffi-dev \
-        liblzma-dev \
+        curl \
         fontconfig
 
-    # 2. Install apt-available tools (Matching Brew equivalents)
-    echo ">>> Installing apt packages (jq, pv, ripgrep, stow, tree, fzf)..."
-    apt-get install -y jq pv ripgrep stow tree fzf
-
-    # 3. Install GitHub CLI (gh)
-    if ! command -v gh &> /dev/null; then
-        echo ">>> Installing GitHub CLI..."
-        mkdir -p -m 755 /etc/apt/keyrings
-        wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
-        chmod 644 /etc/apt/keyrings/githubcli-archive-keyring.gpg
-        echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-        apt-get update && apt-get install -y gh
-    else
-        echo ">>> GitHub CLI already installed."
-    fi
-
-    # 4. Install Go (Golang)
-    if ! command -v go &> /dev/null; then
-        echo ">>> Installing Go ${GO_VERSION}..."
-        wget -q "https://go.dev/dl/go${GO_VERSION}.linux-$(dpkg --print-architecture).tar.gz" -O "$TEMP_DIR/go.tar.gz"
-        rm -rf /usr/local/go && tar -C /usr/local -xzf "$TEMP_DIR/go.tar.gz"
-        ln -sf /usr/local/go/bin/go /usr/local/bin/go
-    else
-        echo ">>> Go already installed."
-    fi
-
-    # 5. Install Python 3.12 (Build from Source)
-    # Debian Bookworm defaults to Python 3.11. To get 3.12 without external repos, we build it.
-    if ! command -v python3.12 &> /dev/null; then
-        echo ">>> Building Python ${PYTHON_VERSION} from source (this may take a while)..."
-        cd "$TEMP_DIR"
-        wget -q "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tar.xz"
-        tar -xf "Python-${PYTHON_VERSION}.tar.xz"
-        cd "Python-${PYTHON_VERSION}"
-        ./configure --enable-optimizations
-        make -j$(nproc)
-        make altinstall
-        # Alias python3.12 to python if desired, or just ensure it's in path
-        cd -
-    else
-        echo ">>> Python 3.12 already installed."
-    fi
-
-    # 6. Install Neovim (Latest Stable Release)
-    if ! command -v nvim &> /dev/null; then
-        echo ">>> Installing Neovim (Latest)..."
-        # Detect Architecture for URL
-        ARCH=$(uname -m)
-        if [ "$ARCH" = "aarch64" ]; then NVIM_ARCH="linux-arm64"; else NVIM_ARCH="linux64"; fi
-        
-        wget -q "https://github.com/neovim/neovim/releases/latest/download/nvim-$NVIM_ARCH.tar.gz" -O "$TEMP_DIR/nvim.tar.gz"
-        tar -C /opt -xzf "$TEMP_DIR/nvim.tar.gz"
-        ln -sf /opt/nvim-$NVIM_ARCH/bin/nvim "$INSTALL_DIR/nvim"
-    else
-        echo ">>> Neovim already installed."
-    fi
-
-    # 7. Install Lazygit
-    if ! command -v lazygit &> /dev/null; then
-        echo ">>> Installing Lazygit..."
-        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-        # Map uname -m to lazygit arch naming
-        ARCH=$(uname -m)
-        if [ "$ARCH" = "aarch64" ]; then LG_ARCH="arm64"; else LG_ARCH="x86_64"; fi
-        
-        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_${LG_ARCH}.tar.gz"
-        tar xf lazygit.tar.gz lazygit
-        install lazygit "$INSTALL_DIR"
-        rm lazygit lazygit.tar.gz
-    else
-        echo ">>> Lazygit already installed."
-    fi
-
-    # 8. Install Dust (du-dust)
-    if ! command -v dust &> /dev/null; then
-        echo ">>> Installing Dust..."
-        ARCH=$(uname -m)
-        if [ "$ARCH" = "aarch64" ]; then DUST_ARCH="aarch64-unknown-linux-gnu"; else DUST_ARCH="x86_64-unknown-linux-gnu"; fi
-        DUST_VER=$(curl -s https://api.github.com/repos/bootandy/dust/releases/latest | grep tag_name | cut -d '"' -f 4)
-        
-        wget -q "https://github.com/bootandy/dust/releases/download/${DUST_VER}/dust-${DUST_VER}-${DUST_ARCH}.tar.gz" -O "$TEMP_DIR/dust.tar.gz"
-        tar -xzf "$TEMP_DIR/dust.tar.gz" -C "$TEMP_DIR"
-        mv "$TEMP_DIR/dust-${DUST_VER}-${DUST_ARCH}/dust" "$INSTALL_DIR/dust"
-    else
-        echo ">>> Dust already installed."
-    fi
-
-    # 9. Install Fastfetch
-    if ! command -v fastfetch &> /dev/null; then
-        echo ">>> Installing Fastfetch..."
-        # Using dpkg for deb file
-        ARCH=$(dpkg --print-architecture) # amd64 or arm64
-        FF_VER=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep tag_name | cut -d '"' -f 4)
-        # Remove 'v' prefix if present for version number in filename sometimes
-        FF_VER_NUM=${FF_VER#v}
-        
-        wget -q "https://github.com/fastfetch-cli/fastfetch/releases/download/${FF_VER}/fastfetch-linux-${ARCH}.deb" -O "$TEMP_DIR/fastfetch.deb"
-        dpkg -i "$TEMP_DIR/fastfetch.deb" || apt-get install -f -y
-    else
-        echo ">>> Fastfetch already installed."
-    fi
-
-    # 10. Install fnm (Fast Node Manager)
+    # 3. Install fnm (Fast Node Manager)
     if ! command -v fnm &> /dev/null; then
         echo ">>> Installing fnm..."
-        curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$INSTALL_DIR" --skip-shell
-    else
-        echo ">>> fnm already installed."
+        curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell --install-dir "/usr/local/bin"
     fi
 
-    # 11. Install fx (JSON viewer)
+    # 4. Install fx (JSON viewer) via Go
     if ! command -v fx &> /dev/null; then
         echo ">>> Installing fx..."
-        # Since we installed Go, we can use it, or use the pre-built binary.
-        /usr/local/go/bin/go install github.com/antonmedv/fx@latest
-        ln -sf ~/go/bin/fx "$INSTALL_DIR/fx" 2>/dev/null || true
-    else
-        echo ">>> fx already installed."
+        go install github.com/antonmedv/fx@latest
+        # Ensure the symlink points to the correct go/bin path in Arch
+        ln -sf /root/go/bin/fx /usr/local/bin/fx
     fi
 
-    # 12. Install Chezmoi
-    if ! command -v chezmoi &> /dev/null; then
-        echo ">>> Installing Chezmoi..."
-        sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$INSTALL_DIR"
-    else
-        echo ">>> Chezmoi already installed."
-    fi
-
-    # Cleanup
-    rm -rf "$TEMP_DIR"
+    # 5. Environment Persistence & TrueColor Fix
+    # This ensures your terminal environment is ready every time you 'exec'
+    {
+        echo 'export TERM=xterm-256color'
+        echo 'export PATH=$PATH:/usr/local/bin:/root/go/bin'
+        echo 'alias vim="nvim"'
+    } >> /root/.bashrc
 
     echo "==========================================="
-    echo "  Debian Environment Setup Complete!"
+    echo "  Arch Linux Environment Setup Complete!"
     echo "==========================================="
-    echo "Dependencies installed:"
-    echo " - apt: build-essential, curl, git, jq, pv, ripgrep, stow, tree, fzf"
-    echo " - binaries: gh, go, python3.12, nvim, lazygit, dust, fastfetch, fnm, fx, chezmoi"
-  fi
+}
+
+# --- Main Dispatcher ---
+setup_environment() {
+    case "$OSTYPE" in
+        darwin*)
+            setup_darwin
+            ;;
+        linux-gnu*)
+            # Check if we are in an Arch Linux environment
+            if [ -f /etc/arch-release ]; then
+                setup_arch
+            else
+                echo "Error: Linux detected, but it is not Arch Linux. Setup aborted."
+                exit 1
+            fi
+            ;;
+        *)
+            echo "Unsupported OS: $OSTYPE"
+            exit 1
+            ;;
+    esac
 }
 
 setup_environment
