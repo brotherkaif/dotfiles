@@ -22,7 +22,7 @@ setup_arch() {
     # 1. Initialize Keyring
     pacman-key --init
     pacman-key --populate archlinux
-    
+
     # 2. Update and Install tools
     echo ">>> Installing tools via pacman..."
     pacman -Syu --noconfirm \
@@ -51,7 +51,7 @@ setup_arch() {
 # --- Debian/Ubuntu Setup ---
 setup_debian() {
     echo ">>> Starting Debian/Ubuntu Setup..."
-    
+
     # 1. Update and Install Basics/Prerequisites
     export DEBIAN_FRONTEND=noninteractive
     apt-get update
@@ -88,7 +88,7 @@ setup_debian() {
         jq \
         stow \
         tree \
-        pv 
+        pv
 
     # 4. Handle Missing/Stale Packages
     # Debian Stable often lacks lazygit or fastfetch. We use Go (installed above) to fetch them if apt failed.
@@ -108,7 +108,7 @@ setup_debian() {
              dpkg -i /tmp/fastfetch.deb || true
         fi
     fi
-    
+
     # Try to install dust (du-dust)
     apt-get install -y du-dust || echo "du-dust not in repo, skipping native install."
 
@@ -166,7 +166,7 @@ setup_universal_tools() {
     if ! command -v fx &> /dev/null; then
         echo ">>> Installing fx..."
         go install github.com/antonmedv/fx@latest
-        # Ensure the go bin is in path or symlinked. 
+        # Ensure the go bin is in path or symlinked.
         # Debian/Fedora Go path might differ slightly, so we force a check.
         GOBIN=$(go env GOPATH)/bin
         if [ -f "$GOBIN/fx" ]; then
@@ -177,7 +177,7 @@ setup_universal_tools() {
     # 3. Environment Persistence
     # Check if .bashrc exists, create if not
     touch ~/.bashrc
-    
+
     # Avoid duplicate entries
     if ! grep -q "Common Setup" ~/.bashrc; then
         {
