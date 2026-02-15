@@ -3,16 +3,17 @@
 
 # --- macOS (Darwin) Setup ---
 setup_darwin() {
-    echo ">>> Starting macOS Setup..."
-    if ! command -v brew &> /dev/null; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    fi
+    echo ">>> Skipping macOS Setup..."
+    # echo ">>> Starting macOS Setup..."
+    # if ! command -v brew &> /dev/null; then
+    #     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # fi
 
-    if [ -f "$HOME/.config/brew/Brewfile" ]; then
-        brew bundle --file=~/.config/brew/Brewfile
-    else
-        echo "Error: Brewfile not found at ~/.config/brew/Brewfile"
-    fi
+    # if [ -f "$HOME/.config/brew/Brewfile" ]; then
+    #     brew bundle --file=~/.config/brew/Brewfile
+    # else
+    #     echo "Error: Brewfile not found at ~/.config/brew/Brewfile"
+    # fi
 }
 
 # --- Arch Linux Setup (Containerized) ---
