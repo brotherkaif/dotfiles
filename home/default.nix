@@ -3,6 +3,7 @@
 {
   imports = [
     ./nvim.nix
+    ./shell.nix
   ];
 
   home.username = "${user}";
