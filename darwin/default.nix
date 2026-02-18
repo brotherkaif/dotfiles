@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+	users.users.kaifahmed = {
+    name = "kaifahmed";
+    home = "/Users/kaifahmed";
+  };
+
   # System-wide packages (keep minimal here, put user apps in home-manager)
   environment.systemPackages = with pkgs; [
     # These are critical for the system to function
