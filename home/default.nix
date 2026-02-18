@@ -1,6 +1,10 @@
 { config, pkgs, user, ... }:
 
 {
+  imports = [
+    ./nvim.nix
+  ];
+
   home.username = "${user}";
   home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${user}" else "/home/${user}";
 
@@ -9,27 +13,17 @@
   home.packages = with pkgs; [
     (python3.withPackages (ps: with ps; [ pip ]))
     bat
-    cargo
     chezmoi
     dust
     fastfetch
-    fd
     ffmpeg
     fx
     fzf
     gh
     go
-    jdk
     jq
-    julia-bin
     lazygit
-    luarocks
-    neovim
-    nodejs
-    php
-    phpPackages.composer
-    pv
-    ripgrep
+    fnm
     stow
     tree
     wget
