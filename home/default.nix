@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
-  home.username = "kaifahmed";
-  home.homeDirectory = "/Users/kaifahmed";
+  home.username = "${user}";
+  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${user}" else "/home/${user}";
 
   home.stateVersion = "24.05";
 

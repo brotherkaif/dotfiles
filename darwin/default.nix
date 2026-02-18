@@ -1,14 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
-	users.users.kaifahmed = {
-    name = "kaifahmed";
-    home = "/Users/kaifahmed";
+  users.users.${user} = {
+    name = "${user}";
+    home = "/Users/${user}";
   };
 
-  # System-wide packages (keep minimal here, put user apps in home-manager)
+  # System-wide packages
   environment.systemPackages = with pkgs; [
-    # These are critical for the system to function
     git
     vim
   ];
@@ -24,9 +23,6 @@
   # Enable Zsh (required for MacOS to not complain, even if you use Fish/Bash)
   programs.zsh.enable = true;
 
-  # System State Version
   system.stateVersion = 6;
-
-  # Platform
   nixpkgs.hostPlatform = "aarch64-darwin";
 }

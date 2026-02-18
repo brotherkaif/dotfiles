@@ -1,5 +1,5 @@
 {
-  description = "Brother Kaif nix-darwin system flake";
+  description = "Brother Kaif multi-system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -11,23 +11,68 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
-    username = "kaifahmed";
+    mac-mini-config = {
+      system = "aarch64-darwin";
+      username = "kaifahmed";
+    };
+
+    macbook-air-config = {
+      system = "aarch64-darwin";
+      username = "kaifahmed";
+    };
+
+    macbook-pro-config = {
+      system = "aarch64-darwin";
+      username = "ahmedk02";
+    };
   in
   {
-    darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        # 1. The MacOS System Config
-        ./darwin/default.nix
+    darwinConfigurations = {
+      "mac-mini" = nix-darwin.lib.darwinSystem {
+        system = mac-mini-config.system;
+        specialArgs = { user = mac-mini-config.username; };
+        modules = [
+          ./darwin/default.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            # We also pass the username to home-manager here
+            home-manager.extraSpecialArgs = { user = mac-mini-config.username; };
+            home-manager.users.${mac-mini-config.username} = import ./home/default.nix;
+          }
+        ];
+      };
 
-        # 2. The Home Manager Module
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./home/default.nix;
-        }
-      ];
+      "macbook-air" = nix-darwin.lib.darwinSystem {
+        system = macbook-air-config.system;
+        specialArgs = { user = macbook-air-config.username; };
+        modules = [
+          ./darwin/default.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { user = macbook-air-config.username; };
+            home-manager.users.${macbook-air-config.username} = import ./home/default.nix;
+          }
+        ];
+      };
+
+      "macbook-pro" = nix-darwin.lib.darwinSystem {
+        system = macbook-pro-config.system;
+        specialArgs = { user = macbook-pro-config.username; };
+        modules = [
+          ./darwin/default.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { user = macbook-pro-config.username; };
+            home-manager.users.${macbook-pro-config.username} = import ./home/default.nix;
+          }
+        ];
+      };
     };
   };
 }
