@@ -3,15 +3,16 @@
 {
   programs.git = {
     enable = true;
-    user.name = "Kaif Ahmed";
-    user.email = gitEmail;
 
-    extraConfig = {
+    settings = {
       url = {
         "ssh://git@github.com/" = {
           insteadOf = "https://github.com/";
         };
       };
+
+      user.name = "Kaif Ahmed";
+      user.email = gitEmail;
 
       init.defaultBranch = "main";
       pull.rebase = true;
