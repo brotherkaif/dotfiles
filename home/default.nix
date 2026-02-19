@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./fnm.nix
     ./nvim.nix
     ./shell.nix
   ];
@@ -24,7 +25,6 @@
     go
     jq
     lazygit
-    fnm
     stow
     tree
     wget
