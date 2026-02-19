@@ -1,5 +1,29 @@
-vim/.vim/.netrwhist
-nvim/plugin/packer_compiled.lua
-lazygit/state.yml
+# macOS specific
 .DS_Store
-.luarc.json
+.AppleDouble
+.LSOverride
+
+# Nix build artifacts
+result
+result-*
+
+# Local configuration escape hatches
+.local-config
+.local-config.*
+
+# Direnv (If you adopt it later as suggested)
+.direnv/
+.envrc
+
+# Security / Accidental drops
+# Prevents accidentally committing key folders if you ever copy them into the repo
+.ssh/
+.gnupg/
+id_rsa*
+*.pem
+*.key
+
+# Editor artifacts
+.vscode/
+*.swp
+*~

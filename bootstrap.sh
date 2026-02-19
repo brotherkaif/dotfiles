@@ -1,227 +1,72 @@
-{{- if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
-#!/bin/bash
+#!/usr/bin/env bash
 
-# --- macOS (Darwin) Setup ---
-setup_darwin() {
-    echo ">>> Skipping macOS Setup..."
-    # echo ">>> Starting macOS Setup..."
-    # if ! command -v brew &> /dev/null; then
-    #     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # fi
+# Exit immediately if a command exits with a non-zero status
+set -e
 
-    # if [ -f "$HOME/.config/brew/Brewfile" ]; then
-    #     brew bundle --file=~/.config/brew/Brewfile
-    # else
-    #     echo "Error: Brewfile not found at ~/.config/brew/Brewfile"
-    # fi
-}
+echo "🚀 Starting dotfiles bootstrap..."
 
-# --- Arch Linux Setup (Containerized) ---
-setup_arch() {
-    echo ">>> Starting Arch Linux Container Setup (ARM64 Optimized)..."
+# 1. Variables
+DOTFILES_DIR="$HOME/dotfiles"
+REPO_URL="https://github.com/brotherkaif/dotfiles.git"
+BRANCH="main"
+OS="$(uname -s)"
 
-    # 1. Initialize Keyring
-    pacman-key --init
-    pacman-key --populate archlinux
+# 2. Ask for the host profile
+echo "🖥️  Which machine profile are we building? (e.g., mini, macbook, work-mac, desktop)"
+read -r HOST_PROFILE
 
-    # 2. Update and Install tools
-    echo ">>> Installing tools via pacman..."
-    pacman -Syu --noconfirm \
-        base-devel \
-        go \
-        python \
-        neovim \
-        lazygit \
-        github-cli \
-        fzf \
-        ripgrep \
-        jq \
-        stow \
-        tree \
-        pv \
-        fastfetch \
-        dust \
-        chezmoi \
-        unzip \
-        wget \
-        curl
+# 3. macOS Specific Bootstrapping
+if [ "$OS" = "Darwin" ]; then
+    echo "🍎 macOS detected."
 
-    setup_universal_tools
-}
-
-# --- Debian/Ubuntu Setup ---
-setup_debian() {
-    echo ">>> Starting Debian/Ubuntu Setup..."
-
-    # 1. Update and Install Basics/Prerequisites
-    export DEBIAN_FRONTEND=noninteractive
-    apt-get update
-    apt-get install -y \
-        build-essential \
-        curl \
-        wget \
-        git \
-        unzip \
-        gpg \
-        software-properties-common
-
-    # 2. Setup GitHub CLI Repo (Native approach requires adding their keyring)
-    if ! command -v gh &> /dev/null; then
-        echo ">>> Setting up GitHub CLI repo..."
-        mkdir -p -m 755 /etc/apt/keyrings
-        wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
-        chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
-        echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-        apt-get update
+    # Install Xcode Command Line Tools if missing
+    if ! xcode-select -p &> /dev/null; then
+        echo "📦 Installing Xcode Command Line Tools..."
+        xcode-select --install
+        echo "⚠️  Please wait for the Xcode tools installation to finish, then run this script again."
+        exit 0
     fi
 
-    # 3. Install Tools via APT
-    # Note: 'dust' is often 'du-dust' in debian repos
-    echo ">>> Installing tools via apt..."
-    apt-get install -y \
-        golang \
-        python3 \
-        python3-pip \
-        neovim \
-        gh \
-        fzf \
-        ripgrep \
-        jq \
-        stow \
-        tree \
-        pv
-
-    # 4. Handle Missing/Stale Packages
-    # Debian Stable often lacks lazygit or fastfetch. We use Go (installed above) to fetch them if apt failed.
-    if ! command -v lazygit &> /dev/null; then
-        echo ">>> lazygit not found in apt, installing via go..."
-        go install github.com/jesseduffield/lazygit@latest
+    # Install Nix if missing
+    if ! command -v nix &> /dev/null; then
+        echo "❄️  Installing Nix (Determinate Systems)..."
+        curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+        # Source nix into the current shell session
+        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     fi
 
-    if ! command -v fastfetch &> /dev/null; then
-        # Try apt first (available in newer Debian/Ubuntu), else fallback
-        if ! apt-get install -y fastfetch 2>/dev/null; then
-             echo ">>> fastfetch not in apt, installing from release..."
-             # Fallback to direct download if Go method is not preferred for C apps
-             # But strictly, fastfetch isn't a Go app. We can skip or use a generic installer.
-             # Simplest universal fallback for this script context:
-             wget -qO- https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-$(dpkg --print-architecture).deb > /tmp/fastfetch.deb
-             dpkg -i /tmp/fastfetch.deb || true
-        fi
-    fi
+# 4. NixOS Specific Bootstrapping
+elif [ "$OS" = "Linux" ]; then
+    # We assume if it's Linux, it's NixOS for your setup
+    echo "🐧 Linux (NixOS) detected."
+    # Nix is already installed natively on NixOS, so we skip installation.
+else
+    echo "❌ Unsupported OS: $OS"
+    exit 1
+fi
 
-    # Try to install dust (du-dust)
-    apt-get install -y du-dust || echo "du-dust not in repo, skipping native install."
+# 5. Clone the repository
+if [ -d "$DOTFILES_DIR" ]; then
+    echo "📂 Dotfiles directory already exists at $DOTFILES_DIR. Pulling latest..."
+    cd "$DOTFILES_DIR"
+    git pull origin "$BRANCH"
+else
+    echo "📥 Cloning dotfiles repository..."
+    # We use nix shell to temporarily get git, in case the fresh machine doesn't have it yet
+    nix shell nixpkgs#git -c git clone --branch "$BRANCH" "$REPO_URL" "$DOTFILES_DIR"
+    cd "$DOTFILES_DIR"
+fi
 
-    setup_universal_tools
-}
+# 6. Apply the Configuration
+echo "⚙️  Applying Nix configuration for profile: $HOST_PROFILE..."
 
-# --- Fedora Setup ---
-setup_fedora() {
-    echo ">>> Starting Fedora Setup..."
+if [ "$OS" = "Darwin" ]; then
+    # On a totally fresh Mac, `darwin-rebuild` doesn't exist yet.
+    # We MUST run it via `nix run` for the very first time.
+    nix run nix-darwin -- switch --flake ".#$HOST_PROFILE"
+elif [ "$OS" = "Linux" ]; then
+    # On NixOS, we use nixos-rebuild with sudo
+    sudo nixos-rebuild switch --flake ".#$HOST_PROFILE"
+fi
 
-    # 1. Install Basics and Repo tools
-    dnf install -y dnf-plugins-core
-    dnf groupinstall -y "Development Tools"
-
-    # 2. Setup GitHub CLI Repo
-    if ! command -v gh &> /dev/null; then
-        dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
-    fi
-
-    # 3. Install Tools via DNF
-    # Fedora repos are usually very up to date
-    echo ">>> Installing tools via dnf..."
-    dnf install -y \
-        golang \
-        python3 \
-        neovim \
-        lazygit \
-        gh \
-        fzf \
-        ripgrep \
-        jq \
-        stow \
-        tree \
-        pv \
-        fastfetch \
-        dust \
-        unzip \
-        wget \
-        curl
-
-    setup_universal_tools
-}
-
-# --- Universal Tools (Language Managers & Configs) ---
-# Extracted common logic for all Linux distros
-setup_universal_tools() {
-    # 1. Install fnm (Fast Node Manager)
-    if ! command -v fnm &> /dev/null; then
-        echo ">>> Installing fnm..."
-        curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell --install-dir "/usr/local/bin"
-    fi
-
-    # 2. Install fx (JSON viewer) via Go
-    # This acts as a fallback for all distros if native package didn't exist
-    if ! command -v fx &> /dev/null; then
-        echo ">>> Installing fx..."
-        go install github.com/antonmedv/fx@latest
-        # Ensure the go bin is in path or symlinked.
-        # Debian/Fedora Go path might differ slightly, so we force a check.
-        GOBIN=$(go env GOPATH)/bin
-        if [ -f "$GOBIN/fx" ]; then
-            ln -sf "$GOBIN/fx" /usr/local/bin/fx
-        fi
-    fi
-
-    # 3. Environment Persistence
-    # Check if .bashrc exists, create if not
-    touch ~/.bashrc
-
-    # Avoid duplicate entries
-    if ! grep -q "Common Setup" ~/.bashrc; then
-        {
-            echo ''
-            echo '# --- Common Setup ---'
-            echo 'export TERM=xterm-256color'
-            echo 'export PATH=$PATH:/usr/local/bin:$(go env GOPATH)/bin'
-            echo 'alias vim="nvim"'
-            echo 'alias lg="lazygit"'
-        } >> ~/.bashrc
-    fi
-
-    echo "==========================================="
-    echo "   Linux Environment Setup Complete!"
-    echo "==========================================="
-}
-
-# --- Main Dispatcher ---
-setup_environment() {
-    case "$OSTYPE" in
-        darwin*)
-            setup_darwin
-            ;;
-        linux-gnu*)
-            if [ -f /etc/arch-release ]; then
-                setup_arch
-            elif [ -f /etc/debian_version ]; then
-                setup_debian
-            elif [ -f /etc/fedora-release ]; then
-                setup_fedora
-            else
-                echo "Error: Unsupported Linux distribution."
-                echo "Detected files in /etc/*release:"
-                ls /etc/*release
-                exit 1
-            fi
-            ;;
-        *)
-            echo "Unsupported OS: $OSTYPE"
-            exit 1
-            ;;
-    esac
-}
-
-setup_environment
-{{- end -}}
+echo "✅ Bootstrap complete! Please restart your terminal."
