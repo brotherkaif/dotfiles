@@ -63,7 +63,7 @@ echo "⚙️  Applying Nix configuration for profile: $HOST_PROFILE..."
 if [ "$OS" = "Darwin" ]; then
     # On a totally fresh Mac, `darwin-rebuild` doesn't exist yet.
     # We MUST run it via `nix run` for the very first time.
-    nix run nix-darwin -- switch --flake ".#$HOST_PROFILE"
+    sudo nix run nix-darwin -- switch --flake ".#$HOST_PROFILE"
 elif [ "$OS" = "Linux" ]; then
     # On NixOS, we use nixos-rebuild with sudo
     sudo nixos-rebuild switch --flake ".#$HOST_PROFILE"

@@ -18,7 +18,7 @@
   ];
 
   # Nix Configuration
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.enable = false;
 
   # Enable Zsh (required for MacOS to not complain, even if you use Fish/Bash)
   programs.zsh.enable = true;

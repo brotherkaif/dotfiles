@@ -93,7 +93,7 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
       # VIM MODE & CTRL-R fix
       bindkey -v
       bindkey '^r' history-incremental-search-backward
