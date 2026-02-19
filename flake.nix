@@ -42,8 +42,8 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = {
-              user = mini-config.username;
-              gitEmail = mini-config.gitEmail;
+              user = mac-mini-config.username;
+              gitEmail = mac-mini-config.gitEmail;
             };
 
             home-manager.users.${mac-mini-config.username} = import ./home/default.nix;
@@ -62,8 +62,8 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = {
-              user = mini-config.username;
-              gitEmail = mini-config.gitEmail;
+              user = macbook-air-config.username;
+              gitEmail = macbook-air-config.gitEmail;
             };
 
             home-manager.users.${macbook-air-config.username} = import ./home/default.nix;
@@ -82,8 +82,8 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = {
-              user = mini-config.username;
-              gitEmail = mini-config.gitEmail;
+              user = macbook-pro-config.username;
+              gitEmail = macbook-pro-config.gitEmail;
             };
 
             home-manager.users.${macbook-pro-config.username} = import ./home/default.nix;

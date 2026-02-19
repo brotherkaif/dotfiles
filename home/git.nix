@@ -3,8 +3,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "Kaif Ahmed";
-    userEmail = gitEmail;
+    user.name = "Kaif Ahmed";
+    user.email = gitEmail;
 
     extraConfig = {
       url = {

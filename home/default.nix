@@ -3,6 +3,7 @@
 {
   imports = [
     ./fnm.nix
+    ./git.nix
     ./nvim.nix
     ./shell.nix
   ];
