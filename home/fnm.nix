@@ -1,9 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  programs.fnm = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-  };
+  home.packages = [ pkgs.fnm ];
+
+  programs.bash.bashrcExtra = ''
+    eval "$(fnm env --use-on-cd)"
+  '';
+
+  programs.zsh.initContent = ''
+    eval "$(fnm env --use-on-cd)"
+  '';
 }

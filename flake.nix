@@ -14,16 +14,19 @@
     mac-mini-config = {
       system = "aarch64-darwin";
       username = "kaifahmed";
+      gitEmail = "github.banister767@passinbox.com";
     };
 
     macbook-air-config = {
       system = "aarch64-darwin";
       username = "kaifahmed";
+      gitEmail = "github.banister767@passinbox.com";
     };
 
     macbook-pro-config = {
       system = "aarch64-darwin";
       username = "ahmedk02";
+      gitEmail = "kaif.ahmed@bbc.co.uk";
     };
   in
   {
@@ -37,8 +40,12 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            # We also pass the username to home-manager here
-            home-manager.extraSpecialArgs = { user = mac-mini-config.username; };
+
+            home-manager.extraSpecialArgs = {
+              user = mini-config.username;
+              gitEmail = mini-config.gitEmail;
+            };
+
             home-manager.users.${mac-mini-config.username} = import ./home/default.nix;
           }
         ];
@@ -53,7 +60,12 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { user = macbook-air-config.username; };
+
+            home-manager.extraSpecialArgs = {
+              user = mini-config.username;
+              gitEmail = mini-config.gitEmail;
+            };
+
             home-manager.users.${macbook-air-config.username} = import ./home/default.nix;
           }
         ];
@@ -68,7 +80,12 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { user = macbook-pro-config.username; };
+
+            home-manager.extraSpecialArgs = {
+              user = mini-config.username;
+              gitEmail = mini-config.gitEmail;
+            };
+
             home-manager.users.${macbook-pro-config.username} = import ./home/default.nix;
           }
         ];
