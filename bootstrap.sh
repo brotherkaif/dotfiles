@@ -12,7 +12,7 @@ BRANCH="nix-conversion"
 OS="$(uname -s)"
 
 # 2. Ask for the host profile
-echo "🖥️  Which machine profile are we building? (e.g., mini, macbook, work-mac, desktop)"
+echo "🖥️  Which machine profile are we building? (mac-mini, macbook-air, macbook-pro)"
 read -r HOST_PROFILE
 
 # 3. macOS Specific Bootstrapping
