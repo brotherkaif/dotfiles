@@ -8,7 +8,7 @@ echo "🚀 Starting dotfiles bootstrap..."
 # 1. Variables
 DOTFILES_DIR="$HOME/dotfiles"
 REPO_URL="https://github.com/brotherkaif/dotfiles.git"
-BRANCH="main"
+BRANCH="nix-conversion"
 OS="$(uname -s)"
 
 # 2. Ask for the host profile
