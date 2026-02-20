@@ -15,18 +15,27 @@
       system = "aarch64-darwin";
       username = "kaifahmed";
       gitEmail = "github.banister767@passinbox.com";
+      isPersonal = true;
     };
 
     macbook-air-config = {
       system = "aarch64-darwin";
       username = "kaifahmed";
       gitEmail = "github.banister767@passinbox.com";
+      isPersonal = true;
     };
 
     macbook-pro-config = {
       system = "aarch64-darwin";
       username = "ahmedk02";
       gitEmail = "kaif.ahmed@bbc.co.uk";
+      isPersonal = false;
+    };
+
+    thinkcentre-config = {
+      system = "x86_64-linux";
+      username = "brotherkaif";
+      isPersonal = true;
     };
   in
   {
@@ -44,6 +53,7 @@
             home-manager.extraSpecialArgs = {
               user = mac-mini-config.username;
               gitEmail = mac-mini-config.gitEmail;
+              isPersonal = mac-mini-config.isPersonal;
             };
 
             home-manager.users.${mac-mini-config.username} = import ./home/default.nix;
@@ -64,6 +74,7 @@
             home-manager.extraSpecialArgs = {
               user = macbook-air-config.username;
               gitEmail = macbook-air-config.gitEmail;
+              isPersonal = macbook-air-config.isPersonal;
             };
 
             home-manager.users.${macbook-air-config.username} = import ./home/default.nix;
@@ -84,9 +95,32 @@
             home-manager.extraSpecialArgs = {
               user = macbook-pro-config.username;
               gitEmail = macbook-pro-config.gitEmail;
+              isPersonal = macbook-pro-config.isPersonal;
             };
 
             home-manager.users.${macbook-pro-config.username} = import ./home/default.nix;
+          }
+        ];
+      };
+    };
+
+    nixosConfigurations = {
+      "thinkcentre" = nixpkgs.lib.nixosSystem {
+        system = thinkcentre-config.system;
+        specialArgs = { user = thinkcentre-config.username; };
+        modules = [
+          ./nixos/configuration.nix
+          ./nixos/hosts/thinkcentre/hardware-configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              user = thinkcentre-config.username;
+              isPersonal = thinkcentre-config.isPersonal;
+            };
+            home-manager.users.${thinkcentre-config.username} = import ./home/default.nix;
           }
         ];
       };

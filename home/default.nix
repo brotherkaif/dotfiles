@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, isPersonal, ... }:
 
 {
   imports = [
@@ -30,6 +30,8 @@
     stow
     tree
     wget
+  ] ++ lib.optionals (isPersonal) [
+    zellij
   ];
 
   home.sessionVariables = {
