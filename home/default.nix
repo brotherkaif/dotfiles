@@ -6,6 +6,7 @@
     ./git.nix
     ./nvim.nix
     ./shell.nix
+    ./tmux.nix
   ];
 
   home.username = "${user}";
