@@ -43,7 +43,10 @@
     darwinConfigurations = {
       "mac-mini" = nix-darwin.lib.darwinSystem {
         system = mac-mini-config.system;
-        specialArgs = { user = mac-mini-config.username; };
+        specialArgs = {
+          user = mac-mini-config.username;
+          isPersonal = mac-mini-config.isPersonal;
+        };
         modules = [
           ./darwin/default.nix
           home-manager.darwinModules.home-manager
@@ -64,7 +67,10 @@
 
       "macbook-air" = nix-darwin.lib.darwinSystem {
         system = macbook-air-config.system;
-        specialArgs = { user = macbook-air-config.username; };
+        specialArgs = {
+          user = macbook-air-config.username;
+          isPersonal = macbook-air-config.isPersonal;
+        };
         modules = [
           ./darwin/default.nix
           home-manager.darwinModules.home-manager
@@ -85,7 +91,10 @@
 
       "macbook-pro" = nix-darwin.lib.darwinSystem {
         system = macbook-pro-config.system;
-        specialArgs = { user = macbook-pro-config.username; };
+        specialArgs = {
+          user = macbook-pro-config.username;
+          isPersonal = macbook-pro-config.isPersonal;
+        };
         modules = [
           ./darwin/default.nix
           home-manager.darwinModules.home-manager

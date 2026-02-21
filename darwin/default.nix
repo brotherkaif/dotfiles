@@ -12,6 +12,18 @@
     vim
   ];
 
+  # Homebrew Packages
+  homebrew = {
+    enable = true;
+
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
+
+    casks = lib.optionals (isPersonal) [
+      "steam"
+    ];
+  };
+
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
