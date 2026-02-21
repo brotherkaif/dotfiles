@@ -35,6 +35,19 @@ if [ "$OS" = "Darwin" ]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     fi
 
+    # Install Homebrew if missing
+    if ! command -v brew &> /dev/null; then
+        echo "🍺 Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+        # Temporarily add Homebrew to PATH for the remainder of this script execution
+        if [ -x "/opt/homebrew/bin/brew" ]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+        elif [ -x "/usr/local/bin/brew" ]; then
+            eval "$(/usr/local/bin/brew shellenv)"
+        fi
+    fi
+
 # 4. NixOS Specific Bootstrapping
 elif [ "$OS" = "Linux" ]; then
     # We assume if it's Linux, it's NixOS for your setup
@@ -49,7 +62,8 @@ fi
 if [ -d "$DOTFILES_DIR" ]; then
     echo "📂 Dotfiles directory already exists at $DOTFILES_DIR. Pulling latest..."
     cd "$DOTFILES_DIR"
-    git pull origin "$BRANCH"
+    # Using nix shell to bypass the missing git issue on fresh NixOS builds
+    nix --extra-experimental-features "nix-command flakes" shell nixpkgs#git -c git pull origin "$BRANCH"
 else
     echo "📥 Cloning dotfiles repository..."
     # We use nix shell to temporarily get git, in case the fresh machine doesn't have it yet
@@ -63,10 +77,10 @@ echo "⚙️  Applying Nix configuration for profile: $HOST_PROFILE..."
 if [ "$OS" = "Darwin" ]; then
     # On a totally fresh Mac, `darwin-rebuild` doesn't exist yet.
     # We MUST run it via `nix run` for the very first time.
-    sudo nix run nix-darwin -- switch --flake ".#$HOST_PROFILE"
+    nix run nix-darwin -- switch --flake ".#$HOST_PROFILE"
 elif [ "$OS" = "Linux" ]; then
-    # On NixOS, we use nixos-rebuild with sudo
-    sudo nixos-rebuild switch --flake ".#$HOST_PROFILE"
+    # On NixOS, we use nixos-rebuild with sudo and bypass the experimental features lock
+    sudo NIX_CONFIG="experimental-features = nix-command flakes" nixos-rebuild switch --flake ".#$HOST_PROFILE"
 fi
 
 echo "✅ Bootstrap complete! Please restart your terminal."

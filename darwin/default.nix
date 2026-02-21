@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, lib, user, isPersonal, ... }:
 
 {
   users.users.${user} = {
@@ -11,6 +11,9 @@
     git
     vim
   ];
+
+  # Set primary user for nix-darwin
+  system.primaryUser = user;
 
   # Homebrew Packages
   homebrew = {
