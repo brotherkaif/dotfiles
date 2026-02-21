@@ -32,6 +32,11 @@
     wget
   ] ++ lib.optionals (isPersonal) [
     zellij
+  ] ++ lib.optionals (pkgs.stdenv.isLinux) [
+    kdePackages.falkon
+    proton-pass
+    protonmail-desktop
+    protonvpn-gui
   ];
 
   home.sessionVariables = {

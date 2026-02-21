@@ -29,6 +29,13 @@
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Enable X11
+  services.xserver.enable = true;
+
+  # Enable the KDE Plasma Desktop Environment
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
   # System state version (DO NOT CHANGE this once installed)
   system.stateVersion = "23.11";
 }

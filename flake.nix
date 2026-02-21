@@ -35,6 +35,7 @@
     thinkcentre-config = {
       system = "x86_64-linux";
       username = "brotherkaif";
+      gitEmail = "github.banister767@passinbox.com";
       isPersonal = true;
     };
   in
@@ -118,6 +119,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
               user = thinkcentre-config.username;
+              gitEmail = thinkcentre-config.gitEmail;
               isPersonal = thinkcentre-config.isPersonal;
             };
             home-manager.users.${thinkcentre-config.username} = import ./home/default.nix;
