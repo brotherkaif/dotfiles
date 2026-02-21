@@ -38,6 +38,13 @@
       gitEmail = "github.banister767@passinbox.com";
       isPersonal = true;
     };
+
+    thinkpad-config = {
+      system = "x86_64-linux";
+      username = "brotherkaif";
+      gitEmail = "github.banister767@passinbox.com";
+      isPersonal = true;
+    };
   in
   {
     darwinConfigurations = {
@@ -134,6 +141,31 @@
               isPersonal = thinkcentre-config.isPersonal;
             };
             home-manager.users.${thinkcentre-config.username} = import ./home/default.nix;
+          }
+        ];
+      };
+    };
+
+    nixosConfigurations = {
+      "thinkpad" = nixpkgs.lib.nixosSystem {
+        system = thinkpad-config.system;
+        specialArgs = { user = thinkpad-config.username; };
+        modules = [
+          ./nixos/configuration.nix
+          ./nixos/hosts/thinkpad/hardware-configuration.nix
+
+          ./nixos/steam.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {
+              user = thinkpad-config.username;
+              gitEmail = thinkpad-config.gitEmail;
+              isPersonal = thinkpad-config.isPersonal;
+            };
+            home-manager.users.${thinkpad-config.username} = import ./home/default.nix;
           }
         ];
       };
