@@ -53,7 +53,7 @@ if [ -d "$DOTFILES_DIR" ]; then
 else
     echo "📥 Cloning dotfiles repository..."
     # We use nix shell to temporarily get git, in case the fresh machine doesn't have it yet
-    nix shell nixpkgs#git -c git clone --branch "$BRANCH" "$REPO_URL" "$DOTFILES_DIR"
+    nix --extra-experimental-features "nix-command flakes" shell nixpkgs#git -c git clone --branch "$BRANCH" "$REPO_URL" "$DOTFILES_DIR"
     cd "$DOTFILES_DIR"
 fi
 
