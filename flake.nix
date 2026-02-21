@@ -113,6 +113,8 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkcentre/hardware-configuration.nix
 
+          ./nixos/steam.nix
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
