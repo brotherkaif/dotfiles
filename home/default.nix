@@ -1,12 +1,13 @@
-{ config, pkgs, user, isPersonal, ... }:
+{ config, pkgs, lib, user, isPersonal, ... }:
 
 {
   imports = [
-    ./fnm.nix
     ./git.nix
     ./nvim.nix
     ./shell.nix
     ./tmux.nix
+  ] ++ lib.optionals (!isPersonal) [
+    ./fnm.nix
   ];
 
   home.username = "${user}";
@@ -31,6 +32,7 @@
     tree
     wget
   ] ++ lib.optionals (isPersonal) [
+    nodejs_24
     zellij
   ] ++ lib.optionals (pkgs.stdenv.isLinux) [
     kdePackages.falkon
