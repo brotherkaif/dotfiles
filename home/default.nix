@@ -32,6 +32,7 @@
     tree
     wget
   ] ++ lib.optionals (isPersonal) [
+    hugo
     nodejs_24
     zellij
   ] ++ lib.optionals (pkgs.stdenv.isLinux) [
