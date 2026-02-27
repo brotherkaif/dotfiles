@@ -1,5 +1,0 @@
-# MOTD
-clear
-if command -v fastfetch &> /dev/null; then
-	sleep 0.1 && fastfetch
-fi

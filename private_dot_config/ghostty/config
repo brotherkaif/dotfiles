@@ -1,3 +1,0 @@
-theme = dark:NvimDark,light:NvimLight
-macos-option-as-alt = left
-macos-non-native-fullscreen = false
