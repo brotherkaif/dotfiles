@@ -2,14 +2,16 @@
   description = "Brother Kaif multi-system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
+
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
   let
     mac-mini-config = {
       system = "aarch64-darwin";
@@ -144,9 +146,7 @@
           }
         ];
       };
-    };
 
-    nixosConfigurations = {
       "thinkpad" = nixpkgs.lib.nixosSystem {
         system = thinkpad-config.system;
         specialArgs = { user = thinkpad-config.username; };
