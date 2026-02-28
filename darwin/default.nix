@@ -21,6 +21,7 @@
 
     casks = lib.optionals (isPersonal) [
       "steam"
+      "mixo"
     ];
   };
 
