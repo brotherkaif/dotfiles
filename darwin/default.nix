@@ -1,10 +1,12 @@
-{ pkgs, user, ... }:
+{ pkgs, user, lib, isPersonal, ... }:
 
 {
   users.users.${user} = {
     name = "${user}";
     home = "/Users/${user}";
   };
+
+  system.primaryUser = "${user}";
 
   # System-wide packages
   environment.systemPackages = with pkgs; [
@@ -21,7 +23,6 @@
 
     casks = lib.optionals (isPersonal) [
       "steam"
-      "mixo"
     ];
   };
 

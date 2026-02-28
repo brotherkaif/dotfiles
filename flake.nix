@@ -58,6 +58,7 @@
         };
         modules = [
           ./darwin/default.nix
+          ./darwin/mixo.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -82,6 +83,7 @@
         };
         modules = [
           ./darwin/default.nix
+          ./darwin/mixo.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
