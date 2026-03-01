@@ -133,8 +133,9 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkcentre/hardware-configuration.nix
 
-          ./nixos/steam.nix
           ./nixos/mixo.nix
+          ./nixos/pipewire.nix
+          ./nixos/steam.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -157,8 +158,9 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkpad/hardware-configuration.nix
 
-          ./nixos/steam.nix
           ./nixos/mixo.nix
+          ./nixos/pipewire.nix
+          ./nixos/steam.nix
 
           home-manager.nixosModules.home-manager
           {
