@@ -14,6 +14,8 @@
     vim
   ];
 
+  environment.systemPath = [ "/opt/homebrew/bin" ];
+
   # Homebrew Packages
   homebrew = {
     enable = true;
