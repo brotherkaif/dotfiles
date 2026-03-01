@@ -22,9 +22,26 @@
     onActivation.upgrade = true;
 
     casks = lib.optionals (isPersonal) [
+      "appcleaner"
+      "proton-drive"
+      "proton-mail"
+      "proton-pass"
+      "protonvpn"
       "steam"
     ];
+
+    # Mac App Store Applications
+    masApps = {
+      # Installed on both Work and Personal machines
+      "Ghostery" = 6504861501;
+      "JSON Peep for Safari" = 1458969831;
+    } // lib.optionalAttrs (isPersonal) {
+      # Installed ONLY on Personal machines
+      "Proton Pass for Safari" = 6502835663;
+      "djay - DJ App & AI Mixer" = 450527929;
+    };
   };
+
 
   # Fonts
   fonts.packages = with pkgs; [

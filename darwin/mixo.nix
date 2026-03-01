@@ -1,33 +1,28 @@
 { config, pkgs, user, ... }:
 
 let
-  mixoVersion = "1.90.0"; # Update if needed
+  mixoVersion = "2.2.0";
 
   mixoMac = pkgs.stdenv.mkDerivation rec {
     pname = "mixo";
     version = mixoVersion;
 
     src = pkgs.fetchurl {
-      url = "https://download.mixo.dj/MIXO-${version}.dmg";
-      sha256 = pkgs.lib.fakeSha256; # We will update this dummy hash in a moment
+      url = "https://www.mixo.dj/download/MIXO-${version}.dmg";
+      sha256 = "03ri19m6daxfd4qsjqrwwjh3i4jpd9scmj11y4s8a4j1p9p72fnm";
     };
 
-    # undmg is the utility Nix uses to extract macOS disk images
     nativeBuildInputs = [ pkgs.undmg ];
-
     sourceRoot = ".";
 
     installPhase = ''
-      mkdir -p $out/Applications/MIXO.app
-      cp -R "MIXO.app" "$out/Applications/MIXO.app"
+      mkdir -p "$out/Applications"
+      cp -R "MIXO.app" "$out/Applications/"
     '';
   };
 
 in
 {
-  # Install the app for your user. Home Manager will automatically symlink
-  # this into ~/Applications/Home Manager Apps/MIXO.app
-  home-manager.users.${user} = {
-    home.packages = [ mixoMac ];
-  };
+  # Hand the app to nix-darwin so it gets properly linked into /Applications/Nix Apps
+  environment.systemPackages = [ mixoMac ];
 }
