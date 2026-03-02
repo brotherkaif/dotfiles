@@ -1,12 +1,13 @@
 { config, pkgs, user, ... }:
 
 {
-  # Bootloader (Assumes a standard modern UEFI system)
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking
   networking.networkmanager.enable = true;
+  hardware.graphics.enable = true;
 
   # Set your time zone
   time.timeZone = "Europe/London";
@@ -15,27 +16,18 @@
   users.users.${user} = {
     isNormalUser = true;
     description = "${user}";
-    extraGroups = [ "networkmanager" "wheel" ]; # 'wheel' grants sudo access
-    # We set zsh as the default shell to match your mac
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
 
-  # Enable Zsh at the OS level so we can set it as the default shell above
   programs.zsh.enable = true;
-
-  # Allow unfree packages (if you need proprietary drivers/apps later)
   nixpkgs.config.allowUnfree = true;
-
-  # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable X11
-  services.xserver.enable = true;
+  # General system packages (non-GNOME specific)
+  environment.systemPackages = with pkgs; [
+    nixos-render-docs
+  ];
 
-  # Enable the KDE Plasma Desktop Environment
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # System state version (DO NOT CHANGE this once installed)
   system.stateVersion = "23.11";
 }
