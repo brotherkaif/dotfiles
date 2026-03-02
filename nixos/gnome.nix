@@ -6,11 +6,13 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  # Remove xterm
+  services.xserver.excludePackages = [ pkgs.xterm ];
+
   programs.dconf.enable = true;
   services.geoclue2.enable = true;
 
-  # 2. GSettings Overrides (The essentials)
-  services.desktopManager.gnome.extraGSettingsOverridePackages = [ pkgs.mutter ];
+  # 2. GSettings Overrides
   services.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.mutter]
     experimental-features=['scale-monitor-framebuffer']
@@ -18,23 +20,49 @@
     [org.gnome.desktop.interface]
     cursor-theme='Adwaita'
     icon-theme='Adwaita'
-    font-name='Cantarell 11'
-    monospace-font-name='Source Code Pro 10'
+    # Use Adwaita (Inter) for the main interface
+    font-name='Adwaita 11'
+    document-font-name='Adwaita 11'
+    monospace-font-name='Adwaita Mono 11'
 
     [org.gnome.settings-daemon.plugins.color]
     night-light-enabled=true
     night-light-schedule-automatic=true
+
+    [org.gnome.desktop.peripherals.touchpad]
+    natural-scroll=true
+
+    [org.gnome.desktop.peripherals.mouse]
+    natural-scroll=true
+
+    [org.gnome.desktop.wm.preferences]
+    button-layout='appmenu:minimize,maximize,close'
+    titlebar-font='Adwaita Bold 11'
+
+    [org.gnome.Console]
+    theme='auto'
   '';
 
-  # 3. System Packages
+  # 3. Fontconfig Logic
+  fonts = {
+    packages = with pkgs; [
+      adwaita-fonts
+      nerd-fonts.symbols-only
+    ];
+
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "Adwaita Mono" "Symbols Nerd Font" ];
+        sansSerif = [ "Adwaita" ];
+        serif = [ "Adwaita" ];
+      };
+    };
+  };
+
+  # 4. System Packages
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
     gnome-themes-extra
-  ];
-
-  # 4. Fonts
-  fonts.packages = with pkgs; [
-    cantarell-fonts
-    source-code-pro
   ];
 }
