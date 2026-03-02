@@ -1,42 +1,38 @@
 { config, pkgs, ... }:
 
 {
-  # Enable the GNOME Desktop Environment
+  # 1. Core GNOME Services
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Enable dconf for GNOME settings
   programs.dconf.enable = true;
-
-  # Enable GNOME geolocation
   services.geoclue2.enable = true;
 
-  # Force GNOME to use Adwaita and specific fonts on every login
-  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+  # 2. GSettings Overrides (The essentials)
+  services.desktopManager.gnome.extraGSettingsOverridePackages = [ pkgs.mutter ];
+  services.desktopManager.gnome.extraGSettingsOverrides = ''
+    [org.gnome.mutter]
+    experimental-features=['scale-monitor-framebuffer']
+
     [org.gnome.desktop.interface]
     cursor-theme='Adwaita'
+    icon-theme='Adwaita'
     font-name='Cantarell 11'
     monospace-font-name='Source Code Pro 10'
 
     [org.gnome.settings-daemon.plugins.color]
     night-light-enabled=true
     night-light-schedule-automatic=true
-    night-light-temperature=3000
   '';
 
-  # GNOME-specific packages
+  # 3. System Packages
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    gnome-themes-extra
   ];
 
-  # System-wide variables for the cursor
-  environment.variables = {
-    XCURSOR_THEME = "Adwaita";
-    XCURSOR_SIZE = "24";
-  };
-
-  # Fonts required for the GNOME interface
+  # 4. Fonts
   fonts.packages = with pkgs; [
     cantarell-fonts
     source-code-pro
