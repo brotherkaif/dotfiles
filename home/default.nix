@@ -37,6 +37,7 @@
     zellij
   ] ++ lib.optionals (pkgs.stdenv.isLinux) [
     kdePackages.falkon
+    mixxx
     proton-pass
     protonmail-desktop
     protonvpn-gui

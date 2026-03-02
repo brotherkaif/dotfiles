@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -58,6 +58,7 @@
         };
         modules = [
           ./darwin/default.nix
+          ./darwin/mixo.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -82,6 +83,7 @@
         };
         modules = [
           ./darwin/default.nix
+          ./darwin/mixo.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -131,6 +133,8 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkcentre/hardware-configuration.nix
 
+          ./nixos/mixo.nix
+          ./nixos/pipewire.nix
           ./nixos/steam.nix
 
           home-manager.nixosModules.home-manager
@@ -154,6 +158,8 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkpad/hardware-configuration.nix
 
+          ./nixos/mixo.nix
+          ./nixos/pipewire.nix
           ./nixos/steam.nix
 
           home-manager.nixosModules.home-manager
