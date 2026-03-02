@@ -18,9 +18,9 @@
     experimental-features=['scale-monitor-framebuffer']
 
     [org.gnome.desktop.interface]
+    accent-color='slate'
     cursor-theme='Adwaita'
     icon-theme='Adwaita'
-    # Use Adwaita (Inter) for the main interface
     font-name='Adwaita 11'
     document-font-name='Adwaita 11'
     monospace-font-name='Adwaita Mono 11'
