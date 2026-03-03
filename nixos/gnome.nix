@@ -36,7 +36,6 @@
     natural-scroll=true
 
     [org.gnome.desktop.wm.preferences]
-    button-layout='appmenu:minimize,maximize,close'
     titlebar-font='Adwaita Bold 11'
 
     [org.gnome.Console]
