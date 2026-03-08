@@ -58,7 +58,6 @@
         };
         modules = [
           ./darwin/default.nix
-          ./darwin/mixo.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -83,7 +82,6 @@
         };
         modules = [
           ./darwin/default.nix
-          ./darwin/mixo.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -134,7 +132,6 @@
           ./nixos/hosts/thinkcentre/hardware-configuration.nix
 
           ./nixos/gnome.nix
-          ./nixos/mixo.nix
           ./nixos/pipewire.nix
           ./nixos/steam.nix
 
@@ -160,7 +157,6 @@
           ./nixos/hosts/thinkpad/hardware-configuration.nix
 
           ./nixos/gnome.nix
-          ./nixos/mixo.nix
           ./nixos/pipewire.nix
           ./nixos/steam.nix
 
