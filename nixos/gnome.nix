@@ -64,4 +64,11 @@
     adwaita-icon-theme
     gnome-themes-extra
   ];
+
+  # 5. Qt Integration
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 }
