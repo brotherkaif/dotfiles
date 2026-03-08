@@ -133,6 +133,7 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkcentre/hardware-configuration.nix
 
+          ./nixos/gnome.nix
           ./nixos/mixo.nix
           ./nixos/pipewire.nix
           ./nixos/steam.nix
@@ -158,6 +159,7 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkpad/hardware-configuration.nix
 
+          ./nixos/gnome.nix
           ./nixos/mixo.nix
           ./nixos/pipewire.nix
           ./nixos/steam.nix
