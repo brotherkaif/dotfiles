@@ -25,6 +25,7 @@
 
     casks = lib.optionals (isPersonal) [
       "appcleaner"
+      "netnewswire"
       "proton-drive"
       "proton-mail"
       "proton-pass"
