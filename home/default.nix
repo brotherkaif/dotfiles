@@ -18,7 +18,7 @@
 	home.packages = with pkgs; [
 		(python3.withPackages (ps: with ps; [ pip ]))
 		bat
-		chezmoi
+		clang-tools
 		dust
 		fastfetch
 		ffmpeg
@@ -26,10 +26,15 @@
 		fzf
 		gh
 		go
+		gopls
 		jq
 		lazygit
+		lua-language-server
+		nodePackages.eslint
+		nodePackages.typescript-language-server
 		stow
 		tree
+		vscode-langservers-extracted
 		wget
 	] ++ lib.optionals (isPersonal) [
 		hugo

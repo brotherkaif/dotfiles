@@ -113,16 +113,11 @@ local servers = {
 now_if_args(function()
   add('neovim/nvim-lspconfig')
 
-  -- Use `:h vim.lsp.enable()` to automatically enable language server based on
-  -- the rules provided by 'nvim-lspconfig'.
-  -- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
-  -- Uncomment and tweak the following `vim.lsp.enable()` call to enable servers.
-  -- vim.lsp.enable({
-  --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
-  -- })
+  local lspconfig = require('lspconfig')
 
   for server_name, server_config in pairs(servers) do
-    vim.lsp.config(server_name, {
+    -- Using .setup() handles the filetype detection and command routing automatically
+    lspconfig[server_name].setup({
       capabilities = capabilities,
       settings = server_config,
     })
