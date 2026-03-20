@@ -21,7 +21,6 @@
 		clang-tools
 		dust
 		fastfetch
-		ffmpeg
 		fx
 		fzf
 		gh
@@ -41,11 +40,12 @@
 		nodejs_24
 		zellij
 	] ++ lib.optionals (pkgs.stdenv.isLinux) [
+		ffmpeg
+		gnome-feeds
 		mixxx
 		proton-pass
 		protonmail-desktop
 		protonvpn-gui
-		gnome-feeds
 	];
 
 	home.sessionVariables = {

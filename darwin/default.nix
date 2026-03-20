@@ -23,6 +23,10 @@
 		onActivation.autoUpdate = true;
 		onActivation.upgrade = true;
 
+		brews = lib.optionals (isPersonal) [
+			"ffmpeg"
+		];
+
 		casks = lib.optionals (isPersonal) [
 			"appcleaner"
 			"audacity"
