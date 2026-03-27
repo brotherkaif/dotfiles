@@ -27,7 +27,13 @@
 			"ffmpeg"
 		];
 
-		casks = lib.optionals (isPersonal) [
+		casks = [
+			# Work and Personal
+		] ++ lib.optionals (!isPersonal) [
+			# Work Only
+			"visual-studio-code"
+		] ++ lib.optionals (isPersonal) [
+			# Personal Only
 			"appcleaner"
 			"audacity"
 			"kid3"
@@ -42,10 +48,10 @@
 		# Mac App Store Applications
 		masApps = {
 			# Installed on both Work and Personal machines
-			"Ghostery" = 6504861501;
-			"JSON Peep for Safari" = 1458969831;
 		} // lib.optionalAttrs (isPersonal) {
 			# Installed ONLY on Personal machines
+			"Ghostery" = 6504861501;
+			"JSON Peep for Safari" = 1458969831;
 			"Proton Pass for Safari" = 6502835663;
 			"djay - DJ App & AI Mixer" = 450527929;
 		};
