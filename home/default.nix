@@ -1,5 +1,8 @@
 { config, pkgs, lib, user, isPersonal, ... }:
 
+let
+	packages = import ../packages.nix { inherit pkgs lib isPersonal; };
+in
 {
 	imports = [
 		./git.nix
@@ -15,38 +18,7 @@
 
 	home.stateVersion = "24.05";
 
-	home.packages = with pkgs; [
-		(python3.withPackages (ps: with ps; [ pip ]))
-		bat
-		clang-tools
-		dust
-		fastfetch
-		fx
-		fzf
-		gh
-		go
-		gopls
-		jq
-		lazygit
-		lua-language-server
-		nodePackages.eslint
-		nodePackages.typescript-language-server
-		stow
-		tree
-		vscode-langservers-extracted
-		wget
-	] ++ lib.optionals (isPersonal) [
-		hugo
-		nodejs_24
-		zellij
-	] ++ lib.optionals (pkgs.stdenv.isLinux) [
-		ffmpeg
-		gnome-feeds
-		mixxx
-		proton-pass
-		protonmail-desktop
-		protonvpn-gui
-	];
+	home.packages = packages.home.packages;
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
