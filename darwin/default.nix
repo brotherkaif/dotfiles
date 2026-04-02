@@ -20,6 +20,7 @@ in
 		onActivation.autoUpdate = true;
 		onActivation.upgrade = true;
 
+		taps = packages.homebrew.taps;
 		brews = packages.homebrew.brews;
 		casks = packages.homebrew.casks;
 		masApps = packages.homebrew.masApps;

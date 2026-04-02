@@ -6,6 +6,7 @@
 # Sections:
 #   - darwin.systemPackages : Nix packages for macOS system environment
 #   - home.packages         : Nix packages for home-manager (all platforms)
+#   - homebrew.taps         : Homebrew taps (macOS)
 #   - homebrew.brews        : Homebrew formulae (macOS)
 #   - homebrew.casks        : Homebrew casks (macOS)
 #   - homebrew.masApps      : Mac App Store apps (macOS)
@@ -56,19 +57,29 @@
     ffmpeg
     gnome-feeds
     mixxx
+    ollama
     proton-pass
     protonmail-desktop
     protonvpn-gui
   ];
 
+  # Homebrew Taps
+  homebrew.taps = [
+    "charmbracelet/tap"
+  ];
+
   # Homebrew Formulae
-  homebrew.brews = lib.optionals isPersonal [
+  homebrew.brews = [
+    # Shared (work + personal)
+    "crush"
+  ] ++ lib.optionals isPersonal [
     "ffmpeg"
   ];
 
   # Homebrew Casks
   homebrew.casks = [
     # Shared (work + personal)
+    "ollama"
   ] ++ lib.optionals (!isPersonal) [
     # Work only
     "visual-studio-code"

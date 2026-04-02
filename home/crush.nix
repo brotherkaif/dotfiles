@@ -1,0 +1,22 @@
+{ config, pkgs, lib, ... }:
+
+{
+	xdg.configFile."crush/crush.json".text = builtins.toJSON {
+		"$schema" = "https://charm.land/crush.json";
+		providers = {
+			ollama = {
+				name = "Ollama";
+				base_url = "http://localhost:11434/v1/";
+				type = "openai-compat";
+				models = [
+					{
+						name = "Qwen 3 30B";
+						id = "qwen3:30b";
+						context_window = 256000;
+						default_max_tokens = 20000;
+					}
+				];
+			};
+		};
+	};
+}
