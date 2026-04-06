@@ -30,6 +30,7 @@ in
 
 	# Nix Configuration
 	nix.enable = false;
+	nixpkgs.config.allowUnfree = true;
 
 	# Enable Zsh (required for MacOS to not complain, even if you use Fish/Bash)
 	programs.zsh.enable = true;
