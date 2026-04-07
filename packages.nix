@@ -31,7 +31,6 @@
 		(python3.withPackages (ps: with ps; [ pip ]))
 		bat
 		clang-tools
-		crush
 		dust
 		fastfetch
 		fx
@@ -48,6 +47,8 @@
 		tree
 		vscode-langservers-extracted
 		wget
+	] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+		crush
 	] ++ lib.optionals isPersonal [
 		# Personal only
 		hugo
@@ -66,6 +67,7 @@
 
 	# Homebrew Taps
 	homebrew.taps = [
+		"charmbracelet/tap/crush"
 	];
 
 	# Homebrew Formulae

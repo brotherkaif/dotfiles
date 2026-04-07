@@ -1,0 +1,81 @@
+# ==========================================
+# 1. THE BIGGEST SLOWDOWNS (Dependencies)
+# ==========================================
+node_modules/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ==========================================
+# 2. BUILD & DIST (Agents should only see source)
+# ==========================================
+dist/
+build/
+.next/
+out/
+*.min.js
+*.min.css
+*.map
+
+# ==========================================
+# 3. HEAVY DATA & ASSETS
+# ==========================================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.mp4
+*.pdf
+/public/assets/
+/data/*.csv
+/data/*.json
+
+# ==========================================
+# 4. TESTING & COVERAGE (Bloats search results)
+# ==========================================
+coverage/
+.nyc_output/
+.pytest_cache/
+.tox/
+.mypy_cache/
+
+# ==========================================
+# 5. IDE & SYSTEM NOISE
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# ==========================================
+# 6. SECRETS (Safety first)
+# ==========================================
+.env*
+*.pem
+*.key
+
+# ==========================================
+# 7. HUGO SPECIFIC EXCLUSIONS
+# ==========================================
+# The generated site (This is usually the biggest speed killer)
+public/
+
+# Hugo's internal cache for image processing, CSS bundling, etc.
+resources/_gen/
+
+# Hugo lock file
+.hugo_build.lock
+
+# If you use Hugo Modules
+_vendor/
+
+# (Optional) Hugo's content folder
+# content/
