@@ -10,14 +10,14 @@
 
 -- An example helper to create a Normal mode mapping
 local nmap = function(lhs, rhs, desc)
-  -- See `:h vim.keymap.set()`
-  vim.keymap.set('n', lhs, rhs, { desc = desc })
+	-- See `:h vim.keymap.set()`
+	vim.keymap.set("n", lhs, rhs, { desc = desc })
 end
 
 -- Paste linewise before/after current line
 -- Usage: `yiw` to yank a word and `]p` to put it on the next line.
-nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
-nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
+nmap("[p", '<Cmd>exe "put! " . v:register<CR>', "Paste Above")
+nmap("]p", '<Cmd>exe "put "  . v:register<CR>', "Paste Below")
 
 -- Many general mappings are created by 'mini.basics'. See 'plugin/30_mini.lua'
 
@@ -52,6 +52,7 @@ nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
 _G.Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>a', desc = '+AI' },
   { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
+  { mode = 'n', keys = '<Leader>d', desc = '+Debug' },
   { mode = 'n', keys = '<Leader>e', desc = '+Explore/Edit' },
   { mode = 'n', keys = '<Leader>f', desc = '+Find' },
   { mode = 'n', keys = '<Leader>g', desc = '+Git' },
@@ -110,6 +111,78 @@ nmap_leader('bD', '<Cmd>lua MiniBufremove.delete(0, true)<CR>',  'Delete!')
 nmap_leader('bs', new_scratch_buffer,                            'Scratch')
 nmap_leader('bw', '<Cmd>lua MiniBufremove.wipeout()<CR>',        'Wipeout')
 nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
+
+-- d is for 'Debug'. Common usage:
+-- - `<Leader>du` - toggle ui
+-- - `<Leader>db` - toggle breakpoint
+-- - `<Leader>dc` - continue
+-- - `<Leader>dv` - launch vitest debug session (starts vitest + attaches DAP)
+nmap_leader('db', function() require('dap').toggle_breakpoint() end, 'Toggle breakpoint')
+nmap_leader('dc', function() require('dap').continue() end,          'Continue / Start')
+nmap_leader('do', function() require('dap').step_over() end,         'Step over')
+nmap_leader('di', function() require('dap').step_into() end,         'Step into')
+nmap_leader('dO', function() require('dap').step_out() end,          'Step out')
+nmap_leader('dr', function() require('dap').repl.open() end,         'Open REPL')
+nmap_leader('du', function() require('dapui').toggle() end,          'Toggle UI')
+nmap_leader('dt', function() require('dap').terminate() end,         'Terminate')
+nmap_leader('dv', function()
+  -- Find the nearest package.json to determine the module root,
+  -- since LSP may have changed cwd to the repo root.
+  local buf_dir = vim.fn.expand('%:p:h')
+  local pkg = vim.fs.find('package.json', { path = buf_dir, upward = true })[1]
+  if not pkg then
+    vim.notify('No package.json found above ' .. buf_dir, vim.log.levels.ERROR)
+    return
+  end
+  local module_root = vim.fn.fnamemodify(pkg, ':h')
+  local vitest = module_root .. '/node_modules/.bin/vitest'
+
+  if vim.fn.executable(vitest) ~= 1 then
+    vim.notify('vitest not found in ' .. module_root .. '/node_modules', vim.log.levels.ERROR)
+    return
+  end
+
+  local cmd = 'cd ' .. vim.fn.shellescape(module_root) .. ' && '
+    .. vitest .. ' run --project unit --no-coverage --no-file-parallelism --inspectBrk'
+  local file = vim.fn.expand('%:t')
+  if file:match('%.test%.') or file:match('%.spec%.') then
+    cmd = cmd .. ' ' .. file
+  end
+
+  -- Open a small terminal split at the bottom
+  vim.cmd('botright 12split | terminal ' .. cmd)
+  local term_buf = vim.api.nvim_get_current_buf()
+  -- Go back to the previous window so breakpoints are visible
+  vim.cmd('wincmd p')
+
+  -- Watch terminal output for the inspector to be ready, then attach DAP
+  local attached = false
+  vim.api.nvim_buf_attach(term_buf, false, {
+    on_lines = function(_, buf)
+      if attached then return true end -- detach
+      local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+      for _, line in ipairs(lines) do
+        if line:match('Debugger listening') then
+          attached = true
+          vim.schedule(function()
+            require('dap').run({
+              type = 'pwa-node',
+              request = 'attach',
+              name = 'Vitest (auto)',
+              port = 9229,
+              cwd = module_root,
+              sourceMaps = true,
+              resolveSourceMapLocations = vim.NIL,
+              skipFiles = { '<node_internals>/**' },
+              continueOnAttach = true,
+            })
+          end)
+          return true -- detach callback
+        end
+      end
+    end,
+  })
+end, 'Vitest debug')
 
 -- e is for 'Explore' and 'Edit'. Common usage:
 -- - `<Leader>ed` - open explorer at current working directory
