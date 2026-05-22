@@ -67,15 +67,15 @@
 
 	# Homebrew Taps
 	homebrew.taps = [
-		"charmbracelet/tap/crush"
+		"charmbracelet/tap"
 	];
 
 	# Homebrew Formulae
 	homebrew.brews = [
 		# Shared (work + personal)
+		"crush"
 	] ++ lib.optionals isPersonal [
 		"ffmpeg"
-		"gemini-cli"
 	];
 
 	# Homebrew Casks
@@ -87,6 +87,7 @@
 		"visual-studio-code"
 	] ++ lib.optionals isPersonal [
 		# Personal only
+		"antigravity-cli"
 		"appcleaner"
 		"audacity"
 		"kid3"
