@@ -107,7 +107,6 @@
 		"Ghostery" = 6504861501;
 		"JSON Peep for Safari" = 1458969831;
 		"Proton Pass for Safari" = 6502835663;
-		"djay - DJ App & AI Mixer" = 450527929;
 	};
 
 	# Fonts (macOS)
