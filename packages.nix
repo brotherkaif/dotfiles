@@ -74,6 +74,8 @@
 	homebrew.brews = [
 		# Shared (work + personal)
 		"crush"
+	] ++ lib.optionals (!isPersonal) [
+		# Work only
 	] ++ lib.optionals isPersonal [
 		"ffmpeg"
 	];
@@ -84,6 +86,7 @@
 		"ollama"
 	] ++ lib.optionals (!isPersonal) [
 		# Work only
+		"copilot-cli"
 		"visual-studio-code"
 	] ++ lib.optionals isPersonal [
 		# Personal only

@@ -26,6 +26,11 @@ in
 		masApps = packages.homebrew.masApps;
 	};
 
+	system.activationScripts.postActivation.text = ''
+		echo "Linking copilot-cli binary..."
+		ln -sf /opt/homebrew/Caskroom/copilot-cli/*/copilot /opt/homebrew/bin/copilot
+	'';
+
 	fonts.packages = packages.fonts;
 
 	# Nix Configuration
