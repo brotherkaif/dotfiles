@@ -90,3 +90,11 @@ Config.set_seasonal_scheme = function()
 end
 
 Config.set_seasonal_scheme()
+
+-- Toggle between light and dark background while keeping the current colorscheme.
+-- The seasonal scheme (set above) respects vim.o.background, so this effectively
+-- switches between its light and dark variants without losing the seasonal choice.
+Config.toggle_background = function()
+    vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
+    vim.cmd('colorscheme ' .. vim.g.colors_name)
+end
