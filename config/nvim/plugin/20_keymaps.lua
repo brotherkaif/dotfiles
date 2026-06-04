@@ -79,9 +79,10 @@ local xmap_leader = function(suffix, rhs, desc)
   vim.keymap.set('x', '<Leader>' .. suffix, rhs, { desc = desc })
 end
 
-nmap('=', '<cmd>colorscheme randomhue<CR>', 'colorscheme randomhue')
-nmap('+', '<cmd>colorscheme default<CR>', 'colorscheme default')
-nmap('-', '<cmd>lua Config.set_seasonal_scheme()<CR>', 'colorscheme seasonal')
+nmap('=', '<cmd>colorscheme randomhue<CR>', 'Colorscheme randomhue')
+nmap('+', '<cmd>colorscheme default<CR>', 'Colorscheme default')
+nmap('-', '<cmd>lua Config.set_seasonal_scheme()<CR>', 'Colorscheme seasonal')
+nmap('_', '<cmd>lua Config.toggle_background()<CR>', 'Toggle light/dark')
 
 -- a is for 'AI'. Common usage:
 -- GitHub Copilot mappings (for copilot.vim plugin)

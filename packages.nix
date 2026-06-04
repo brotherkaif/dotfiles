@@ -47,13 +47,13 @@
 		tree
 		vscode-langservers-extracted
 		wget
+		zellij
 	] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
 		crush
 	] ++ lib.optionals isPersonal [
 		# Personal only
 		hugo
 		nodejs_24
-		zellij
 	] ++ lib.optionals pkgs.stdenv.isLinux [
 		# Linux only
 		ffmpeg
