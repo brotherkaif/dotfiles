@@ -24,8 +24,7 @@
 -- - Step one enables everything that is needed for first draw with `now()`.
 --   Sometimes is needed only if Neovim is started as `nvim -- path/to/file`.
 -- - Everything else is delayed until the first draw with `later()`.
-local now, later = MiniDeps.now, MiniDeps.later
-local now_if_args = Config.now_if_args
+local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 -- Step one ===================================================================
 -- Enable 'miniwinter' color scheme. It comes with 'mini.nvim' and uses 'mini.hues'.
@@ -247,8 +246,8 @@ now_if_args(function()
   -- - `g?` to see available bookmarks
   local add_marks = function()
     MiniFiles.set_bookmark('c', vim.fn.stdpath('config'), { desc = 'Config' })
-    local minideps_plugins = vim.fn.stdpath('data') .. '/site/pack/deps/opt'
-    MiniFiles.set_bookmark('p', minideps_plugins, { desc = 'Plugins' })
+    local vimpack_plugins = vim.fn.stdpath('data') .. '/site/pack/core/opt'
+    MiniFiles.set_bookmark('p', vimpack_plugins, { desc = 'Plugins' })
     MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
   end
   Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
