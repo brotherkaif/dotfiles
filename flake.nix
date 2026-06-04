@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -11,7 +13,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nixpkgs-unstable, home-manager, ... }:
   let
     mac-mini-config = {
       system = "aarch64-darwin";
@@ -47,6 +49,11 @@
       gitEmail = "github.banister767@passinbox.com";
       isPersonal = true;
     };
+
+    pkgs-unstable-for = system: import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in
   {
     darwinConfigurations = {
@@ -67,6 +74,7 @@
               user = mac-mini-config.username;
               gitEmail = mac-mini-config.gitEmail;
               isPersonal = mac-mini-config.isPersonal;
+              pkgs-unstable = pkgs-unstable-for mac-mini-config.system;
             };
 
             home-manager.users.${mac-mini-config.username} = import ./home/default.nix;
@@ -91,6 +99,7 @@
               user = macbook-air-config.username;
               gitEmail = macbook-air-config.gitEmail;
               isPersonal = macbook-air-config.isPersonal;
+              pkgs-unstable = pkgs-unstable-for macbook-air-config.system;
             };
 
             home-manager.users.${macbook-air-config.username} = import ./home/default.nix;
@@ -115,6 +124,7 @@
               user = macbook-pro-config.username;
               gitEmail = macbook-pro-config.gitEmail;
               isPersonal = macbook-pro-config.isPersonal;
+              pkgs-unstable = pkgs-unstable-for macbook-pro-config.system;
             };
 
             home-manager.users.${macbook-pro-config.username} = import ./home/default.nix;
@@ -143,6 +153,7 @@
               user = thinkcentre-config.username;
               gitEmail = thinkcentre-config.gitEmail;
               isPersonal = thinkcentre-config.isPersonal;
+              pkgs-unstable = pkgs-unstable-for thinkcentre-config.system;
             };
             home-manager.users.${thinkcentre-config.username} = import ./home/default.nix;
           }
@@ -168,6 +179,7 @@
               user = thinkpad-config.username;
               gitEmail = thinkpad-config.gitEmail;
               isPersonal = thinkpad-config.isPersonal;
+              pkgs-unstable = pkgs-unstable-for thinkpad-config.system;
             };
             home-manager.users.${thinkpad-config.username} = import ./home/default.nix;
           }
