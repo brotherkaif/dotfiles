@@ -22,8 +22,8 @@
             default_max_tokens = 8192;
           }
           {
-            name = "Qwen Coder 7B (Agentic)";
-            id = "qwen2.5-coder:7b-instruct";
+            name = "Qwen Coder 14B (Agentic)";
+            id = "qwen2.5-coder:14b";
             context_window = 32768;
             default_max_tokens = 8192;
           }

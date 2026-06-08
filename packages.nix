@@ -52,8 +52,11 @@
 		crush
 	] ++ lib.optionals isPersonal [
 		# Personal only
+		ffmpeg
 		hugo
 		nodejs_24
+		opencode
+		yt-dlp
 	] ++ lib.optionals pkgs.stdenv.isLinux [
 		# Linux only
 		ffmpeg
@@ -77,7 +80,7 @@
 	] ++ lib.optionals (!isPersonal) [
 		# Work only
 	] ++ lib.optionals isPersonal [
-		"ffmpeg"
+		# Personal only
 	];
 
 	# Homebrew Casks

@@ -10,6 +10,8 @@ in
 		./nvim.nix
 		./shell.nix
 		./tmux.nix
+	] ++ lib.optionals isPersonal [
+		./opencode.nix
 	] ++ lib.optionals (!isPersonal) [
 		./fnm.nix
 	];
