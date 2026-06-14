@@ -5,7 +5,6 @@ let
 in
 {
 	imports = [
-		./crush.nix
 		./git.nix
 		./nvim.nix
 		./shell.nix
