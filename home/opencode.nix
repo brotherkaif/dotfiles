@@ -6,15 +6,10 @@
     model = "ollama/gemma4:12b";
     small_model = "ollama/qwen2.5-coder:7b";
 
-    # Local stability and data sovereignty flags
-    allow_cloud_fallback = false;
-    cache_dir = "~/.cache/opencode";
-
     provider = {
       ollama = {
         name = "Ollama";
         options = {
-          # Cleaned endpoint to fix raw JSON tool-calling failures
           baseURL = "http://127.0.0.1:11434";
         };
         models = {
