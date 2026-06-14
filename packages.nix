@@ -28,7 +28,7 @@
 	# Home Manager Packages (home.packages, all platforms)
 	home.packages = with pkgs; [
 		# Shared (work + personal, all platforms)
-		(python3.withPackages (ps: with ps; [ pip ] ++ lib.optionals pkgs.stdenv.isDarwin [ mlx-lm ]))
+		(python3.withPackages (ps: with ps; [ pip ]))
 		bat
 		clang-tools
 		dust
