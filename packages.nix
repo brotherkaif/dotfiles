@@ -49,7 +49,6 @@
 		wget
 		zellij
 	] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
-		crush
 	] ++ lib.optionals isPersonal [
 		# Personal only
 		ffmpeg
@@ -76,7 +75,6 @@
 	# Homebrew Formulae
 	homebrew.brews = [
 		# Shared (work + personal)
-		"crush"
 	] ++ lib.optionals (!isPersonal) [
 		# Work only
 	] ++ lib.optionals isPersonal [
