@@ -11,8 +11,7 @@ in
 		./tmux.nix
 	] ++ lib.optionals isPersonal [
 		./opencode.nix
-	] ++ lib.optionals (isPersonal && pkgs.stdenv.isDarwin) [
-	  ./mlx.nix
+		./mlx.nix
 	] ++ lib.optionals (!isPersonal) [
 		./fnm.nix
 	];
