@@ -3,27 +3,35 @@
 {
   xdg.configFile."opencode/opencode.json".text = builtins.toJSON {
     "$schema" = "https://opencode.ai/config.json";
-    model = "ollama/qwen2.5-coder:14b";
-    small_model = "ollama/qwen2.5:7b";
+    model = "ollama/gemma4:12b";
+    small_model = "ollama/qwen2.5-coder:7b";
+
+    # Local stability and data sovereignty flags
+    allow_cloud_fallback = false;
+    cache_dir = "~/.cache/opencode";
+
     provider = {
       ollama = {
-        npm = "@ai-sdk/openai-compatible";
         name = "Ollama";
         options = {
-          baseURL = "http://localhost:11434/v1";
+          # Cleaned endpoint to fix raw JSON tool-calling failures
+          baseURL = "http://127.0.0.1:11434";
         };
         models = {
-          "qwen2.5:1.5b" = {
-            name = "Qwen 2.5 1.5B";
+          "gemma4:12b" = {
+            name = "Gemma 4 12B (Primary)";
           };
-          "qwen2.5:7b" = {
-            name = "Qwen 2.5 7B";
+          "qwen2.5-coder:7b" = {
+            name = "Qwen 2.5 Coder 7B";
           };
           "qwen2.5-coder:14b" = {
-            name = "Qwen Coder 14B (Agentic)";
+            name = "Qwen 2.5 Coder 14B";
           };
-          "qwen3:30b" = {
-            name = "Qwen 3 30B";
+          "deepseek-r1:7b" = {
+            name = "DeepSeek R1 7B";
+          };
+          "deepseek-r1:14b" = {
+            name = "DeepSeek R1 14B";
           };
         };
       };
