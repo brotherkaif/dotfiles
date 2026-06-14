@@ -10,7 +10,7 @@
       ollama = {
         name = "Ollama";
         options = {
-          baseURL = "http://127.0.0.1:11434";
+          baseURL = "http://localhost:11434/v1";
         };
         models = {
           "gemma4:12b" = {
