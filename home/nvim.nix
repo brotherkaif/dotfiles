@@ -1,27 +1,24 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = false;
-    vimAlias = false;
+  # Install neovim 0.12 directly from unstable, bypassing home-manager's
+  # wrapper (which is incompatible with the unstable package structure).
+  home.packages = [
+    pkgs-unstable.neovim
+  ] ++ (with pkgs; [
+    ripgrep
+    fd
+    cargo
+    jdk
+    phpPackages.composer
+    php
+    pv
+    julia-bin
+    luarocks
+  ]);
 
-    extraPackages = with pkgs; [
-      ripgrep
-      fd
-      cargo
-      jdk
-      phpPackages.composer
-      php
-      pv
-      julia-bin
-      luarocks
-      # lua-language-server
-      # nil # Nix LSP
-      # stylua
-      # Add others (node, python, go, etc.) as needed by your plugins
-    ];
+  home.sessionVariables = {
+    EDITOR = "nvim";
   };
 
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/nvim";
