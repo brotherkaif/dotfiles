@@ -5,11 +5,13 @@ let
 in
 {
 	imports = [
-		./crush.nix
 		./git.nix
 		./nvim.nix
 		./shell.nix
 		./tmux.nix
+	] ++ lib.optionals isPersonal [
+		./opencode.nix
+		./mlx.nix
 	] ++ lib.optionals (!isPersonal) [
 		./fnm.nix
 	];

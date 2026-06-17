@@ -49,11 +49,13 @@
 		wget
 		zellij
 	] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
-		crush
 	] ++ lib.optionals isPersonal [
 		# Personal only
+		ffmpeg
 		hugo
 		nodejs_24
+		opencode
+		yt-dlp
 	] ++ lib.optionals pkgs.stdenv.isLinux [
 		# Linux only
 		ffmpeg
@@ -73,11 +75,10 @@
 	# Homebrew Formulae
 	homebrew.brews = [
 		# Shared (work + personal)
-		"crush"
 	] ++ lib.optionals (!isPersonal) [
 		# Work only
 	] ++ lib.optionals isPersonal [
-		"ffmpeg"
+		# Personal only
 	];
 
 	# Homebrew Casks
