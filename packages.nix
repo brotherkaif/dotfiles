@@ -59,7 +59,7 @@
 	] ++ lib.optionals pkgs.stdenv.isLinux [
 		# Linux only
 		ffmpeg
-		gnome-feeds
+
 		mixxx
 		ollama
 		proton-pass

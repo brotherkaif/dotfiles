@@ -6,6 +6,7 @@ in
 {
 	imports = [
 		./git.nix
+		./kde.nix
 		./nvim.nix
 		./shell.nix
 		./tmux.nix
