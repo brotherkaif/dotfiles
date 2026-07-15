@@ -8,6 +8,7 @@ in
 		./git.nix
 		./kde.nix
 		./nvim.nix
+		./scripts.nix
 		./shell.nix
 		./tmux.nix
 	] ++ lib.optionals isPersonal [
