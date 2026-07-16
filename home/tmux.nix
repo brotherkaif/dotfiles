@@ -15,6 +15,17 @@ in
     keyMode = "vi";
     aggressiveResize = true;
 
+    plugins = with pkgs.tmuxPlugins; [
+      resurrect
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '15'
+        '';
+      }
+    ];
+
     extraConfig = ''
       # TRUE COLOR SUPPORT
       set -ga terminal-overrides ",xterm-256color*:Tc"
@@ -22,10 +33,32 @@ in
       # MISC SETTINGS
       set -g bell-action none
       setw -g xterm-keys on
+      set -g renumber-windows on
+
+      # RELOAD CONFIG
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded"
+
+      # PANE SPLITTING (open in current pane's path)
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+
+      # PANE NAVIGATION (vi-style, behind prefix so Neovim's own <C-hjkl>
+      # split navigation is untouched)
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+
+      # PANE RESIZING (repeatable: hold prefix once, then tap H/J/K/L)
+      bind -r H resize-pane -L 5
+      bind -r J resize-pane -D 5
+      bind -r K resize-pane -U 5
+      bind -r L resize-pane -R 5
+
+      # WINDOW MANAGEMENT
+      bind c new-window -c "#{pane_current_path}"
 
       # VIM STYLE COPY AND PASTE
-      bind Escape copy-mode
-      bind p paste-buffer
       bind -T copy-mode-vi v send -X begin-selection
 
       # Notice how we inject the dynamic copyCommand variable here:

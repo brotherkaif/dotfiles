@@ -46,6 +46,8 @@ The entry point is `flake.nix`, which defines per-host configs and wires togethe
 
 **Adding a new Home Manager module:** Create `home/<tool>.nix`, then import it in `home/default.nix`. Use `lib.optionals (!isPersonal) [ ./tool.nix ]` for conditional imports.
 
+**Adding a cross-machine bash script:** Drop a `.sh` file into `scripts/` (e.g. `scripts/hello-world.sh`). `home/scripts.nix` automatically wraps every script in that directory with `pkgs.writeShellApplication` (name = filename minus `.sh`) and adds it to `home.packages`, so it reaches `$PATH` on every host via the standard Nix/home-manager user profile — no `packages.nix` entry or `$HOME` file needed. Scripts must pass `shellcheck` since `writeShellApplication` lints them at build time.
+
 **Machine-local secrets and overrides** (SSH keys, tokens, machine-specific env vars) go in `~/.local-config`, which is sourced by both bash and zsh. This file is not tracked in the repo.
 
 **All Darwin hosts share** the same `darwin/default.nix`; there is no per-host darwin directory. Host-specific macOS differences are handled via `isPersonal` or `specialArgs` in `flake.nix`.
