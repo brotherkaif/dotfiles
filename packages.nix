@@ -18,6 +18,9 @@
 
 { pkgs, lib, isPersonal }:
 
+let
+	graf = pkgs.callPackage ./pkgs/graf.nix { };
+in
 {
 	# Darwin System Packages (environment.systemPackages)
 	darwin.systemPackages = with pkgs; [
@@ -38,6 +41,7 @@
 		gh
 		go
 		gopls
+		graf
 		jq
 		lazygit
 		lua-language-server
