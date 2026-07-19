@@ -115,6 +115,7 @@ in
 		"Ghostery" = 6504861501;
 		"JSON Peep for Safari" = 1458969831;
 		"Proton Pass for Safari" = 6502835663;
+		"ReDD Focus for Safari" = 1660218371;
 	};
 
 	# Fonts (macOS)
