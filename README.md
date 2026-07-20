@@ -83,3 +83,50 @@ To update your system packages to their latest versions:
 nix flake update
 # Then run your respective rebuild command above
 ```
+
+## ⌨️ Tmux Keybindings
+
+Prefix keys:
+
+- `Ctrl-Space` (primary prefix)
+- `Ctrl-b` (secondary prefix)
+
+Prefix table bindings:
+
+| Key | Action |
+|---|---|
+| `q` | Reload tmux config |
+| `h` | Split pane vertically |
+| `v` | Split pane horizontally |
+| `x` | Kill pane |
+| `r` | Rename window |
+| `c` | New window (same cwd) |
+| `k` | Kill window |
+| `R` | Rename session |
+| `C` | New session (same cwd) |
+| `K` | Kill session |
+| `P` | Previous session |
+| `N` | Next session |
+
+Global (no-prefix) bindings:
+
+| Key | Action |
+|---|---|
+| `Alt-Enter` | Split pane vertically (same cwd) |
+| `Alt-Shift-Enter` | Split pane horizontally (same cwd) |
+| `Alt-Escape` | Kill pane |
+| `Ctrl-Alt-Left/Right/Up/Down` | Move between panes |
+| `Ctrl-Alt-Shift-Left/Right/Up/Down` | Resize pane by 5 |
+| `Alt-1..9` | Jump to window 1..9 |
+| `Alt-Left/Right` | Previous/next window |
+| `Alt-Shift-Left/Right` | Swap window left/right and select it |
+| `Alt-Up/Down` | Previous/next session |
+
+Copy mode (`copy-mode-vi`):
+
+| Key | Action |
+|---|---|
+| `v` | Begin selection |
+| `y` | Copy selection and exit copy mode |
+| `Enter` | Copy selection and exit copy mode |
+| `MouseDragEnd1Pane` | Copy selection and exit copy mode |
