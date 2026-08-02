@@ -9,5 +9,8 @@ mkIf (!pkgs.stdenv.isDarwin) {
     Mode=auto
     TemperatureDay=6500
     TemperatureNight=4000
+
+    [Tiling]
+    padding=8
   '';
 }
