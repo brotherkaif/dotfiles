@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, isPersonal, ... }:
+{ config, pkgs, lib, user, isPersonal, isSteamOS ? false, ... }:
 
 let
 	packages = import ../packages.nix { inherit pkgs lib isPersonal; };
