@@ -27,7 +27,7 @@ in
     EDITOR = "nvim";
     VISUAL = "nvim";
     TERMINAL = "alacritty";
-    TERM = "xterm-256color";
+    COLORTERM = "truecolor";
 
     # History
     HISTCONTROL = "ignorespace";
