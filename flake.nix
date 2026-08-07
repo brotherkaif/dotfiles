@@ -39,6 +39,7 @@
       username = "brotherkaif";
       gitEmail = "github.banister767@passinbox.com";
       isPersonal = true;
+      isSteamOS = false;
     };
 
     thinkpad-config = {
@@ -46,6 +47,7 @@
       username = "brotherkaif";
       gitEmail = "github.banister767@passinbox.com";
       isPersonal = true;
+      isSteamOS = false;
     };
   in
   {
@@ -131,7 +133,7 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkcentre/hardware-configuration.nix
 
-          ./nixos/gnome.nix
+          ./nixos/kde.nix
           ./nixos/pipewire.nix
           ./nixos/steam.nix
 
@@ -143,6 +145,7 @@
               user = thinkcentre-config.username;
               gitEmail = thinkcentre-config.gitEmail;
               isPersonal = thinkcentre-config.isPersonal;
+              isSteamOS = thinkcentre-config.isSteamOS;
             };
             home-manager.users.${thinkcentre-config.username} = import ./home/default.nix;
           }
@@ -156,7 +159,7 @@
           ./nixos/configuration.nix
           ./nixos/hosts/thinkpad/hardware-configuration.nix
 
-          ./nixos/gnome.nix
+          ./nixos/kde.nix
           ./nixos/pipewire.nix
           ./nixos/steam.nix
 
@@ -168,6 +171,7 @@
               user = thinkpad-config.username;
               gitEmail = thinkpad-config.gitEmail;
               isPersonal = thinkpad-config.isPersonal;
+              isSteamOS = thinkpad-config.isSteamOS;
             };
             home-manager.users.${thinkpad-config.username} = import ./home/default.nix;
           }

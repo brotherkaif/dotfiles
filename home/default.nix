@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, isPersonal, ... }:
+{ config, pkgs, lib, user, isPersonal, isSteamOS ? false, ... }:
 
 let
 	packages = import ../packages.nix { inherit pkgs lib isPersonal; };
@@ -6,6 +6,7 @@ in
 {
 	imports = [
 		./git.nix
+		./kde.nix
 		./nvim.nix
 		./scripts.nix
 		./shell.nix

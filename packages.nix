@@ -19,6 +19,7 @@
 { pkgs, lib, isPersonal }:
 
 let
+	graf = pkgs.callPackage ./pkgs/graf.nix { };
 in
 {
 	# Darwin System Packages (environment.systemPackages)
@@ -40,6 +41,7 @@ in
 		gh
 		go
 		gopls
+		graf
 		jq
 		lazygit
 		lua-language-server
@@ -61,7 +63,7 @@ in
 	] ++ lib.optionals pkgs.stdenv.isLinux [
 		# Linux only
 		ffmpeg
-		gnome-feeds
+
 		mixxx
 		ollama
 		proton-pass
