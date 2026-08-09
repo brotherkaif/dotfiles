@@ -20,6 +20,7 @@
 
 let
 	graf = pkgs.callPackage ./pkgs/graf.nix { };
+	proton-drive-cli = pkgs.callPackage ./pkgs/proton-drive-cli.nix { };
 in
 {
 	# Darwin System Packages (environment.systemPackages)
@@ -59,6 +60,7 @@ in
 		hugo
 		nodejs_24
 		opencode
+		proton-drive-cli
 		yt-dlp
 	] ++ lib.optionals pkgs.stdenv.isLinux [
 		# Linux only
