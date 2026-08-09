@@ -19,7 +19,6 @@
 { pkgs, lib, isPersonal }:
 
 let
-	graf = pkgs.callPackage ./pkgs/graf.nix { };
 	proton-drive-cli = pkgs.callPackage ./pkgs/proton-drive-cli.nix { };
 in
 {
@@ -42,7 +41,6 @@ in
 		gh
 		go
 		gopls
-		graf
 		jq
 		lazygit
 		lua-language-server
@@ -66,6 +64,7 @@ in
 		# Linux only
 		ffmpeg
 
+		kdePackages.kdenlive
 		mixxx
 		ollama
 		proton-pass
