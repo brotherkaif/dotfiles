@@ -1,5 +1,43 @@
 # Script Guides
 
+## `pd-sync` — two-way Proton Drive sync
+
+Wraps the official `proton-drive` CLI to sync configured local/remote path
+pairs. Requires `proton-drive` on `$PATH` (see `pkgs/proton-drive-cli.nix`).
+
+### Usage
+
+```sh
+pd-sync <push|pull> <profile>
+```
+
+| Profile           | Local                          | Remote                                  |
+| ----------------- | ------------------------------ | --------------------------------------- |
+| `music-dj`        | `$HOME/Music/DJ`               | `/my-files/03 RESOURCES/Music/DJ`       |
+| `music-library`   | `$HOME/Music/LIBRARY`          | `/my-files/03 RESOURCES/Music/LIBRARY`  |
+| `docs-dj-branding`| `$HOME/Documents/DJ/Branding`  | `/my-files/02 AREAS/DJ/Branding`        |
+
+`push` runs `proton-drive filesystem upload <local> <remote>`; `pull` runs
+`proton-drive filesystem download <remote> <local-parent>` (the CLI treats the
+local arg as a parent folder, so the parent is passed to land contents at the
+exact local path).
+
+### First-time authentication (once per machine)
+
+```sh
+# macOS (Keychain Services)
+proton-drive auth login
+
+# NixOS desktop/KDE (KWallet Secret Service)
+proton-drive auth login
+
+# NixOS headless/SSH (needs a D-Bus session for libsecret)
+dbus-run-session -- proton-drive auth login
+
+# Automation/no keyring (plaintext store — see pkgs/proton-drive-cli.nix)
+PROTON_DRIVE_CREDENTIALS_STORE=unsafe_file proton-drive auth login
+```
+
 ## OKR template (replaces `okf-init.sh`)
 
 This repository now provides a committed `okr/` directory as the canonical

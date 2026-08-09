@@ -26,6 +26,7 @@
 
   # General system packages (non-GNOME specific)
   environment.systemPackages = with pkgs; [
+    libsecret
     nixos-render-docs
   ];
 
