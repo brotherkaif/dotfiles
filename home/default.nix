@@ -1,16 +1,18 @@
-{ config, pkgs, lib, user, isPersonal, isSteamOS ? false, ... }:
+{ config, pkgs, lib, user, isPersonal, isSteamOS ? false, plasma-manager, ... }:
 
 let
 	packages = import ../packages.nix { inherit pkgs lib isPersonal; };
 in
 {
 	imports = [
+		plasma-manager.homeModules.plasma-manager
 		./git.nix
 		./kde.nix
 		./nvim.nix
 		./scripts.nix
 		./shell.nix
 		./tmux.nix
+		./plasma.nix
 	] ++ lib.optionals isPersonal [
 		./opencode.nix
 		./mlx.nix

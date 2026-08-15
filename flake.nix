@@ -9,9 +9,12 @@
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    plasma-manager.url = "github:nix-community/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, plasma-manager, ... }:
   let
     mac-mini-config = {
       system = "aarch64-darwin";
@@ -146,6 +149,7 @@
               gitEmail = thinkcentre-config.gitEmail;
               isPersonal = thinkcentre-config.isPersonal;
               isSteamOS = thinkcentre-config.isSteamOS;
+              plasma-manager = inputs.plasma-manager;
             };
             home-manager.users.${thinkcentre-config.username} = import ./home/default.nix;
           }
@@ -172,6 +176,7 @@
               gitEmail = thinkpad-config.gitEmail;
               isPersonal = thinkpad-config.isPersonal;
               isSteamOS = thinkpad-config.isSteamOS;
+              plasma-manager = inputs.plasma-manager;
             };
             home-manager.users.${thinkpad-config.username} = import ./home/default.nix;
           }
