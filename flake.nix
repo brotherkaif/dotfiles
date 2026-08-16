@@ -144,6 +144,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.extraSpecialArgs = {
               user = thinkcentre-config.username;
               gitEmail = thinkcentre-config.gitEmail;
@@ -171,6 +172,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.extraSpecialArgs = {
               user = thinkpad-config.username;
               gitEmail = thinkpad-config.gitEmail;
