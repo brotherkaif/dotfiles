@@ -42,5 +42,21 @@
   environment.systemPackages = with pkgs; [
     kdePackages.akregator
     kdePackages.falkon
+    kdePackages.dolphin
+    kdePackages.konsole
+    kdePackages.kontact
+    kdePackages.gwenview
+    kdePackages.okular
+    kdePackages.kate
+    kdePackages.elisa
+    kdePackages.kasts
+    kdePackages.marknote
+    kdePackages.plasma-systemmonitor
+    kdePackages.partitionmanager
+    kdePackages.marble
+    kdePackages.kdeconnect-kde
+    kdePackages.calligra
+    digikam
+    kdePackages.kdenlive
   ];
 }

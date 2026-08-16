@@ -64,7 +64,6 @@ in
 		# Linux only
 		ffmpeg
 
-		kdePackages.kdenlive
 		mixxx
 		ollama
 		proton-pass
