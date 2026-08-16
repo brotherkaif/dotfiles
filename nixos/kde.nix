@@ -45,6 +45,7 @@
     kdePackages.dolphin
     kdePackages.konsole
     kdePackages.kontact
+    kdePackages.kdepim-runtime
     kdePackages.gwenview
     kdePackages.okular
     kdePackages.kate
