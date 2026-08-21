@@ -72,6 +72,7 @@
               user = mac-mini-config.username;
               gitEmail = mac-mini-config.gitEmail;
               isPersonal = mac-mini-config.isPersonal;
+              plasma-manager = null;
             };
 
             home-manager.users.${mac-mini-config.username} = import ./home/default.nix;
@@ -96,6 +97,7 @@
               user = macbook-air-config.username;
               gitEmail = macbook-air-config.gitEmail;
               isPersonal = macbook-air-config.isPersonal;
+              plasma-manager = null;
             };
 
             home-manager.users.${macbook-air-config.username} = import ./home/default.nix;
@@ -120,6 +122,7 @@
               user = macbook-pro-config.username;
               gitEmail = macbook-pro-config.gitEmail;
               isPersonal = macbook-pro-config.isPersonal;
+              plasma-manager = null;
             };
 
             home-manager.users.${macbook-pro-config.username} = import ./home/default.nix;

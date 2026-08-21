@@ -5,13 +5,14 @@ let
 in
 {
 	imports = [
-		plasma-manager.homeModules.plasma-manager
 		./git.nix
 		./kde.nix
 		./nvim.nix
 		./scripts.nix
 		./shell.nix
 		./tmux.nix
+	] ++ lib.optionals (plasma-manager != null) [
+		plasma-manager.homeModules.plasma-manager
 		./plasma.nix
 	] ++ lib.optionals isPersonal [
 		./opencode.nix
