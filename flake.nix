@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -14,8 +15,19 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, plasma-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
   let
+    # The stable release channel still ships Zellij 0.43.x, whose cached
+    # terminal-color replies can become stale on macOS. Keep the rest of the
+    # system on nixos-25.11 and use the newer Zellij package only on Darwin.
+    darwin-zellij-overlay = final: _prev: {
+      zellij = nixpkgs-unstable.legacyPackages.${final.system}.zellij;
+    };
+
+    darwin-zellij-module = {
+      nixpkgs.overlays = [ darwin-zellij-overlay ];
+    };
+
     mac-mini-config = {
       system = "aarch64-darwin";
       username = "kaifahmed";
@@ -62,6 +74,7 @@
           isPersonal = mac-mini-config.isPersonal;
         };
         modules = [
+          darwin-zellij-module
           ./darwin/default.nix
           home-manager.darwinModules.home-manager
           {
@@ -87,6 +100,7 @@
           isPersonal = macbook-air-config.isPersonal;
         };
         modules = [
+          darwin-zellij-module
           ./darwin/default.nix
           home-manager.darwinModules.home-manager
           {
@@ -112,6 +126,7 @@
           isPersonal = macbook-pro-config.isPersonal;
         };
         modules = [
+          darwin-zellij-module
           ./darwin/default.nix
           home-manager.darwinModules.home-manager
           {

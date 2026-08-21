@@ -11,6 +11,7 @@ in
 		./scripts.nix
 		./shell.nix
 		./tmux.nix
+		./zellij.nix
 	] ++ lib.optionals (plasma-manager != null) [
 		plasma-manager.homeModules.plasma-manager
 		./plasma.nix
