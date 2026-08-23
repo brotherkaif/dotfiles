@@ -58,6 +58,8 @@
     kdePackages.marble
     kdePackages.kdeconnect-kde
     kdePackages.calligra
+    kdePackages.kalk
+    kdePackages.dragon
     digikam
     kdePackages.kdenlive
   ];
