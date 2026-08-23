@@ -3,6 +3,24 @@
 with lib;
 
 mkIf (!pkgs.stdenv.isDarwin && !isSteamOS) {
+  home.file.".local/share/applications/org.kde.merkuro.mail.desktop" = {
+    force = true;
+    text = ''
+      [Desktop Entry]
+      Name=Merkuro Mail
+      GenericName=Email Client
+      Comment=Manage your e-mails with Merkuro Mail
+      Exec=merkuro-mail %U
+      Icon=org.kde.merkuro.mail
+      Type=Application
+      Categories=Qt;KDE;Office;Email;
+      Terminal=false
+      StartupNotify=true
+      SingleMainWindow=true
+      MimeType=message/rfc822;x-scheme-handler/mailto;
+    '';
+  };
+
   home.file.".config/kwinrc".text = ''
     [NightColor]
     Active=true

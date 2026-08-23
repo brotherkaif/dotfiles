@@ -44,8 +44,9 @@
     kdePackages.falkon
     kdePackages.dolphin
     kdePackages.konsole
-    kdePackages.kontact
+    kdePackages.merkuro
     kdePackages.kdepim-runtime
+    kdePackages.kdepim-addons
     kdePackages.gwenview
     kdePackages.okular
     kdePackages.kate
