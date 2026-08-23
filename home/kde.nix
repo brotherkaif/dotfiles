@@ -21,6 +21,19 @@ mkIf (!pkgs.stdenv.isDarwin && !isSteamOS) {
     '';
   };
 
+  home.activation.kdeSettings = lib.mkIf (pkgs.kdePackages.kconfig != null) ''
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kdeglobals --group KDE --key LookAndFeelPackage "org.kde.breeze.desktop"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kdeglobals --group KDE --key NightLookAndFeelPackage "org.kde.breezedark.desktop"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kdeglobals --group KDE --key AutomaticDarkLightLookAndFeel "true"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kdeglobals --group KDE --key ColorScheme "Breeze"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kdeglobals --group KDE --key NightColorScheme "Breeze Dark"
+
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kcminputrc --group Libinput --key NaturalScroll "true"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kcminputrc --group Libinput --key NaturalScrollTouchpad "true"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kcminputrc --group Mouse --key NaturalScroll "true"
+      ${pkgs.kdePackages.kconfig}/bin/kwriteconfig6 --file kcminputrc --group Mouse --key XLbInptNaturalScroll "true"
+    '';
+
   home.file.".config/kwinrc".text = ''
     [NightColor]
     Active=true
@@ -30,6 +43,10 @@ mkIf (!pkgs.stdenv.isDarwin && !isSteamOS) {
 
     [Tiling]
     padding=8
+
+    [Libinput]
+    NaturalScroll=true
+    NaturalScrollTouchpad=true
   '';
 
   home.file.".config/konsolerc" = {
