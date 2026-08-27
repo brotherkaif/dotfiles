@@ -409,6 +409,25 @@ end)
 
 -- Extra Plugins ==============================================================
 
+-- Automatic appearance =======================================================
+--
+-- Synchronize Neovim's background with the system appearance. Reapply the
+-- active colorscheme because the seasonal mini.hues schemes are selected at
+-- startup and need to be reloaded when their background changes.
+later(function()
+	add("f-person/auto-dark-mode.nvim")
+
+	local set_background = function(background)
+		vim.o.background = background
+		vim.cmd("colorscheme " .. vim.g.colors_name)
+	end
+
+	require("auto-dark-mode").setup({
+		set_dark_mode = function() set_background("dark") end,
+		set_light_mode = function() set_background("light") end,
+	})
+end)
+
 -- Copilot
 later(function()
 	add("github/copilot.vim")
