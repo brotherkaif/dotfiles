@@ -3,12 +3,22 @@
 {
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
 
     workspace = {
-      lookAndFeel = "org.kde.breezedark.desktop";
       wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Nuvole";
       wallpaperFillMode = "stretch";
+    };
+
+    # Day/night theme switching (Plasma 6.5 native).
+    # Do NOT use workspace.lookAndFeel here: plain `plasma-apply-lookandfeel -a`
+    # resets AutomaticLookAndFeel to false, silently disabling auto-switching.
+    # Nuvole ships contents/images_dark, so its wallpaper follows the theme.
+    configFile."kdeglobals"."KDE" = {
+      LookAndFeelPackage.value = "org.kde.breeze.desktop";
+      DefaultLightLookAndFeel.value = "org.kde.breeze.desktop";
+      DefaultDarkLookAndFeel.value = "org.kde.breezedark.desktop";
+      AutomaticLookAndFeel.value = true;
     };
 
     panels = [{
@@ -59,39 +69,36 @@
       timeout = 600;
     };
 
-    startup.desktopScript."wallpaper-dynamic-mode" = {
-      text = ''
-        let allDesktops = desktops();
-        for (const desktop of allDesktops) {
-            desktop.wallpaperPlugin = "org.kde.image";
-            desktop.currentConfigGroup = ["Wallpaper", "org.kde.image", "General"];
-            desktop.writeConfig("Image", "file://${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Nuvole");
-            desktop.writeConfig("DynamicMode", "day-night");
-            desktop.writeConfig("FillMode", "stretch");
-        }
-      '';
-      priority = 4;
+    configFile."kwinrc" = {
+      "NightColor" = {
+        Active.value = true;
+        Mode.value = "auto";
+        TemperatureDay.value = 6500;
+        TemperatureNight.value = 4000;
+      };
+      "Tiling" = {
+        padding.value = 8;
+      };
     };
 
-    startup.desktopScript."auto-look-and-feel" = {
-      text = ''
-        let kdeglobals = ConfigFile("kdeglobals");
-        kdeglobals.writeEntry("KDE", "AutomaticLookAndFeel", true);
-        kdeglobals.writeEntry("KDE", "LookAndFeelPackage", "org.kde.breezedark.desktop");
-      '';
-      priority = 5;
-    };
-
-    startup.desktopScript."kwin-settings" = {
-      text = ''
-        let kwinrc = ConfigFile("kwinrc");
-        kwinrc.writeEntry("NightColor", "Active", true);
-        kwinrc.writeEntry("NightColor", "Mode", "auto");
-        kwinrc.writeEntry("NightColor", "TemperatureDay", 6500);
-        kwinrc.writeEntry("NightColor", "TemperatureNight", 4000);
-        kwinrc.writeEntry("Tiling", "padding", 8);
-      '';
-      priority = 6;
-    };
+    # Per-device natural scrolling. Identifiers come from:
+    #   awk '/^N: Name=/{n=$0} /^I: Bus=/{if(n~/[Tt]ouch|[Mm]ouse/) print n"\n"$0}' /proc/bus/input/devices
+    # vendorId/productId are the hex Vendor=/Product= fields.
+    input.mice = [
+      {
+        name = "Logitech USB Receiver Mouse";
+        vendorId = "046d";
+        productId = "c548";
+        naturalScroll = true;
+      }
+    ];
+    input.touchpads = [
+      {
+        name = "SYNA8018:00 06CB:CE67 Touchpad";
+        vendorId = "06cb";
+        productId = "ce67";
+        naturalScroll = true;
+      }
+    ];
   };
 }
