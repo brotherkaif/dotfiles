@@ -20,12 +20,51 @@
 
 let
 	proton-drive-cli = pkgs.callPackage ./pkgs/proton-drive-cli.nix { };
+
+# Mixo - audio mixer application (version 2.2.0, same on all personal machines)
+	mixoMac = if pkgs.stdenv.isDarwin then
+		pkgs.stdenv.mkDerivation rec {
+			pname = "mixo";
+			version = "2.2.0";
+
+			src = pkgs.fetchurl {
+				url = "https://www.mixo.dj/download/MIXO-${version}.dmg";
+				sha256 = "03ri19m6daxfd4qsjqrwwjh3i4jpd9scmj11y4s8a4j1p9p72fnm";
+			};
+
+			nativeBuildInputs = [ pkgs.undmg ];
+			sourceRoot = ".";
+			installPhase = ''
+				mkdir -p "$out/Applications"
+				cp -R "MIXO.app" "$out/Applications/"
+			';
+		}
+	else
+		pkgs.appimageTools.wrapType2 rec {
+			pname = "mixo";
+			version = "2.2.0";
+
+			src = pkgs.fetchurl {
+				url = "https://www.mixo.dj/download/MIXO-2.2.0.AppImage";
+				sha256 = "sha256-HTfVkLFYDTgT/TJjB1xbNd/rzKNoLMJnoYwHZKNw7vc=";
+			};
+
+			# Mixo relies on this older OpenSSL library to launch successfully
+			extraPkgs = p: with p; [ openssl_1_1 ];
+
+			# Grab the .DirIcon from the extracted contents and install it to your system icons
+			extraInstallCommands = ''
+			install -m 444 -D $out/share/icons/hicolor/512x512/apps/mixo.png
+		';
+		};
+
 in
 {
 	# Darwin System Packages (environment.systemPackages)
 	darwin.systemPackages = with pkgs; [
 		git
 		vim
+		mixoMac
 	];
 
 	# Home Manager Packages (home.packages, all platforms)
@@ -73,7 +112,6 @@ in
 
 	# Homebrew Taps
 	homebrew.taps = [
-		"charmbracelet/tap"
 	];
 
 	# Homebrew Formulae
@@ -102,7 +140,6 @@ in
 		"netnewswire"
 		"proton-drive"
 		"proton-mail"
-		"proton-pass"
 		"protonvpn"
 		"steam"
 	];
