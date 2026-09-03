@@ -81,6 +81,33 @@
       };
     };
 
+    # Proton Pass / Proton Mail are Electron apps that present the generic
+    # Wayland app_id "electron", so KDE's task manager cannot map their running
+    # window to the matching .desktop file and shows a generic icon. Forcing the
+    # desktop-file association makes the taskbar use the app's real icon.
+    window-rules = [
+      {
+        match = {
+          title = { value = "Proton Pass"; type = "substring"; };
+          window-class = { value = "electron"; type = "exact"; };
+        };
+        apply = {
+          desktopfile = { value = "proton-pass"; apply = "force"; };
+        };
+        description = "Proton Pass taskbar icon";
+      }
+      {
+        match = {
+          title = { value = "Proton Mail"; type = "substring"; };
+          window-class = { value = "electron"; type = "exact"; };
+        };
+        apply = {
+          desktopfile = { value = "proton-mail"; apply = "force"; };
+        };
+        description = "Proton Mail taskbar icon";
+      }
+    ];
+
     # Per-device natural scrolling. Identifiers come from:
     #   awk '/^N: Name=/{n=$0} /^I: Bus=/{if(n~/[Tt]ouch|[Mm]ouse/) print n"\n"$0}' /proc/bus/input/devices
     # vendorId/productId are the hex Vendor=/Product= fields.

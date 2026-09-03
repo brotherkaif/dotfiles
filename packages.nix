@@ -37,7 +37,7 @@ let
 			installPhase = ''
 				mkdir -p "$out/Applications"
 				cp -R "MIXO.app" "$out/Applications/"
-			';
+			'';
 		}
 	else
 		pkgs.appimageTools.wrapType2 rec {
@@ -54,8 +54,8 @@ let
 
 			# Grab the .DirIcon from the extracted contents and install it to your system icons
 			extraInstallCommands = ''
-			install -m 444 -D $out/share/icons/hicolor/512x512/apps/mixo.png
-		';
+				install -m 444 -D $out/share/icons/hicolor/512x512/apps/mixo.png
+			'';
 		};
 
 in

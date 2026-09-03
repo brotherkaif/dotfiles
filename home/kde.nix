@@ -21,6 +21,43 @@ mkIf (!pkgs.stdenv.isDarwin && !isSteamOS) {
     '';
   };
 
+  home.file.".local/share/applications/proton-pass.desktop" = {
+    force = true;
+    text = ''
+      [Desktop Entry]
+      Name=Proton Pass
+      GenericName=Password Manager
+      Comment=Proton Pass desktop application
+      Exec=proton-pass %U
+      Icon=proton-pass
+      Type=Application
+      Categories=Utility;
+      Terminal=false
+      StartupNotify=true
+      StartupWMClass=Proton Pass
+      SingleMainWindow=true
+    '';
+  };
+
+  home.file.".local/share/applications/proton-mail.desktop" = {
+    force = true;
+    text = ''
+      [Desktop Entry]
+      Name=Proton Mail
+      GenericName=Email Client
+      Comment=Proton official desktop application for Proton Mail and Proton Calendar
+      Exec=proton-mail %U
+      Icon=proton-mail
+      Type=Application
+      Categories=Network;Email;
+      Terminal=false
+      StartupNotify=true
+      StartupWMClass=Proton Mail
+      SingleMainWindow=true
+      MimeType=x-scheme-handler/mailto;
+    '';
+  };
+
   home.file.".config/konsolerc" = {
     force = true;
     text = ''
