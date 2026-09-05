@@ -1,0 +1,5 @@
+# Thin shim so the same git config is picked up whether git reads the legacy
+# ~/.gitconfig or the XDG path ~/.config/git/config. The real config lives in
+# the XDG file (see git/.config/git/config).
+[include]
+	path = ~/.config/git/config

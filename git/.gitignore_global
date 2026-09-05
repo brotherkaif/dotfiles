@@ -1,0 +1,26 @@
+# Global git ignore (applies to every repo on this machine).
+# Sensitive/machine-specific paths must never be tracked; add them here.
+
+# Editor droppings
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets — never track these
+.netrc
+.ssh/
+id_rsa*
+id_ed25519*
+*.pem
+*.key
+*.token
+.env
