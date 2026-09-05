@@ -1,0 +1,33 @@
+# Editor droppings
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+*.bak
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs / caches / build artifacts
+*.log
+node_modules/
+__pycache__/
+.cache/
+
+# Secrets & machine-identifying data — NEVER track these
+.netrc
+.ssh/
+id_rsa*
+id_ed25519*
+*.pem
+*.key
+*.token
+.env
+*history*
+*.db
+
+# Omarchy-owned state — never track
+**/local/share/omarchy/
+**/local/state/omarchy/
