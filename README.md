@@ -38,11 +38,31 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 Detection: Darwin → macos; `grep -qi omarchy /etc/os-release` or Linux with
 `Hyprland` on PATH → linux-desktop.
 
+## Quick start (new machine)
+
+On a fresh macOS or Omarchy machine, run the remote one-liner — it installs the
+minimum dependencies (git + stow, and Homebrew on macOS if you agree), clones
+this repo, and hands off to the stow bootstrap:
+
+```sh
+bash <(curl -fsSL https://raw.githubusercontent.com/brotherkaif/dotfiles/main/install.sh)
+```
+
+Do **not** pipe to `bash` (`curl ... | bash`) — the interactive prompts need
+stdin on the terminal. The script is idempotent (safe to re-run) and asks
+before anything significant: Homebrew install, HTTPS vs SSH clone, and whether
+to run the stow bootstrap. It only automates `git` + `stow`; all app packages
+(nvim, tmux, starship, …) stay manual — see "Required manual packages".
+
+> Security: this runs code fetched over HTTPS from this repo. Review it first
+> if unsure: `curl -fsSL <url above> | less`
+
 ## Bootstrap
 
 ```sh
-./bootstrap.sh            # dry-runs with `stow -n` first; prompts on conflicts
-./bootstrap.sh --adopt    # auto-adopt conflicting files into the repo
+./bootstrap.sh                  # dry-runs with `stow -n` first; prompts on conflicts
+./bootstrap.sh --adopt          # auto-adopt conflicting files into the repo
+./bootstrap.sh --prefer-repo    # replace stock files with repo versions (backup first)
 ```
 
 The script:
@@ -52,10 +72,18 @@ The script:
    installs anything.
 2. Selects the package set for the detected OS.
 3. Runs `stow -n` (dry run) first. If the machine already has files where a
-   package wants symlinks (fresh Omarchy installs ship defaults), it offers
-   `stow --adopt` **per package**: the existing file is moved into the repo and
-   replaced with a symlink. Review and commit the adopted file — nothing is
-   overwritten silently.
+   package wants symlinks (fresh Omarchy installs ship defaults), nothing is
+   modified until you decide how to resolve the conflict:
+   - **default / `--adopt`**: offers `stow --adopt` per package — the existing
+     file is moved *into the repo* and replaced with a symlink. Review and
+     commit the adopted file. Use this when the machine's config is something
+     you want to keep as the new repo content.
+   - **`--prefer-repo`**: the repo is the source of truth. Blocking files are
+     backed up to `~/.dotfiles-backup-<timestamp>/` (relative paths preserved)
+     and the repo version is symlinked. Use this on fresh installs where the
+     machine only has stock defaults — adopting those would clobber repo edits
+     (e.g. tmux clipboard / git `excludesfile`). `install.sh` hands off with
+     this flag.
 4. Is idempotent — safe to re-run.
 
 ## Required manual packages (per OS)
