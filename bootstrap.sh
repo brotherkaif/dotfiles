@@ -138,7 +138,7 @@ fi
 
 # --- stow all non-conflicting packages ---
 for pkg in "${packages[@]}"; do
-  if [[ " ${failing[*]} " != *" $pkg "* ]]; then
+  if [ "${#failing[@]}" -eq 0 ] || [[ " ${failing[*]} " != *" $pkg "* ]]; then
     stow -d "$DOTFILES_DIR" -t "$TARGET" "$pkg"
     echo "stowed $pkg"
   fi
