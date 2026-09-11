@@ -1,9 +1,18 @@
+-- ┌──────────────────────────┐
+-- │ Remote-session clipboard │
+-- └──────────────────────────┘
+--
 -- Clipboard for sessions whose yanks may need to reach another machine:
 -- every copy is emitted as OSC 52 (inside tmux this becomes a tmux buffer,
 -- rebroadcast to every attached client, local or SSH). Paste prefers the
 -- local Wayland clipboard when one is available, so content copied in other
 -- apps remains pasteable; without a display, paste is an OSC 52 query that
 -- tmux (or the terminal) answers.
+--
+-- Moved from the LazyVim config into MiniMax, where 'mini.basics' does not
+-- manage the clipboard provider. The `/proc` reads are `pcall`-wrapped, so it
+-- degrades gracefully on macOS.
+
 local M = {}
 
 local function proc_lines(pid, file)
@@ -95,5 +104,7 @@ function M.setup()
     cache_enabled = 0,
   }
 end
+
+M.setup()
 
 return M

@@ -17,7 +17,7 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 
 | Package          | Maps onto                   | Set            | Notes |
 |------------------|-----------------------------|----------------|-------|
-| `nvim`           | `.config/nvim/`             | universal      | LazyVim |
+| `nvim`           | `.config/nvim/`             | universal      | MiniMax (mini.nvim) |
 | `tmux`           | `.config/tmux/tmux.conf`    | universal      | cross-OS clipboard |
 | `git`            | `.config/git/config`, `.gitconfig`, `.gitignore_global` | universal | |
 | `starship`       | `.config/starship.toml`     | universal      | |
@@ -26,7 +26,7 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 | `waybar`         | `.config/waybar/`           | linux-desktop  | not yet configured |
 | `walker`         | `.config/walker/`           | linux-desktop  | not yet configured |
 | `uwsm`           | `.config/uwsm/`             | linux-desktop  | not yet configured |
-| `omarchy-local`  | `.local/bin/`               | linux-desktop  | personal scripts; not yet configured |
+| `omarchy-local`  | `.local/bin/`               | linux-desktop  | personal scripts |
 | `macos`          | `$HOME` (darwin-specific)   | macos          | not yet configured |
 
 ## Per-OS stow sets
@@ -127,13 +127,14 @@ git -C ~/dotfiles push
   `~/.local/state/omarchy/current/theme/alacritty.toml` (kept as-is). That path
   only exists on Omarchy — on macOS, remove/adjust that `general.import` line
   or alacritty will fail to start.
-- **`nvim`** does not track `lua/plugins/theme.lua` — on Omarchy that file is a
-  symlink into `~/.local/state/omarchy/current/theme/neovim.lua`, generated and
-  managed by Omarchy's theme system. Tracking it would commit a dangling
-  symlink / Omarchy state. Without it (macOS), LazyVim falls back to its
-  default colorscheme. `lua/config/remote_clipboard.lua` reads `/proc` for
-  remote-session detection; the reads are `pcall`-wrapped so it degrades
-  gracefully on macOS.
+- **`nvim`** is MiniMax-based (see `nvim/.config/nvim/README.md`) and does not
+  track any Omarchy theme state. On Omarchy, `plugin/45_omarchy.lua` parses
+  `~/.local/state/omarchy/current/theme/neovim.lua` (generated and managed by
+  Omarchy's theme system), applies the colorscheme it describes, and
+  hot-reloads it in place. Without it (macOS), no theme plugins are installed
+  and MiniMax uses Neovim's default colorscheme.
+  `plugin/42_remote_clipboard.lua` reads `/proc` for remote-session detection;
+  the reads are `pcall`-wrapped so it degrades gracefully on macOS.
 - **`tmux`** `?` keybinding opens `omarchy-menu-tmux-keybindings`, which only
   exists on Omarchy. Clipboard itself is cross-OS (see "Required packages").
 

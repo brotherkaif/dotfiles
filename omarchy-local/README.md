@@ -1,7 +1,5 @@
 # omarchy-local
 
-**Status: not yet configured.**
-
 This package is the home for *personal* scripts/binaries that belong in
 `~/.local/bin/` on Omarchy (Linux/Wayland) machines only. It is part of the
 **linux-desktop** stow set.
