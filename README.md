@@ -27,12 +27,13 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 | `walker`         | `.config/walker/`           | linux-desktop  | not yet configured |
 | `uwsm`           | `.config/uwsm/`             | linux-desktop  | not yet configured |
 | `omarchy-local`  | `.local/bin/`               | linux-desktop  | personal scripts |
+| `omarchy`        | `.config/omarchy/branding/` | linux-desktop  | screensaver/about branding |
 | `macos`          | `$HOME` (darwin-specific)   | macos          | not yet configured |
 
 ## Per-OS stow sets
 
 - **universal** (all OSes): `nvim tmux git starship alacritty`
-- **linux-desktop** (Omarchy, or Linux with Hyprland): `hypr waybar walker uwsm omarchy-local`
+- **linux-desktop** (Omarchy, or Linux with Hyprland): `hypr waybar walker uwsm omarchy-local omarchy`
 - **macos**: `macos`
 
 Detection: Darwin → macos; `grep -qi omarchy /etc/os-release` or Linux with
@@ -137,6 +138,11 @@ git -C ~/dotfiles push
   the reads are `pcall`-wrapped so it degrades gracefully on macOS.
 - **`tmux`** `?` keybinding opens `omarchy-menu-tmux-keybindings`, which only
   exists on Omarchy. Clipboard itself is cross-OS (see "Required packages").
+- **`omarchy`** tracks the user-owned `~/.config/omarchy/branding/` (screensaver
+  and about ASCII art). Edit via `omarchy branding screensaver text` or directly
+  on the symlink; it survives `omarchy update` because it lives in `~/.config/`,
+  not `/usr/share/omarchy/`. The scratch `hypervisor*.txt` files are tracked too,
+  matching the machine's current state.
 
 ## History
 

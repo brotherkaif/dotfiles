@@ -8,7 +8,7 @@
 #
 # Stows this repo onto $HOME. OS detection decides which packages are stowed:
 #   universal set (all OSes): nvim tmux git starship alacritty
-#   linux-desktop set (Omarchy, or Linux with Hyprland): hypr waybar walker uwsm omarchy-local
+#   linux-desktop set (Omarchy, or Linux with Hyprland): hypr waybar walker uwsm omarchy-local omarchy
 #   macos set (Darwin): macos
 #
 # Package installation is MANUAL and per-OS. If stow is missing this script
@@ -63,7 +63,7 @@ fi
 
 # --- package sets ---
 universal=(nvim tmux git starship alacritty)
-linux_desktop=(hypr waybar walker uwsm omarchy-local)
+linux_desktop=(hypr waybar walker uwsm omarchy-local omarchy)
 macos=(macos)
 
 packages=("${universal[@]}")
