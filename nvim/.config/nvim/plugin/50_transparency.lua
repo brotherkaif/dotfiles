@@ -9,6 +9,18 @@
 -- The group list tracks the modules MiniMax enables: 'mini.statusline',
 -- 'mini.tabline', 'mini.files', 'mini.pick', 'mini.notify', 'mini.starter',
 -- 'mini.map'. Add/remove groups as you enable or disable modules.
+--
+-- Omarchy only. On systems without it (e.g. macOS) there is no blurred
+-- terminal background to reveal, so the whole file is a no-op. Skipping it
+-- also fixes the default colorscheme's mode indicator: 'MiniStatuslineMode
+-- Normal' links to 'Cursor', whose `guifg=bg` resolves to `nil` once 'Normal'
+-- is made transparent, so the NORMAL text would render light-on-light.
+
+-- Nothing to do outside Omarchy; see 'plugin/45_omarchy.lua'.
+local omarchy_theme_file = vim.fn.expand('~/.local/state/omarchy/current/theme/neovim.lua')
+if vim.fn.filereadable(omarchy_theme_file) == 0 then
+  return
+end
 
 -- Make a highlight group transparent while preserving its other attributes
 local function make_transparent(name)
