@@ -4,13 +4,16 @@
 # Core tools (required by the dotfiles)
 brew "stow"
 brew "git"          # macOS ships an ancient system git; Homebrew's takes precedence in PATH
-brew "neovim"       # LazyVim needs 0.9+
+brew "neovim"       # MiniMax config (needs 0.10+)
 brew "tmux"
 brew "starship"
 cask "font-jetbrains-mono-nerd-font"
 
-# LazyVim companions — your config will want these for the full experience
-brew "ripgrep"      # Telescope live-grep
-brew "fd"           # Telescope file finding
-brew "lazygit"      # if you use the LazyVim lazygit keybinding
-brew "fzf"
+# Developer tools — useful with the MiniMax Neovim config for the full experience
+brew "ripgrep"      # fast text search (used by mini.pick's grep source)
+brew "fd"           # fast file finding (handy with mini.pick / terminal use)
+brew "lazygit"      # terminal git client (handy alongside Neovim)
+brew "fzf"          # fuzzy finder
+
+# opencode — AI coding agent (terminal)
+brew "anomalyco/tap/opencode-v2"
