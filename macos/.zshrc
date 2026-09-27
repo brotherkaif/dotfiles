@@ -1,2 +1,110 @@
-# Starship prompt (guard so a missing binary doesn't error on fresh shells)
+# macOS ~/.zshrc
+#
+# Layers Apple's stock interactive-zsh defaults (the parts of /etc/zshrc that
+# configure UTF-8, history, key bindings, and Terminal.app integration) onto the
+# user shell, then applies the Starship prompt on top.
+#
+# Why this lives here: when Nix was removed from this Mac, nix-darwin's generated
+# /etc/zshrc was deleted and Apple's original had already been overwritten in
+# place (no clean stock /etc/zshrc remains). Carrying these Apple-specific
+# defaults in the dotfiles repo (here, in the macos stow package) makes the
+# shell self-contained on a fresh install instead of relying on /etc/zshrc.
+#
+# Sourcing order on a macOS login interactive zsh is:
+#   /etc/zprofile (runs path_helper -> /opt/homebrew/bin on PATH -> brew available)
+#   /etc/zshrc    (Apple stock; if present)
+#   ~/.zshrc      (this file)
+# Apple's /etc/zshrc also sources /etc/zshrc_$TERM_PROGRAM (e.g. the Terminal.app
+# CWD-reporting + resume support) when readable. We replicate that here so it
+# works even if the system /etc/zshrc is absent.
+
+# ---------------------------------------------------------------------------
+# Locale / UTF-8 (Apple stock /etc/zshrc)
+# ---------------------------------------------------------------------------
+# Correctly display UTF-8 with combining characters.  We'll assume UTF-8 if the
+# locale(1) binary is missing entirely.
+if [[ ! -x /usr/bin/locale ]] || [[ "$(locale LC_CTYPE)" == "UTF-8" ]]; then
+    setopt COMBINING_CHARS
+fi
+
+# ---------------------------------------------------------------------------
+# Shell options (Apple stock /etc/zshrc)
+# ---------------------------------------------------------------------------
+# Disable the log builtin, so we don't conflict with /usr/bin/log
+disable log
+
+# Beep on error
+setopt BEEP
+
+# ---------------------------------------------------------------------------
+# Command history (Apple stock /etc/zshrc defaults, bumped a bit)
+# ---------------------------------------------------------------------------
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTSIZE=2000
+SAVEHIST=1000
+
+# ---------------------------------------------------------------------------
+# Key bindings (Apple stock /etc/zshrc)
+# ---------------------------------------------------------------------------
+# Use keycodes (generated via zkbd) if present, otherwise fallback on
+# values from terminfo
+if [[ -r ${ZDOTDIR:-$HOME}/.zkbd/${TERM}-${VENDOR} ]] ; then
+    source ${ZDOTDIR:-$HOME}/.zkbd/${TERM}-${VENDOR}
+else
+    typeset -g -A key
+
+    [[ -n "$terminfo[kf1]" ]] && key[F1]=$terminfo[kf1]
+    [[ -n "$terminfo[kf2]" ]] && key[F2]=$terminfo[kf2]
+    [[ -n "$terminfo[kf3]" ]] && key[F3]=$terminfo[kf3]
+    [[ -n "$terminfo[kf4]" ]] && key[F4]=$terminfo[kf4]
+    [[ -n "$terminfo[kf5]" ]] && key[F5]=$terminfo[kf5]
+    [[ -n "$terminfo[kf6]" ]] && key[F6]=$terminfo[kf6]
+    [[ -n "$terminfo[kf7]" ]] && key[F7]=$terminfo[kf7]
+    [[ -n "$terminfo[kf8]" ]] && key[F8]=$terminfo[kf8]
+    [[ -n "$terminfo[kf9]" ]] && key[F9]=$terminfo[kf9]
+    [[ -n "$terminfo[kf10]" ]] && key[F10]=$terminfo[kf10]
+    [[ -n "$terminfo[kf11]" ]] && key[F11]=$terminfo[kf11]
+    [[ -n "$terminfo[kf12]" ]] && key[F12]=$terminfo[kf12]
+    [[ -n "$terminfo[kf13]" ]] && key[F13]=$terminfo[kf13]
+    [[ -n "$terminfo[kf14]" ]] && key[F14]=$terminfo[kf14]
+    [[ -n "$terminfo[kf15]" ]] && key[F15]=$terminfo[kf15]
+    [[ -n "$terminfo[kf16]" ]] && key[F16]=$terminfo[kf16]
+    [[ -n "$terminfo[kf17]" ]] && key[F17]=$terminfo[kf17]
+    [[ -n "$terminfo[kf18]" ]] && key[F18]=$terminfo[kf18]
+    [[ -n "$terminfo[kf19]" ]] && key[F19]=$terminfo[kf19]
+    [[ -n "$terminfo[kf20]" ]] && key[F20]=$terminfo[kf20]
+    [[ -n "$terminfo[kbs]" ]] && key[Backspace]=$terminfo[kbs]
+    [[ -n "$terminfo[kich1]" ]] && key[Insert]=$terminfo[kich1]
+    [[ -n "$terminfo[kdch1]" ]] && key[Delete]=$terminfo[kdch1]
+    [[ -n "$terminfo[khome]" ]] && key[Home]=$terminfo[khome]
+    [[ -n "$terminfo[kend]" ]] && key[End]=$terminfo[kend]
+    [[ -n "$terminfo[kpp]" ]] && key[PageUp]=$terminfo[kpp]
+    [[ -n "$terminfo[knp]" ]] && key[PageDown]=$terminfo[knp]
+    [[ -n "$terminfo[kcuu1]" ]] && key[Up]=$terminfo[kcuu1]
+    [[ -n "$terminfo[kcub1]" ]] && key[Left]=$terminfo[kcub1]
+    [[ -n "$terminfo[kcud1]" ]] && key[Down]=$terminfo[kcud1]
+    [[ -n "$terminfo[kcuf1]" ]] && key[Right]=$terminfo[kcuf1]
+fi
+
+# Default key bindings
+[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
+[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+
+# ---------------------------------------------------------------------------
+# Terminal.app integration (Apple stock /etc/zshrc -> /etc/zshrc_$TERM_PROGRAM)
+# ---------------------------------------------------------------------------
+# Apple's /etc/zshrc sources /etc/zshrc_$TERM_PROGRAM when readable. On macOS
+# that file provides Terminal.app's working-directory reporting (window/tab
+# titles, "new terminal same directory", Resume) and per-session history.
+# Source it the same way so this works even if the system /etc/zshrc is absent.
+[ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
+
+# ---------------------------------------------------------------------------
+# Prompt: Starship (replaces Apple's default "PS1=%n@%m %1~ %# ")
+# ---------------------------------------------------------------------------
+# Guard so a missing binary doesn't error on fresh shells (e.g. before brew has
+# installed starship). When present, Starship takes over the prompt entirely.
 command -v starship &> /dev/null && eval "$(starship init zsh)"
