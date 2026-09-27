@@ -6,6 +6,12 @@
 #   ./bootstrap.sh --adopt          # auto-adopt conflicting files into the repo
 #   ./bootstrap.sh --prefer-repo    # replace conflicting files with repo versions (backup first)
 #
+# During every run it also auto-detects stale Neovim plugin-manager state
+# (LazyVim's `lazy/`, Mason's `mason/`, or a stray `pack/deps`) that is not used
+# by this MiniMax config and can break startup. If found, it prompts before
+# backing them up and removing them (MiniMax reinstalls plugins on next launch via
+# `:lua vim.pack.update()`). Nothing is wiped without your confirmation.
+#
 # Stows this repo onto $HOME. OS detection decides which packages are stowed:
 #   universal set (all OSes): nvim tmux git starship alacritty
 #   linux-desktop set (Omarchy, or Linux with Hyprland): hypr waybar walker uwsm omarchy-local omarchy
@@ -77,6 +83,58 @@ echo "Stow directory: $DOTFILES_DIR"
 echo "Target: $TARGET"
 echo "Packages: ${packages[*]}"
 echo
+
+# --- detect + clean stale Neovim plugin-manager state ---------------------------------
+# MiniMax uses the built-in `vim.pack`. Leftovers from a *different* plugin manager
+# (LazyVim's `lazy/`, Mason's `mason/`, or any stray `pack/deps`) shadow the runtime
+# path and break startup (e.g. old `mini.nvim` -> `safely` is nil). This is safe to
+# wipe: MiniMax rebuilds everything via `:lua vim.pack.update()` on next run. We only
+# remove these known foreign dirs and always back them up + ask first. `~/.config/nvim`
+# (the symlink) and MiniMax's own `site/pack/core` are left untouched.
+cleanup_foreign_dirs=(
+  "$HOME/.local/share/nvim/lazy"            # LazyVim plugins
+  "$HOME/.local/share/nvim/site/pack/deps"  # stray non-MiniMax `deps` pack
+  "$HOME/.local/share/nvim/mason"           # Mason installed servers (MiniMax avoids Mason)
+)
+
+nvim_cleaned=0
+for dir in "${cleanup_foreign_dirs[@]}"; do
+  [ -e "$dir" ] || continue
+  if [ "$nvim_cleaned" -eq 0 ]; then
+    echo
+    echo "Found stale Neovim plugin-manager state that is NOT used by the MiniMax config:"
+  fi
+  nvim_cleaned=1
+  size="$(du -sh "$dir" 2>/dev/null | cut -f1)"
+  echo "  - $dir  ($size)"
+done
+
+if [ "$nvim_cleaned" -eq 1 ]; then
+  echo
+  echo "These are leftovers from another plugin manager (LazyVim/Mason). They can shadow"
+  echo "the MiniMax plugins and break Neovim startup. Deleting them is safe: MiniMax will"
+  echo "reinstall all plugins via \`:lua vim.pack.update()\` on next launch."
+  printf '%s ' 'Delete them (backed up to ~/.dotfiles-nvim-backup-<timestamp>/) ? [y/N] '
+  read -r ans
+  case "$ans" in
+    y|Y|yes)
+      backup_dir="$TARGET/.dotfiles-nvim-backup-$(date +%Y%m%d-%H%M%S)"
+      mkdir -p "$backup_dir"
+      for dir in "${cleanup_foreign_dirs[@]}"; do
+        [ -e "$dir" ] || continue
+        # Preserve relative path under the backup dir (e.g. site/pack/deps -> site/pack/)
+        rel="${dir#$HOME/}"
+        mkdir -p "$backup_dir/$(dirname "$rel")"
+        mv "$dir" "$backup_dir/$rel"
+        echo "  moved $dir -> $backup_dir/$rel"
+      done
+      echo "  Backed up to: $backup_dir"
+      echo "  Next Neovim launch will reinstall plugins via vim.pack."
+      ;;
+    *)
+      echo "  Skipping cleanup (stale Neovim state left in place)." ;;
+  esac
+fi
 
 # --- dry run first ---
 failing=()
