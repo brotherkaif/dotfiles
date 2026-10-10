@@ -18,6 +18,12 @@
 # CWD-reporting + resume support) when readable. We replicate that here so it
 # works even if the system /etc/zshrc is absent.
 
+# Ensure ~/.local/bin is on PATH for cross-platform scripts from the dotfiles bin package.
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
 # ---------------------------------------------------------------------------
 # Locale / UTF-8 (Apple stock /etc/zshrc)
 # ---------------------------------------------------------------------------

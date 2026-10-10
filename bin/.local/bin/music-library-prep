@@ -1,0 +1,192 @@
+#!/usr/bin/env bash
+#
+# music-library-prep.sh
+#
+# Purpose: Batch-prepare downloaded DJ tracks for ingestion into a music library.
+#          Reads tags, normalises them, extracts embedded cover art, renames
+#          files to a consistent "Library" pattern, then organises the results
+#          into two output folders:
+#
+#            LIBRARY/  - master copies in the full Library naming pattern,
+#                        plus one cover image per album.
+#            DJ/       - simple copies named "Artist - Title.ext" for DJ software.
+#
+# Tooling: kid3-cli (from the kid3-qt / kid3-common package). Kid3 was chosen
+#          over puddletag because it is actively maintained and in the Arch
+#          official repos, whereas puddletag is AUR-only and in maintenance mode.
+#
+# Usage:   ./music-library-prep.sh <folder>
+#
+set -uo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <folder>" >&2
+  exit 1
+fi
+
+# Resolve the input folder to an absolute path. This is required because
+# `kid3-cli get picture:'...'` silently succeeds without writing a file when
+# given a relative destination path. Relative *source* paths are fine.
+folder="$1"
+folder=$(realpath "$folder")
+
+# nullglob  - an unmatched brace expansion expands to nothing instead of a literal string.
+# nocaseglob - matches .JPG/.jpg, .MP3/.mp3, etc.
+shopt -s nullglob nocaseglob
+
+extracted=0
+skipped=0
+
+files=("$folder"/*.{mp3,flac,wav,aiff})
+total=${#files[@]}
+count=0
+
+# Quote a value as a single-quoted kid3-cli argument (escapes embedded single quotes).
+# kid3-cli parses each -c string as a mini command line, so values containing
+# spaces must be quoted inside that string.
+kval() { printf "'%s'" "${1//\'/\\\'}"; }
+
+# Show progress: live single-line update on a terminal, one line per file otherwise.
+progress() {
+  if [[ -t 2 ]]; then
+    printf '\r[%*d/%d] %s' "${#total}" "$count" "$total" "$(basename "$1")" >&2
+  else
+    printf '[%*d/%d] %s\n' "${#total}" "$count" "$total" "$(basename "$1")" >&2
+  fi
+}
+
+for f in "${files[@]}"; do
+  [[ -f "$f" ]] || continue
+  count=$((count + 1))
+  progress "$f"
+
+  # 1. Read current tags. These are read before any modifications so that the
+  #    cover-art and rename logic below uses the original values (or our
+  #    explicit overrides) consistently.
+  artist=$(kid3-cli -c 'get artist' "$f")
+  title=$(kid3-cli -c 'get title' "$f")
+  album=$(kid3-cli -c 'get album' "$f")
+  disc=$(kid3-cli -c 'get discnumber' "$f")
+  track=$(kid3-cli -c 'get track' "$f")
+
+  # 2. Normalise tags before saving.
+  #    - albumartist is always set to artist (Kid3 has no $if2 fallback in its
+  #      format strings, so we make albumartist explicit).
+  #    - If album is missing we fall back to title. This means singles end up
+  #      with the title duplicated in the filename ("Artist - Title - ... - Title - Artist"),
+  #      but the album tag is fully populated for library software.
+  #    - If track is missing we write 0 so every file has a track number and the
+  #      filename always contains a zero-padded two-digit track segment (0 -> 00).
+  #    Each command needs its own -c; a bare first arg is treated as a file path.
+  args=(-c "set albumartist $(kval "$artist")")
+  if [[ -z "$album" ]]; then
+    album="$title"
+    args+=(-c "set album $(kval "$title")")
+  fi
+  if [[ -z "$track" ]]; then
+    track="0"
+    args+=(-c "set track 0")
+  fi
+  args+=(-c save "$f")
+
+  if ! kid3-cli "${args[@]}"; then
+    echo "WARN: tag write failed for $(basename "$f")" >&2
+    continue
+  fi
+
+  # 3. Cover art (performed before rename so we know the original album tag).
+  #    One cover per album, named "{artist} - {album}.jpg". Forward slashes in
+  #    the combined name are replaced with dashes to keep it a valid filename.
+  cover_base="${artist} - ${album}"
+  cover_base="${cover_base//\//-}"
+  cover="$folder/$cover_base.jpg"
+
+  if [[ -e "$cover" || -e "$folder/$cover_base.png" ]]; then
+    # Another track from the same album already extracted (or provided) this cover.
+    skipped=$((skipped + 1))
+  elif kid3-cli -c "get picture:$(kval "$cover")" "$f" >/dev/null 2>&1 && [[ -s "$cover" ]]; then
+    # The get picture command exits 0 and writes the file only on absolute paths.
+    echo "cover extracted: $(basename "$cover")"
+    extracted=$((extracted + 1))
+  else
+    # No embedded art (or extraction truly failed). Clean up any empty file that
+    # may have been created and report it.
+    rm -f "$cover"
+    echo "no embedded cover art: $(basename "$f")"
+  fi
+
+  # 4. Rename to the Library pattern.
+  #    Kid3's fromtag supports bracket conditionals ([...]), but only when *every*
+  #    field inside is non-empty. Because we want more complex logic than that
+  #    (e.g. include album only when BOTH artist and album are present), we build
+  #    the pattern in bash and then pass the complete format string to fromtag.
+  #    %{track.2} zero-pads the track number to two digits.
+  pat=""
+  [[ -n "$artist" && -n "$album" ]] && pat+="%{albumartist} - %{album} - "
+  [[ -n "$disc" ]] && pat+="%{discnumber} - "
+  pat+="%{track.2} - "
+  pat+="%{title} - %{artist}"
+
+  if ! kid3-cli -c "fromtag '$pat'" "$f"; then
+    echo "WARN: rename failed for $(basename "$f")" >&2
+  fi
+done
+
+if [[ "$total" -eq 0 ]]; then
+  echo "No audio files found in $folder" >&2
+  exit 1
+fi
+
+# 5. Organise outputs.
+#    - LIBRARY/ receives the renamed tracks plus the extracted cover art. This
+#      becomes the clean, master copy for the main music library.
+#    - DJ/ receives a COPY of each track named "Artist - Title.ext". This is a
+#      simplified view intended for DJ software that only needs artist/title.
+#    All processing above is done in the source folder so that kid3-cli can
+#    operate on the files in place; the move/copy happens once at the end.
+library="$folder/LIBRARY"
+dj="$folder/DJ"
+mkdir -p "$library" "$dj"
+
+# Move a file only if the destination does not already exist. This protects
+# against accidental overwrites if the script is re-run or if duplicates exist.
+move_unique() {
+  local src="$1" dest="$2"
+  if [[ -e "$dest" ]]; then
+    echo "WARN: destination exists, not moving $(basename "$src")" >&2
+    return 1
+  fi
+  mv "$src" "$dest"
+}
+
+for f in "$folder"/*.{mp3,flac,wav,aiff}; do
+  [[ -f "$f" ]] || continue
+  move_unique "$f" "$library/$(basename "$f")" || true
+done
+
+for c in "$folder"/*.{jpg,png}; do
+  [[ -f "$c" ]] || continue
+  move_unique "$c" "$library/$(basename "$c")" || true
+done
+
+dj_copied=0
+for f in "$library"/*.{mp3,flac,wav,aiff}; do
+  [[ -f "$f" ]] || continue
+  artist=$(kid3-cli -c 'get artist' "$f")
+  title=$(kid3-cli -c 'get title' "$f")
+  ext="${f##*.}"
+  dj_name="${artist} - ${title}"
+  # Sanitise any forward slashes in artist/title so the DJ filename stays valid.
+  dj_name="${dj_name//\//-}.${ext}"
+  dest="$dj/$dj_name"
+  if [[ -e "$dest" ]]; then
+    echo "WARN: DJ destination exists, skipping $(basename "$f")" >&2
+    continue
+  fi
+  cp "$f" "$dest"
+  dj_copied=$((dj_copied + 1))
+done
+
+[[ -t 2 ]] && printf '\r\033[K' >&2
+echo "Done: tags set, files renamed to Library pattern. Covers: $extracted extracted, $skipped same-album duplicates, in $folder"
+echo "Moved to LIBRARY: $(ls -1 "$library" 2>/dev/null | wc -l) items. Copied to DJ: $dj_copied tracks."

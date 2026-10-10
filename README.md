@@ -17,6 +17,7 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 
 | Package          | Maps onto                   | Set            | Notes |
 |------------------|-----------------------------|----------------|-------|
+| `bin`            | `.local/bin/`               | universal      | cross-platform personal scripts |
 | `nvim`           | `.config/nvim/`             | universal      | MiniMax (mini.nvim) |
 | `tmux`           | `.config/tmux/tmux.conf`    | universal      | cross-OS clipboard |
 | `git`            | `.config/git/config`, `.gitconfig`, `.gitignore_global` | universal | |
@@ -28,12 +29,13 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 | `uwsm`           | `.config/uwsm/`             | linux-desktop  | not yet configured |
 | `omarchy-local`  | `.local/bin/`               | linux-desktop  | personal scripts |
 | `omarchy`        | `.config/omarchy/branding/` | linux-desktop  | screensaver/about branding |
+| `cliamp`         | `.config/cliamp/playlists/` | linux-desktop  | local music playlists (LIBRARY / DJ) |
 | `macos`          | `$HOME` (darwin-specific)   | macos          | not yet configured |
 
 ## Per-OS stow sets
 
-- **universal** (all OSes): `nvim tmux git starship alacritty`
-- **linux-desktop** (Omarchy, or Linux with Hyprland): `hypr waybar walker uwsm omarchy-local omarchy`
+- **universal** (all OSes): `bin nvim tmux git starship alacritty`
+- **linux-desktop** (Omarchy, or Linux with Hyprland): `hypr waybar walker uwsm omarchy-local omarchy cliamp`
 - **macos**: `macos`
 
 Detection: Darwin → macos; `grep -qi omarchy /etc/os-release` or Linux with

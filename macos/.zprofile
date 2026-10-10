@@ -30,3 +30,9 @@ fi
 if [ -x /usr/libexec/path_helper ]; then
     eval "$(/usr/libexec/path_helper -s)"
 fi
+
+# Ensure ~/.local/bin is on PATH for cross-platform scripts from the dotfiles bin package.
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
