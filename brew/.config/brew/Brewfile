@@ -1,5 +1,6 @@
-# ~/dotfiles/Brewfile — managed packages for macOS
-# Apply with: brew bundle --file=~/dotfiles/Brewfile
+# ~/.config/brew/Brewfile — managed packages for macOS
+# Stowed from ~/dotfiles/brew/.config/brew/Brewfile (GNU Stow `brew` package)
+# Apply with: brew bundle --file=~/.config/brew/Brewfile
 
 # Core tools (required by the dotfiles)
 brew "stow"

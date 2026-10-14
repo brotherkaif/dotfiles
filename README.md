@@ -31,12 +31,13 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 | `omarchy`        | `.config/omarchy/branding/` | linux-desktop  | screensaver/about branding |
 | `cliamp`         | `.config/cliamp/playlists/` | linux-desktop  | local music playlists (LIBRARY / DJ) |
 | `macos`          | `$HOME` (darwin-specific)   | macos          | not yet configured |
+| `brew`           | `.config/brew/Brewfile`     | macos          | Homebrew bundle (macOS packages) |
 
 ## Per-OS stow sets
 
 - **universal** (all OSes): `bin nvim tmux git starship alacritty`
 - **linux-desktop** (Omarchy, or Linux with Hyprland): `hypr waybar walker uwsm omarchy-local omarchy cliamp`
-- **macos**: `macos`
+- **macos**: `macos brew`
 
 Detection: Darwin → macos; `grep -qi omarchy /etc/os-release` or Linux with
 `Hyprland` on PATH → linux-desktop.
@@ -101,7 +102,9 @@ Nothing is installed automatically. Install these yourself:
   `wl-clipboard` if missing (tmux clipboard uses `wl-copy`/`wl-paste`, with
   `xclip` as fallback).
 - **macOS**: stow via `brew install stow`. tmux clipboard uses `pbcopy`/
-  `pbpaste` automatically (no extra install).
+  `pbpaste` automatically (no extra install). Install the rest of the macOS
+  set with `brew bundle --file=~/.config/brew/Brewfile` (stowed from this
+  repo's `brew` package).
 
 ## Daily workflow
 
