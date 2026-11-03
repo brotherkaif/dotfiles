@@ -16,5 +16,6 @@ brew "fd"           # fast file finding (handy with mini.pick / terminal use)
 brew "lazygit"      # terminal git client (handy alongside Neovim)
 brew "fzf"          # fuzzy finder
 
-# opencode — AI coding agent (terminal)
+# AI tools (terminal)
+brew "herdr"
 brew "anomalyco/tap/opencode-v2"
