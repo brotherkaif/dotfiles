@@ -59,6 +59,9 @@ function M.setup()
   end
 
   local osc52 = require("vim.ui.clipboard.osc52")
+  local has_macos = vim.fn.has("mac") == 1
+    and vim.fn.executable("pbcopy") == 1
+    and vim.fn.executable("pbpaste") == 1
   local has_wayland = vim.env.WAYLAND_DISPLAY ~= nil
     and vim.fn.executable("wl-copy") == 1
     and vim.fn.executable("wl-paste") == 1
@@ -67,7 +70,9 @@ function M.setup()
     local emit = osc52.copy(register)
 
     return function(lines)
-      if has_wayland then
+      if has_macos then
+        vim.fn.system({ "pbcopy" }, lines)
+      elseif has_wayland then
         local cmd = { "wl-copy", "--sensitive", "--type", "text/plain" }
         if register == "*" then
           cmd[#cmd + 1] = "--primary"
@@ -82,19 +87,24 @@ function M.setup()
   end
 
   local function paste(register)
-    if not has_wayland then
-      return osc52.paste(register)
-    end
-
-    return function()
-      local cmd = { "wl-paste", "--no-newline" }
-      if register == "*" then
-        cmd[#cmd + 1] = "--primary"
+    if has_macos then
+      return function()
+        local lines = vim.fn.systemlist({ "pbpaste" }, "", 1)
+        return vim.v.shell_error == 0 and lines or {}
       end
+    elseif has_wayland then
+      return function()
+        local cmd = { "wl-paste", "--no-newline" }
+        if register == "*" then
+          cmd[#cmd + 1] = "--primary"
+        end
 
-      local lines = vim.fn.systemlist(cmd, "", 1)
-      return vim.v.shell_error == 0 and lines or {}
+        local lines = vim.fn.systemlist(cmd, "", 1)
+        return vim.v.shell_error == 0 and lines or {}
+      end
     end
+
+    return osc52.paste(register)
   end
 
   vim.g.clipboard = {
