@@ -23,6 +23,7 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 | `git`            | `.config/git/config`, `.gitconfig`, `.gitignore_global` | universal | |
 | `starship`       | `.config/starship.toml`     | universal      | |
 | `alacritty`      | `.config/alacritty/`        | universal      | see Omarchy notes |
+| `opencode`       | `.config/opencode/`         | universal      | opencode config, plugins, skills |
 | `hypr`           | `.config/hypr/`             | linux-desktop  | Omarchy only |
 | `waybar`         | `.config/waybar/`           | linux-desktop  | not yet configured |
 | `walker`         | `.config/walker/`           | linux-desktop  | not yet configured |
@@ -35,7 +36,7 @@ Package-per-tool. The repo root is the stow directory; each package mirrors a
 
 ## Per-OS stow sets
 
-- **universal** (all OSes): `bin nvim tmux git starship alacritty`
+- **universal** (all OSes): `bin nvim tmux git starship alacritty opencode`
 - **linux-desktop** (Omarchy, or Linux with Hyprland): `hypr waybar walker uwsm omarchy-local omarchy cliamp`
 - **macos**: `macos brew`
 

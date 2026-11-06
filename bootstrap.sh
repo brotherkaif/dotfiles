@@ -68,7 +68,7 @@ elif [ "$(uname -s)" = "Linux" ]; then
 fi
 
 # --- package sets ---
-universal=(bin nvim tmux git starship alacritty)
+universal=(bin nvim tmux git starship alacritty opencode)
 linux_desktop=(hypr waybar walker uwsm omarchy-local omarchy cliamp)
 macos=(macos brew)
 
